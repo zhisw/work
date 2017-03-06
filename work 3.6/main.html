@@ -1,0 +1,115 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>宝贝</title>
+	<meta name="keywords" content="">
+	<meta name="description" content="">
+	<link rel="stylesheet" href="./css/common.css">
+	<link rel="stylesheet" href="./css/app_head.css">
+	<link rel="stylesheet" href="./css/baby.css">
+	<link rel="stylesheet" href="./css/dateBaby.css">
+	<link rel="stylesheet" href="./css/currentOrder.css" />
+	<link rel="stylesheet" type="text/css" href="./css/historyOrder.css"/>
+	<link rel="stylesheet" type="text/css" href="./css/concern.css"/>
+</head>
+<body ng-app="makeBaby">
+	<ui-view></ui-view>	
+
+	<script src="js/angular.min.js"></script>
+	<script src="js/angular-ui-router.js"></script>
+	<script src="js/jquery-1.11.3.js"></script>
+	<script>
+		var makeBaby=angular.module('makeBaby',['ui.router'])
+		.run(function($rootScope, $state, $stateParams){
+			$rootScope.$stateParams = $stateParams;
+			
+		})
+		.config(function($stateProvider,$urlRouterProvider){
+			$urlRouterProvider.otherwise('/Navbar/babyHome');
+			$stateProvider
+			.state('Navbar',{
+		        url:'/Navbar',
+		        templateUrl:'./template/Navbar.html',
+		       	controller:'NavbarController'
+
+     		 })
+			.state('Navbar.babyHome',{
+		        url:'/babyHome',
+		        templateUrl:'./template/babyHome.html',
+		        controller:'babyHomeController'
+		        
+     		 })
+			.state('Navbar.attention',{
+		        url:'/attention',
+		        templateUrl:'./template/attention.html',
+		        controller:'attentionController'
+     		 })
+			.state('Navbar.newOrder',{
+		        url:'/newOrder',
+		        templateUrl:'./template/newOrder.html',
+		        controller:'newOrderController'
+     		 })
+			.state('Navbar.oldOrder',{
+		        url:'/oldOrder',
+		        templateUrl:'./template/oldOrder.html',
+		        controller:'oldOrderController'
+     		 })
+			.state('Navbar.yueBao',{
+		        url:'/yueBao',
+		        templateUrl:'./template/yueBao.html',
+		        controller:'yueBaoController'
+     		 })
+		})
+		.controller('NavbarController',function($scope){
+
+    	})
+		.controller('babyHomeController',function($scope,$http){
+				
+      	$http({url:'mock.json'}).then(function(res){
+      		$scope.sistersName=res.data;
+      		
+      	})
+    /*  	$scope.search = function(item) {
+		if ($scope.searchText == undefined) {
+			return true;
+		} else {
+			if (item.firstName.toLowerCase().indexOf($scope.searchText.toLowerCase()) != -1 
+			|| item.lastName.toLowerCase().indexOf($scope.searchText.toLowerCase()) != -1) {
+				return true;
+			}
+		}
+
+		return false;
+	}*/
+     /* $scope.search = function(item){
+      	if($scope.searchText==undefined){
+      	return true;
+      }else{
+      	if(item.name.indexOf($scope.searchText)!=-1
+      	||item.age.indexOf($scope.searchText)!=-1){
+      		
+      		console.log($scope.searchText)
+      	}
+      		
+      }
+      return false;
+    	}*/
+		})
+		.controller('attentionController',function($scope){
+
+    	})
+		.controller('newOrderController',function($scope){
+
+    	})
+		.controller('yueBaoController',function($scope){
+
+    	})
+		.controller('oldOrderController',function($scope){
+
+    	})
+		
+ 
+	</script>
+</body>
+</html>
