@@ -1,0 +1,31 @@
+
+	<!--<ul>
+		<li><a ui-sref=".babyHome">约宝1</a></li>
+		<li><a ui-sref=".attention">约宝2</a></li>
+		<li><a ui-sref=".yueBao">约宝3</a></li>
+		<li><a ui-sref=".newOrder">约宝4</a></li>
+	</ul>-->
+	
+	
+	<div class="top">
+	<div class="top-wrap">
+		<ul class="top-ul ft22 white tac fl">
+			<li><a ng-class="active" ui-sref=".babyHome">宝贝</a></li>
+			<li><a ng-class="active" ui-sref=".yueBao">约宝</a></li>
+			<li><a ng-class="active" ui-sref=".newOrder">当前订单</a></li>
+			<li><a ui-sref=".oldOrder">历史订单</a></li>
+			<li><a ui-sref=".attention">关注</a></li>
+		</ul>
+		<div class="search-wrap fl">
+			<input class="search-box" type="text" placeholder="搜索关键词" ng-model="searchText.$"><button id="search-btn"></button>
+		</div>
+		<div class="mes-wrap fl tac ft14 white">
+			<!--<img class="mes-img" ng-src="images/1.png">
+			<div class="mes-phone">155****0779</div>-->
+			<div class="NoLogin">未登录</div>
+		</div>
+	</div>
+</div>
+
+
+	<ui-view></ui-view>

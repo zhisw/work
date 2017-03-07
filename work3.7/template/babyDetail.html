@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Document</title>
+	<link rel="stylesheet" type="text/css" media="screen and (min-width: 1450px)" href="../css/babyDetail.css"/>
+	<link rel="stylesheet" media="screen and (max-width: 1400px)" href="../css/babyDetailSmall.css" />
+	<link rel="stylesheet" type="text/css" href="../font/iconfont.css">
+</head>
+<body>
+	<div class="content">
+		<div class="babyDetail_wrap">
+			<div class="babyTop">
+				<div class="babyTopshade"></div>
+				<img src="../images/3.png" alt="" class="babyTopImg" />
+				<div class="babyTopBox">
+					<div class="NameStatus"><span class="babyDetail_name">温柔的棉花糖</span><img src="../images/line.png" alt="在线状态" class="online"/></div>
+					<div class="orderNumber"><span>接单量</span>:<span>22</span>单</div>
+					<div class="concern"><span class="concernBox"><span class="concernStatus">关注</span></span></div>
+				</div>
+				
+				<div class="evaluate">
+					<!--
+                    	作者：1399972369@qq.com
+                    	时间：2017-03-06
+                    	描述：五星评分
+                    -->
+                    <div class="giveScore">
+                    <p class="scoreTitle evaluate_tilte">评分</p>
+					 <div id="starttwo" class="block clearfix">
+				        <div  class="star_score" style="height:19px;"></div>
+				      <!-- <p style="float:left;">您的评分：<span class="fenshu"></span> 分</p>-->
+				    </div>
+				    <img src="../images/border.jpg" alt=""  class="borderImg"/>
+				      </div>
+				    <div class="giveGrade">
+					     <p class="gradeTitle evaluate_tilte">等级</p>
+						 <div class="gradeImg">
+					   		<img src="../images/top1.png" alt="等级图片" class="evaluate_graderImg" />
+					    </div>
+					    <img src="../images/border.jpg" alt=""  class="borderImg"/>
+				    </div>
+				     <div class="givePrice">
+				     <p class="priceTitle evaluate_tilte">定价</p>
+					 <div  class="priceNum">
+				        ￥800.0
+				    </div>
+				    </div>
+				</div>
+			</div>
+			<div class="babyBottom">
+				<div class="showSelf">
+					<div class="showLogo"><span class="mySelf">个人展示</span></div>
+					<div class="showImgList">
+						<img src="../images/1.png" alt="" />
+						<img src="../images/2.png" alt="" />
+						<img src="../images/3.png" alt="" />
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<script src="../js/jquery-1.11.3.js"></script>
+	<script type="text/javascript" src="../js/startScore.js"></script>
+	<script>
+	
+	//让显示区域在各种屏幕都居中
+		var ClientHeight=document.documentElement.clientHeight 
+		var marginNum=(ClientHeight-960)/2
+		if(marginNum<0){
+			marginNum=ClientHeight*0.053;
+		}
+		$('.babyDetail_wrap').css({"marginTop":marginNum,"marginBottom":marginNum})
+		
+		
+		/*五星评分*/
+		 scoreFun($("#starttwo"),{
+           fen_d:21,//每一个a的宽度
+           ScoreGrade:5//a的个数 10或者
+         })
+   $('.star_score a').eq(3).attr('class',"clibg")
+    //显示分数
+      $(".show_number li p").each(function(index, element) {
+        var num=$(this).attr("tip");
+        var www=num*2*16;//
+        $(this).css("width",www);
+        $(this).parent(".atar_Show").siblings("span").text(num+"分");
+    });
+	</script>
+</body>
+</html>

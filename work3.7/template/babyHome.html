@@ -1,0 +1,384 @@
+
+<div class="content">
+	<div class="content-wrap">
+		<!--  - - -  - -好评宝贝- - -  - -->
+		<div class="good_view clearfix">
+			<div class="clearfix">
+				<h3 class="baby_title ft20 fl">好评宝贝</h3>
+				<button class="more_btn fr">更多</button>
+			</div>
+			<ul class="good_baby clearfix" >
+				
+				
+				<li ng-repeat="sister in sistersName">
+					<a href="">
+						<button class="date_btn white ft16" ng-click="clickMe(sister)">约ta</button>
+						<div class="concern"><button class="concern_btn white ft18" ng-click="clickConcern()">关注</button></div>
+						<img class="baby_pic" src="./images/1.png">
+						<div class="mes-detail ft18">
+							<div class="nicheng">{{sister.name}}<span>(22单)</span></div>
+							<p><span class="sex">女</span><span class="age">{{sister.age}}</span></p>
+							<p>身高：<span>175cm</span>，体重：<span>45kg</span></p>
+							<p>服务范围：K歌、看电影</p>
+							<p>价格：<span>￥800</span></p>
+						</div>
+					</a>
+				</li>
+				<!--<li ng-if="sistersName[$index].age!= undefind" ng-click=clickME()>
+					<a href="">
+						<button class="date_btn white ft16">约ta</button>
+						<div class="concern"><button class="concern_btn white ft18">关注</button></div>
+						<img class="baby_pic" ng-src="./images/1.png">
+						<div class="mes-detail ft18">
+							<div class="nicheng">{{sistersName[$index].name}}<span>(22单)</span></div>
+							<p><span class="sex">女</span><span class="age">{{sistersName[$index].age}}</span></p>
+							<p>身高：<span>175cm</span>，体重：<span>45kg</span></p>
+							<p>服务范围：K歌、看电影</p>
+							<p>价格：<span>￥800</span></p>
+						</div>
+					</a>
+				</li>
+				<li ng-if="sistersName[$index+1].age!= undefind">
+					<a href="">
+						<button class="date_btn white ft16">约ta</button>
+						<div class="concern"><button class="concern_btn white ft18">关注</button></div>
+						<img class="baby_pic" ng-src="./images/2.png">
+						<div class="mes-detail ft18">
+							<div class="nicheng">{{sistersName[$index+1].name}}<span>(22单)</span></div>
+							<p><span class="sex">女</span><span class="age">{{sistersName[$index+1].age}}</span></p>
+							<p>身高：<span>175cm</span>，体重：<span>45kg</span></p>
+							<p>服务范围：K歌、看电影</p>
+							<p>价格：<span>￥800</span></p>
+						</div>
+					</a>
+				</li>
+				<li ng-if="sistersName[$index+2].age!= undefind">
+					<a href="">
+						<button class="date_btn white ft16">约ta</button>
+						<div class="concern"><button class="concern_btn white ft18">关注</button></div>
+						<img class="baby_pic" ng-src="./images/3.png">
+						<div class="mes-detail ft18">
+							<div class="nicheng">{{sistersName[$index+2].name}}<span>(22单)</span></div>
+							<p><span class="sex">女</span><span class="age">{{sistersName[$index+2].age}}</span></p>
+							<p>身高：<span>175cm</span>，体重：<span>45kg</span></p>
+							<p>服务范围：K歌、看电影</p>
+							<p>价格：<span>￥800</span></p>
+						</div>
+					</a>
+				</li>
+				<li ng-if="sistersName[$index+3].age!= undefind">
+					<a href="">
+						<button class="date_btn white ft16">约ta</button>
+						<div class="concern"><button class="concern_btn white ft18">关注</button></div>
+						<img class="baby_pic" ng-src="./images/4.png">
+						<div class="mes-detail ft18">
+							<div class="nicheng">{{sistersName[$index+3].name}}<span>(22单)</span></div>
+							<p><span class="sex">女</span><span class="age">{{sistersName[$index+3].age}}</span></p>
+							<p>身高：<span>175cm</span>，体重：<span>45kg</span></p>
+							<p>服务范围：K歌、看电影</p>
+							<p>价格：<span>￥800</span></p>
+						</div>
+					</a>
+				</li>-->
+				<!--<li>
+					<a href="">
+						<button class="date_btn white ft16">约ta</button>
+						<div class="concern"><button class="concern_btn white ft18">关注</button></div>
+						<img class="baby_pic" src="./images/3.png">
+						<div class="mes-detail ft18">
+							<div class="nicheng">{{sistersName[4].name|filter:serchText}}<span>(22单)</span></div>
+							<p><span class="sex">女</span><span class="age">23</span></p>
+							<p>身高：<span>175cm</span>，体重：<span>45kg</span></p>
+							<p>服务范围：K歌、看电影</p>
+							<p>价格：<span>￥800</span></p>
+						</div>
+					</a>
+				</li>
+				<li>
+					<a href="">
+						<button class="date_btn white ft16">约ta</button>
+						<div class="concern"><button class="concern_btn white ft18">关注</button></div>
+						<img class="baby_pic" src="./images/2.png">
+						<div class="mes-detail ft18">
+							<div class="nicheng">温柔De棉花糖<span>(22单)</span></div>
+							<p><span class="sex">女</span><span class="age">23</span></p>
+							<p>身高：<span>175cm</span>，体重：<span>45kg</span></p>
+							<p>服务范围：K歌、看电影</p>
+							<p>价格：<span>￥800</span></p>
+						</div>
+					</a>
+				</li>
+				<li>
+					<a href="">
+						<button class="date_btn white ft16">约ta</button>
+						<div class="concern"><button class="concern_btn white ft18">关注</button></div>
+						<img class="baby_pic" src="./images/1.png">
+						<div class="mes-detail ft18">
+							<div class="nicheng">温柔De棉花糖<span>(22单)</span></div>
+							<p><span class="sex">女</span><span class="age">23</span></p>
+							<p>身高：<span>175cm</span>，体重：<span>45kg</span></p>
+							<p>服务范围：K歌、看电影</p>
+							<p>价格：<span>￥800</span></p>
+						</div>
+					</a>
+				</li>
+				<li>
+					<a href="">
+						<button class="date_btn white ft16">约ta</button>
+						<div class="concern"><button class="concern_btn white ft18">关注</button></div>
+						<img class="baby_pic" src="./images/3.png">
+						<div class="mes-detail ft18">
+							<div class="nicheng">温柔De棉花糖<span>(22单)</span></div>
+							<p><span class="sex">女</span><span class="age">23</span></p>
+							<p>身高：<span>175cm</span>，体重：<span>45kg</span></p>
+							<p>服务范围：K歌、看电影</p>
+							<p>价格：<span>￥800</span></p>
+						</div>
+					</a>
+				</li>-->
+			</ul>
+		</div>
+		<!--  - - -  - -人气宝贝- - -  - -->
+		<div class="good_view clearfix">
+			<div class="clearfix">
+				<h3 class="baby_title ft20 fl">人气宝贝</h3>
+				<button class="more_btn fr">更多</button>
+			</div>
+			<ul class="good_baby clearfix">
+				<li>
+					<a href="">
+						<button class="date_btn white ft16">约ta</button>
+						<div class="concern"><button class="concern_btn white ft18">关注</button></div>
+						<img class="baby_pic" src="./images/1.png">
+						<div class="mes-detail ft18">
+							<div class="nicheng">温柔De棉花糖<span>(22单)</span></div>
+							<p><span class="sex">女</span><span class="age">23</span></p>
+							<p>身高：<span>175cm</span>，体重：<span>45kg</span></p>
+							<p>服务范围：K歌、看电影</p>
+							<p>价格：<span>￥800</span></p>
+						</div>
+					</a>
+				</li>
+				<li>
+					<a href="">
+						<button class="date_btn white ft16">约ta</button>
+						<div class="concern"><button class="concern_btn white ft18">关注</button></div>
+						<img class="baby_pic" src="./images/2.png">
+						<div class="mes-detail ft18">
+							<div class="nicheng">温柔De棉花糖<span>(22单)</span></div>
+							<p><span class="sex">女</span><span class="age">23</span></p>
+							<p>身高：<span>175cm</span>，体重：<span>45kg</span></p>
+							<p>服务范围：K歌、看电影</p>
+							<p>价格：<span>￥800</span></p>
+						</div>
+					</a>
+				</li>
+				<li>
+					<a href="">
+						<button class="date_btn white ft16">约ta</button>
+						<div class="concern"><button class="concern_btn white ft18">关注</button></div>
+						<img class="baby_pic" src="./images/3.png">
+						<div class="mes-detail ft18">
+							<div class="nicheng">温柔De棉花糖<span>(22单)</span></div>
+							<p><span class="sex">女</span><span class="age">23</span></p>
+							<p>身高：<span>175cm</span>，体重：<span>45kg</span></p>
+							<p>服务范围：K歌、看电影</p>
+							<p>价格：<span>￥800</span></p>
+						</div>
+					</a>
+				</li>
+				<li>
+					<a href="">
+						<button class="date_btn white ft16">约ta</button>
+						<div class="concern"><button class="concern_btn white ft18">关注</button></div>
+						<img class="baby_pic" src="./images/4.png">
+						<div class="mes-detail ft18">
+							<div class="nicheng">温柔De棉花糖<span>(22单)</span></div>
+							<p><span class="sex">女</span><span class="age">23</span></p>
+							<p>身高：<span>175cm</span>，体重：<span>45kg</span></p>
+							<p>服务范围：K歌、看电影</p>
+							<p>价格：<span>￥800</span></p>
+						</div>
+					</a>
+				</li>
+				<li>
+					<a href="">
+						<button class="date_btn white ft16">约ta</button>
+						<div class="concern"><button class="concern_btn white ft18">关注</button></div>
+						<img class="baby_pic" src="./images/3.png">
+						<div class="mes-detail ft18">
+							<div class="nicheng">温柔De棉花糖<span>(22单)</span></div>
+							<p><span class="sex">女</span><span class="age">23</span></p>
+							<p>身高：<span>175cm</span>，体重：<span>45kg</span></p>
+							<p>服务范围：K歌、看电影</p>
+							<p>价格：<span>￥800</span></p>
+						</div>
+					</a>
+				</li>
+				<li>
+					<a href="">
+						<button class="date_btn white ft16">约ta</button>
+						<div class="concern"><button class="concern_btn white ft18">关注</button></div>
+						<img class="baby_pic" src="./images/2.png">
+						<div class="mes-detail ft18">
+							<div class="nicheng">温柔De棉花糖<span>(22单)</span></div>
+							<p><span class="sex">女</span><span class="age">23</span></p>
+							<p>身高：<span>175cm</span>，体重：<span>45kg</span></p>
+							<p>服务范围：K歌、看电影</p>
+							<p>价格：<span>￥800</span></p>
+						</div>
+					</a>
+				</li>
+				<li>
+					<a href="">
+						<button class="date_btn white ft16">约ta</button>
+						<div class="concern"><button class="concern_btn white ft18">关注</button></div>
+						<img class="baby_pic" src="./images/1.png">
+						<div class="mes-detail ft18">
+							<div class="nicheng">温柔De棉花糖<span>(22单)</span></div>
+							<p><span class="sex">女</span><span class="age">23</span></p>
+							<p>身高：<span>175cm</span>，体重：<span>45kg</span></p>
+							<p>服务范围：K歌、看电影</p>
+							<p>价格：<span>￥800</span></p>
+						</div>
+					</a>
+				</li>
+				<li>
+					<a href="">
+						<button class="date_btn white ft16">约ta</button>
+						<div class="concern"><button class="concern_btn white ft18">关注</button></div>
+						<img class="baby_pic" src="./images/3.png">
+						<div class="mes-detail ft18">
+							<div class="nicheng">温柔De棉花糖<span>(22单)</span></div>
+							<p><span class="sex">女</span><span class="age">23</span></p>
+							<p>身高：<span>175cm</span>，体重：<span>45kg</span></p>
+							<p>服务范围：K歌、看电影</p>
+							<p>价格：<span>￥800</span></p>
+						</div>
+					</a>
+				</li>
+			</ul>
+		</div>
+		<!--  - - -  - -新人宝贝- - -  - -->
+		<div class="good_view clearfix">
+			<div class="clearfix">
+				<h3 class="baby_title ft20 fl">新人宝贝</h3>
+				<button class="more_btn fr">更多</button>
+			</div>
+			<ul class="good_baby clearfix">
+				<li>
+					<a href="">
+						<button class="date_btn white ft16">约ta</button>
+						<div class="concern"><button class="concern_btn white ft18">关注</button></div>
+						<img class="baby_pic" src="./images/1.png">
+						<div class="mes-detail ft18">
+							<div class="nicheng">温柔De棉花糖<span>(22单)</span></div>
+							<p><span class="sex">女</span><span class="age">23</span></p>
+							<p>身高：<span>175cm</span>，体重：<span>45kg</span></p>
+							<p>服务范围：K歌、看电影</p>
+							<p>价格：<span>￥800</span></p>
+						</div>
+					</a>
+				</li>
+				<li>
+					<a href="">
+						<button class="date_btn white ft16">约ta</button>
+						<div class="concern"><button class="concern_btn white ft18">关注</button></div>
+						<img class="baby_pic" src="./images/2.png">
+						<div class="mes-detail ft18">
+							<div class="nicheng">温柔De棉花糖<span>(22单)</span></div>
+							<p><span class="sex">女</span><span class="age">23</span></p>
+							<p>身高：<span>175cm</span>，体重：<span>45kg</span></p>
+							<p>服务范围：K歌、看电影</p>
+							<p>价格：<span>￥800</span></p>
+						</div>
+					</a>
+				</li>
+				<li>
+					<a href="">
+						<button class="date_btn white ft16">约ta</button>
+						<div class="concern"><button class="concern_btn white ft18">关注</button></div>
+						<img class="baby_pic" src="./images/3.png">
+						<div class="mes-detail ft18">
+							<div class="nicheng">温柔De棉花糖<span>(22单)</span></div>
+							<p><span class="sex">女</span><span class="age">23</span></p>
+							<p>身高：<span>175cm</span>，体重：<span>45kg</span></p>
+							<p>服务范围：K歌、看电影</p>
+							<p>价格：<span>￥800</span></p>
+						</div>
+					</a>
+				</li>
+				<li>
+					<a href="">
+						<button class="date_btn white ft16">约ta</button>
+						<div class="concern"><button class="concern_btn white ft18">关注</button></div>
+						<img class="baby_pic" src="./images/4.png">
+						<div class="mes-detail ft18">
+							<div class="nicheng">温柔De棉花糖<span>(22单)</span></div>
+							<p><span class="sex">女</span><span class="age">23</span></p>
+							<p>身高：<span>175cm</span>，体重：<span>45kg</span></p>
+							<p>服务范围：K歌、看电影</p>
+							<p>价格：<span>￥800</span></p>
+						</div>
+					</a>
+				</li>
+				<li>
+					<a href="">
+						<button class="date_btn white ft16">约ta</button>
+						<div class="concern"><button class="concern_btn white ft18">关注</button></div>
+						<img class="baby_pic" src="./images/3.png">
+						<div class="mes-detail ft18">
+							<div class="nicheng">温柔De棉花糖<span>(22单)</span></div>
+							<p><span class="sex">女</span><span class="age">23</span></p>
+							<p>身高：<span>175cm</span>，体重：<span>45kg</span></p>
+							<p>服务范围：K歌、看电影</p>
+							<p>价格：<span>￥800</span></p>
+						</div>
+					</a>
+				</li>
+				<li>
+					<a href="">
+						<button class="date_btn white ft16">约ta</button>
+						<div class="concern"><button class="concern_btn white ft18">关注</button></div>
+						<img class="baby_pic" src="./images/2.png">
+						<div class="mes-detail ft18">
+							<div class="nicheng">温柔De棉花糖<span>(22单)</span></div>
+							<p><span class="sex">女</span><span class="age">23</span></p>
+							<p>身高：<span>175cm</span>，体重：<span>45kg</span></p>
+							<p>服务范围：K歌、看电影</p>
+							<p>价格：<span>￥800</span></p>
+						</div>
+					</a>
+				</li>
+				<li>
+					<a href="">
+						<button class="date_btn white ft16">约ta</button>
+						<div class="concern"><button class="concern_btn white ft18">关注</button></div>
+						<img class="baby_pic" src="./images/1.png">
+						<div class="mes-detail ft18">
+							<div class="nicheng">温柔De棉花糖<span>(22单)</span></div>
+							<p><span class="sex">女</span><span class="age">23</span></p>
+							<p>身高：<span>175cm</span>，体重：<span>45kg</span></p>
+							<p>服务范围：K歌、看电影</p>
+							<p>价格：<span>￥800</span></p>
+						</div>
+					</a>
+				</li>
+				<li>
+					<a href="">
+						<button class="date_btn white ft16">约ta</button>
+						<div class="concern"><button class="concern_btn white ft18">关注</button></div>
+						<img class="baby_pic" src="./images/3.png">
+						<div class="mes-detail ft18">
+							<div class="nicheng">温柔De棉花糖<span>(22单)</span></div>
+							<p><span class="sex">女</span><span class="age">23</span></p>
+							<p>身高：<span>175cm</span>，体重：<span>45kg</span></p>
+							<p>服务范围：K歌、看电影</p>
+							<p>价格：<span>￥800</span></p>
+						</div>
+					</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+</div>
