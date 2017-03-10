@@ -1,0 +1,661 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>标题</title>
+	<meta name="keywords" content="">
+	<meta name="description" content="">
+	 <meta name = "viewport" content = "width = device-width, initial-scale = 1.0, maximum-scale = 1.0, user-scalable = 0" />
+	 <link rel="stylesheet" href="src/css/index.css">
+	<link rel="stylesheet" href="src/css/normalize.min.css" />
+<link rel="stylesheet" href="src/css/ion.rangeSlider.css" />
+<link rel="stylesheet" href="src/css/ion.rangeSlider.skinSimple.css" />
+	 <style>
+	 *{
+	 	margin:0;
+	 	padding: 0;
+	 }
+		
+		a{
+			text-decoration: none;
+		}
+		.topimg{
+		display: inline-block;
+		width: 100%;
+		height:4.8rem;
+	}	
+	.intivite{
+		display: -webkit-flex; /* Safari */
+  		display: flex;
+  		justify-content:center;
+  		font-size: 0.42rem;
+  		margin-bottom:0.61rem;
+
+	}	
+	.sisterimg{
+		width: 100%;
+		height:7.0rem;
+		display: relative;
+	}
+	.sisterinfo{
+	position: absolute;
+    bottom: 2.5rem;
+    left: 0.5rem;
+    font-family: "微软雅黑";
+	}
+	.sistername{
+		font-size:0.42rem;
+		color:white;
+	
+	}
+	.btn{
+		font-size:0.36rem;
+		display: inline-block;
+		width: 1.54rem;
+		height:0.77rem;
+		text-align: center;
+		line-height:0.77rem; 
+		background:#e9e8e8; 
+		border-radius: 10px;
+		color:#8d8d8d;
+	}
+	.conent{
+
+		margin-top:;
+	}
+	.imgbox{
+		position: relative;
+	}
+	.number{
+		font-size: 0.36rem;
+		color:#ffffff;
+	}
+	.money{
+		color:#ffcd6c;	
+		font-size: 27px;
+	}
+	.distance{
+		position: absolute;
+		right:0.5rem;
+		bottom:2.7rem;
+	}
+	.distancenum{
+		font-size: 0.4rem;
+		color:white;
+		font-family: "微软雅黑";
+	}
+	.moneyafter{
+		font-size: 0.4rem;
+		color:#ffcd6c;
+	}
+	.afterdistance{
+		font-size: 0.32rem;
+		color:white;
+	}
+	.serverrange{
+	font-size: 0.4rem;
+	color:#333333;
+	margin-top: 0.26rem;
+	margin-bottom: 0.4rem;
+	}
+	.age{
+		margin-left: 0.4rem;
+		margin-right:0.2rem;
+	}
+	.height,.range1{
+		margin-right: 0.2rem;
+	}
+	.server{
+		margin-left: 0.4rem;
+		margin-right:0.2rem;
+	}
+	.infobox{
+		position: relative;
+	}
+	.datebtn{
+		display: inline-block;
+		width:2.066rem;
+		height: 0.78rem;
+		border:1px solid #15baca;
+		font-size: 0.45rem;
+		position: absolute;
+		right:0.41rem;
+		top:0.55rem;
+		color:#15baca;
+		text-align: center;
+		line-height: 0.78rem;
+		border-radius: 20px;
+		font-family: "微软雅黑";
+	}
+	.gradeImg{
+		position: absolute;
+		left:0.4rem;
+		top:0.6rem;
+		width:0.86rem;
+		height:0.6rem;
+	}
+	.getmore{
+		text-align: center;
+		font-size: 0.42rem;
+	}
+	.serchbox{
+		width: 100%;
+		height: 1rem;
+		border-top:1px solid #c9f3f7;
+	}
+	.serachimg{
+		float:right;
+		width: 0.666rem;
+		height:0.53rem;
+		margin-top:0.22rem;
+		margin-right: 0.6rem;
+	}
+	.sisterbg{
+		width:100%;
+		height:3.5rem;
+		position: absolute;
+		left:0;
+		top:3.5rem;
+	}
+	.downloadbtn{
+		width:8.05rem;
+		height: 0.94rem;
+		background: #1fcdde;
+		border-radius:0.3rem;
+		-moz-border-radius:0.3rem; /* Old Firefox */
+		position:fixed;
+		left:0;
+		top:0;
+		font-family: "微软雅黑";
+		font-size:0.42rem;
+		line-height: 0.94rem;
+		text-align: center;
+	z-index: 50;
+	}
+	.downloadbtn a{
+		color:#ffffff;
+	}
+		
+	.minlogopic{
+		width: 0.87rem;
+		height:0.48rem;
+		vertical-align: middle;
+	}
+	.backTop{
+		width: 0.97rem;
+		height:0.97rem;
+		background: url(images/top-btn.png) no-repeat;
+		background-size:100% 100% ;
+		border-radius: 50%;
+		position:fixed;
+		right:12px;
+		bottom:224px;
+		z-index: 100;
+	}
+	.chooseRange{
+		position: absolute;
+		top:2.01rem;  
+		height:16rem;
+		border:1px solid red; 
+		 width:8.3rem; 
+		left:0.91rem;
+		background: #ffffff;
+		border-radius: 15px;
+		display: none;
+	}
+	.exitimg{
+		width: 0.5rem;
+		height:0.5rem;
+		margin-left: 0.51rem;
+		margin-top: 0.51rem;
+	}
+	.chooseBtn{
+		display: flex;
+		flex-direction:row;
+		justify-content: space-between;
+	}
+	.surebtn{
+		font-size:0.48rem;
+		color:#26bac8;
+		margin-top: 0.5rem;
+		margin-right: 0.5rem;
+		font-family: "微软雅黑";
+		
+	}
+	.irs{
+		width:4.1rem;
+		margin:0 auto;
+	}
+	.irs-line{
+		height: 1px;
+		top:15px;
+	}
+	.irs-diapason{
+		top:15px;
+	}
+	.irs-slider{
+	background: #D8DFF3;
+	}
+	.irs-to,.irs-from,.irs-max,.irs-min,.irs-single{
+		opacity: 0;
+	}
+	.ageRange,.heightRange,.weightRange,.moneyRange{
+		text-align: center;
+		font-size:0.4rem;
+		color:#666666;
+		margin-bottom:1.09rem ;
+		
+	}
+	.agetitle{
+		font-size: 0.31rem;
+		color:#666666;
+		line-height: 0.6333rem;
+	}
+	.minAge,.maxAge{
+		font-size:0.4rem;
+		color:#666666;
+	}
+	</style>	
+</head>
+<body>
+	<div id="header">
+		<img src="images/top-bg.png" alt="头部图片" class="topimg" id="topimg">
+			<div class="intivite">
+				<span class="name">妹子</span>约您在<span class="date">02月08日 11:20:00</span>在<span class="place">天安门</span>
+			</div>
+	</div>
+	<div class="serchbox">
+		<img src="images/search.png" alt=""  class='serachimg' />
+	</div>
+	<div class="main">
+		
+	</div>
+	<div class="getmore">正在加载...</div>	
+		<div class="downloadbtn"><a href="#"><img src="images/app-logo.png" alt="logo" class="minlogopic"/>下载app,查看更多</a></div>
+
+		 <div class="backTop">
+		 </div>
+		 
+		 <div class="chooseRange">
+		 	<div class="chooseBtn"><img src="images/exit.png" alt="exit" class="exitimg"/> <span class="surebtn">确定</span></div>
+		 	<div class="ageRange">
+		 		<span class="agetitle">年龄范围</span><br/>
+		 		<span class="minAge">18</span>岁—<span class="maxAge">30</span>岁
+		 		<input type="text" id="range_1" />
+		 	</div>
+		 	<div class="heightRange">
+		 		<span class="agetitle heighttitle">身高范围</span><br/>
+		 		<span class="minAge minHeight">157</span>cm—<span class="maxAge maxHeight">175</span>cm
+		 		<input type="text" id="range_2" />
+		 	</div>
+		 	<div class="weightRange">
+		 		<span class="agetitle weighttitle">体重范围</span><br/>
+		 		<span class="minAge minWeight">40</span>kg—<span class="maxAge maxWeight">60</span>kg
+		 		<input type="text" id="range_3" />
+		 	</div>
+		 	<div class="moneyRange">
+		 		<span class="agetitle moneytitle">金额范围</span><br/>
+		 		<span class="minAge minMoney">600</span>元—<span class="maxAge maxMoney">1500</span>元
+		 		<input type="text" id="range_4" />
+		 	</div>
+		 </div>
+		<script type="text/javascript" src="http://libs.useso.com/js/jquery/1.7.2/jquery.min.js"></script>
+	 <script src="src/js/index.js"></script>
+	 <script src="src/js/dropload.js"></script>
+	
+	<script type="text/javascript" src="src/js/ion.rangeSlider.js"></script> 
+	 <script>
+
+	$('.serachimg').on("touchend",function(){
+		$('.chooseRange').show();
+	})
+	var rootSize=window.innerWidth/10
+	var dec=window.document.documentElement;
+	dec.style.fontSize = rootSize + 'px';
+	var nowUrl=''
+	var Left=(window.innerWidth-$(".downloadbtn").width())/2;
+	var Top=window.innerHeight-$(".downloadbtn").height()-17;
+	$('.downloadbtn').css({"left":Left,"top":Top});
+	
+	$("body").scrollTop(0)
+	
+	$(".backTop").on('touchend',function(){
+		//$("body").animate({"scrollTop":0},500)
+	$("body").scrollTop(0)
+	})
+	//var counter = 0;
+    // 每页展示10个
+    //var num = 10;
+    //var pageStart = 0,pageEnd = 0;
+   
+   //首页加载
+   
+   
+   
+   
+ 
+   var  homePage={
+			"pageNumb":"",
+			"lat":"30.19",
+			"lag":"120.21"
+		} 
+		var argument='';
+		homePage.pageNumb=0;
+		
+   $('.content').dropload({
+        scrollArea : window,
+        loadDownFn : function(me){
+        	//console.log(typeof  homePage.pageNumb)
+        	 homePage.pageNumb= homePage.pageNumb+1;
+        	 console.log(homePage)
+        var homePagenumb=JSON.stringify(homePage);	
+        	nowurl='http://118.178.227.195:8088/meike-mener/user/free/homePage.do';
+        	argument=homePagenumb;
+        	alert(homePage.pageNumb);
+            $.ajax({
+                type: 'post',
+                url: nowurl,
+                //url:'mock.json',
+                data:{json:argument},
+                async:false,
+                success: function(res){
+                	
+                	var res=JSON.parse(res);
+                	console.log(res)
+                    var data=res.data.babyList;
+                	var datalength=res.data.babyList.length;
+                	if(res.code==400){
+                		alert('没有查询到妹子信息')
+                		
+                	}else{
+                	var str=''
+                	var str1=''
+                	var str2=''
+                   // counter++;
+                    //pageEnd = num * counter;
+                    //pageStart = pageEnd - num;
+				
+                      for(var i = 0; i < datalength; i++){
+                    
+    str+='<div class="conent"><div class="imgbox"><img src='+data[i].showIndexImg+' alt="妹子图片" class="sisterimg"><img src="images/sister-bg.png" class="sisterbg"><img src='+data[i].gradeImg+' class="gradeImg"><div class="sisterinfo"><span class="sistername">'+data[i].nickName+'</span> <span class="number">'+data[i].orderCounter+'单</span> <span class="money">￥'+data[i].gradePrice+'</span><span class="moneyafter">.00</span></div><div class="distance"><span class="distancenum">'+data[i].distance+'</span><span class="afterdistance">km</span></div><div class="infobox"><span class="datebtn" ontouchend="clickme('+i+')">约ta</span><div class="figure"><span class="age btn" >'+data[i].age+'岁</span><span class="height btn">'+data[i].height+'cm</span><span class="weight btn">'+data[i].weight+'kg</span></div><div class="serverrange"><span class="server">服务范围</span>'
+	 			
+	 			
+	 			
+	 			for(var a=0;a<data[i].scaleName.length;a++){
+	 			str1+='<span class="range1 btn">'+data[i].scaleName[a]+'</span>'
+                	}
+	 			str2="</div></div></div></div>"
+	 			str+=str1+str2;
+	 			str1='';
+	 			$(".main").append(str);
+	 			str=' '
+                      
+                     
+                      /*if((i + 1) >= datalength){
+                        	 $('.getmore').html("")
+                        	 
+                            // 锁定
+                            me.lock();
+                            // 无数据
+                            me.noData();
+                            break;
+                           
+                        }*/
+                    }
+                
+               $('.main').append(str);
+               
+                        me.resetload();  
+                		
+                		
+                	}
+                        
+                },
+                error: function(xhr, type){
+                    console.log('Ajax error!');
+                    // 即使加载出错，也得重置
+                    me.resetload();
+                }
+                
+ 
+            });
+            }
+        });
+	 
+            function clickme(i){
+            	$('.datebtn').eq(i).html("已加")
+            }
+ 				    
+      		$("#range_1").ionRangeSlider({
+
+		min: 18,
+
+		max: 30,
+
+		from:18,
+
+		to: 30,
+
+		type: 'double',//设置类型
+
+		step: 1,
+
+		prefix: "",//设置数值前缀
+
+		postfix: "",//设置数值后缀
+
+		prettify: false,
+
+		hasGrid: false
+
+	});
+
+	
+$("#range_2").ionRangeSlider({
+
+		min: 157,
+
+		max: 175,
+
+		from:157,
+
+		to: 175,
+
+		type: 'double',//设置类型
+
+		step: 1,
+
+		prefix: "",//设置数值前缀
+
+		postfix: "",//设置数值后缀
+
+		prettify: false,
+
+		hasGrid: false
+
+	});
+$("#range_3").ionRangeSlider({
+
+		min: 40,
+
+		max: 60,
+
+		from:40,
+
+		to: 60,
+
+		type: 'double',//设置类型
+
+		step: 1,
+
+		prefix: "",//设置数值前缀
+
+		postfix: "",//设置数值后缀
+
+		prettify: false,
+
+		hasGrid: false
+
+	});
+
+	$("#range_4").ionRangeSlider({
+
+		min: 600,
+
+		max: 1500,
+
+		from:600,
+
+		to: 1500,
+
+		type: 'double',//设置类型
+
+		step: 100,
+
+		prefix: "",//设置数值前缀
+
+		postfix: "",//设置数值后缀
+
+		prettify: false,
+
+		hasGrid: false
+
+	});
+
+	$("#selectStyle").change(function(){
+			
+		$("#styleSrc").attr("href",$(this).val());
+
+	});
+	
+
+	
+	$('.ageRange .irs-slider').on("touchmove",function(){
+		$('.ageRange .minAge').html($('.ageRange .irs-from').html())
+		$('.ageRange .maxAge').html($('.ageRange .irs-to').html())
+	})
+	$('.heightRange .irs-slider').on("touchmove",function(){
+		$('.minHeight').html($('.heightRange .irs-from').html())
+		$('.maxHeight').html($('.heightRange .irs-to').html())
+	})
+	$('.weightRange .irs-slider').on("touchmove",function(){
+		$('.minWeight').html($('.weightRange .irs-from').html())
+		$('.maxWeight').html($('.weightRange .irs-to').html())
+	})
+	$('.moneyRange .irs-slider').on("touchmove",function(){
+		$('.minMoney').html($('.moneyRange .irs-from').html())
+		$('.maxMoney').html($('.moneyRange .irs-to').html())
+	})
+	$('.exitimg').on('touchend',function(){
+		$('.chooseRange').hide();
+	})
+	var rangeinfo={
+		"pageNumb":"1",
+        "lat":"30.19",
+        "lag":"120.21",
+		"minAge":"",
+		"maxAge":"",
+		"minHeight":"",
+		"maxHeight":"",
+		"minWeight":"",
+		"maxWeight":"",
+		"minGradePrice":"",
+		"maxGradePrice":""
+	}
+	/*var  homePage={
+			"pageNumb":"1",
+			"lat":"30.19",
+			"lag":"120.21"
+		}*/
+	//"pageNumb":1,"lat":"30.19","lag":"120.21"
+/*	var shareMes={
+			"userCid":"",
+			"meetAddress":"",
+			"userName":"",
+			"meetTime":"",
+			"token":"1"
+	}*/
+		
+		/*function getID(){
+    		var nowUrl = window.location;  //获取当前地址
+    		console.log(nowUrl)
+    		// var nowUrl = "https://www.baidu.com?cid=123123&address=地球&userName=张三&datingTime=01-10 14:00&lat=30.19&lag=120.21&t=1484291405003";
+    		var needMes = nowUrl.split("?")[1].join('').split("&");
+    		var mesLength = needMes.length;
+    		var perMes=[];
+    		for(var i=0;i<mesLength;i++){
+    			 perMes.push(needMes[i].split("="));
+    		}
+    		var getTime = perMes[3][1];	  //01-10 14:00
+    		var meetMonth = perMes[3][1][0]+perMes[3][1][1];  //01
+    		var meetDay = perMes[3][1][3]+perMes[3][1][4];   //10
+    		meetMonth < 10 ? meetMonth=perMes[3][1][1]+"月" : meetMonth=meetDay+"月";
+    		meetDay < 10 ? meetDay=perMes[3][1][4]+"日" : meetDay=meetDay+"日";
+    		this.shareMes.meetTime = meetMonth+meetDay+getTime.substring(5,getTime.length);
+    		this.shareMes.userCid = perMes[0][1];
+    		this.shareMes.meetAddress = perMes[1][1];
+    		this.shareMes.userName = perMes[2][1];
+    		this.homePage.lat = perMes[4][1];
+    		this.homePage.lag = perMes[5][1];
+    		alert('getid')
+    		// console.log(perMes[0][1],perMes[1][1],perMes[2][1],perMes[3][1],perMes[4][1],perMes[5][1]);
+    }
+	
+    getID();*/
+    
+	$('.surebtn').on('touchend',function(){
+		rangeinfo.minAge=$('.ageRange .irs-from').html();
+		rangeinfo.maxAge=$('.ageRange .irs-to').html();
+		rangeinfo.minHeight=$('.heightRange .irs-from').html();
+		rangeinfo.maxHeight=$('.heightRange .irs-to').html();
+		rangeinfo.minWeight=$('.weightRange .irs-from').html();
+		rangeinfo.maxWeight=$('.weightRange .irs-to').html();
+		rangeinfo.minGradePrice=$('.moneyRange .irs-from').html();
+		rangeinfo.maxGradePrice=$('.moneyRange .irs-to').html();
+		
+	   var rangeInfo=JSON.stringify(rangeinfo);
+	   //console.log(rangeInfo)
+	   //host = window.location.href.split("?")[0];
+	   nowurl='http://118.178.227.195:8088/meike-mener/user/free/filtrateBaby.do'
+	   //console.log(apiUrl)
+	  // jQuery.post(url,data,success(data, textStatus, jqXHR),dataType)
+	/*    $('.content').dropload({
+        scrollArea : window,
+        loadDownFn : function(me){*/
+		$.post(nowurl,{json:rangeInfo},function(res){
+			
+			var stri=''
+            var stri1=''
+            var stri2=''
+			//console.log(res);
+			var res=JSON.parse(res)
+			var data=res.data.babyList;
+			var dataLen=res.data.babyList.length;
+			console.log(data)
+			 for(var a = 0; a < dataLen; a++){           
+    stri+='<div class="conent"><div class="imgbox"><img src='+data[a].showIndexImg+' alt="妹子图片" class="sisterimg"><img src="images/sister-bg.png" class="sisterbg"><img src='+data[a].gradeImg+' class="gradeImg"><div class="sisterinfo"><span class="sistername">'+data[a].nickName+'</span> <span class="number">'+data[a].orderCounter+'单</span> <span class="money">￥'+data[a].gradePrice+'</span><span class="moneyafter">.00</span></div><div class="distance"><span class="distancenum">'+data[a].distance+'</span><span class="afterdistance">km</span></div><div class="infobox"><span class="datebtn" ontouchend="clickme('+a+')">约ta</span><div class="figure"><span class="age btn" >'+data[a].age+'岁</span><span class="height btn">'+data[a].height+'cm</span><span class="weight btn">'+data[a].weight+'kg</span></div><div class="serverrange"><span class="server">服务范围</span>'
+	 			
+	 			for(var b=0;b<data[a].scaleName.length;b++){
+	 			stri1+='<span class="range1 btn">'+data[a].scaleName[b]+'</span>'
+                	}
+	 			stri2="</div></div></div></div>"
+	 			stri+=stri1+stri2;
+	 			stri1='';
+	 			//$(".main").append(str);
+                     
+                    }
+			 $('.main').empty();
+              $('.main').append(stri);
+              stri='';
+			/*if(){
+				
+			}*/
+			$('.chooseRange').hide();
+		})
+
+    
+	
+	})
+	 </script>
+</body>
+</html>

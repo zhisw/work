@@ -1,0 +1,574 @@
+{
+    "data": {
+        "babyList": [
+            {
+                "age": 25,
+                "bestTags": [
+                    ""
+                ],
+                "cid": "",
+                "distance": 0.2,
+                "expireTime": null,
+                "gradeId": 1,
+                "gradeImg": "http://mkqiniu.6428.wang/image/baoshi1.png",
+                "gradePrice": 1500,
+                "haveOrder": 1,
+                "height": 170,
+                "id": 45,
+                "nickName": "假妹子45",
+                "orderCounter": 0,
+                "phone": "11111111111",
+                "photo": "",
+                "placeName": [
+                    "电影院"
+                ],
+                "rateAvg": 0,
+                "scaleName": [
+                    "运动"
+                ],
+                "serviceStatus": 1,
+                "showIndexImg": "https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=1502327020,2968128604&fm=116&gp=0.jpg",
+                "timeRage": 0,
+                "weight": 55
+            },
+            {
+                "age": 25,
+                "bestTags": [
+                    ""
+                ],
+                "cid": "",
+                "distance": 0.3,
+                "expireTime": null,
+                "gradeId": 1,
+                "gradeImg": "http://mkqiniu.6428.wang/image/baoshi1.png",
+                "gradePrice": 1500,
+                "haveOrder": 1,
+                "height": 170,
+                "id": 4,
+                "nickName": "假妹子4",
+                "orderCounter": 0,
+                "phone": "11111111111",
+                "photo": "",
+                "placeName": [
+                    "电影院"
+                ],
+                "rateAvg": 0,
+                "scaleName": [
+                    "运动"
+                ],
+                "serviceStatus": 1,
+                "showIndexImg": "https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=1502327020,2968128604&fm=116&gp=0.jpg",
+                "timeRage": 0,
+                "weight": 55
+            },
+            {
+                "age": 25,
+                "bestTags": [
+                    ""
+                ],
+                "cid": "",
+                "distance": 0.4,
+                "expireTime": null,
+                "gradeId": 1,
+                "gradeImg": "http://mkqiniu.6428.wang/image/baoshi1.png",
+                "gradePrice": 1500,
+                "haveOrder": 1,
+                "height": 170,
+                "id": 47,
+                "nickName": "假妹子47",
+                "orderCounter": 0,
+                "phone": "11111111111",
+                "photo": "",
+                "placeName": [
+                    "电影院"
+                ],
+                "rateAvg": 0,
+                "scaleName": [
+                    "运动"
+                ],
+                "serviceStatus": 1,
+                "showIndexImg": "https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=1502327020,2968128604&fm=116&gp=0.jpg",
+                "timeRage": 0,
+                "weight": 55
+            },
+            {
+                "age": 25,
+                "bestTags": [
+                    ""
+                ],
+                "cid": "",
+                "distance": 0.5,
+                "expireTime": null,
+                "gradeId": 1,
+                "gradeImg": "http://mkqiniu.6428.wang/image/baoshi1.png",
+                "gradePrice": 1500,
+                "haveOrder": 1,
+                "height": 170,
+                "id": 49,
+                "nickName": "假妹子49",
+                "orderCounter": 0,
+                "phone": "11111111111",
+                "photo": "",
+                "placeName": [
+                    "电影院"
+                ],
+                "rateAvg": 0,
+                "scaleName": [
+                    "运动"
+                ],
+                "serviceStatus": 1,
+                "showIndexImg": "https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=1502327020,2968128604&fm=116&gp=0.jpg",
+                "timeRage": 0,
+                "weight": 55
+            },
+            {
+                "age": 25,
+                "bestTags": [
+                    ""
+                ],
+                "cid": "",
+                "distance": 4.7,
+                "expireTime": null,
+                "gradeId": 1,
+                "gradeImg": "http://mkqiniu.6428.wang/image/baoshi1.png",
+                "gradePrice": 1500,
+                "haveOrder": 1,
+                "height": 170,
+                "id": 13,
+                "nickName": "假妹子13",
+                "orderCounter": 0,
+                "phone": "11111111111",
+                "photo": "",
+                "placeName": [
+                    "电影院"
+                ],
+                "rateAvg": 0,
+                "scaleName": [
+                    "运动"
+                ],
+                "serviceStatus": 1,
+                "showIndexImg": "https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=1502327020,2968128604&fm=116&gp=0.jpg",
+                "timeRage": 0,
+                "weight": 55
+            },
+            {
+                "age": 1,
+                "bestTags": [
+                    ""
+                ],
+                "cid": "",
+                "distance": 12874.2,
+                "expireTime": null,
+                "gradeId": 1,
+                "gradeImg": "http://mkqiniu.6428.wang/image/baoshi1.png",
+                "gradePrice": 1500,
+                "haveOrder": 3,
+                "height": 165,
+                "id": 446,
+                "nickName": "test",
+                "orderCounter": 0,
+                "phone": "12121212121",
+                "photo": "",
+                "placeName": [
+                    "电影院 KTV"
+                ],
+                "rateAvg": 0,
+                "scaleName": [
+                    "K歌 约饭"
+                ],
+                "serviceStatus": 1,
+                "showIndexImg": "http://mkqiniu.6428.wang//images/1486952390248.jpg",
+                "timeRage": 0,
+                "weight": 55
+            },
+            {
+                "age": 28,
+                "bestTags": [
+                    "Optional(\"Dad\")",
+                    "Optional(\"Dda\")",
+                    "nil"
+                ],
+                "cid": "",
+                "distance": 12874.2,
+                "expireTime": null,
+                "gradeId": 1,
+                "gradeImg": "http://mkqiniu.6428.wang/image/baoshi1.png",
+                "gradePrice": 1500,
+                "haveOrder": 3,
+                "height": 175,
+                "id": 448,
+                "nickName": "万云豪",
+                "orderCounter": 2,
+                "phone": "15715817209",
+                "photo": "",
+                "placeName": [
+                    "酒吧",
+                    "ktv",
+                    "等其他娱乐场所"
+                ],
+                "rateAvg": 0,
+                "scaleName": [
+                    "聊天",
+                    "桌游",
+                    "喝酒聚会",
+                    "打麻将"
+                ],
+                "serviceStatus": 1,
+                "showIndexImg": "http://mkqiniu.6428.wang//images/1486962803943.jpg",
+                "timeRage": 0,
+                "weight": 50
+            },
+            {
+                "age": 1,
+                "bestTags": [
+                    ""
+                ],
+                "cid": "",
+                "distance": 12874.2,
+                "expireTime": null,
+                "gradeId": 1,
+                "gradeImg": "http://mkqiniu.6428.wang/image/baoshi1.png",
+                "gradePrice": 1500,
+                "haveOrder": 1,
+                "height": 23,
+                "id": 457,
+                "nickName": "hank",
+                "orderCounter": 30,
+                "phone": "18707180169",
+                "photo": "",
+                "placeName": [
+                    "电影院"
+                ],
+                "rateAvg": 0,
+                "scaleName": [
+                    "K歌"
+                ],
+                "serviceStatus": 1,
+                "showIndexImg": "http://mkqiniu.6428.wang//images/1487417350567.jpg",
+                "timeRage": 0,
+                "weight": 23
+            },
+            {
+                "age": 1,
+                "bestTags": [
+                    "Optional(\"了来了来了\")",
+                    "nil",
+                    "nil"
+                ],
+                "cid": "",
+                "distance": 0.3,
+                "expireTime": null,
+                "gradeId": 2,
+                "gradeImg": "http://mkqiniu.6428.wang/image/baoshi2.png",
+                "gradePrice": 1200,
+                "haveOrder": 1,
+                "height": 180,
+                "id": 444,
+                "nickName": "张三妹子",
+                "orderCounter": 5,
+                "phone": "15372042705",
+                "photo": "",
+                "placeName": [
+                    "KTV",
+                    "电影院",
+                    "酒店",
+                    "公共场所"
+                ],
+                "rateAvg": 0,
+                "scaleName": [
+                    "吃饭",
+                    "逛街",
+                    "遛狗",
+                    "唱歌"
+                ],
+                "serviceStatus": 1,
+                "showIndexImg": "http://mkqiniu.6428.wang//images/1486639799494.jpg",
+                "timeRage": 0,
+                "weight": 50
+            },
+            {
+                "age": 1,
+                "bestTags": [
+                    "李"
+                ],
+                "cid": "",
+                "distance": 0.3,
+                "expireTime": null,
+                "gradeId": 49,
+                "gradeImg": "http://mkqiniu.6428.wang//images/1486086301408.jpg",
+                "gradePrice": 300,
+                "haveOrder": 1,
+                "height": 2,
+                "id": 445,
+                "nickName": "啊",
+                "orderCounter": 0,
+                "phone": "18707180165",
+                "photo": "",
+                "placeName": [
+                    "电影院 KTV"
+                ],
+                "rateAvg": 0,
+                "scaleName": [
+                    "约饭"
+                ],
+                "serviceStatus": 1,
+                "showIndexImg": "http://mkqiniu.6428.wang//images/1486690454044.jpg",
+                "timeRage": 0,
+                "weight": 5
+            },
+            {
+                "age": 1,
+                "bestTags": [
+                    "Optional(\"了来了来了\")",
+                    "nil",
+                    "nil"
+                ],
+                "cid": "",
+                "distance": 0.3,
+                "expireTime": null,
+                "gradeId": 2,
+                "gradeImg": "http://mkqiniu.6428.wang/image/baoshi2.png",
+                "gradePrice": 1200,
+                "haveOrder": 1,
+                "height": 180,
+                "id": 444,
+                "nickName": "张三妹子",
+                "orderCounter": 5,
+                "phone": "15372042705",
+                "photo": "",
+                "placeName": [
+                    "KTV",
+                    "电影院",
+                    "酒店",
+                    "公共场所"
+                ],
+                "rateAvg": 0,
+                "scaleName": [
+                    "吃饭",
+                    "逛街",
+                    "遛狗",
+                    "唱歌"
+                ],
+                "serviceStatus": 1,
+                "showIndexImg": "http://mkqiniu.6428.wang//images/1486639799494.jpg",
+                "timeRage": 0,
+                "weight": 50
+            },
+            {
+                "age": 1,
+                "bestTags": [
+                    "李"
+                ],
+                "cid": "",
+                "distance": 0.3,
+                "expireTime": null,
+                "gradeId": 49,
+                "gradeImg": "http://mkqiniu.6428.wang//images/1486086301408.jpg",
+                "gradePrice": 300,
+                "haveOrder": 1,
+                "height": 2,
+                "id": 445,
+                "nickName": "啊",
+                "orderCounter": 0,
+                "phone": "18707180165",
+                "photo": "",
+                "placeName": [
+                    "电影院 KTV"
+                ],
+                "rateAvg": 0,
+                "scaleName": [
+                    "约饭"
+                ],
+                "serviceStatus": 1,
+                "showIndexImg": "http://mkqiniu.6428.wang//images/1486690454044.jpg",
+                "timeRage": 0,
+                "weight": 5
+            },
+            {
+                "age": 1,
+                "bestTags": [
+                    "Optional(\"了来了来了\")",
+                    "nil",
+                    "nil"
+                ],
+                "cid": "",
+                "distance": 0.3,
+                "expireTime": null,
+                "gradeId": 2,
+                "gradeImg": "http://mkqiniu.6428.wang/image/baoshi2.png",
+                "gradePrice": 1200,
+                "haveOrder": 1,
+                "height": 180,
+                "id": 444,
+                "nickName": "张三妹子",
+                "orderCounter": 5,
+                "phone": "15372042705",
+                "photo": "",
+                "placeName": [
+                    "KTV",
+                    "电影院",
+                    "酒店",
+                    "公共场所"
+                ],
+                "rateAvg": 0,
+                "scaleName": [
+                    "吃饭",
+                    "逛街",
+                    "遛狗",
+                    "唱歌"
+                ],
+                "serviceStatus": 1,
+                "showIndexImg": "http://mkqiniu.6428.wang//images/1486639799494.jpg",
+                "timeRage": 0,
+                "weight": 50
+            },
+            {
+                "age": 1,
+                "bestTags": [
+                    "李"
+                ],
+                "cid": "",
+                "distance": 0.3,
+                "expireTime": null,
+                "gradeId": 49,
+                "gradeImg": "http://mkqiniu.6428.wang//images/1486086301408.jpg",
+                "gradePrice": 300,
+                "haveOrder": 1,
+                "height": 2,
+                "id": 445,
+                "nickName": "啊",
+                "orderCounter": 0,
+                "phone": "18707180165",
+                "photo": "",
+                "placeName": [
+                    "电影院 KTV"
+                ],
+                "rateAvg": 0,
+                "scaleName": [
+                    "约饭"
+                ],
+                "serviceStatus": 1,
+                "showIndexImg": "http://mkqiniu.6428.wang//images/1486690454044.jpg",
+                "timeRage": 0,
+                "weight": 5
+            },
+            {
+                "age": 1,
+                "bestTags": [
+                    "Optional(\"了来了来了\")",
+                    "nil",
+                    "nil"
+                ],
+                "cid": "",
+                "distance": 0.3,
+                "expireTime": null,
+                "gradeId": 2,
+                "gradeImg": "http://mkqiniu.6428.wang/image/baoshi2.png",
+                "gradePrice": 1200,
+                "haveOrder": 1,
+                "height": 180,
+                "id": 444,
+                "nickName": "张三妹子",
+                "orderCounter": 5,
+                "phone": "15372042705",
+                "photo": "",
+                "placeName": [
+                    "KTV",
+                    "电影院",
+                    "酒店",
+                    "公共场所"
+                ],
+                "rateAvg": 0,
+                "scaleName": [
+                    "吃饭",
+                    "逛街",
+                    "遛狗",
+                    "唱歌"
+                ],
+                "serviceStatus": 1,
+                "showIndexImg": "http://mkqiniu.6428.wang//images/1486639799494.jpg",
+                "timeRage": 0,
+                "weight": 50
+            },
+            {
+                "age": 1,
+                "bestTags": [
+                    "李"
+                ],
+                "cid": "",
+                "distance": 0.3,
+                "expireTime": null,
+                "gradeId": 49,
+                "gradeImg": "http://mkqiniu.6428.wang//images/1486086301408.jpg",
+                "gradePrice": 300,
+                "haveOrder": 1,
+                "height": 2,
+                "id": 445,
+                "nickName": "啊",
+                "orderCounter": 0,
+                "phone": "18707180165",
+                "photo": "",
+                "placeName": [
+                    "电影院 KTV"
+                ],
+                "rateAvg": 0,
+                "scaleName": [
+                    "约饭"
+                ],
+                "serviceStatus": 1,
+                "showIndexImg": "http://mkqiniu.6428.wang//images/1486690454044.jpg",
+                "timeRage": 0,
+                "weight": 5
+            }
+        ],
+        "bannerList": [
+            {
+                "createTime": "2016-12-08 14:54:30",
+                "id": 1,
+                "imgUrl": "http://mkqiniu.6428.wang/image/banner1.png",
+                "isShow": 1,
+                "linkUrl": "#",
+                "sort": 1,
+                "title": "banner1"
+            },
+            {
+                "createTime": "2016-12-08 14:54:47",
+                "id": 2,
+                "imgUrl": "http://mkqiniu.6428.wang/image/banner2.png",
+                "isShow": 1,
+                "linkUrl": "#",
+                "sort": 1,
+                "title": "banner2"
+            },
+            {
+                "createTime": "2017-01-14 13:55:27",
+                "id": 16,
+                "imgUrl": "http://mkqiniu.6428.wang//images/1484378373623.jpg",
+                "isShow": 1,
+                "linkUrl": "#",
+                "sort": 1,
+                "title": "banner3"
+            },
+            {
+                "createTime": "2017-01-14 13:56:28",
+                "id": 17,
+                "imgUrl": "http://mkqiniu.6428.wang//images/1484637483909.jpg",
+                "isShow": 1,
+                "linkUrl": "#",
+                "sort": 1,
+                "title": "banner4"
+            },
+            {
+                "createTime": "2017-01-14 14:28:13",
+                "id": 19,
+                "imgUrl": "http://mkqiniu.6428.wang//images/1484538112591.jpg",
+                "isShow": 1,
+                "linkUrl": "#",
+                "sort": 1,
+                "title": "banner5"
+            }
+        ]
+    },
+    "code": 200,
+    "msg": "请求成功"
+}
