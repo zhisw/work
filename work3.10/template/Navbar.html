@@ -1,0 +1,53 @@
+	
+	<!--导航-->
+	<div class="top" ng-show="navbarStop">
+	<div class="top-wrap">
+		<ul class="top-ul ft22 white tac fl">
+			<li><a ng-class="{true: 'active', false: 'inactive'}[isActive]" ui-sref=".babyHome" ng-click='navbarClick()'>宝贝</a></li>
+			<li><a ng-class="{true: 'active', false: 'inactive'}[isActive1]" ui-sref=".yueBao" ng-click='navbar1Click()'>约宝</a></li>
+			<li><a  ng-class="{true: 'active', false: 'inactive'}[isActive2]" ui-sref=".newOrder" ng-click='navbar2Click()'>当前订单</a></li>
+			<li><a ng-class="{true: 'active', false: 'inactive'}[isActive3]"  ui-sref=".oldOrder" ng-click='navbar3Click()'>历史订单</a></li>
+			<li><a ng-class="{true: 'active', false: 'inactive'}[isActive4]" ui-sref=".attention" ng-click='navbar4Click()'>关注</a></li>
+		</ul>
+		<div class="search-wrap fl">
+			<input class="search-box" type="text" placeholder="搜索关键词" ng-model="searchText.$"><button id="search-btn"></button>
+		</div>
+		<div class="mes-wrap fl tac ft14 white">
+			<div ng-if="hadLogin">
+			<img class="mes-img" ng-src="images/1.png">
+			<div class="mes-phone">{{userId}}</div>
+			</div>
+			<div class="NoLogin" ng-click="noLogin()" ng-if="LoginStatus">未登录</div>
+		</div>
+	</div>
+</div>
+<!--隐藏的登录页-->
+<div class="backgroundBox" ng-show="LoginStop">
+	<div id="login-box" >
+		<div class="formbox">
+			
+		<form action="">
+		<h3 class="tac login-title"><img class="login-logo" src="images/login-logo.png"></h3>
+		<div class="phone-number">
+			<input class="ft20" id="phone" type="text" placeholder="请输入手机号"  ng-model="phoneNumb"  ng-blur="checkNumb()">
+			
+			<input class="ft18 fr" id="btnSendCode" type="button" value="获取验证码" ng-click="getMessage()">
+		</div>
+		<span ng-show="phoneRemind" class="reminder">您输入的手机号码有误！</span>
+		<div class="code-number">
+			<input class="ft20" type="text" placeholder="请输入验证码" ng-model="verifyCode" ng-blur="getCode()">
+		</div>
+		<span ng-show="verifyRemind" class="reminder_verify">您输入的验证码有误！</span>
+		<div class="invite-number">
+			<input class="ft20" type="text" placeholder="请输入邀请码（选填）" ng-model="inviteCode">
+		</div>
+		<div class="tac">
+			<button class="white ft24" id="login-btn" ng-click='goLogin()'>登录</button>
+		</div>
+		<button id="exitBtn" ng-click="exit()"></button>
+		</form>
+		</div>
+	</div>
+</div>
+
+	<ui-view ng-show="navbarStop"></ui-view>

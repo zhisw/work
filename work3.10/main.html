@@ -1,0 +1,295 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>宝贝</title>
+	<Meta http-equiv="Page-Enter" Content="blendTrans(Duration=0.5)">
+<Meta http-equiv="Page-Exit" Content="blendTrans(Duration=0.5)">
+	<meta name="keywords" content="魅客,娱乐，社交">
+	<meta name="description" content="">
+	<link rel="stylesheet" href="./css/common.css">
+	<link rel="stylesheet" href="./css/app_head.css">
+	<link rel="stylesheet" href="./css/baby.css">
+	<link rel="stylesheet" href="./css/dateBaby.css">
+	<link rel="stylesheet" href="./css/currentOrder.css" />
+	<link rel="stylesheet" type="text/css" href="./css/historyOrder.css"/>
+	<link rel="stylesheet" type="text/css" href="./css/concern.css"/>
+	<link rel="stylesheet" href="./css/login.css">
+</head>
+<body ng-app="makeBaby">
+	<ui-view></ui-view>	
+
+
+
+	<script src="js/angular.min.js"></script>
+	<script src="js/angular-ui-router.js"></script>
+	<script src="js/jquery-1.11.3.js"></script>
+	<script src='js/angular-cookies.min.js'></script>
+	
+	<script>
+		var makeBaby=angular.module('makeBaby',['ui.router','ngCookies'])
+		.run(function($rootScope, $state, $stateParams){
+			$rootScope.$stateParams = $stateParams;
+			$rootScope.concerStatus="关注";
+		})
+		/*页面路由配置*/
+		.config(function($stateProvider,$urlRouterProvider){
+			$urlRouterProvider.otherwise('/Navbar/babyHome');
+			$stateProvider
+			.state('Navbar',{
+		        url:'/Navbar',
+		        templateUrl:'./template/Navbar.html',
+		       	controller:'NavbarController'
+
+     		 })
+			.state('login',{
+				url:'/login',
+				templateUrl:'./template/login.html',
+				controller:"loginController"
+			})
+			.state('Navbar.babyHome',{
+		        url:'/babyHome',
+		        templateUrl:'./template/babyHome.html',
+		        controller:'babyHomeController'
+		        
+     		 })
+			.state('Navbar.attention',{
+		        url:'/attention',
+		        templateUrl:'./template/attention.html',
+		        controller:'attentionController'
+     		 })
+			.state('Navbar.newOrder',{
+		        url:'/newOrder',
+		        templateUrl:'./template/newOrder.html',
+		        controller:'newOrderController'
+     		 })
+			.state('Navbar.oldOrder',{
+		        url:'/oldOrder',
+		        templateUrl:'./template/oldOrder.html',
+		        controller:'oldOrderController'
+     		 })
+			.state('Navbar.yueBao',{
+		        url:'/yueBao',
+		        params : {//跳转设置参数
+					sisterName:''
+				},
+		        templateUrl:'./template/yueBao.html',
+		        controller:'yueBaoController'
+     		 })
+		})
+		.controller('NavbarController',function($scope,$rootScope,$cookies,$window,$state){
+			if($cookies.get("userPhone")){//如果在cookie里获取到登陆名 代表已经登陆
+				$scope.hadLogin=true;
+				$scope.LoginStatus=false;		//右上角的未登录，显示成账号名
+			}else{
+				$scope.hadLogin=false;
+				$scope.LoginStatus=true;       //没有就显示未登录
+			}
+			$scope.userId=$cookies.get("userPhone")  //双向数据绑定，显示位置的登录名显示为userId
+			$rootScope.navbarStop=true;
+			$rootScope.LoginStop=false;
+			var reg=/^(0|86|17951)?(13[0-9]|15[012356789]|17[678]|18[0-9]|14[57])[0-9]{8}$/;
+			var phoneStop=null;
+			var verifyStop=null;
+			var phoneNum='';
+			//phoneNum=$scope.phoneNumb;
+			
+			$scope.checkNumb=function(){//手机号输入框 失去焦点 运行函数
+				if(reg.test($scope.phoneNumb)){
+					$scope.phoneRemind=false;
+					phoneStop=true;
+				}else{
+					$scope.phoneRemind=true;
+					phoneStop=false;
+				}
+			}	
+			$scope.getCode=function(){//验证码输入框 失去焦点 运行函数
+				if($scope.verifyCode=="888888"){
+					$scope.verifyRemind=false;
+					verifyStop=true;
+				}else{
+					$scope.verifyRemind=true;
+					verifyStop=false;
+				}
+			}
+			$scope.goLogin=function(){//登录页的登录按钮 如果填的信息正确 登录页消失 首页展示
+				  // Find tomorrow's date.
+				  var expireDate = new Date();
+				  expireDate.setDate(expireDate.getDate() + 5);//设置cookie时间
+				  // Setting a cookie
+				if(phoneStop&&verifyStop){
+					//alert($scope.phoneNumb)
+					$cookies.put("userPhone",$scope.phoneNumb, {'expires': expireDate});//设置cookie为登陆的手机号
+					$state.reload(); 
+					$rootScope.navbarStop=true;
+      				$rootScope.LoginStop=false;
+      				
+				}
+				
+			}
+			$scope.noLogin=function(){//未登录按钮点击显示登录页
+				$rootScope.navbarStop=false;
+      			$rootScope.LoginStop=true;
+			}
+			$scope.exit=function(){//退出按钮
+				$rootScope.navbarStop=true;
+      			$rootScope.LoginStop=false;
+			}
+			$scope.navbarClick=function(){
+				$scope.isActive=true;
+				$scope.isActive1=false;
+				$scope.isActive2=false;
+				$scope.isActive3=false;
+				$scope.isActive4=false;
+				
+			}	
+			$scope.navbar1Click=function(){
+				$scope.isActive=false;
+				$scope.isActive1=true;
+				$scope.isActive2=false;
+				$scope.isActive3=false;
+				$scope.isActive4=false;
+			}
+			$scope.navbar2Click=function(){
+				$scope.isActive=false;
+				$scope.isActive1=false;
+				$scope.isActive2=true;
+				$scope.isActive3=false;
+				$scope.isActive4=false;
+			}
+			$scope.navbar3Click=function(){
+				$scope.isActive=false;
+				$scope.isActive1=false;
+				$scope.isActive2=false;
+				$scope.isActive3=true;
+				$scope.isActive4=false;
+			}
+			$scope.navbar4Click=function(){
+				$scope.isActive=false;
+				$scope.isActive1=false;
+				$scope.isActive2=false;
+				$scope.isActive3=false;
+				$scope.isActive4=true;
+			}
+    	})
+		.controller('loginController',function($scope){
+			//var verifyCode=$scope.verifyCode;
+			/*验证手机号及验证码*/
+			/*var reg=/^(0|86|17951)?(13[0-9]|15[012356789]|17[678]|18[0-9]|14[57])[0-9]{8}$/;
+			var phoneStop=null;
+			
+			$scope.checkNumb=function(){//手机号输入框 失去焦点 运行函数
+				if(reg.test($scope.phoneNumb)){
+						$scope.phoneRemind=false;		
+				}else{
+					$scope.phoneRemind=true;
+				}
+			}
+			
+			$scope.getCode=function(){//验证码输入框 失去焦点 运行函数
+				if($scope.verifyCode=="888888"){
+					$scope.verifyRemind=false;
+				}else{
+					$scope.verifyRemind=true;
+				}
+			}
+			$scope.goLogin=function(){
+				if(!$scope.phoneRemind&&!$scope.verifyRemind){
+					$rootScope.navbarStop=true;
+      				$rootScope.LoginStop=false;
+				}
+			}*/
+			
+			
+		})
+		
+		
+		.controller('babyHomeController',function($scope,$http,$rootScope,$state,$cookies){
+			var concernBabyInfo=[];//数组用来装已关注的妹子
+			$scope.isConcern=true;
+			$rootScope.Stop=false;	
+      		$http({url:'mock.json'}).then(function(res){
+      		$rootScope.sistersName=res.data;
+      		
+      	})
+      	
+      	$scope.clickMe=function(sister){
+      		var sisterName=sister.name;
+      		console.log(sister)
+      		event.preventDefault();
+      		$state.go('Navbar.yueBao',{sisterName:sisterName})
+      	}
+      	
+      	$scope.clickConcern=function(sister){
+      		//concernActive=false;
+      		var Stop=$rootScope.Stop;
+      		if(!Stop){
+      			$rootScope.Stop=true;
+      		}else{
+      			$rootScope.Stop=false;
+      		}
+      		event.preventDefault();
+      		//$state.go('login')
+      		var getCookie = $cookies.get("userPhone");//获取cookie
+      		if(getCookie){
+      			//$state.go('Navbar.attention')
+      			this.noConcern=true;
+      			this.isConcern=false;
+      			this.concerStatus="已关注";
+      		}else{
+      			this.isConcern=true;
+      			this.noConcern=false;
+	      		$rootScope.navbarStop=false;
+	      		$rootScope.LoginStop=true;
+      		}
+      		
+      		concernBabyInfo.name=sister.name;
+      		$rootScope.concernBabyName=sister.name;
+      		concernBabyInfo.push(sister)
+      		console.log(sister)
+      		console.log(concernBabyInfo)
+      		$rootScope.concernBabyInfo=concernBabyInfo;
+      	}
+    /*  	$scope.search = function(item) {
+		if ($scope.searchText == undefined) {
+			return true;
+		} else {
+			if (item.firstName.toLowerCase().indexOf($scope.searchText.toLowerCase()) != -1 
+			|| item.lastName.toLowerCase().indexOf($scope.searchText.toLowerCase()) != -1) {
+				return true;
+			}
+		}
+
+		return false;
+	}*/
+     /* $scope.search = function(item){
+      	if($scope.searchText==undefined){
+      	return true;
+      }else{
+      	if(item.name.indexOf($scope.searchText)!=-1
+      	||item.age.indexOf($scope.searchText)!=-1){
+      		
+      		console.log($scope.searchText)
+      	}
+      		
+      }
+      return false;
+    	}*/
+		})
+		.controller('attentionController',function($scope){
+					
+    	})
+		.controller('newOrderController',function($scope){
+
+    	})
+		.controller('yueBaoController',function($scope,$rootScope,$stateParams){
+			console.log($stateParams.sisterName)
+    	})
+		.controller('oldOrderController',function($scope){
+
+    	})
+		
+ 
+	</script>
+</body>
+</html>

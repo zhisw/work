@@ -1,0 +1,181 @@
+/* - - - - - -content - - - - - - */
+.content_wrap_oldOrder{
+	width: 1200px;
+	margin:0 auto;
+}
+		/*———————— 没有订单*/
+.no_order{
+	display: none;
+	height: 600px;
+	border-radius: 6px 6px 6px 6px;
+	background: #fff;
+	-webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    padding-top: 100px;
+    line-height: 40px;
+}
+.go_choose{
+	color: #ccc; 
+}
+.no_order img{
+	margin:0 auto 20px;
+}
+		/*- - - - 有订单*/
+			/*-  - - - -  order_title - -  -*/
+.order_title{
+	height: 60px;
+	padding-left: 20px;
+	background: #cdb2ff;
+    border-radius: 6px 6px 0px 0px;
+    line-height: 60px;
+}
+.current_title{
+	margin-right: 50px;
+}
+.top_line{
+	height: 16px;
+	margin-top: 15px;
+}
+.circle{
+	width: 16px;
+	height: 16px;
+	border-radius: 50%;
+}
+.yellow_circle{
+	background: #fff34c;
+}
+.long_line{
+	width: 218px;
+	height: 2px;
+	background: #fff34c;
+	margin-top: 8px;
+}
+
+
+.state_word{
+	height: 14px;
+	font-size: 14px;
+	line-height: 14px;
+	margin:8px 0 0 -15px;
+}
+.yellow_word{
+	color:#fff34c;
+	margin-right: 190px;
+}
+		/*- - -  - 所有的订单 - - - -*/
+		/*  - - -  - order_mes - - - - */
+.orders{
+	min-height: 650px;
+	background: #fff;
+	border-radius: 0 0 6px 6px;
+}
+.order_mes{
+	background: #fff;
+	padding:0 0 30px 20px;
+}
+.order_datail{
+	position: relative;
+	border-bottom: 1px solid #e6e6e6;
+}
+.order_datail p:nth-child(2){
+	padding-bottom: 15px;
+}
+.order_code{
+	/*display: inline-block;
+	width: 330px;*/
+}
+.order_time{
+	display: inline-block;
+	width: 330px;
+}
+.order_mes p{
+	line-height: 40px;
+}
+.date_loca{
+	display: inline-block;
+	width: 740px;
+}
+.total2_money{
+	color:#FF8180;
+	position: absolute;
+    right: 226px;
+    top: 25px;
+}
+.delete{
+	width: 28px;
+	height: 30px;
+	background: url(../images/delete.png) no-repeat;
+	background-size: 100% 100%;
+	position: absolute;
+	top:10px;
+	right: 20px;
+	cursor: pointer;
+}
+.put_up{
+	width: 26px;
+	height: 24px;
+	background-size: 100% 100%;
+	position: absolute;
+	bottom: 3px;
+	right: 20px;
+	cursor: pointer;
+}
+.down{
+	background: url(../images/down.png) no-repeat;
+}
+.up{
+	background: url(../images/up.png) no-repeat;
+}
+
+	/*- ——  - date-baby - ——— --*/
+.date-baby{
+	width: 100%;
+	background: #fff;
+	border-radius: 0px 0px 6px 6px ;
+}
+.per-baby{
+	position: relative;
+	height: 140px;
+	background: #fafafa;
+	padding: 20px 0 20px 20px;
+	border-bottom: 1px solid #e6e6e6;
+}
+
+.head{
+	width: 140px;
+	height: 140px;
+	border-radius: 50%;
+	margin-right:20px; 
+}
+.baby-mes p{
+	line-height: 45px;
+}
+.baby-name{
+	display: inline-block;
+	height: 24px;
+	line-height: 24px;
+	margin-right:20px;
+}
+.no-line{
+	display: inline-block;
+	width: 24px;
+	height: 24px;
+	background: url(../images/no-line.png) no-repeat;
+	margin-right: 30px;
+}
+.line{
+	background: url(../images/line.png) no-repeat;
+}
+.tall_high{
+	margin-right: 30px; 
+}
+.dateMoney{
+	margin-left: 100px;
+	color: #ff7f7f;
+}
+
+
+
+
+
