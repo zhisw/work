@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>魅客</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+		<link rel="stylesheet" href="src/css/index.css" />
+    <!-- Link Swiper's CSS -->
+	    <link rel="stylesheet" href="src/css/swiper.min.css">
+	    <link rel="stylesheet" href="src/css/animate.min.css">
+	</head>
+	<body>
+		<script type="text/javascript" src="src/js/jquery-3.1.1.min.js"></script>
+		<script type="text/javascript" src="src/js/swiper.min.js"></script>
+		<script type="text/javascript" src="src/js/swiper.animate1.0.2.min.js"></script>
+		<div class="firstPage">
+			<div class="rote rotation">
+			</div>
+			<img src="src/images/logo.png" alt="头像"  class="headPortrait"/>
+			<div class="searchText"><span class="titleText">正在搜索附近的人...</span></div>
+		</div>
+		 <div class="swiper-container" >
+		       <div class="swiper-wrapper">
+		        </div>
+   		 </div>
+		
+		
+		<script type="text/javascript">
+			var rootSize=window.innerWidth/10
+			var dec=window.document.documentElement;
+			dec.style.fontSize = rootSize + 'px';
+			$('.swiper-container').hide();
+			//var ImgUrl=window.location.href;
+			var ImgUrl="http://118.178.227.195:8088/PeopleNearby.html?babyphoto=http://mkqiniu.6428.wang//images/1489470656656.png&B66NSFWVEP9YAU7";
+			var ImgUrl1=decodeURI(ImgUrl);
+			var ImgSrc=ImgUrl1.split('?')[1].split('=')[1].split("&")[0];
+			$('.headPortrait').attr('src',ImgSrc)
+			var swiper = new Swiper('.swiper-container', {
+			 	autoplayStopOnLast:true,
+		        lazyLoading : true,
+				lazyLoadingInPrevNext : true,
+				observer:true,
+                fade: {
+                     crossFade: true,
+                },
+            onSlideNextStart:function(){
+            },
+            onReachEnd: function(swiper){//滑到最后一个加载
+		      $.ajax({
+					type:"post",
+					url:"http://101.37.33.119:8082/meike-sister/baby/free/showUserInfo.do",
+					async:true,
+					success:function(res){
+						var str1=''
+						var Data=JSON.parse(res).data;
+						var DataLen=Data.length
+						for(var i=0;i<DataLen;i++){
+		str1+='<div class="swiper-slide"><div class="infoBox"><img src="'+Data[i].photo+'" alt=""  class="infoImg"/><div class="nickName">'+Data[i].nickName+'</div><div class="distanceBox"><img src="src/images/localtion.png" class="Locationimg"/><div class="distance">'+Data[i].distanse+'</div><span class="km">km</spam></div></div></div>'	
+						}
+					$('.swiper-wrapper').append(str1)	
+					}
+				});
+    },
+        roundLengths : true  //宽高取整，防止边界模糊
+    });
+    
+		$.ajax({//初始加载获取五个数据
+			type:"post",
+			url:"http://101.37.33.119:8082/meike-sister/baby/free/showUserInfo.do",
+			async:true,
+			success:function(res){
+				var Data=JSON.parse(res).data;
+				var str=''
+				console.log(Data)
+				var DataLen=Data.length
+				if(DataLen){
+					setTimeout(function(){
+						$('.firstPage').hide();
+						$('.swiper-container').fadeIn();
+						$('.rote').removeClass('rotation')
+					},2000)
+				}
+				for(var i=0;i<DataLen;i++){
+str+='<div class="swiper-slide"><div class="infoBox"><img src="'+Data[i].photo+'" alt=""  class="infoImg"/><div class="nickName">'+Data[i].nickName+'</div><div class="distanceBox"><img src="src/images/localtion.png" class="Locationimg"/><div class="distance">'+Data[i].distanse+'</div><span class="km">km</spam></div></div></div>'
+					
+				}
+		$('.swiper-wrapper').append(str)		
+			}
+		});	
+		</script>
+	</body>
+</html>
