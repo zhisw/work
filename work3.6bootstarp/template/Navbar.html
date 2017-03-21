@@ -1,0 +1,95 @@
+	
+	<!--导航-->
+	<!--<div class="top" ng-show="navbarStop">
+	<div class="top-wrap">
+		<ul class="top-ul ft22 white tac fl">
+			<li><a  ui-sref=".babyHome"  ui-sref-active="active">宝贝</a></li>
+			<li><a  ui-sref=".yueBao"  ui-sref-active="active">约宝</a></li>
+			<li><a  ui-sref=".newOrder"  ui-sref-active="active">当前订单</a></li>
+			<li><a  ui-sref=".oldOrder"  ui-sref-active="active">历史订单</a></li>
+			<li><a  ui-sref=".attention"  ui-sref-active="active">关注</a></li>
+		</ul>
+		<div class="search-wrap fl">
+			<input class="search-box" type="text" placeholder="搜索关键词" ng-model="searchText.$"><button id="search-btn"></button>
+		</div>
+		<div class="mes-wrap fl tac ft14 white">
+			<div ng-if="hadLogin">
+			<img class="mes-img" ng-src="images/1.png">
+			<div class="mes-phone">{{userId}}</div>
+			</div>
+			<div class="NoLogin" ng-click="noLogin()" ng-if="LoginStatus">未登录</div>
+		</div>
+	</div>
+</div>-->
+
+<!--/bootstrap 版导航/-->
+<nav class="navbar navbar-default" ng-show="navbarStop">
+  <div class="container">
+    <!-- Brand and toggle get grouped for better mobile display -->
+   <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand visible-xs-* hidden-md hidden-lg" href="#">魅客</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+      	<li class=""><a ui-sref=".babyHome" ui-sref-active="active">宝贝 <span class="sr-only">(current)</span></a></li>
+        <li class=""><a ui-sref=".yueBao"  ui-sref-active="active">约宝 <span class="sr-only">(current)</span></a></li>
+        <li class=""><a ui-sref=".newOrder"  ui-sref-active="active">当前订单 <span class="sr-only">(current)</span></a></li>
+        <li class=""><a ui-sref=".oldOrder"  ui-sref-active="active">历史订单 <span class="sr-only">(current)</span></a></li>
+        <li class=""><a ui-sref=".attention"  ui-sref-active="active">关注 <span class="sr-only">(current)</span></a></li>
+      </ul>
+      <form class="navbar-form navbar-left">
+        <div class="form-group">
+          <input type="text" class="form-control " placeholder="搜索关键词">
+          <div id="search-btn"></div>
+        </div>
+      </form>
+       <div class="mes-wrap fl tac ft14 white hidden-xs">
+			<div ng-if="hadLogin">
+			<img class="mes-img" ng-src="images/1.png">
+			<div class="mes-phone">{{userId}}</div>
+			</div>
+			<div class="NoLogin" ng-click="noLogin()" ng-if="LoginStatus">未登录</div>
+	</div>
+    </div><!-- /.navbar-collapse -->
+   
+  </div><!-- /.container-fluid -->
+</nav>
+<!--隐藏的登录页-->
+<div class="backgroundBox" ng-show="LoginStop">
+	<div id="login-box" >
+		<div class="formbox">
+			
+		<form action="">
+		<h3 class="tac login-title"><img class="login-logo" src="images/login-logo.png"></h3>
+		<div class="phone-number">
+			<input class="ft20" id="phone" type="text" placeholder="请输入手机号"  ng-model="phoneNumb"  ng-blur="checkNumb()" set-Focus>
+			<button class="ft18 fr" id="btnSendCode" ng-click="getMessage()">{{getCodebtn}}</button>
+		</div>
+		<span ng-show="phoneRemind" class="reminder">您输入的手机号码有误！</span>
+		<span ng-show="phoneEmptyRemind" class="reminder">手机号码不能为空！</span>
+		<div class="code-number">
+			<input class="ft20" type="text" placeholder="请输入验证码" ng-model="verifyCode" ng-blur="getCode()">
+		</div>
+		<span ng-show="verifyRemind" class="reminder_verify">您输入的验证码有误！</span>
+		<span ng-show="verifyEmptyRemind" class="reminder_verify">验证码不能为空！</span>
+		<div class="invite-number">
+			<input class="ft20" type="text" placeholder="请输入邀请码（选填）" ng-model="inviteCode">
+		</div>
+		<div class="tac">
+			<button class="white ft24" id="login-btn" ng-click='goLogin()'>登录</button>
+		</div>
+		<button id="exitBtn" ng-click="exit()"></button>
+		</form>
+		</div>
+	</div>
+</div>
+
+	<ui-view ng-show="navbarStop"></ui-view>

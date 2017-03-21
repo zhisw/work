@@ -1,0 +1,758 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>宝贝</title>
+	<Meta http-equiv="Page-Enter" Content="blendTrans(Duration=0.5)">
+	<Meta http-equiv="Page-Exit" Content="blendTrans(Duration=0.5)">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	
+	<meta name="keywords" content="魅客,娱乐，社交">
+	<meta name="description" content="">
+	<link rel="stylesheet" href="./css/common.css"/>
+	<link rel="stylesheet" href="./css/app_head.css"/>
+	<link rel="stylesheet" href="./css/baby.css"/>
+<!--	<link rel="stylesheet" href="./css/dateBaby.css"/>-->
+<link rel="stylesheet" media="screen and (max-width: 800px)" href="./css/dateBabySmall.css"/>
+<link rel="stylesheet" media="screen and (min-width: 801px)" href="./css/dateBaby.css"/>
+	
+	<!--<link rel="stylesheet" href="./css/currentOrder.css" />-->
+<link rel="stylesheet" media="screen and (max-width: 800px)" href="./css/currentOrderSmall.css"/>
+<link rel="stylesheet" media="screen and (min-width: 801px)" href="./css/currentOrder.css"/>
+	<!--<link rel="stylesheet" type="text/css" href="./css/historyOrder.css"/>-->
+	<link rel="stylesheet" type="text/css" href="./css/concern.css"/>
+	<link rel="stylesheet" href="./css/login.css">
+	<link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+	<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+	<style>
+	@media (max-width: 768px) { 
+		#search-btn {
+			    width: 23px;
+			    height: 23px;
+			    background: url(images/search-btn.png) no-repeat;
+			    position: absolute;
+			    top: 8px;
+			    right: 20px;
+			}
+			 .navbar-default .navbar-nav>li>a:hover{	
+							color: #fff34c;
+					}	
+				.navbar-default .navbar-nav>li>a:focus{
+					   color: #fff34c;
+					}
+				
+				.form-group{
+						position: relative;
+						box-sizing:border-box;
+					}
+			.more{
+					text-align: right;
+				}
+				.img{
+					position: relative;
+				}
+		
+				.box{
+					position:relative;
+					margin: 0;
+					padding: 0;
+				}
+				.detail{
+					position: absolute;
+					top:0;
+					background: yellow;
+				}
+				.date_btn {
+					    position: absolute;
+					    width: 30px;
+					    height: 40px;
+					    background: #bd99ff;
+					    border-radius: 0 0 6px 6px;
+					    top: 0px;
+					    right: 20px;
+					    cursor: pointer;
+					    z-index: 1000;
+					    line-height: 40px;
+					    font-size:13px;
+					}
+					
+					.concern_btn {
+					    width: 90px;
+					    height: 30px;
+					    padding-left: 34px;
+					    background: url(images/concern.png) no-repeat 12px center;
+					    cursor: pointer;
+					    color: white;
+					    font-size: 18px;
+					}
+		.concern {
+			    width: 90px;
+			    height: 30px;
+			    background: #FF8180;
+			    position: absolute;
+			    right: 0;
+			    bottom: 20px;
+			    z-index: 10;
+			    border-radius: 13px 0 0 13px;
+			}
+			.concern_btn2 {
+			    width: 91px;
+			    height: 30px;
+			    border-radius: 13px 0 0 13px;
+			    background: #644863;
+			    cursor: pointer;
+			    color: white;
+			    font-size: 18px;
+			    padding-left:20px;
+			}
+			.baby_title{
+				color:#E7E1CD;
+			}
+			.Anymore{
+				display: block;
+				margin-top: 10px;
+				color:#000000;
+			}
+		 }
+		
+			@media (min-width: 768px){
+   				#search-btn {
+			    width: 23px;
+			    height: 23px;
+			    background: url(images/search-btn.png) no-repeat;
+			    position: absolute;
+			    top: 8px;
+			    right: 20px;
+			}
+			
+			 .navbar-default .navbar-nav>li>a:hover{
+							
+							color: #fff34c;
+					}	
+				.navbar-default .navbar-nav>li>a:focus{
+					   color: #fff34c;
+					}
+					.form-group{
+						position: relative;
+						box-sizing:border-box;
+					}
+					.mes-wrap {
+							    width: 118px;
+							    position: absolute;
+							    right: 0px;
+							    top:0;
+							}
+					.more{
+						text-align: right;
+					}
+					.img{
+						position: relative;
+					}
+					
+					.box{
+						position:relative;
+						margin: 0;
+						padding: 0;
+					}
+					.detail{
+						position: absolute;
+						bottom:0;
+						display: none;
+						 height: 180px;
+						-webkit-box-sizing: border-box;
+						-moz-box-sizing: border-box;
+						box-sizing: border-box;
+						padding: 20px;
+						background: #BD99FE;
+						border-radius: 0 0 6px 6px;
+						color: #fff;
+						text-align: left;	
+					}
+					
+				 .date_btn {
+				    position: absolute;
+				    width: 40px;
+				    height: 50px;
+				    background: #bd99ff;
+				    border-radius: 0 0 6px 6px;
+				    top: 0px;
+				    right: 80px;
+				    cursor: pointer;
+				    z-index: 1000;
+				    line-height: 60px;
+				    
+				}
+   			.concern_btn {
+			    width: 90px;
+			    height: 30px;
+			    padding-left: 34px;
+			    background: url(images/concern.png) no-repeat 12px center;
+			    cursor: pointer;
+			    color: white;
+			    font-size: 18px;
+			}
+		.concern {
+			    width: 90px;
+			    height: 30px;
+			    background: #FF8180;
+			    position: absolute;
+			    right: 34px;
+			    bottom: 20px;
+			    z-index: 10;
+			    border-radius: 13px 0 0 13px;
+			}
+			.concern_btn2 {
+			    width: 91px;
+			    height: 30px;
+			    border-radius: 13px 0 0 13px;
+			    background: #644863;
+			    cursor: pointer;
+			    color: white;
+			    font-size: 18px;
+			    padding-left:20px;
+			}
+			.row{
+				margin: 13px 10px;
+			}
+			.babyHomeContent{
+				width: 730px;
+				margin: 0 auto;
+				background: #fff;
+				border-radius:6px ;
+		}
+		.Anymore{
+			display: block;
+			margin-top: 10px;
+		}
+   		 }
+   		  @media (min-width: 992px){
+   		  	.mes-wrap {
+					width: 118px;
+					position: absolute;
+					right: 0px;
+					top: 0px;
+							}
+		.more{
+				text-align: right;
+				}
+		.img{
+			position: relative;
+		}
+		
+		.box{
+			position:relative;
+			margin: 0;
+			padding: 0;
+		}
+		.date_btn {
+			    position: absolute;
+			    width: 50px;
+			    height: 60px;
+			    background: #bd99ff;
+			    border-radius: 0 0 6px 6px;
+			    top: 0px;
+			    right: 20px;
+			    cursor: pointer;
+			    z-index: 1000;
+			    line-height: 60px;
+			}		
+			.concern_btn {
+			    width: 90px;
+			    height: 30px;
+			    padding-left: 34px;
+			    background: url(images/concern.png) no-repeat 12px center;
+			    cursor: pointer;
+			    color: white;
+			    font-size: 18px;
+			}
+		.concern {
+			    width: 90px;
+			    height: 30px;
+			    background: #FF8180;
+			    position: absolute;
+			    right: 0;
+			    bottom: 20px;
+			    z-index: 10;
+			    border-radius: 13px 0 0 13px;
+			}
+			.concern_btn2 {
+			    width: 91px;
+			    height: 30px;
+			    border-radius: 13px 0 0 13px;
+			    background: #644863;
+			    cursor: pointer;
+			    color: white;
+			    font-size: 18px;
+			    padding-left:20px;
+			}
+			.row{
+				margin: 13px 10px;
+			}
+			.babyHomeContent{
+				width: 970px;
+				margin: 0 auto;
+				background: #fff;
+				border-radius:6px ;
+		}
+		.Anymore{
+			display: block;
+			margin-top: 10px;
+		}
+   		  }
+		@media (min-width: 1200px){
+			.container {
+			    width: 1200px !important;
+			    padding: 0;
+			    position: relative;
+			}
+			navbar.less:380
+		
+			.collapse {
+				padding: 0;
+			}
+			.row{
+				margin: 13px 10px;
+			}
+			.nav>li>a {
+			    position: relative;
+			    display: block;
+			    width: 165px;
+			    height: 110px;
+			    line-height: 95px;
+			}
+			
+			  .form-control::-webkit-input-placeholder, textarea::-webkit-input-placeholder { 
+						color: #fff; 
+						} 
+						.form-control:-moz-placeholder, textarea:-moz-placeholder { 
+						color: #fff; 
+						} 
+						.form-control::-moz-placeholder, textarea::-moz-placeholder { 
+						color: #fff; 
+						} 
+						.form-control:-ms-input-placeholder, textarea:-ms-input-placeholder { 
+						color: #fff; 
+						} 
+					.navbar-default{
+						background: none;
+						border:none;
+					}
+					.navbar-default .navbar-nav>li>a{
+						        color: #fff;
+						        font-size: 22px;
+						}
+				
+					.navbar-default .navbar-nav>li>a:hover{
+					font-size: 26px;
+					color: #fff34c;
+					}	
+				.navbar-default .navbar-nav>li>a:focus{
+					   color: #fff34c;
+					   font-size: 26px
+					}
+					
+					
+					 .form-control {
+				   		 	width: 240px !important;
+				    		height: 40px;
+				   		 	background: none;
+						    border: 1px solid #ccc;
+						   	border-radius: 30px;
+						   	color:black;
+						   	margin-top:40px ;
+		   				}
+						.form-group{
+							position: relative;
+							box-sizing:border-box;
+						}	
+					#search-btn {
+						    width: 23px;
+						    height: 23px;
+						    background: url(images/search-btn.png) no-repeat;
+						    position: absolute;
+						    top: 48px;
+						    right: 20px;
+						}
+						.mes-wrap {
+							    width: 118px;
+							    position: absolute;
+							    right: -25px;
+							    top: 40px;
+							}
+							
+						.more{
+							text-align: right;
+						}
+						.img{
+							position: relative;
+						}
+		
+					.box{
+						position:relative;
+						margin: 0;
+						padding: 0;
+					}
+				.detail{
+					position: absolute;
+					top:188px;
+					display: none;
+					 height: 180px;
+					-webkit-box-sizing: border-box;
+					-moz-box-sizing: border-box;
+					box-sizing: border-box;
+					padding: 20px;
+					background: #BD99FE;
+					border-radius: 0 0 6px 6px;
+					color: #fff;
+					text-align: left;				
+				}
+		
+		 .date_btn {
+			    position: absolute;
+			    width: 50px;
+			    height: 60px;
+			    background: #bd99ff;
+			    border-radius: 0 0 6px 6px;
+			    top: 0px;
+			    right: 20px;
+			    cursor: pointer;
+			    z-index: 1000;
+			    line-height: 60px;
+			}
+			
+			 .concern_btn {
+			    width: 90px;
+			    height: 30px;
+			    padding-left: 34px;
+			    background: url(images/concern.png) no-repeat 12px center;
+			    cursor: pointer;
+			    color: white;
+			    font-size: 18px;
+			}
+		.concern {
+			    width: 90px;
+			    height: 30px;
+			    background: #FF8180;
+			    position: absolute;
+			    right: 0;
+			    bottom: 20px;
+			    z-index: 10;
+			    border-radius: 13px 0 0 13px;
+			}
+			.concern_btn2 {
+			    width: 91px;
+			    height: 30px;
+			    border-radius: 13px 0 0 13px;
+			    background: #644863;
+			    cursor: pointer;
+			    color: white;
+			    font-size: 18px;
+			    padding-left:20px;
+			    line-height: 30px;
+			}
+			
+			.babyHomeContent{
+			width: 1200px;
+			margin: 0 auto;
+			background: #fff;
+			border-radius:6px ;
+		}
+		.Anymore{
+			display: block;
+			margin-top: 10px;
+		}
+					}	
+					
+		.more{
+			text-align: right;
+		}
+		.img{
+			position: relative;
+		}
+		
+		.box{
+			position:relative;
+			margin: 0;
+			padding: 0;
+		}
+		.detail{
+			position: absolute;
+			top:188px;
+			display: none;
+			 height: 180px;
+			-webkit-box-sizing: border-box;
+			-moz-box-sizing: border-box;
+			box-sizing: border-box;
+			padding: 20px;
+			background: #BD99FE;
+			border-radius: 0 0 6px 6px;
+			color: #fff;
+			text-align: left;	
+		}
+		.good_baby li:hover{
+			 border-radius: 6px;
+			 box-shadow: 0 0 5px rgba(0,0,0,0.5); 
+		}
+			.good_baby li:hover .detail{
+				display: block;
+			}
+		
+	</style>
+
+</head>
+<body ng-app="makeBaby">
+	<ui-view></ui-view>	
+
+
+
+	<script src="js/angular.min.js"></script>
+	<script src="js/angular-ui-router.js"></script>
+	<script src="js/jquery-1.11.3.js"></script>
+	<script src='js/angular-cookies.min.js'></script>
+	
+	<script>
+	var rootSize=window.innerWidth/37.5
+	console.log(rootSize)
+	var dec=window.document.documentElement;
+	dec.style.fontSize = rootSize + 'px';
+		var makeBaby=angular.module('makeBaby',['ui.router','ngCookies'])
+		.run(function($rootScope, $state, $stateParams){
+			$rootScope.$stateParams = $stateParams;
+			$rootScope.concerStatus="关注";
+		})
+		/*页面路由配置*/
+		.config(function($stateProvider,$urlRouterProvider){
+			$urlRouterProvider.otherwise('/Navbar/babyHome');
+			$stateProvider
+			.state('Navbar',{
+		        url:'/Navbar',
+		        templateUrl:'./template/Navbar.html',
+		       	controller:'NavbarController'
+
+     		})
+			.state('Navbar.babyHome',{
+		        url:'/babyHome',
+		        templateUrl:'./template/babyHome.html',
+		        controller:'babyHomeController'
+		        
+     		 })
+			.state('Navbar.attention',{
+		        url:'/attention',
+		        templateUrl:'./template/attention.html',
+		        controller:'attentionController'
+     		 })
+			.state('Navbar.newOrder',{
+		        url:'/newOrder',
+		        templateUrl:'./template/newOrder.html',
+		        controller:'newOrderController'
+     		 })
+			.state('Navbar.oldOrder',{
+		        url:'/oldOrder',
+		        templateUrl:'./template/oldOrder.html',
+		        controller:'oldOrderController'
+     		 })
+			.state('Navbar.yueBao',{
+		        url:'/yueBao',
+		        params : {//跳转设置参数
+					sisterName:''
+				},
+		        templateUrl:'./template/yueBao.html',
+		        controller:'yueBaoController'
+     		 })
+			.state('Navbar.babyMore',{
+		        url:'/babyMore',
+		        templateUrl:'./template/babyMore.html',
+		        controller:'babyMoreController'
+     		 })
+			.state('Navbar.babyInfoDetail',{
+		        url:'/babyInfoDetail/:id',
+		        templateUrl:'./template/babyInfoDetail.html',
+		        controller:'babyInfoDetailController'
+     		 })
+		})
+		.controller('NavbarController',function($scope,$rootScope,$cookies,$window,$state,$interval,$http){
+			if($cookies.get("userPhone")){//如果在cookie里获取到登陆名 代表已经登陆
+				$scope.hadLogin=true;
+				$scope.LoginStatus=false;		//右上角的未登录，显示成账号名
+			}else{
+				$scope.hadLogin=false;
+				$scope.LoginStatus=true;       //没有就显示未登录
+			}
+			if($cookies.get("userPhone")){
+				$scope.userId=$cookies.get("userPhone").substr(0,3)+"****"+$cookies.get("userPhone").substr(7,10) 
+			}
+			 //双向数据绑定，显示位置的登录名显示为userId
+			$rootScope.navbarStop=true;
+			$rootScope.LoginStop=false;
+			var reg=/^(0|86|17951)?(13[0-9]|15[012356789]|17[678]|18[0-9]|14[57])[0-9]{8}$/;
+			var phoneStop=null;
+			var verifyStop=null;
+			var phoneNum='';
+			var timeInterval=null;
+			var timer;
+			
+				
+			//phoneNum=$scope.phoneNumb;
+			$rootScope.getCodebtn="获取验证码"
+			
+			$scope.checkNumb=function(){//手机号输入框 失去焦点 运行函数
+				if(reg.test($scope.phoneNumb)){
+					$scope.phoneRemind=false;
+					phoneStop=true;
+				}else{
+					//alert($scope.phoneNumb)
+					if(!$scope.phoneNumb){
+						$scope.phoneRemind=false;
+						$scope.phoneEmptyRemind=true;
+						phoneStop=false;
+					}else{
+						$scope.phoneEmptyRemind=false;
+						$scope.phoneRemind=true;
+						phoneStop=false;
+					}
+					
+				}
+			}	
+			$scope.getCode=function(){//验证码输入框 失去焦点 运行函数
+				if($scope.verifyCode=="888888"){
+					$scope.verifyRemind=false;
+					verifyStop=true;
+				}else{
+					if(!$scope.verifyCode){
+						$scope.verifyRemind=false;
+						$scope.verifyEmptyRemind=true;
+					}else{
+						$scope.verifyEmptyRemind=false;
+						$scope.verifyRemind=true;
+					}
+					verifyStop=false;
+				}
+			}
+			$scope.getMessage=function(){//获取验证码按钮
+				var regStop=reg.test($scope.phoneNumb);
+				var Second=60;
+				if(regStop){	
+					if($rootScope.getCodebtn=="获取验证码"||$rootScope.getCodebtn=="重新获取"){
+					$rootScope.getCodebtn=Second+'s';
+						timer=$interval(function(){
+						Second--;
+						$rootScope.getCodebtn=Second+'s';
+						if(Second==0){
+							$rootScope.getCodebtn="重新获取";		
+							$interval.cancel(timer);
+						}
+					},1000)
+				}
+			}else{
+				if(!$scope.phoneNumb){
+					$scope.phoneRemind=false;
+					$scope.phoneEmptyRemind=true;
+					
+				}else{
+					$scope.phoneEmptyRemind=false;
+					$scope.phoneRemind=true;
+				}
+				
+			}
+		}
+			$scope.goLogin=function(){//登录页的登录按钮 如果填的信息正确 登录页消失 首页展示
+				  // Find tomorrow's date.
+				  var expireDate = new Date();
+				  expireDate.setDate(expireDate.getDate() + 5);//设置cookie时间
+				  // Setting a cookie
+				if(phoneStop&&verifyStop){
+					//alert($scope.phoneNumb)
+					$cookies.put("userPhone",$scope.phoneNumb, {'expires': expireDate});//设置cookie为登陆的手机号
+					$state.reload(); 
+					$rootScope.navbarStop=true;
+      				$rootScope.LoginStop=false;		
+      				//alert($cookies.get("userPhone"))
+      				var cookies=$cookies.get("userPhone");
+      				$http({url:'http://192.168.2.106:8080/meike-web/home/free/goodBabyInfo.do',params:{'userPhone':cookies} }).then(function(res){
+      					console.log(res)
+      				})
+				}	
+			}
+			$scope.noLogin=function(){//未登录按钮点击显示登录页
+				$rootScope.navbarStop=false;
+      			$rootScope.LoginStop=true;
+      			document.getElementById("phone").focus();
+			}
+			$scope.exit=function(){//退出按钮
+				$rootScope.navbarStop=true;
+      			$rootScope.LoginStop=false;
+			}
+			
+    	})
+		.controller('babyHomeController',function($scope,$http,$rootScope,$state,$cookies){
+			var concernBabyInfo=[];//数组用来装已关注的妹子
+			$scope.isConcern=true;
+			$rootScope.Stop=false;	
+      		$http({url:'mock.json'}).then(function(res){
+      		$rootScope.sistersName=res.data;
+      		
+      	})
+      	
+      	$scope.clickMe=function(sister){
+      		var sisterName=sister.name;
+      		console.log(sister)
+      		event.preventDefault();
+      		$state.go('Navbar.yueBao',{sisterName:sisterName})
+      	}
+      	
+      	$scope.clickConcern=function(sister){
+      		//concernActive=false;
+      		var Stop=$rootScope.Stop;
+      		if(!Stop){
+      			$rootScope.Stop=true;
+      		}else{
+      			$rootScope.Stop=false;
+      		}
+      		event.preventDefault();
+      		//$state.go('login')
+      		var getCookie = $cookies.get("userPhone");//获取cookie
+      		if(getCookie){
+      			//$state.go('Navbar.attention')
+      			this.noConcern=true;
+      			this.isConcern=false;
+      			this.concerStatus="已关注";
+      		}else{
+      			this.isConcern=true;
+      			this.noConcern=false;
+	      		$rootScope.navbarStop=false;
+	      		$rootScope.LoginStop=true;
+	      		//document.getElementById("phone").focus();
+      		}
+      		
+      		concernBabyInfo.name=sister.name;
+      		$rootScope.concernBabyName=sister.name;
+      		concernBabyInfo.push(sister)//用来装已关注的sisterr
+      		console.log(sister)
+      		console.log(concernBabyInfo)
+      		$rootScope.concernBabyInfo=concernBabyInfo;
+      	}
+		})
+		.controller('attentionController',function($scope){
+					
+    	})
+		.controller('newOrderController',function($scope){
+
+    	})
+		.controller('yueBaoController',function($scope,$rootScope,$stateParams){
+			console.log($stateParams.sisterName)
+    	})
+		.controller('oldOrderController',function($scope){
+
+    	})
+		.controller('babyMoreController',function($scope){
+
+    	})
+		.controller('babyInfoDetailController',function($scope,$stateParams){
+			console.log($stateParams.id)
+    	})
+		
+ 
+	</script>
+</body>
+</html>

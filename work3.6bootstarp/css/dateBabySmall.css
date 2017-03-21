@@ -1,0 +1,126 @@
+/*-- - - - - - -content - - - - - - --*/
+.content-wrap-date{
+	width: 30rem;
+	min-height: 60rem;
+	margin:0 auto;
+}
+	/*-- ———— 我的约宝 —————————— --*/
+.my-baby{
+	height: 3rem;
+	padding-left: 1rem;
+	line-height: 3rem;
+	background: #cdb2ff; 
+	border-radius: 6px 6px 0 0 ;
+}
+	/*- —————— 填写信息 —————————— */
+.order_mes{
+	background: #fff;
+	-webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    padding-left: 2rem;
+}
+.self_mes{
+	height: 3rem;
+	/*line-height: 60px;*/
+	font-size: 1rem;
+}
+.self_mes input{
+	display: inline-block;
+	width: 14rem;
+	height: 3rem;
+	border-bottom: 1px solid #ccc;
+	font-size: 1rem;
+	line-height: 3rem;
+	color: red;
+}
+.mes_red{
+	color: red;
+}
+	/*-  - - -  - -约会的宝贝- - -   -*/
+.date_baby{
+	min-height: 15rem;
+	margin-top: 1.5rem;
+}
+.date_per{
+	position: relative;
+	padding-bottom: 1rem;
+}
+.choose_btn{
+	width: 2.85rem;
+	height: 2.65rem;
+	background-size: 100% 100%;
+	margin-right: 0.75rem;
+	cursor: pointer;
+}
+.yes_choose{
+	background: url(../images/yes-choose.png) no-repeat 100% 100%;
+}
+.no_choose{
+	background: url(../images/no-choose.png) no-repeat 100% 100%;
+}
+.baby_head{
+	width: 5rem;
+	height: 5rem;
+	border-radius: 50%;
+	margin-right: 1.25rem;
+}
+
+.baby_mes p{
+	line-height: 1.8rem;
+}
+.baby_name{
+	display: inline-block;
+	height: 1.2rem;
+	line-height: 1.2rem;
+	margin-right:1rem;
+}
+.no_line{
+	display: inline-block;
+	width: 2.2rem;
+    height: 2.2rem;
+	background: url(../images/no-line.png) no-repeat 100% 100%;
+	margin-right: 1.5rem;
+}
+.line{
+	display: inline-block;
+	width: 2.2rem;
+    height: 2.2rem;
+	background: url(../images/line.png) no-repeat 100% 100%;
+}
+.dateMoney{
+	color: #ff7f7f;
+}
+.delete_btn{
+	width: 1.4rem;
+	height: 1.5rem;
+	background: url(../images/delete.png) no-repeat;
+	background-size: 100% 100%;
+	position: absolute;
+	top:0px;
+	right: 0.75rem;
+	cursor: pointer;
+}
+
+/*--  - -  - - - 合计  - -  - - --*/
+.money_all{
+	padding-left: 1rem;
+	height: 5rem;
+	line-height: 5rem;
+	background: #eee5ff;
+	border-radius: 0 0 6px 6px;
+	font-size: 0.8rem;
+}
+.total{
+	color: #ff7f7f;
+}
+.pay_btn{
+	width:6rem;
+	height: 3rem;
+	background: #ff7f7f;
+	margin-top: 0.5rem;
+	border-radius: 30px 0 0 30px;
+	cursor: pointer;
+	font-size: 1rem;
+	line-height: 3rem;
+}

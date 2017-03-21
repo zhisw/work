@@ -1,0 +1,129 @@
+/*-- - - - - - -content - - - - - - --*/
+.content{
+	padding-bottom: 30px;
+}
+.content-wrap{
+	width: 1180px;
+	margin:0 auto;
+	padding:20px 10px;
+	background: #fff;
+	border-radius: 6px 6px 6px 6px;
+	behavior: url(ie-css3.htc);
+}
+	/*--  - - -  - -好评宝贝- - -  - --*/
+.good_view{
+	margin-bottom: 30px;
+}
+.good_view:last-child{
+	margin-bottom: 0px;
+}
+.baby_title{
+	display: inline-block;
+	padding-left: 24px;
+	background: url(../images/title-bg.png) no-repeat 11px center;
+	color: #323232;
+	line-height: 36px;
+}
+.more_btn{
+	cursor: pointer;
+	background: #fff;
+}
+.more_btn:hover{
+	color: red;
+}
+
+.good_baby{
+	margin:10px 0;
+}
+.good_baby li{
+	float: left;
+}
+.good_baby li{
+	position: relative;
+	display: block;
+	/* width: 275px;
+	height: 366px; */
+	padding:10px;
+}
+.good_baby li a{
+	display: block;
+}
+.baby_pic{
+	width: 275px;
+	height: 366px;
+}
+.mes-detail{
+	display: none;
+	width: 275px;
+	height: 180px;
+	-webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    padding:20px;
+	position: absolute;
+	left: 10px;
+	bottom: 10px;
+	background: #BD99FE;
+	border-radius: 0 0 6px 6px;
+	color: #fff;
+	text-align: left;
+}
+.nicheng{
+	font-size: 20px;
+	margin-bottom: 12px;
+}
+.mes-detail p{
+	margin-bottom: 6px;
+}
+.sex{
+	margin-right: 10px;
+}
+.good_baby li:hover{
+	 border-radius: 6px;
+	 box-shadow: 0 0 5px rgba(0,0,0,0.5); 
+}
+.good_baby li:hover .mes-detail{
+	display: block;
+}
+.date_btn{
+	position: absolute;
+	width: 50px;
+	height: 60px;
+	background: #bd99ff;
+	border-radius: 0 0 6px 6px;
+	top:10px;
+	right: 20px;
+	cursor: pointer;
+	z-index: 1000;
+}
+.concern{
+	width: 90px;
+	height: 30px;
+	background: #FF8180;
+	position: absolute;
+	right: 10px;
+	bottom: 20px;
+	z-index: 10;
+	border-radius: 13px 0 0 13px;
+}
+.concern_btn{
+	width: 90px;
+	height: 30px;
+	padding-left: 34px;
+	background: url(../images/concern.png) no-repeat 12px center;
+	cursor: pointer;
+	color:white;
+	font-size: 18px;
+}
+.concern_btn2{
+	width: 91px;
+	height: 30px;
+	border-radius: 13px 0 0 13px;
+	background: #644863;
+	cursor: pointer;
+	color:white;
+	font-size: 18px;
+}
+.red{
+	background: red;
+}
