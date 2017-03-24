@@ -1,0 +1,254 @@
+
+<!--<div class="content">
+	<div class="content-wrap">-->
+		<!--  - - -  - -好评宝贝- - -  - -->
+		<!--<div class="good_view clearfix">-->
+			<!--<div class="clearfix">
+				<h3 class="baby_title ft20 fl">好评宝贝</h3>
+				<button class="more_btn fr"><a ui-sref="Navbar.babyMore">更多</a></button>
+			</div>
+			<ul class="good_baby clearfix" >
+				<li ng-repeat="sister in sistersName">
+					<a href='' class="sisterBox">
+						<button class="date_btn white ft16" ng-click="clickMe(sister)">约ta</button>
+						<div class="concern"><button  ng-class="{'concern_btn': isConcern, 'concern_btn2': noConcern}"  ng-click="clickConcern(sister)">{{concerStatus}}</button></div>
+						<a ui-sref="Navbar.babyInfoDetail({id:sister.id})"><img class="baby_pic" src="./images/1.png" ></a>
+						<div class="mes-detail ft18">
+							<div class="nicheng">{{sister.name}}<span>(22单)</span></div>
+							<p><span class="sex">女</span><span class="age">{{sister.age}}</span></p>
+							<p>身高：<span>175cm</span>，体重：<span>45kg</span></p>
+							<p>服务范围：K歌、看电影</p>
+							<p>价格：<span>￥800</span></p>
+						</div>
+					</a>
+				</li>-->
+			<!--	<div ng-repeat="sister in sistersName">
+					<img ng-src="{{sister.showIndexImg}}" alt="" />
+				</div>-->
+				<div class="babyHomeContent">
+					<div class="container">
+						<div class="row">
+							<div class="col-md-6 col-xs-6 baby_title ft20 fl">好评宝贝</div>
+							<div class="col-md-6 col-xs-6 text-right"><a ng-click="getMoreBaby(1)" class="Anymore">更多</a></div>
+						</div>
+					<ul class="row good_baby" ng-repeat="sister in sistersName" ng-if="$index % 4 == 0">
+			   			<li class="col-md-3 col-xs-6 img" ng-if="sistersName[$index].babyId != undefined">
+			    			<div class="box row" >
+			    				<div class="date_btn white ft16 text-center" ng-click="clickMe(sistersName[$index])">约ta</div>
+			    				<div class="concern"><div  ng-class="{'concern_btn': isConcern, 'concern_btn2': noConcern}"  ng-click="clickConcern(sistersName[$index])">{{concerStatus}}</div></div>
+			    				<a ui-sref="Navbar.babyInfoDetail({id:sistersName[$index].babyId})">
+			    				
+			    					<img ng-src="{{sistersName[$index].showIndexImg}}" alt="" class="img-responsive center-block sisterImg"/>
+			    					<div class="detail center-block col-md-12 col-xs-12 hidden-sm hidden-xs hidden-md">
+										<div class="nicheng">{{sistersName[$index].nickName}}<span>({{sistersName[$index].orderCounter}}单)</span></div>
+										<p><span class="sex">{{sistersName[$index].sex}}</span><span class="age">{{sistersName[$index].age}}</span></p>
+										<p>身高：<span>{{sistersName[$index].height}}cm</span>，体重：<span>{{sistersName[$index].weight}}kg</span></p>
+										<p>服务范围：<span class="serverRange">{{sistersName[$index].scaleName}}</span></p>
+										<p>价格：<span>￥{{sistersName[$index].gradePrice}}</span></p>
+									</div>
+									</a>
+			    			</div>
+			    		</li>
+			    		<li class="col-md-3 col-xs-6 img" ng-if="sistersName[$index].babyId != undefined">
+			    			<div class="box row" >
+			    				<div class="date_btn white ft16 text-center" ng-click="clickMe(sistersName[$index+1])">约ta</div>
+			    				<div class="concern"><div  ng-class="{'concern_btn': isConcern, 'concern_btn2': noConcern}"  ng-click="clickConcern(sistersName[$index+1])">{{concerStatus}}</div></div>
+			    				<a ui-sref="Navbar.babyInfoDetail({id:sistersName[$index+1].babyId})">
+			    				<img ng-src="{{sistersName[$index+1].showIndexImg}}" alt="" class="img-responsive center-block sisterImg"/>
+								
+			    					<div class="detail center-block col-md-12 col-xs-12 hidden-sm hidden-xs hidden-md">
+										<div class="nicheng">{{sistersName[$index+1].nickName}}<span>({{sistersName[$index+1].orderCounter}}单)</span></div>
+										<p><span class="sex">{{sistersName[$index+1].sex}}</span><span class="age">{{sistersName[$index+1].age}}</span></p>
+										<p>身高：<span>{{sistersName[$index+1].height}}cm</span>，体重：<span>{{sistersName[$index+1].weight}}kg</span></p>
+										<p>服务范围：<span class="serverRange">{{sistersName[$index+1].scaleName}}</span></p>
+										<p>价格：<span>￥{{sistersName[$index+1].gradePrice}}</span></p>
+									</div>
+									</a>
+			    			</div>
+			    		</li>
+			    		<li class="col-md-3 col-xs-6 img" ng-if="sistersName[$index].babyId != undefined">
+			    			<div class="box row" >
+			    				<div class="date_btn white ft16 text-center" ng-click="clickMe(sistersName[$index+2])">约ta</div>
+			    				<div class="concern"><div  ng-class="{'concern_btn': isConcern, 'concern_btn2': noConcern}"  ng-click="clickConcern(sistersName[$index+2])">{{concerStatus}}</div></div>
+			    				<a ui-sref="Navbar.babyInfoDetail({id:sistersName[$index+2].babyId})">
+			    				<img ng-src="{{sistersName[$index+2].showIndexImg}}" alt="" class="img-responsive center-block sisterImg"/>
+								
+			    					<div class="detail center-block col-md-12 col-xs-12 hidden-sm hidden-xs hidden-md">
+										<div class="nicheng">{{sistersName[$index+2].nickName}}<span>({{sistersName[$index+2].orderCounter}}单)</span></div>
+										<p><span class="sex">{{sistersName[$index+2].sex}}</span><span class="age">{{sistersName[$index+2].age}}</span></p>
+										<p>身高：<span>{{sistersName[$index+2].height}}cm</span>，体重：<span>{{sistersName[$index+2].weight}}kg</span></p>
+										<p>服务范围：<span class="serverRange">{{sistersName[$index+2].scaleName}}</span></p>
+										<p>价格：<span>￥{{sistersName[$index+2].gradePrice}}</span></p>
+									</div>
+									</a>
+			    			</div>
+			    		</li>
+			    		<li class="col-md-3 col-xs-6 img" ng-if="sistersName[$index].babyId != undefined">
+			    			<div class="box row" >
+			    				<div class="date_btn white ft16 text-center" ng-click="clickMe(sistersName[$index+3])">约ta</div>
+			    				<div class="concern"><div  ng-class="{'concern_btn': isConcern, 'concern_btn2': noConcern}"  ng-click="clickConcern(sistersName[$index+3])">{{concerStatus}}</div></div>
+			    				<a ui-sref="Navbar.babyInfoDetail({id:sistersName[$index+3].babyId})">
+			    				<img ng-src="{{sistersName[$index+3].showIndexImg}}" alt="" class="img-responsive center-block sisterImg"/>
+								
+			    					<div class="detail center-block col-md-12 col-xs-12 hidden-sm hidden-xs hidden-md">
+										<div class="nicheng">{{sistersName[$index+3].nickName}}<span>({{sistersName[$index+3].orderCounter}}单)</span></div>
+										<p><span class="sex">{{sistersName[$index+3].sex}}</span><span class="age">{{sistersName[$index+3].age}}</span></p>
+										<p>身高：<span>{{sistersName[$index+3].height}}cm</span>，体重：<span>{{sistersName[$index+3].weight}}kg</span></p>
+										<p>服务范围：<span class="serverRange">{{sistersName[$index+3].scaleName}}</span></p>
+										<p>价格：<span>￥{{sistersName[$index+3].gradePrice}}</span></p>
+									</div>
+									</a>
+			    			</div>
+			    		</li>
+			    		</ul>
+					</div>
+					<div class="container">
+						<div class="row">
+							<div class="col-md-6 col-xs-6 baby_title ft20 fl">人气宝贝</div>
+							<div class="col-md-6 col-xs-6 text-right"><a ng-click="getMoreBaby(2)" class="Anymore">更多</a></div>
+						</div>
+					<ul class="row good_baby" ng-repeat="hotBaby in hotBabyInfo" ng-if="$index % 4 == 0">
+			   			<li class="col-md-3 col-xs-6 img" ng-if="hotBabyInfo[$index].babyId != undefined">
+			    			<div class="box row" >
+			    				<div class="date_btn white ft16 text-center" ng-click="clickMe(hotBabyInfo[$index])">约ta</div>
+			    				<div class="concern"><div  ng-class="{'concern_btn': isConcern, 'concern_btn2': noConcern}"  ng-click="clickConcern(hotBabyInfo[$index])">{{concerStatus}}</div></div>
+			    				<a ui-sref="Navbar.babyInfoDetail({id:hotBabyInfo[$index].babyId})">
+			    				
+			    					<img ng-src="{{hotBabyInfo[$index].showIndexImg}}" alt="" class="img-responsive center-block sisterImg"/>
+			    					<div class="detail center-block col-md-12 col-xs-12 hidden-sm hidden-xs hidden-md">
+										<div class="nicheng">{{hotBabyInfo[$index].nickName}}<span>({{hotBabyInfo[$index].orderCounter}}单)</span></div>
+										<p><span class="sex">{{hotBabyInfo[$index].sex}}</span><span class="age">{{hotBabyInfo[$index].age}}</span></p>
+										<p>身高：<span>{{hotBabyInfo[$index].height}}cm</span>，体重：<span>{{hotBabyInfo[$index].weight}}kg</span></p>
+										<p>服务范围：<span class="serverRange">{{hotBabyInfo[$index].scaleName}}</span></p>
+										<p>价格：<span>￥{{hotBabyInfo[$index].gradePrice}}</span></p>
+									</div>
+									</a>
+			    			</div>
+			    		</li>
+			    		<li class="col-md-3 col-xs-6 img" ng-if="hotBabyInfo[$index].babyId != undefined">
+			    			<div class="box row" >
+			    				<div class="date_btn white ft16 text-center" ng-click="clickMe(hotBabyInfo[$index+1])">约ta</div>
+			    				<div class="concern"><div  ng-class="{'concern_btn': isConcern, 'concern_btn2': noConcern}"  ng-click="clickConcern(hotBabyInfo[$index+1])">{{concerStatus}}</div></div>
+			    				<a ui-sref="Navbar.babyInfoDetail({id:hotBabyInfo[$index+1].babyId})">
+			    				<img ng-src="{{hotBabyInfo[$index+1].showIndexImg}}" alt="" class="img-responsive center-block sisterImg"/>
+								
+			    					<div class="detail center-block col-md-12 col-xs-12 hidden-sm hidden-xs hidden-md">
+										<div class="nicheng">{{hotBabyInfo[$index+1].nickName}}<span>({{hotBabyInfo[$index+1].orderCounter}}单)</span></div>
+										<p><span class="sex">{{hotBabyInfo[$index+1].sex}}</span><span class="age">{{hotBabyInfo[$index+1].age}}</span></p>
+										<p>身高：<span>{{hotBabyInfo[$index+1].height}}cm</span>，体重：<span>{{hotBabyInfo[$index+1].weight}}kg</span></p>
+										<p>服务范围：<span class="serverRange">{{hotBabyInfo[$index+1].scaleName}}</span></p>
+										<p>价格：<span>￥{{hotBabyInfo[$index+1].gradePrice}}</span></p>
+									</div>
+									</a>
+			    			</div>
+			    		</li>
+			    		<li class="col-md-3 col-xs-6 img" ng-if="hotBabyInfo[$index].babyId != undefined">
+			    			<div class="box row" >
+			    				<div class="date_btn white ft16 text-center" ng-click="clickMe(hotBabyInfo[$index+2])">约ta</div>
+			    				<div class="concern"><div  ng-class="{'concern_btn': isConcern, 'concern_btn2': noConcern}"  ng-click="clickConcern(hotBabyInfo[$index+2])">{{concerStatus}}</div></div>
+			    				<a ui-sref="Navbar.babyInfoDetail({id:hotBabyInfo[$index+2].babyId})">
+			    				<img ng-src="{{hotBabyInfo[$index+2].showIndexImg}}" alt="" class="img-responsive center-block sisterImg"/>
+								
+			    					<div class="detail center-block col-md-12 col-xs-12 hidden-sm hidden-xs hidden-md">
+										<div class="nicheng">{{hotBabyInfo[$index+2].nickName}}<span>({{hotBabyInfo[$index+2].orderCounter}}单)</span></div>
+										<p><span class="sex">{{hotBabyInfo[$index+2].sex}}</span><span class="age">{{hotBabyInfo[$index+2].age}}</span></p>
+										<p>身高：<span>{{hotBabyInfo[$index+2].height}}cm</span>，体重：<span>{{hotBabyInfo[$index+2].weight}}kg</span></p>
+										<p>服务范围：<span class="serverRange">{{hotBabyInfo[$index+2].scaleName}}</span></p>
+										<p>价格：<span>￥{{hotBabyInfo[$index+2].gradePrice}}</span></p>
+									</div>
+									</a>
+			    			</div>
+			    		</li>
+			    		<li class="col-md-3 col-xs-6 img" ng-if="hotBabyInfo[$index].babyId != undefined">
+			    			<div class="box row" >
+			    				<div class="date_btn white ft16 text-center" ng-click="clickMe(hotBabyInfo[$index+3])">约ta</div>
+			    				<div class="concern"><div  ng-class="{'concern_btn': isConcern, 'concern_btn2': noConcern}"  ng-click="clickConcern(hotBabyInfo[$index+3])">{{concerStatus}}</div></div>
+			    				<a ui-sref="Navbar.babyInfoDetail({id:hotBabyInfo[$index+3].babyId})">
+			    				<img ng-src="{{hotBabyInfo[$index+3].showIndexImg}}" alt="" class="img-responsive center-block sisterImg"/>
+								
+			    					<div class="detail center-block col-md-12 col-xs-12 hidden-sm hidden-xs hidden-md">
+										<div class="nicheng">{{hotBabyInfo[$index+3].nickName}}<span>({{hotBabyInfo[$index+3].orderCounter}}单)</span></div>
+										<p><span class="sex">{{hotBabyInfo[$index+3].sex}}</span><span class="age">{{hotBabyInfo[$index+3].age}}</span></p>
+										<p>身高：<span>{{hotBabyInfo[$index+3].height}}cm</span>，体重：<span>{{hotBabyInfo[$index+3].weight}}kg</span></p>
+										<p>服务范围：<span class="serverRange">{{hotBabyInfo[$index+3].scaleName}}</span></p>
+										<p>价格：<span>￥{{hotBabyInfo[$index+3].gradePrice}}</span></p>
+									</div>
+									</a>
+			    			</div>
+			    		</li>
+			    		</ul>
+					</div>
+					<div class="container">
+						<div class="row">
+							<div class="col-md-6 col-xs-6 baby_title ft20 fl">新人宝贝</div>
+							<div class="col-md-6 col-xs-6 text-right"><a ng-click="getMoreBaby(3)" class="Anymore">更多</a></div>
+						</div>
+					<ul class="row good_baby" ng-repeat="newBaby in newBabyInfo" ng-if="$index % 4 == 0">
+			   			<li class="col-md-3 col-xs-6 img" ng-if="newBabyInfo[$index].babyId != undefined">
+			    			<div class="box row" >
+			    				<div class="date_btn white ft16 text-center" ng-click="clickMe(newBabyInfo[$index])">约ta</div>
+			    				<div class="concern"><div  ng-class="{'concern_btn': isConcern, 'concern_btn2': noConcern}"  ng-click="clickConcern(newBabyInfo[$index])">{{concerStatus}}</div></div>
+			    				<a ui-sref="Navbar.babyInfoDetail({id:newBabyInfo[$index].babyId})">
+			    				
+			    					<img ng-src="{{newBabyInfo[$index].showIndexImg}}" alt="" class="img-responsive center-block sisterImg"/>
+			    					<div class="detail center-block col-md-12 col-xs-12 hidden-sm hidden-xs hidden-md">
+										<div class="nicheng">{{newBabyInfo[$index].nickName}}<span>({{newBabyInfo[$index].orderCounter}}单)</span></div>
+										<p><span class="sex">{{newBabyInfo[$index].sex}}</span><span class="age">{{newBabyInfo[$index].age}}</span></p>
+										<p>身高：<span>{{newBabyInfo[$index].height}}cm</span>，体重：<span>{{newBabyInfo[$index].weight}}kg</span></p>
+										<p>服务范围：<span class="serverRange">{{newBabyInfo[$index].scaleName}}</span></p>
+										<p>价格：<span>￥{{newBabyInfo[$index].gradePrice}}</span></p>
+									</div>
+									</a>
+			    			</div>
+			    		</li>
+			    		<li class="col-md-3 col-xs-6 img" ng-if="newBabyInfo[$index].babyId != undefined">
+			    			<div class="box row" >
+			    				<div class="date_btn white ft16 text-center" ng-click="clickMe(newBabyInfo[$index+1])">约ta</div>
+			    				<div class="concern"><div  ng-class="{'concern_btn': isConcern, 'concern_btn2': noConcern}"  ng-click="clickConcern(newBabyInfo[$index+1])">{{concerStatus}}</div></div>
+			    				<a ui-sref="Navbar.babyInfoDetail({id:newBabyInfo[$index+1].babyId})">
+			    				<img ng-src="{{newBabyInfo[$index+1].showIndexImg}}" alt="" class="img-responsive center-block sisterImg"/>
+								
+			    					<div class="detail center-block col-md-12 col-xs-12 hidden-sm hidden-xs hidden-md">
+										<div class="nicheng">{{newBabyInfo[$index+1].nickName}}<span>({{newBabyInfo[$index+1].orderCounter}}单)</span></div>
+										<p><span class="sex">{{newBabyInfo[$index+1].sex}}</span><span class="age">{{newBabyInfo[$index+1].age}}</span></p>
+										<p>身高：<span>{{newBabyInfo[$index+1].height}}cm</span>，体重：<span>{{newBabyInfo[$index+1].weight}}kg</span></p>
+										<p>服务范围：<span class="serverRange">{{newBabyInfo[$index+1].scaleName}}</span></p>
+										<p>价格：<span>￥{{newBabyInfo[$index+1].gradePrice}}</span></p>
+									</div>
+									</a>
+			    			</div>
+			    		</li>
+			    		<li class="col-md-3 col-xs-6 img" ng-if="newBabyInfo[$index].babyId != undefined">
+			    			<div class="box row" >
+			    				<div class="date_btn white ft16 text-center" ng-click="clickMe(newBabyInfo[$index+2])">约ta</div>
+			    				<div class="concern"><div  ng-class="{'concern_btn': isConcern, 'concern_btn2': noConcern}"  ng-click="clickConcern(newBabyInfo[$index+2])">{{concerStatus}}</div></div>
+			    				<a ui-sref="Navbar.babyInfoDetail({id:newBabyInfo[$index+2].babyId})">
+			    				<img ng-src="{{newBabyInfo[$index+2].showIndexImg}}" alt="" class="img-responsive center-block sisterImg"/>
+								
+			    					<div class="detail center-block col-md-12 col-xs-12 hidden-sm hidden-xs hidden-md">
+										<div class="nicheng">{{newBabyInfo[$index+2].nickName}}<span>({{newBabyInfo[$index+2].orderCounter}}单)</span></div>
+										<p><span class="sex">{{newBabyInfo[$index+2].sex}}</span><span class="age">{{newBabyInfo[$index+2].age}}</span></p>
+										<p>身高：<span>{{newBabyInfo[$index+2].height}}cm</span>，体重：<span>{{newBabyInfo[$index+2].weight}}kg</span></p>
+										<p>服务范围：<span class="serverRange">{{newBabyInfo[$index+2].scaleName}}</span></p>
+										<p>价格：<span>￥{{newBabyInfo[$index+2].gradePrice}}</span></p>
+									</div>
+									</a>
+			    			</div>
+			    		</li>
+			    		<li class="col-md-3 col-xs-6 img" ng-if="newBabyInfo[$index].babyId != undefined">
+			    			<div class="box row" >
+			    				<div class="date_btn white ft16 text-center" ng-click="clickMe(newBabyInfo[$index+3])">约ta</div>
+			    				<div class="concern"><div  ng-class="{'concern_btn': isConcern, 'concern_btn2': noConcern}"  ng-click="clickConcern(newBabyInfo[$index+3])">{{concerStatus}}</div></div>
+			    				<a ui-sref="Navbar.babyInfoDetail({id:newBabyInfo[$index+3].babyId})">
+			    				<img ng-src="{{newBabyInfo[$index+3].showIndexImg}}" alt="" class="img-responsive center-block sisterImg"/>
+								
+			    					<div class="detail center-block col-md-12 col-xs-12 hidden-sm hidden-xs hidden-md">
+										<div class="nicheng">{{newBabyInfo[$index+3].nickName}}<span>({{newBabyInfo[$index+3].orderCounter}}单)</span></div>
+										<p><span class="sex">{{newBabyInfo[$index+3].sex}}</span><span class="age">{{newBabyInfo[$index+3].age}}</span></p>
+										<p>身高：<span>{{newBabyInfo[$index+3].height}}cm</span>，体重：<span>{{newBabyInfo[$index+3].weight}}kg</span></p>
+										<p>服务范围：<span class="serverRange">{{newBabyInfo[$index+3].scaleName}}</span></p>
+			    			</div>
+			    		</li>
+			    		</ul>
+					</div>
+</div>
