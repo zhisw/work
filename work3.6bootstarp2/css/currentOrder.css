@@ -156,5 +156,26 @@ p{
 }
 
 
+.whiteLine{
+	
+	position:relative;
+	width: 218px;
+	height: 2px;
+}
 
-
+.yellowLine{
+	position:absolute;
+	left:0;
+	top:0;
+	width: 109px;
+	height: 2px;
+	background: yellow;
+}
+.yellowLine2{
+	position:absolute;
+	left:0;
+	top:0;
+	width: 218px;
+	height: 2px;
+	background: yellow;
+}

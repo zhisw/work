@@ -30,31 +30,32 @@
 			<!--  - - - - - 所有的历史订单  - - -->
 			<div class="orders">
 				<!--  - - -  - order_mes - - - - -->
-				<div class="order_mes ft20">
+				<div class="order_mes ft20" ng-repeat="oldBaby in oldBabyInfo">
 					<div class="order_datail">
 						<!--  - - - -两个按钮 - - - -->
-						<button class="delete"></button>
-						<button class="put_up up"></button>
+						<!--<button class="delete"></button>-->
+						<button class="put_up up" ng-click="showDetail()" ng-hide="isUpShow"></button>
+						<button class="put_up down" ng-click="showDetail()" ng-hide="isDownShow"></button>
 						<p>
-						    <span class="order_code">订单编号 ：27849685263238757</span><span class="order_time">下单时间 ：2017-01-20 12:05:55</span>
+						    <span class="order_code">订单编号 ：{{oldBaby.orderNo}}</span><span class="order_time">下单时间 ：{{oldBaby.orderTime}}</span>
 						</p>
 						<p>
-							<span class="date_loca">约会地址 ：浙江省杭州市滨江区滨康路天上人间1222包间</span>
-							<span class="total2_money ft28">合计：￥1500.00</span>
+							<span class="date_loca">约会地址 ：{{oldBaby.meetAddress}}</span>
+							<span class="total2_money ft28">合计：￥{{oldBaby.payMoney}}.00</span>
 						</p>
 					</div>
 					
 					<!--  - - -  - date-baby - - - -->
-					<div class="date-baby">
-						<div class="per-baby"> 
-							<img class="head fl" src="images/2.png" />
+					<div class="date-baby" ng-if="showDetailStop">
+						<div class="per-baby" ng-repeat="oldBabyDetail in oldBabyInfoDetail"> 
+							<img class="head fl" ng-src="{{oldBabyDetail.babyPhoto}}" />
 							<div class="baby-mes fl">
-								<p><span class="baby-name">温柔De棉花糖</span><span class="no-line line"></span><span class="level"></span></p>
-								<p><span class="tall_high">身高：170cm</span><span>体重：46kg</span><span class="dateMoney ft26">￥600.00</span></p>
-								<p>服务范围：K歌、看电影</p>
+								<p><span class="baby-name">{{oldBabyDetail.babyName}}</span><span class="no-line line" ng-if="oldBabyDetail.serviceStatus==1"></span><span class="no-line" ng-if="oldBabyDetail.serviceStatus==2"></span><span class="level"></span></p>
+								<p><span class="tall_high">身高：{{oldBabyDetail.height}}cm</span><span>体重：{{oldBabyDetail.weight}}kg</span><span class="dateMoney ft26">￥{{oldBabyDetail.payMoney}}.00</span></p>
+								<p>服务范围：{{oldBabyDetail.scaleName}}</p>
 							</div>
 						</div>
-						<div class="per-baby"> 
+						<!--<div class="per-baby"> 
 							<img class="head fl" src="images/4.png" />
 							<div class="baby-mes fl">
 								<p><span class="baby-name">温柔De棉花糖</span><span class="no-line"></span><span class="level"></span></p>
@@ -63,12 +64,12 @@
 							</div>
 						</div>
 					</div>
-				</div>
+				</div>-->
 				<!--  - - -  - order_mes - - - - -->
-				<div class="order_mes ft20">
-					<div class="order_datail">
+			<!--	<div class="order_mes ft20">
+					<div class="order_datail">-->
 						<!--  - - - -两个按钮 - - - -->
-						<button class="delete"></button>
+					<!--	<button class="delete"></button>
 						<button class="put_up down"></button>
 						<p>
 						    <span class="order_code">订单编号 ：27849685263238757</span><span class="order_time">下单时间 ：2017-01-20 12:05:55</span>
@@ -78,7 +79,7 @@
 							<span class="total_money ft28">合计：￥1500.00</span>
 						</p>
 					</div>
-				</div>
+				</div>-->
 		</div>
 	</div>
 </div>

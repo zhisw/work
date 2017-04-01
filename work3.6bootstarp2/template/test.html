@@ -1,0 +1,13 @@
+<input type="text" id="timeInput"/>
+
+<script type="text/javascript">
+laydate.skin('danlan')
+        laydate({
+            elem: '#timeInput',
+            format:   'YYYY-MM-DD hh:mm:ss', // 分隔符可以任意定义，该例子表示只显示年月
+            istime: true,
+            choose:   function(datas){
+                console.log(datas);
+            }
+        });
+</script>

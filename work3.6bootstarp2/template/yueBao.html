@@ -7,34 +7,66 @@
 		<div class="order_mes">
 			<!-- —————— 填写信息 —————————— -->
 			<div class="self_mes"><span class="mes_red">*&nbsp;</span>姓&nbsp;&nbsp;名 ：<input type="text" name=""placeholder="请填写真实姓名" /></div>
-			<div class="self_mes"><span class="mes_red">*&nbsp;</span>约会地点 ：<input type="text" placeholder="请填写详细地址" /></div>
-			<div class="self_mes"><span class="mes_red">*&nbsp;</span>联系电话 ：<input type="text" placeholder="请填写真实可联系电话" /></div>
-			<div class="self_mes"><span class="mes_red">*&nbsp;</span>服务时间 ：<input type="text" placeholder="服务开始时间" /></div>
+			<div class="self_mes"><span class="mes_red">*&nbsp;</span>约会地点 ：<input type="text" placeholder="请填写详细地址" ng-model="meetAddress"/></div>
+			<div class="self_mes"><span class="mes_red">*&nbsp;</span>联系电话 ：<input type="text" placeholder="请填写真实可联系电话" ng-model="contactPhone"/></div>
+			<div class="self_mes"><span class="mes_red">*&nbsp;</span>服务时间 ：<input type="text" readonly="readonly"  placeholder="服务开始时间" id="appDateTime" ng-model="meetTime"/></div>
 			<!--  - - -  - -约会的宝贝- - -   -->
 			<div class="date_baby">
-				<div class="date_per clearfix">
-					<div class="choose_btn no_choose fl"></div>
-					<img class="baby_head fl" ng-src="images/1.png" >
+				<div class="date_per clearfix" ng-repeat="Baby in inviteBaby">
+					
+					<span class="choose_btn  fl" ng-class='{"no_choose":Nochoose,"yes_choose":Yeschoose }' ng-click="choose(Baby);$event.stopPropagation();"></span>
+					
+					<div style="width: 2px;height: 2px;"></div><!--避免点击按钮图片变成选中状态-->
+						<img class="baby_head fl" ng-src="{{Baby.babyPhoto}}" >
+					
 					<div class="baby_mes fl">
-						<p><span class="baby_name">{{sisterName}}</span><span class="no_line"></span></p>
-						<p>服务范围：K歌、看电影</p>
-						<p>定价：<span class="dateMoney">￥800.00</span></p>
+						<p><span class="baby_name">{{Baby.babyName}}</span><span class="no-line line"></span></p>
+						<p>服务范围：{{Baby.scale}}</p>
+						<p>定价：<span class="dateMoney">￥{{Baby.payMoney}}.00</span></p>
 					</div>
-					<button class="delete_btn"></button>
-				</div>
-				<div class="date_per clearfix">
-					<div class="choose_btn yes_choose fl"></div>
-					<img class="baby_head fl" ng-src="images/2.png" >
-					<div class="baby_mes fl">
-						<p><span class="baby_name">{{sisterName}}</span><span class="no_line line"></span></p>
-						<p>服务范围：K歌、看电影</p>
-						<p>定价：<span class="dateMoney">￥800.00</span></p>
-					</div>
-					<button class="delete_btn"></button>
+					<button class="delete_btn" ng-click="deleted(Baby)"></button>
 				</div>
 			</div>
 		</div>
 		<!--  - -  - - - 合计  - -  - - -->
-		<div class="money_all ft24">合计 ：<span class="total">￥800.00</span><button class="pay_btn white tac fr ft24">付  款</button></div>
+		<div class="money_all ft24">合计 ：<span class="total">￥{{payMoney}}.00</span><button class="pay_btn white tac fr ft24" ng-click="payTotalMoney()">付  款</button></div>
 	</div>
 </div>
+<div ng-if="goPayMoney" style="position:absolute;left:0;top:0;width:100px;height:100px;">
+	<img ng-src="{{erWeimaImg}}" alt="" />
+</div>
+<script type="text/javascript">
+/*laydate.skin('danlan')
+        laydate({
+            elem: '#timeInput',
+            format:   'YYYY-MM-DD hh:mm:ss', // 分隔符可以任意定义，该例子表示只显示年月
+            istime: true,
+            choose:   function(datas){
+                console.log(datas);
+            }
+        });*/
+         $(function () {
+			var currYear = (new Date()).getFullYear();	
+			var opt={};
+			opt.date = {preset : 'date'};
+			opt.datetime = {preset : 'datetime'};
+			opt.time = {preset : 'time'};
+			opt.default = {
+				theme: 'android-ics light', //皮肤样式
+		        display: 'modal', //显示方式 
+		        mode: 'scroller', //日期选择模式
+				dateFormat: 'yyyy-mm-dd',
+				lang: 'zh',
+				showNow: true,
+				nowText: "今天",
+		        startYear: currYear - 10, //开始年份
+		        endYear: currYear + 10 //结束年份
+			};
+
+		  	$("#appDate").mobiscroll($.extend(opt['date'], opt['default']));
+		  	var optDateTime = $.extend(opt['datetime'], opt['default']);
+		  	var optTime = $.extend(opt['time'], opt['default']);
+		    $("#appDateTime").mobiscroll(optDateTime).datetime(optDateTime);
+		    $("#appTime").mobiscroll(optTime).time(optTime);
+        });
+</script>

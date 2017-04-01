@@ -1,30 +1,4 @@
 
-<!--<div class="content">
-	<div class="content-wrap">-->
-		<!--  - - -  - -好评宝贝- - -  - -->
-		<!--<div class="good_view clearfix">-->
-			<!--<div class="clearfix">
-				<h3 class="baby_title ft20 fl">好评宝贝</h3>
-				<button class="more_btn fr"><a ui-sref="Navbar.babyMore">更多</a></button>
-			</div>
-			<ul class="good_baby clearfix" >
-				<li ng-repeat="sister in sistersName">
-					<a href='' class="sisterBox">
-						<button class="date_btn white ft16" ng-click="clickMe(sister)">约ta</button>
-						<div class="concern"><button  ng-class="{'concern_btn': isConcern, 'concern_btn2': noConcern}"  ng-click="clickConcern(sister)">{{concerStatus}}</button></div>
-						<a ui-sref="Navbar.babyInfoDetail({id:sister.id})"><img class="baby_pic" src="./images/1.png" ></a>
-						<div class="mes-detail ft18">
-							<div class="nicheng">{{sister.name}}<span>(22单)</span></div>
-							<p><span class="sex">女</span><span class="age">{{sister.age}}</span></p>
-							<p>身高：<span>175cm</span>，体重：<span>45kg</span></p>
-							<p>服务范围：K歌、看电影</p>
-							<p>价格：<span>￥800</span></p>
-						</div>
-					</a>
-				</li>-->
-			<!--	<div ng-repeat="sister in sistersName">
-					<img ng-src="{{sister.showIndexImg}}" alt="" />
-				</div>-->
 				<div class="babyHomeContent">
 					<div class="container">
 						<div class="row">
@@ -34,10 +8,10 @@
 					<ul class="row good_baby" ng-repeat="sister in sistersName" ng-if="$index % 4 == 0">
 			   			<li class="col-md-3 col-xs-6 img" ng-if="sistersName[$index].babyId != undefined">
 			    			<div class="box row" >
-			    				<div class="date_btn white ft16 text-center" ng-click="clickMe(sistersName[$index])">约ta</div>
-			    				<div class="concern"><div  ng-class="{'concern_btn': isConcern, 'concern_btn2': noConcern}"  ng-click="clickConcern(sistersName[$index])">{{concerStatus}}</div></div>
+			    				<div class="date_btn white ft16 text-center" ng-click="clickMe(sistersName[$index]);$event.stopPropagation();">约ta</div>	
+			    			<div class="concern" ng-if="sistersName[$index].attention =='1' "><div  ng-class="{'concern_btn1': concern_btn1, 'concern_btn2': Concern_btn2}"  ng-click="clickConcern(sistersName[$index]);$event.stopPropagation();" ng-mouseover="cancleConcern(sistersName[$index])"  ng-mouseout="cancleConcernOut(sistersName[$index])">{{cancleConcerStatus}}</div></div>
+			    			<div class="concern"  ng-if="sistersName[$index].attention =='2' "><div  ng-class="{'concern_btn': isConcern, 'concern_btn2': noConcern}"  ng-click="clickConcern(sistersName[$index]);$event.stopPropagation();">{{concerStatus}}</div></div>
 			    				<a ui-sref="Navbar.babyInfoDetail({id:sistersName[$index].babyId})">
-			    				
 			    					<img ng-src="{{sistersName[$index].showIndexImg}}" alt="" class="img-responsive center-block sisterImg"/>
 			    					<div class="detail center-block col-md-12 col-xs-12 hidden-sm hidden-xs hidden-md">
 										<div class="nicheng">{{sistersName[$index].nickName}}<span>({{sistersName[$index].orderCounter}}单)</span></div>
@@ -49,10 +23,14 @@
 									</a>
 			    			</div>
 			    		</li>
-			    		<li class="col-md-3 col-xs-6 img" ng-if="sistersName[$index].babyId != undefined">
+			    		<li class="col-md-3 col-xs-6 img" ng-if="sistersName[$index+1].babyId != undefined">
 			    			<div class="box row" >
-			    				<div class="date_btn white ft16 text-center" ng-click="clickMe(sistersName[$index+1])">约ta</div>
-			    				<div class="concern"><div  ng-class="{'concern_btn': isConcern, 'concern_btn2': noConcern}"  ng-click="clickConcern(sistersName[$index+1])">{{concerStatus}}</div></div>
+			    				<div class="date_btn white ft16 text-center" ng-click="clickMe(sistersName[$index+1]);$event.stopPropagation();">约ta</div>
+			    				<!--<div class="concern" ng-if="sistersName[$index].attention == 2"><div  class="concern_btn"  ng-click="clickConcern(sistersName[$index+1])">关注</div></div>-->
+			    			<div class="concern" ng-if="sistersName[$index+1].attention =='1' "><div  ng-class="{'concern_btn1': concern_btn1, 'concern_btn2': Concern_btn2}"  ng-click="clickConcern(sistersName[$index+1]);$event.stopPropagation();" ng-mouseover="cancleConcern(sistersName[$index+1])"  ng-mouseout="cancleConcernOut(sistersName[$index+1])">{{cancleConcerStatus}}</div></div>
+			    			<div class="concern"  ng-if="sistersName[$index+1].attention == '2' "><div  ng-class="{'concern_btn': isConcern, 'concern_btn2': noConcern}"  ng-click="clickConcern(sistersName[$index+1]);$event.stopPropagation();">{{concerStatus}}</div></div>
+			    			<!--<div class="concern"  ng-if="sistersName[$index].attention == 1"><div  ng-class="{'concern_btn': isConcern, 'concern_btn2': noConcern}"  ng-click="clickConcern(sistersName[$index+1])">{{concerStatus}}</div></div>-->	
+			    				
 			    				<a ui-sref="Navbar.babyInfoDetail({id:sistersName[$index+1].babyId})">
 			    				<img ng-src="{{sistersName[$index+1].showIndexImg}}" alt="" class="img-responsive center-block sisterImg"/>
 								
@@ -66,10 +44,11 @@
 									</a>
 			    			</div>
 			    		</li>
-			    		<li class="col-md-3 col-xs-6 img" ng-if="sistersName[$index].babyId != undefined">
+			    		<li class="col-md-3 col-xs-6 img" ng-if="sistersName[$index+2].babyId != undefined">
 			    			<div class="box row" >
-			    				<div class="date_btn white ft16 text-center" ng-click="clickMe(sistersName[$index+2])">约ta</div>
-			    				<div class="concern"><div  ng-class="{'concern_btn': isConcern, 'concern_btn2': noConcern}"  ng-click="clickConcern(sistersName[$index+2])">{{concerStatus}}</div></div>
+			    				<div class="date_btn white ft16 text-center" ng-click="clickMe(sistersName[$index+2]);$event.stopPropagation();">约ta</div>
+			    				<div class="concern" ng-if="sistersName[$index+2].attention =='1' "><div  ng-class="{'concern_btn1': concern_btn1, 'concern_btn2': Concern_btn2}"  ng-click="clickConcern(sistersName[$index+2]);$event.stopPropagation();" ng-mouseover="cancleConcern(sistersName[$index+2])"  ng-mouseout="cancleConcernOut(sistersName[$index+2])">{{cancleConcerStatus}}</div></div>
+			    			<div class="concern"  ng-if="sistersName[$index+2].attention == '2' "><div  ng-class="{'concern_btn': isConcern, 'concern_btn2': noConcern}"  ng-click="clickConcern(sistersName[$index+2]);$event.stopPropagation();">{{concerStatus}}</div></div>
 			    				<a ui-sref="Navbar.babyInfoDetail({id:sistersName[$index+2].babyId})">
 			    				<img ng-src="{{sistersName[$index+2].showIndexImg}}" alt="" class="img-responsive center-block sisterImg"/>
 								
@@ -83,10 +62,11 @@
 									</a>
 			    			</div>
 			    		</li>
-			    		<li class="col-md-3 col-xs-6 img" ng-if="sistersName[$index].babyId != undefined">
+			    		<li class="col-md-3 col-xs-6 img" ng-if="sistersName[$index+3].babyId != undefined">
 			    			<div class="box row" >
-			    				<div class="date_btn white ft16 text-center" ng-click="clickMe(sistersName[$index+3])">约ta</div>
-			    				<div class="concern"><div  ng-class="{'concern_btn': isConcern, 'concern_btn2': noConcern}"  ng-click="clickConcern(sistersName[$index+3])">{{concerStatus}}</div></div>
+			    				<div class="date_btn white ft16 text-center" ng-click="clickMe(sistersName[$index+3]);$event.stopPropagation();">约ta</div>
+			    			<div class="concern" ng-if="sistersName[$index+3].attention =='1' "><div  ng-class="{'concern_btn1': concern_btn1, 'concern_btn2': Concern_btn2}"  ng-click="clickConcern(sistersName[$index+3])" ng-mouseover="cancleConcern(sistersName[$index+3])"  ng-mouseout="cancleConcernOut(sistersName[$index+3])">{{cancleConcerStatus}}</div></div>
+			    			<div class="concern"  ng-if="sistersName[$index+3].attention == '2' "><div  ng-class="{'concern_btn': isConcern, 'concern_btn2': noConcern}"  ng-click="clickConcern(sistersName[$index+3])">{{concerStatus}}</div></div>
 			    				<a ui-sref="Navbar.babyInfoDetail({id:sistersName[$index+3].babyId})">
 			    				<img ng-src="{{sistersName[$index+3].showIndexImg}}" alt="" class="img-responsive center-block sisterImg"/>
 								
@@ -110,8 +90,9 @@
 					<ul class="row good_baby" ng-repeat="hotBaby in hotBabyInfo" ng-if="$index % 4 == 0">
 			   			<li class="col-md-3 col-xs-6 img" ng-if="hotBabyInfo[$index].babyId != undefined">
 			    			<div class="box row" >
-			    				<div class="date_btn white ft16 text-center" ng-click="clickMe(hotBabyInfo[$index])">约ta</div>
-			    				<div class="concern"><div  ng-class="{'concern_btn': isConcern, 'concern_btn2': noConcern}"  ng-click="clickConcern(hotBabyInfo[$index])">{{concerStatus}}</div></div>
+			    				<div class="date_btn white ft16 text-center" ng-click="clickMe(hotBabyInfo[$index]);$event.stopPropagation();">约ta</div>
+			    					<div class="concern" ng-if="hotBabyInfo[$index].attention =='1' "><div  ng-class="{'concern_btn1': concern_btn1, 'concern_btn2': Concern_btn2}"  ng-click="clickConcern(hotBabyInfo[$index])" ng-mouseover="cancleConcern(hotBabyInfo[$index])"  ng-mouseout="cancleConcernOut(hotBabyInfo[$index])">{{cancleConcerStatus}}</div></div>
+			    					<div class="concern"  ng-if="hotBabyInfo[$index].attention =='2' "><div  ng-class="{'concern_btn': isConcern, 'concern_btn2': noConcern}"  ng-click="clickConcern(hotBabyInfo[$index])">{{concerStatus}}</div></div>
 			    				<a ui-sref="Navbar.babyInfoDetail({id:hotBabyInfo[$index].babyId})">
 			    				
 			    					<img ng-src="{{hotBabyInfo[$index].showIndexImg}}" alt="" class="img-responsive center-block sisterImg"/>
@@ -125,10 +106,11 @@
 									</a>
 			    			</div>
 			    		</li>
-			    		<li class="col-md-3 col-xs-6 img" ng-if="hotBabyInfo[$index].babyId != undefined">
+			    		<li class="col-md-3 col-xs-6 img" ng-if="hotBabyInfo[$index+1].babyId != undefined">
 			    			<div class="box row" >
-			    				<div class="date_btn white ft16 text-center" ng-click="clickMe(hotBabyInfo[$index+1])">约ta</div>
-			    				<div class="concern"><div  ng-class="{'concern_btn': isConcern, 'concern_btn2': noConcern}"  ng-click="clickConcern(hotBabyInfo[$index+1])">{{concerStatus}}</div></div>
+			    				<div class="date_btn white ft16 text-center" ng-click="clickMe(hotBabyInfo[$index+1]);$event.stopPropagation();">约ta</div>
+			    					<div class="concern" ng-if="hotBabyInfo[$index+1].attention =='1' "><div  ng-class="{'concern_btn1': concern_btn1, 'concern_btn2': Concern_btn2}"  ng-click="clickConcern(hotBabyInfo[$index+1])" ng-mouseover="cancleConcern(hotBabyInfo[$index+1])"  ng-mouseout="cancleConcernOut(hotBabyInfo[$index+1])">{{cancleConcerStatus}}</div></div>
+			    			<div class="concern"  ng-if="hotBabyInfo[$index+1].attention =='2' "><div  ng-class="{'concern_btn': isConcern, 'concern_btn2': noConcern}"  ng-click="clickConcern(hotBabyInfo[$index+1])">{{concerStatus}}</div></div>
 			    				<a ui-sref="Navbar.babyInfoDetail({id:hotBabyInfo[$index+1].babyId})">
 			    				<img ng-src="{{hotBabyInfo[$index+1].showIndexImg}}" alt="" class="img-responsive center-block sisterImg"/>
 								
@@ -142,10 +124,11 @@
 									</a>
 			    			</div>
 			    		</li>
-			    		<li class="col-md-3 col-xs-6 img" ng-if="hotBabyInfo[$index].babyId != undefined">
+			    		<li class="col-md-3 col-xs-6 img" ng-if="hotBabyInfo[$index+2].babyId != undefined">
 			    			<div class="box row" >
-			    				<div class="date_btn white ft16 text-center" ng-click="clickMe(hotBabyInfo[$index+2])">约ta</div>
-			    				<div class="concern"><div  ng-class="{'concern_btn': isConcern, 'concern_btn2': noConcern}"  ng-click="clickConcern(hotBabyInfo[$index+2])">{{concerStatus}}</div></div>
+			    				<div class="date_btn white ft16 text-center" ng-click="clickMe(hotBabyInfo[$index+2]);$event.stopPropagation();">约ta</div>
+			    					<div class="concern" ng-if="hotBabyInfo[$index+2].attention =='1' "><div  ng-class="{'concern_btn1': concern_btn1, 'concern_btn2': Concern_btn2}"  ng-click="clickConcern(hotBabyInfo[$index+2])" ng-mouseover="cancleConcern(hotBabyInfo[$index+2])"  ng-mouseout="cancleConcernOut(hotBabyInfo[$index+2])">{{cancleConcerStatus}}</div></div>
+			    			<div class="concern"  ng-if="hotBabyInfo[$index+2].attention =='2' "><div  ng-class="{'concern_btn': isConcern, 'concern_btn2': noConcern}"  ng-click="clickConcern(hotBabyInfo[$index+2])">{{concerStatus}}</div></div>
 			    				<a ui-sref="Navbar.babyInfoDetail({id:hotBabyInfo[$index+2].babyId})">
 			    				<img ng-src="{{hotBabyInfo[$index+2].showIndexImg}}" alt="" class="img-responsive center-block sisterImg"/>
 								
@@ -159,10 +142,11 @@
 									</a>
 			    			</div>
 			    		</li>
-			    		<li class="col-md-3 col-xs-6 img" ng-if="hotBabyInfo[$index].babyId != undefined">
+			    		<li class="col-md-3 col-xs-6 img" ng-if="hotBabyInfo[$index+3].babyId != undefined">
 			    			<div class="box row" >
-			    				<div class="date_btn white ft16 text-center" ng-click="clickMe(hotBabyInfo[$index+3])">约ta</div>
-			    				<div class="concern"><div  ng-class="{'concern_btn': isConcern, 'concern_btn2': noConcern}"  ng-click="clickConcern(hotBabyInfo[$index+3])">{{concerStatus}}</div></div>
+			    				<div class="date_btn white ft16 text-center" ng-click="clickMe(hotBabyInfo[$index+3]);$event.stopPropagation();">约ta</div>
+			    					<div class="concern" ng-if="hotBabyInfo[$index+3].attention =='1' "><div  ng-class="{'concern_btn1': concern_btn1, 'concern_btn2': Concern_btn2}"  ng-click="clickConcern(hotBabyInfo[$index+3])" ng-mouseover="cancleConcern(hotBabyInfo[$index+3])"  ng-mouseout="cancleConcernOut(hotBabyInfo[$index+3])">{{cancleConcerStatus}}</div></div>
+			    			<div class="concern"  ng-if="hotBabyInfo[$index+3].attention =='2' "><div  ng-class="{'concern_btn': isConcern, 'concern_btn2': noConcern}"  ng-click="clickConcern(hotBabyInfo[$index+3])">{{concerStatus}}</div></div>
 			    				<a ui-sref="Navbar.babyInfoDetail({id:hotBabyInfo[$index+3].babyId})">
 			    				<img ng-src="{{hotBabyInfo[$index+3].showIndexImg}}" alt="" class="img-responsive center-block sisterImg"/>
 								
@@ -187,7 +171,8 @@
 			   			<li class="col-md-3 col-xs-6 img" ng-if="newBabyInfo[$index].babyId != undefined">
 			    			<div class="box row" >
 			    				<div class="date_btn white ft16 text-center" ng-click="clickMe(newBabyInfo[$index])">约ta</div>
-			    				<div class="concern"><div  ng-class="{'concern_btn': isConcern, 'concern_btn2': noConcern}"  ng-click="clickConcern(newBabyInfo[$index])">{{concerStatus}}</div></div>
+			    					<div class="concern" ng-if="newBabyInfo[$index].attention =='1' "><div  ng-class="{'concern_btn1': concern_btn1, 'concern_btn2': Concern_btn2}"  ng-click="clickConcern(newBabyInfo[$index])" ng-mouseover="cancleConcern(newBabyInfo[$index])"  ng-mouseout="cancleConcernOut(newBabyInfo[$index])">{{cancleConcerStatus}}</div></div>
+			    			<div class="concern"  ng-if="newBabyInfo[$index].attention =='2' "><div  ng-class="{'concern_btn': isConcern, 'concern_btn2': noConcern}"  ng-click="clickConcern(newBabyInfo[$index])">{{concerStatus}}</div></div>
 			    				<a ui-sref="Navbar.babyInfoDetail({id:newBabyInfo[$index].babyId})">
 			    				
 			    					<img ng-src="{{newBabyInfo[$index].showIndexImg}}" alt="" class="img-responsive center-block sisterImg"/>
@@ -201,10 +186,11 @@
 									</a>
 			    			</div>
 			    		</li>
-			    		<li class="col-md-3 col-xs-6 img" ng-if="newBabyInfo[$index].babyId != undefined">
+			    		<li class="col-md-3 col-xs-6 img" ng-if="newBabyInfo[$index+1].babyId != undefined">
 			    			<div class="box row" >
 			    				<div class="date_btn white ft16 text-center" ng-click="clickMe(newBabyInfo[$index+1])">约ta</div>
-			    				<div class="concern"><div  ng-class="{'concern_btn': isConcern, 'concern_btn2': noConcern}"  ng-click="clickConcern(newBabyInfo[$index+1])">{{concerStatus}}</div></div>
+			    					<div class="concern" ng-if="newBabyInfo[$index+1].attention =='1' "><div  ng-class="{'concern_btn1': concern_btn1, 'concern_btn2': Concern_btn2}"  ng-click="clickConcern(newBabyInfo[$index+1])" ng-mouseover="cancleConcern(newBabyInfo[$index+1])"  ng-mouseout="cancleConcernOut(newBabyInfo[$index+1])">{{cancleConcerStatus}}</div></div>
+			    			<div class="concern"  ng-if="newBabyInfo[$index+1].attention =='2' "><div  ng-class="{'concern_btn': isConcern, 'concern_btn2': noConcern}"  ng-click="clickConcern(newBabyInfo[$index+1])">{{concerStatus}}</div></div>
 			    				<a ui-sref="Navbar.babyInfoDetail({id:newBabyInfo[$index+1].babyId})">
 			    				<img ng-src="{{newBabyInfo[$index+1].showIndexImg}}" alt="" class="img-responsive center-block sisterImg"/>
 								
@@ -218,10 +204,11 @@
 									</a>
 			    			</div>
 			    		</li>
-			    		<li class="col-md-3 col-xs-6 img" ng-if="newBabyInfo[$index].babyId != undefined">
+			    		<li class="col-md-3 col-xs-6 img" ng-if="newBabyInfo[$index+2].babyId != undefined">
 			    			<div class="box row" >
 			    				<div class="date_btn white ft16 text-center" ng-click="clickMe(newBabyInfo[$index+2])">约ta</div>
-			    				<div class="concern"><div  ng-class="{'concern_btn': isConcern, 'concern_btn2': noConcern}"  ng-click="clickConcern(newBabyInfo[$index+2])">{{concerStatus}}</div></div>
+			    					<div class="concern" ng-if="newBabyInfo[$index+2].attention =='1' "><div  ng-class="{'concern_btn1': concern_btn1, 'concern_btn2': Concern_btn2}"  ng-click="clickConcern(newBabyInfo[$index+2])" ng-mouseover="cancleConcern(newBabyInfo[$index+2])"  ng-mouseout="cancleConcernOut(newBabyInfo[$index+2])">{{cancleConcerStatus}}</div></div>
+			    			<div class="concern"  ng-if="newBabyInfo[$index+2].attention =='2' "><div  ng-class="{'concern_btn': isConcern, 'concern_btn2': noConcern}"  ng-click="clickConcern(newBabyInfo[$index+2])">{{concerStatus}}</div></div>
 			    				<a ui-sref="Navbar.babyInfoDetail({id:newBabyInfo[$index+2].babyId})">
 			    				<img ng-src="{{newBabyInfo[$index+2].showIndexImg}}" alt="" class="img-responsive center-block sisterImg"/>
 								
@@ -238,7 +225,8 @@
 			    		<li class="col-md-3 col-xs-6 img" ng-if="newBabyInfo[$index].babyId != undefined">
 			    			<div class="box row" >
 			    				<div class="date_btn white ft16 text-center" ng-click="clickMe(newBabyInfo[$index+3])">约ta</div>
-			    				<div class="concern"><div  ng-class="{'concern_btn': isConcern, 'concern_btn2': noConcern}"  ng-click="clickConcern(newBabyInfo[$index+3])">{{concerStatus}}</div></div>
+			    					<div class="concern" ng-if="newBabyInfo[$index+3].attention =='1' "><div  ng-class="{'concern_btn1': concern_btn1, 'concern_btn2': Concern_btn2}"  ng-click="clickConcern(newBabyInfo[$index+3])" ng-mouseover="cancleConcern(newBabyInfo[$index])"  ng-mouseout="cancleConcernOut(newBabyInfo[$index])">{{cancleConcerStatus}}</div></div>
+			    			<div class="concern"  ng-if="newBabyInfo[$index+3].attention =='2' "><div  ng-class="{'concern_btn': isConcern, 'concern_btn2': noConcern}"  ng-click="clickConcern(newBabyInfo[$index+3])">{{concerStatus}}</div></div>
 			    				<a ui-sref="Navbar.babyInfoDetail({id:newBabyInfo[$index+3].babyId})">
 			    				<img ng-src="{{newBabyInfo[$index+3].showIndexImg}}" alt="" class="img-responsive center-block sisterImg"/>
 								

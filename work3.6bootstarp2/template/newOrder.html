@@ -17,14 +17,24 @@
 						<span class="circle yellow_circle fl"></span>
 						<span class="long_line fl"></span>
 						<span class="circle yellow_circle fl"></span>
-						<span class="short_line fl"></span>
-						<span class="short_line_white fl"></span>
-						<span class="circle white_circle fl"></span>
+						<span ng-show="yellowLineStop">
+							<span class="short_line_white fl whiteLine" >
+								<span class="fl yellowLine"></span>	
+							</span>
+							<span class="circle white_circle fl"></span>
+						</span>
+						<span ng-show="yellowLineStop2">
+							<span class="short_line_white fl whiteLine" >
+								<span class="fl yellowLine2"></span>	
+							</span>
+							<span class="circle yellow_circle fl"></span>
+						</span>
 					</div>
 					<div class="state_word">
 						<p class="yellow_word fl">已提交</p>
 						<p class="yellow_word fl">进行中</p>
-						<p class="white fl">已完成</p>
+						<p class="white fl" ng-show="yellowLineStop">已完成</p>
+						<p class="yellow_word fl" ng-show="yellowLineStop2">已完成</p>
 					</div>
 				</div>
 			</div>
@@ -32,32 +42,23 @@
 			<div class="order_mes ft20">
 				<div class="order_left">
 				<p>
-				    <span class="order_code">订单编号 ：27849685263238757</span><span class="order_time">下单时间 ：2017-01-20 12:05:55</span>
+				    <span class="order_code">订单编号 ：{{orderMessage.orderNo}}</span><span class="order_time">下单时间 ：{{orderMessage.orderTime}}</span>
 				</p>
 				<p>
-					<span class="date_loca1	">约会地址 ：浙江省杭州市滨江区滨康路天上人间1222包间</span>
-					
+					<span class="date_loca1	">约会地址 ：{{orderMessage.meetAddress}}</span>	
 				</p>
 				</div>
 				
-				<div class="total_money ft28">合计：￥1500.00</div>
+				<div class="total_money ft28">合计：￥{{orderMessage.payMoney}}.00</div>
 			</div>
 			<!--  - - -  - date-baby - - - -->
-			<div class="date-baby">
-				<div class="per-baby"> 
-					<img class="head fl" src="images/2.png" />
+			<div class="date-baby" >
+				<div class="per-baby" ng-repeat="orderBaby in orderBabyInfoList"> 
+					<img class="head fl" ng-src="{{orderBaby.photo}}" />
 					<div class="baby-mes fl">
-						<p><span class="baby-name">温柔De棉花糖</span><span class="no-line line"></span><span class="level"></span></p>
-						<p><span class="tall_high">身高：170cm</span><span>体重：46kg</span><span class="dateMoney ft26">￥600.00</span></p>
-						<p>服务范围：K歌、看电影</p>
-					</div>
-				</div>
-				<div class="per-baby"> 
-					<img class="head fl" src="images/4.png" />
-					<div class="baby-mes fl">
-						<p><span class="baby-name">温柔De棉花糖</span><span class="no-line"></span><span class="level"></span></p>
-						<p><span class="tall_high">身高：170cm</span><span>体重：46kg</span><span class="dateMoney ft26">￥900.00</span></p>
-						<p>服务范围：K歌、看电影</p>
+						<p><span class="baby-name">{{orderBaby.nickName}}</span><span class="no-line line" ng-if="orderBaby.serviceStatus==1"></span><span class="no-line" ng-if="orderBaby.serviceStatus==2"></span><span class="level"></span></p>
+						<p><span class="tall_high">身高：{{orderBaby.height}}cm</span><span>体重：{{orderBaby.weight}}kg</span><span class="dateMoney ft26">￥{{orderBaby.payMoney}}.00</span></p>
+						<p>服务范围：{{orderBaby.scaleName}}</p>
 					</div>
 				</div>
 			</div>

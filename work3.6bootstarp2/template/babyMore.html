@@ -1,16 +1,15 @@
-infinite-scroll-disabled="vm.busy" 
+
 <div class="babyHomeContent">
-			<div class="container" infinite-scroll="demo.nextPage()" infinite-scroll-disabled='demo.busy' infinite-scroll-distance="1">
+			<div class="container" infinite-scroll='myPagingFunction()' infinite-scroll-disabled='{{busy}}'  infinite-scroll-distance='0'  infinite-scroll-immediate-check='true' >
 						<div class="row">
 							<div class="col-md-6 col-xs-6 baby_title ft20 fl">{{moreBaby}}</div>
 						</div>
-					<ul class="row good_baby" ng-repeat="hotBaby in MoreBabyInfo" ng-if="$index % 4 == 0">
+					<ul class="row good_baby" ng-repeat="hotBaby in MoreBabyInfo track by $index" ng-if="$index % 4 == 0">
 			   			<li class="col-md-3 col-xs-6 img" ng-if="MoreBabyInfo[$index].babyId != undefined">
 			    			<div class="box row" >
 			    				<div class="date_btn white ft16 text-center" ng-click="clickMe(MoreBabyInfo[$index])">约ta</div>
-			    				<div class="concern"><div  ng-class="{'concern_btn': isConcern, 'concern_btn2': noConcern}"  ng-click="clickConcern(MoreBabyInfo[$index])">{{concerStatus}}</div></div>
-			    				<a ui-sref="Navbar.babyInfoDetail({id:MoreBabyInfo[$index].babyId})">
-			    				
+			    				<div class="concern" ng-if="MoreBabyInfo[$index].attention =='1' "><div  ng-class="{'concern_btn1': concern_btn1, 'concern_btn2': Concern_btn2}"  ng-click="clickConcern(MoreBabyInfo[$index])" ng-mouseover="cancleConcern(MoreBabyInfo[$index])"  ng-mouseout="cancleConcernOut(MoreBabyInfo[$index])">{{cancleConcerStatus}}</div></div>
+			    			<div class="concern"  ng-if="MoreBabyInfo[$index].attention =='2' "><div  ng-class="{'concern_btn': isConcern, 'concern_btn2': noConcern}"  ng-click="clickConcern(MoreBabyInfo[$index])">{{concerStatus}}</div></div>
 			    					<img ng-src="{{MoreBabyInfo[$index].showIndexImg}}" alt="" class="img-responsive center-block sisterImg"/>
 			    					<div class="detail center-block col-md-12 col-xs-12 hidden-sm hidden-xs hidden-md">
 										<div class="nicheng">{{MoreBabyInfo[$index].nickName}}<span>({{MoreBabyInfo[$index].orderCounter}}单)</span></div>
@@ -22,15 +21,16 @@ infinite-scroll-disabled="vm.busy"
 									</a>
 			    			</div>
 			    		</li>
-			    		<li class="col-md-3 col-xs-6 img" ng-if="MoreBabyInfo[$index].babyId != undefined">
+			    		<li class="col-md-3 col-xs-6 img" ng-if="MoreBabyInfo[$index+1].babyId != undefined">
 			    			<div class="box row" >
 			    				<div class="date_btn white ft16 text-center" ng-click="clickMe(MoreBabyInfo[$index+1])">约ta</div>
-			    				<div class="concern"><div  ng-class="{'concern_btn': isConcern, 'concern_btn2': noConcern}"  ng-click="clickConcern(MoreBabyInfo[$index+1])">{{concerStatus}}</div></div>
-			    				<a ui-sref="Navbar.babyInfoDetail({id:MoreBabyInfo[$index+1].babyId})">
+			    				<div class="concern" ng-if="MoreBabyInfo[$index+1].attention =='1' "><div  ng-class="{'concern_btn1': concern_btn1, 'concern_btn2': Concern_btn2}"  ng-click="clickConcern(MoreBabyInfo[$index+1])" ng-mouseover="cancleConcern(MoreBabyInfo[$index+1])"  ng-mouseout="cancleConcernOut(MoreBabyInfo[$index+1])">{{cancleConcerStatus}}</div></div>
+			    			<div class="concern"  ng-if="MoreBabyInfo[$index+1].attention =='2' "><div  ng-class="{'concern_btn': isConcern, 'concern_btn2': noConcern}"  ng-click="clickConcern(MoreBabyInfo[$index+1])">{{concerStatus}}</div></div>
+			    				<a ui-sref="Navbar.babyInfoDetail({page:{{page}},id:MoreBabyInfo[$index+1].babyId})">
 			    				<img ng-src="{{MoreBabyInfo[$index+1].showIndexImg}}" alt="" class="img-responsive center-block sisterImg"/>
 								
 			    					<div class="detail center-block col-md-12 col-xs-12 hidden-sm hidden-xs hidden-md">
-										<div class="nicheng">{{MoreBabyInfo[$index+1].name}}<span>({{MoreBabyInfo[$index+1].orderCounter}}单)</span></div>
+										<div class="nicheng">{{MoreBabyInfo[$index+1].nickName}}<span>({{MoreBabyInfo[$index+1].orderCounter}}单)</span></div>
 										<p><span class="sex">{{MoreBabyInfo[$index+1].sex}}</span><span class="age">{{MoreBabyInfo[$index+1].age}}</span></p>
 										<p>身高：<span>{{MoreBabyInfo[$index+1].height}}cm</span>，体重：<span>{{MoreBabyInfo[$index+1].weight}}kg</span></p>
 										<p>服务范围：<span class="serverRange">{{MoreBabyInfo[$index+1].scaleName}}</span></p>
@@ -39,15 +39,16 @@ infinite-scroll-disabled="vm.busy"
 									</a>
 			    			</div>
 			    		</li>
-			    		<li class="col-md-3 col-xs-6 img" ng-if="MoreBabyInfo[$index].babyId != undefined">
+			    		<li class="col-md-3 col-xs-6 img" ng-if="MoreBabyInfo[$index+2].babyId != undefined">
 			    			<div class="box row" >
 			    				<div class="date_btn white ft16 text-center" ng-click="clickMe(MoreBabyInfo[$index+2])">约ta</div>
-			    				<div class="concern"><div  ng-class="{'concern_btn': isConcern, 'concern_btn2': noConcern}"  ng-click="clickConcern(MoreBabyInfo[$index+2])">{{concerStatus}}</div></div>
-			    				<a ui-sref="Navbar.babyInfoDetail({id:MoreBabyInfo[$index+2].babyId})">
+			    				<div class="concern" ng-if="MoreBabyInfo[$index+2].attention =='1' "><div  ng-class="{'concern_btn1': concern_btn1, 'concern_btn2': Concern_btn2}"  ng-click="clickConcern(MoreBabyInfo[$index+2])" ng-mouseover="cancleConcern(MoreBabyInfo[$index+2])"  ng-mouseout="cancleConcernOut(MoreBabyInfo[$index+2])">{{cancleConcerStatus}}</div></div>
+			    			<div class="concern"  ng-if="MoreBabyInfo[$index+2].attention =='2' "><div  ng-class="{'concern_btn': isConcern, 'concern_btn2': noConcern}"  ng-click="clickConcern(MoreBabyInfo[$index+2])">{{concerStatus}}</div></div>
+			    				<a ui-sref="Navbar.babyInfoDetail({page:{{page}},id:MoreBabyInfo[$index+2].babyId})">
 			    				<img ng-src="{{MoreBabyInfo[$index+2].showIndexImg}}" alt="" class="img-responsive center-block sisterImg"/>
 								
 			    					<div class="detail center-block col-md-12 col-xs-12 hidden-sm hidden-xs hidden-md">
-										<div class="nicheng">{{MoreBabyInfo[$index+2].name}}<span>({{MoreBabyInfo[$index+2].orderCounter}}单)</span></div>
+										<div class="nicheng">{{MoreBabyInfo[$index+2].nickName}}<span>({{MoreBabyInfo[$index+2].orderCounter}}单)</span></div>
 										<p><span class="sex">{{MoreBabyInfo[$index+2].sex}}</span><span class="age">{{MoreBabyInfo[$index+2].age}}</span></p>
 										<p>身高：<span>{{MoreBabyInfo[$index+2].height}}cm</span>，体重：<span>{{MoreBabyInfo[$index+2].weight}}kg</span></p>
 										<p>服务范围：<span class="serverRange">{{MoreBabyInfo[$index+2].scaleName}}</span></p>
@@ -56,15 +57,16 @@ infinite-scroll-disabled="vm.busy"
 									</a>
 			    			</div>
 			    		</li>
-			    		<li class="col-md-3 col-xs-6 img" ng-if="MoreBabyInfo[$index].babyId != undefined">
+			    		<li class="col-md-3 col-xs-6 img" ng-if="MoreBabyInfo[$index+3].babyId != undefined">
 			    			<div class="box row" >
 			    				<div class="date_btn white ft16 text-center" ng-click="clickMe(MoreBabyInfo[$index+3])">约ta</div>
-			    				<div class="concern"><div  ng-class="{'concern_btn': isConcern, 'concern_btn2': noConcern}"  ng-click="clickConcern(MoreBabyInfo[$index+3])">{{concerStatus}}</div></div>
-			    				<a ui-sref="Navbar.babyInfoDetail({id:MoreBabyInfo[$index+3].babyId})">
+			    				<div class="concern" ng-if="MoreBabyInfo[$index+3].attention =='1' "><div  ng-class="{'concern_btn1': concern_btn1, 'concern_btn2': Concern_btn2}"  ng-click="clickConcern(MoreBabyInfo[$index+3])" ng-mouseover="cancleConcern(MoreBabyInfo[$index+3])"  ng-mouseout="cancleConcernOut(MoreBabyInfo[$index+3])">{{cancleConcerStatus}}</div></div>
+			    			<div class="concern"  ng-if="MoreBabyInfo[$index+3].attention =='2' "><div  ng-class="{'concern_btn': isConcern, 'concern_btn2': noConcern}"  ng-click="clickConcern(MoreBabyInfo[$index+3])">{{concerStatus}}</div></div>
+			    				<a ui-sref="Navbar.babyInfoDetail({page:{{page}},id:MoreBabyInfo[$index+3].babyId})">
 			    				<img ng-src="{{MoreBabyInfo[$index+3].showIndexImg}}" alt="" class="img-responsive center-block sisterImg"/>
 								
 			    					<div class="detail center-block col-md-12 col-xs-12 hidden-sm hidden-xs hidden-md">
-										<div class="nicheng">{{MoreBabyInfo[$index+3].name}}<span>({{MoreBabyInfo[$index+3].orderCounter}}单)</span></div>
+										<div class="nicheng">{{MoreBabyInfo[$index+3].nickName}}<span>({{MoreBabyInfo[$index+3].orderCounter}}单)</span></div>
 										<p><span class="sex">{{MoreBabyInfo[$index+3].sex}}</span><span class="age">{{MoreBabyInfo[$index+3].age}}</span></p>
 										<p>身高：<span>{{MoreBabyInfo[$index+3].height}}cm</span>，体重：<span>{{MoreBabyInfo[$index+3].weight}}kg</span></p>
 										<p>服务范围：<span class="serverRange">{{MoreBabyInfo[$index+3].scaleName}}</span></p>

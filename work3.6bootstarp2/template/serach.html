@@ -1,0 +1,85 @@
+				<div class="container emptyContent" ng-if="emptyContent" style="background: white;">
+					<img ng-src="images/date-empty-png.png" alt="" class="emptyPng"/>
+					<div class="emptyTitle">没有搜索到您想要的结果，试试其他关键词吧</div>
+				</div>
+				<div class="babyHomeContent" ng-if="hadContent">
+					<div class="container" infinite-scroll='mySearchFunction()' infinite-scroll-disabled='{{busy}}'  infinite-scroll-distance='0'  infinite-scroll-immediate-check='true' >
+					<ul class="row good_baby" ng-repeat="sister in serachContents" ng-if="$index % 4 == 0">
+			   			<li class="col-md-3 col-xs-6 img" ng-if="serachContents[$index].babyId != undefined">
+			    			<div class="box row" >
+			    				<div class="date_btn white ft16 text-center" ng-click="clickMe(serachContents[$index])">约ta</div>	
+			    			<div class="concern" ng-if="serachContents[$index].attention =='1' "><div  ng-class="{'concern_btn1': concern_btn1, 'concern_btn2': Concern_btn2}"  ng-click="clickConcern(serachContents[$index])" ng-mouseover="cancleConcern(serachContents[$index])"  ng-mouseout="cancleConcernOut(serachContents[$index])">{{cancleConcerStatus}}</div></div>
+			    			<div class="concern"  ng-if="serachContents[$index].attention =='2' "><div  ng-class="{'concern_btn': isConcern, 'concern_btn2': noConcern}"  ng-click="clickConcern(serachContents[$index])">{{concerStatus}}</div></div>
+			    				<a ui-sref="Navbar.babyInfoDetail({id:serachContents[$index].babyId})">
+			    					<img ng-src="{{serachContents[$index].showIndexImg}}" alt="" class="img-responsive center-block sisterImg"/>
+			    					<div class="detail center-block col-md-12 col-xs-12 hidden-sm hidden-xs hidden-md">
+										<div class="nicheng">{{serachContents[$index].nickName}}<span>({{serachContents[$index].orderCounter}}单)</span></div>
+										<p><span class="sex">{{serachContents[$index].sex}}</span><span class="age">{{serachContents[$index].age}}</span></p>
+										<p>身高：<span>{{serachContents[$index].height}}cm</span>，体重：<span>{{serachContents[$index].weight}}kg</span></p>
+										<p>服务范围：<span class="serverRange">{{serachContents[$index].scaleName}}</span></p>
+										<p>价格：<span>￥{{serachContents[$index].gradePrice}}</span></p>
+									</div>
+									</a>
+			    			</div>
+			    		</li>
+			    		<li class="col-md-3 col-xs-6 img" ng-if="serachContents[$index+1].babyId != undefined">
+			    			<div class="box row" >
+			    				<div class="date_btn white ft16 text-center" ng-click="clickMe(serachContents[$index+1])">约ta</div>
+			    				<!--<div class="concern" ng-if="serachContents[$index].attention == 2"><div  class="concern_btn"  ng-click="clickConcern(serachContents[$index+1])">关注</div></div>-->
+			    			<div class="concern" ng-if="serachContents[$index+1].attention =='1' "><div  ng-class="{'concern_btn1': concern_btn1, 'concern_btn2': Concern_btn2}"  ng-click="clickConcern(serachContents[$index+1])" ng-mouseover="cancleConcern(serachContents[$index+1])"  ng-mouseout="cancleConcernOut(serachContents[$index+1])">{{cancleConcerStatus}}</div></div>
+			    			<div class="concern"  ng-if="serachContents[$index+1].attention == '2' "><div  ng-class="{'concern_btn': isConcern, 'concern_btn2': noConcern}"  ng-click="clickConcern(serachContents[$index+1])">{{concerStatus}}</div></div>
+			    			<!--<div class="concern"  ng-if="serachContents[$index].attention == 1"><div  ng-class="{'concern_btn': isConcern, 'concern_btn2': noConcern}"  ng-click="clickConcern(serachContents[$index+1])">{{concerStatus}}</div></div>-->	
+			    				
+			    				<a ui-sref="Navbar.babyInfoDetail({id:serachContents[$index+1].babyId})">
+			    				<img ng-src="{{serachContents[$index+1].showIndexImg}}" alt="" class="img-responsive center-block sisterImg"/>
+								
+			    					<div class="detail center-block col-md-12 col-xs-12 hidden-sm hidden-xs hidden-md">
+										<div class="nicheng">{{serachContents[$index+1].nickName}}<span>({{serachContents[$index+1].orderCounter}}单)</span></div>
+										<p><span class="sex">{{serachContents[$index+1].sex}}</span><span class="age">{{serachContents[$index+1].age}}</span></p>
+										<p>身高：<span>{{serachContents[$index+1].height}}cm</span>，体重：<span>{{serachContents[$index+1].weight}}kg</span></p>
+										<p>服务范围：<span class="serverRange">{{serachContents[$index+1].scaleName}}</span></p>
+										<p>价格：<span>￥{{serachContents[$index+1].gradePrice}}</span></p>
+									</div>
+									</a>
+			    			</div>
+			    		</li>
+			    		<li class="col-md-3 col-xs-6 img" ng-if="serachContents[$index+2].babyId != undefined">
+			    			<div class="box row" >
+			    				<div class="date_btn white ft16 text-center" ng-click="clickMe(serachContents[$index+2])">约ta</div>
+			    				<div class="concern" ng-if="serachContents[$index+2].attention =='1' "><div  ng-class="{'concern_btn1': concern_btn1, 'concern_btn2': Concern_btn2}"  ng-click="clickConcern(serachContents[$index+2])" ng-mouseover="cancleConcern(serachContents[$index+2])"  ng-mouseout="cancleConcernOut(serachContents[$index+2])">{{cancleConcerStatus}}</div></div>
+			    			<div class="concern"  ng-if="serachContents[$index+2].attention == '2' "><div  ng-class="{'concern_btn': isConcern, 'concern_btn2': noConcern}"  ng-click="clickConcern(serachContents[$index+2])">{{concerStatus}}</div></div>
+			    				<a ui-sref="Navbar.babyInfoDetail({id:serachContents[$index+2].babyId})">
+			    				<img ng-src="{{serachContents[$index+2].showIndexImg}}" alt="" class="img-responsive center-block sisterImg"/>
+								
+			    					<div class="detail center-block col-md-12 col-xs-12 hidden-sm hidden-xs hidden-md">
+										<div class="nicheng">{{serachContents[$index+2].nickName}}<span>({{serachContents[$index+2].orderCounter}}单)</span></div>
+										<p><span class="sex">{{serachContents[$index+2].sex}}</span><span class="age">{{serachContents[$index+2].age}}</span></p>
+										<p>身高：<span>{{serachContents[$index+2].height}}cm</span>，体重：<span>{{serachContents[$index+2].weight}}kg</span></p>
+										<p>服务范围：<span class="serverRange">{{serachContents[$index+2].scaleName}}</span></p>
+										<p>价格：<span>￥{{serachContents[$index+2].gradePrice}}</span></p>
+									</div>
+									</a>
+			    			</div>
+			    		</li>
+			    		<li class="col-md-3 col-xs-6 img" ng-if="serachContents[$index+3].babyId != undefined">
+			    			<div class="box row" >
+			    				<div class="date_btn white ft16 text-center" ng-click="clickMe(serachContents[$index+3])">约ta</div>
+			    			<div class="concern" ng-if="serachContents[$index+3].attention =='1' "><div  ng-class="{'concern_btn1': concern_btn1, 'concern_btn2': Concern_btn2}"  ng-click="clickConcern(serachContents[$index+3])" ng-mouseover="cancleConcern(serachContents[$index+3])"  ng-mouseout="cancleConcernOut(serachContents[$index+3])">{{cancleConcerStatus}}</div></div>
+			    			<div class="concern"  ng-if="serachContents[$index+3].attention == '2' "><div  ng-class="{'concern_btn': isConcern, 'concern_btn2': noConcern}"  ng-click="clickConcern(serachContents[$index+3])">{{concerStatus}}</div></div>
+			    				<a ui-sref="Navbar.babyInfoDetail({id:serachContents[$index+3].babyId})">
+			    				<img ng-src="{{serachContents[$index+3].showIndexImg}}" alt="" class="img-responsive center-block sisterImg"/>
+								
+			    					<div class="detail center-block col-md-12 col-xs-12 hidden-sm hidden-xs hidden-md">
+										<div class="nicheng">{{serachContents[$index+3].nickName}}<span>({{serachContents[$index+3].orderCounter}}单)</span></div>
+										<p><span class="sex">{{serachContents[$index+3].sex}}</span><span class="age">{{serachContents[$index+3].age}}</span></p>
+										<p>身高：<span>{{serachContents[$index+3].height}}cm</span>，体重：<span>{{serachContents[$index+3].weight}}kg</span></p>
+										<p>服务范围：<span class="serverRange">{{serachContents[$index+3].scaleName}}</span></p>
+										<p>价格：<span>￥{{serachContents[$index+3].gradePrice}}</span></p>
+									</div>
+									</a>
+			    			</div>
+			    		</li>
+			    		</ul>
+					</div>
+					
+</div>

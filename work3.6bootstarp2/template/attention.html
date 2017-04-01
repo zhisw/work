@@ -6,15 +6,14 @@
 		<!-- —————— consern-baby —————————— -->
 		<div class="date-baby">
 			<div class="per-baby" ng-repeat="concernBaby in concernBabyInfo"> 
-				<img class="head fl" ng-src="images/1.png" />
+				<img class="head fl" ng-src="{{concernBaby.photo}}" />
 				<div class="baby-mes fl">
-					<p><span class="baby-name">{{concernBaby.name}}</span><span class="no-line line"></span><span class="level"></span></p>
-					<p><span class="tall_high">身高：170cm</span><span>体重：46kg</span><span class="dateMoney ft26">￥800.00</span></p>
-					<p>服务范围：K歌、看电影</p>
+					<p><span class="baby-name">{{concernBaby.nickName}}</span><span class="no-line line" ng-if="concernBaby.serviceStatus==1"></span><span class="no-line" ng-if="concernBaby.serviceStatus==2"></span><span class="level"></span></p>
+					<p><span class="tall_high">身高：{{concernBaby.height}}cm</span><span>体重：{{concernBaby.weight}}kg</span><span class="dateMoney ft26">￥{{concernBaby.gradePrice}}.00</span></p>
+					<p>服务范围：{{concernBaby.scaleName}}</p>
 					<button class="dataBtn white ft16">约ta</button>
 				</div>
 			</div>
 		</div>
-		
 	</div>
 </div>

@@ -47,21 +47,21 @@
       </ul>
       <form class="navbar-form navbar-left">
         <div class="form-group">
-          <input type="text" class="form-control " placeholder="搜索关键词">
-          <div id="search-btn"></div>
+          <input type="text" class="form-control " placeholder="搜索关键词" ng-model="serachText">
+          <div id="search-btn" ng-click="serach()"></div>
         </div>
       </form>
        <div class="mes-wrap fl tac ft14 white hidden-xs">
-			<div ng-if="hadLogin" class="LoginBox" ng-mouseover="LoginMouseover()" ng-mouseout="LoginMouseout()"  >
-				<img class="mes-img" ng-src="{{userPhoto}}"  ng-click="LoginClick()" style="cursor: pointer;">
+			<div ng-if="hadLogin" class="LoginBox" ng-mouseover="LoginMouseover();$event.stopPropagation();" ng-mouseout="LoginMouseout();$event.stopPropagation();"  >
+				<img class="mes-img" ng-src="{{userPhoto}}"  ng-click="LoginClick();$event.stopPropagation();" style="cursor: pointer;">
 				<div class="mes-phone">
 					{{userPhoneId}}
-					<div class="exitLogin" ng-hide="exitLoginHide" ng-click="exitLogin()">退出登录</div>
+					<div class="exitLogin" ng-hide="exitLoginHide" ng-click="exitLogin();$event.stopPropagation();">退出登录</div>
 				</div>
 				
 			</div>
 			
-			<div class="NoLogin" ng-click="noLogin()" ng-if="LoginStatus">未登录</div>
+			<div class="NoLogin" ng-click="noLogin();$event.stopPropagation();" ng-if="LoginStatus">未登录</div>
 	</div>
     </div><!-- /.navbar-collapse -->
    
@@ -75,18 +75,18 @@
 		<form action="">
 		<h3 class="tac login-title"><img class="login-logo" src="images/login-logo.png"></h3>
 		<div class="phone-number">
-			<input class="ft20" id="phone" type="text" placeholder="请输入手机号"  ng-model="phoneNumb"  ng-blur="checkNumb()" set-Focus>
+			<input class="ft20" id="phone" type="text" placeholder="请输入手机号"  ng-model="phoneNumb"  ng-blur="checkNumb();$event.stopPropagation();" set-Focus>
 			<div class="ft18 fr" id="btnSendCode" ng-click="getMessage();$event.stopPropagation();">{{getCodebtn}}</div>
 		</div>
 		<span ng-show="phoneRemind" class="reminder">您输入的手机号码有误！</span>
 		<span ng-show="phoneEmptyRemind" class="reminder">手机号码不能为空！</span>
 		<div class="code-number">
-			<input class="ft20" type="text" placeholder="请输入验证码" ng-model="verifyCode" ng-blur="getCode()">
+			<input class="ft20" type="text" placeholder="请输入验证码" ng-model="verifyCode" ng-blur="getCode();$event.stopPropagation();">
 		</div>
 		<span ng-show="verifyRemind" class="reminder_verify">您输入的验证码有误！</span>
 		<span ng-show="verifyEmptyRemind" class="reminder_verify">验证码不能为空！</span>
 		<div class="invite-number">
-			<input class="ft20 intiveInput" type="text" placeholder="请输入邀请码（选填）" ng-model="inviteCode" ng-blur="checkIntive()">
+			<input class="ft20 intiveInput" type="text" placeholder="请输入邀请码（选填）" ng-model="inviteCode" ng-blur="checkIntive();$event.stopPropagation();">
 			<span ng-show="intiveRemind" class="reminder_intive">邀请码每人只能填写一次！</span>
 			<span ng-show="intiveErrRemind" class="reminder_intive">邀请码有误！</span>
 		</div>

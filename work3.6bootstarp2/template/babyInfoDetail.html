@@ -1,1 +1,210 @@
-<div>详情页</div>
+
+<div class="content">
+		<div class="babyDetail_wrap" style="background: url({{babyDetailArr.baby.showIndexImg}}) no-repeat;background-size:100% 100%;">
+			<div class="babyTop">
+				<div class="babyTopshade"></div>
+				<img ng-src="{{babyDetailArr.baby.photo}}" alt="" class="babyTopImg" />
+				<div class="babyTopBox">
+					<div class="NameStatus"><span class="babyDetail_name">{{babyDetailArr.baby.nickName}}</span><span class="no-line line" ng-if="babyDetailArr.baby.serviceStatus==1" style="vertical-align: center;margin-left:4px;"></span><span class="no-line" style="vertical-align: center;margin-left:4px;" ng-if="babyDetailArr.baby.serviceStatus==2"></span><span class="level" ></span></div>
+					<div class="orderNumber"><span>接单量</span>:<span>{{babyDetailArr.baby.orderCounter}}</span>单</div>
+					<div class="concernBtn" ng-if="babyDetailArr.isAttention =='2' " ><span class="concernBox" ng-click="clickConcern(babyDetailArr)" ng-mouseover="cancleConcern(babyDetailArr)" ng-mouseout="cancleConcernOut(babyDetailArr)"><span class="concernStatus">关注</span></span></div>
+					<div class="concernBtn" ng-if="babyDetailArr.isAttention =='1' " ><span class="NotconcernBox" ng-click="clickConcern(babyDetailArr)" ng-mouseover="cancleConcern(babyDetailArr)"><span class="NoconcernBox" ng-mouseout="cancleConcernOut(babyDetailArr)">{{hadConcernd}}</span></span></div>
+				</div>
+				
+				<div class="evaluate">
+					<!--
+                    	作者：1399972369@qq.com
+                    	时间：2017-03-06
+                    	描述：五星评分
+                    -->
+                    <div class="giveScore">
+                    <p class="scoreTitle evaluate_tilte">评分</p>
+					 <div id="starttwo" class="block clearfix">
+				        <div  class="star_score" style="height:19px;"></div>
+				      <!-- <p style="float:left;">您的评分：<span class="fenshu"></span> 分</p>-->
+				    </div>
+				    <img src="./images/border.jpg" alt=""  class="borderImg"/>
+				      </div>
+				    <div class="giveGrade">
+					     <p class="gradeTitle evaluate_tilte">等级</p>
+						 <div class="gradeImg">
+					   		<img ng-src="{{babyDetailArr.baby.gradeImg}}" alt="等级图片" class="evaluate_graderImg" />
+					    </div>
+					    <img src="./images/border.jpg" alt=""  class="borderImg"/>
+				    </div>
+				     <div class="givePriceBox">
+				     <p class="priceTitle evaluate_tilte">定价</p>
+					 <div  class="priceNum">
+				        ￥{{babyDetailArr.baby.gradePrice}}
+				    </div>
+				    </div>
+				</div>
+			</div>
+			<div class="babyBottom">
+				<div class="showSelf">
+					<div class="showLogo"><span class="mySelf">个人展示({{babyDetailArr.showImgs.length}})</span></div>
+					<div class="showImgList">
+						 <div class="swiper-container">
+						 	 <div class="swiper-button-prev"></div>
+				        <div class="swiper-button-next"></div>
+					        <div class="swiper-wrapper" style="transform: translate3d(0px, 0px, 0px);">
+					        	<div class="swiper-scrollbar"></div>
+					            <div class="swiper-slide" ng-repeat="baby in babyDetailArr.showImgs"><img ng-src="{{baby}}" alt="" /></div>
+					        </div>
+					        <!-- Add Pagination -->
+					        <div class="swiper-pagination"></div>
+    					</div>
+    
+    
+						
+						
+						
+						<!--<div class="imgBox">-->
+					<!--<div class="swiper-container">
+				        <div class="swiper-scrollbar"></div>
+				        <div class="swiper-button-prev"></div>
+				        <div class="swiper-button-next"></div>
+				        <div class="swiper-wrapper">
+				            <div class="swiper-slide" ><img src="./images/1.png" alt="" /></div>
+				            <div class="swiper-slide"><img src="./images/1.png" alt="" /></div>
+				            <div class="swiper-slide" ><img src="../images/1.png" alt="" /></div>
+				            <div class="swiper-slide" ><img src="./images/1.png" alt="" /></div>
+				            <div class="swiper-slide" ><img src="./images/1.png" alt="" /></div>
+				            <div class="swiper-slide"><img src="./images/1.png" alt="" /></div>
+				            <div class="swiper-slide" ><img src="./images/1.png" alt="" /></div>
+				            <div class="swiper-slide" ><img src="./images/1.png" alt="" /></div>
+				            <div class="swiper-slide" ><img src="./images/1.png" alt="" /></div>
+				        </div>
+				        <div class="swiper-pagination"></div>
+				    </div>-->
+				    
+					<!--	<img src="./images/1.png" alt="" class="showImg"/>
+						<img src="./images/2.png" alt="" class="showImg"/>
+						<img src="./images/3.png" alt="" class="showImg"/>
+						<img src="./images/4.png" alt="" class="showImg"/>
+						<img src="./images/4.png" alt="" class="showImg"/>
+						<img src="./images/3.png" alt="" class="showImg"/>
+						<img src="./images/2.png" alt="" class="showImg"/>
+						<img src="./images/1.png" alt="" class="showImg"/>
+						<img src="./images/4.png" alt="" class="showImg"/>
+						</div>
+						<a href="##" class="leftBtn">&lt;</a>
+						<a href="##" class="rightBtn">&gt;</a>-->
+					<!--</div>-->
+		<!--			<div id="main" style="width:100%;padding:0;">
+	<div class="inside" style="padding:0;">
+		<div class="pag">
+			<div class="img-pags">-->
+					<!--<div  ng-if="$index==0;">-->
+			<!--	<ul ng-repeat="babyimg in babyDetailArr.showImgs">-->
+				
+						
+					
+					<!--<li ng-if="babyDetailArr.showImgs[$index]!=undefined "><a href="##"><span><img ng-src="{{babyDetailArr.showImgs[$index]}}" alt="" /></span></a></li>
+					<li ng-if="babyDetailArr.showImgs[$index+1]!=undefined "><a href="##"><span><img ng-src="{{babyDetailArr.showImgs[$index+1]}}" alt="" /></span></a></li>
+					<li ng-if="babyDetailArr.showImgs[$index+2]!=undefined "><a href="##"><span><img ng-src="{{babyDetailArr.showImgs[$index+2]}}" alt="" /></span></a></li>
+					<li ng-if="babyDetailArr.showImgs[$index+3]!=undefined "><a href="##"><span><img ng-src="{{babyDetailArr.showImgs[$index+3]}}" alt="" /></span></a></li>
+					<li ng-if="babyDetailArr.showImgs[$index+4]!=undefined "><a href="##"><span><img ng-src="{{babyDetailArr.showImgs[$index+4]}}" alt="" /></span></a></li>
+					<li ng-if="babyDetailArr.showImgs[$index+5]!=undefined "><a href="##"><span><img ng-src="{{babyDetailArr.showImgs[$index+5]}}" alt="" /></span></a></li>
+					<li ng-if="babyDetailArr.showImgs[$index+6]!=undefined "><a href="##"><span><img ng-src="{{babyDetailArr.showImgs[$index+6]}}" alt="" /></span></a></li>
+					<li ng-if="babyDetailArr.showImgs[$index+7]!=undefined "><a href="##"><span><img ng-src="{{babyDetailArr.showImgs[$index+7]}}" alt="" /></span></a></li>
+					<li ng-if="babyDetailArr.showImgs[$index+8]!=undefined "><a href="##"><span><img ng-src="{{babyDetailArr.showImgs[$index+8]}}" alt="" /></span></a></li>-->
+				<!--<li><a href="##"><span><img src="images/2.png" alt="" /></span></a></li>
+				<li><a href="##"><span><img src="images/2.png" alt="" /></span></a></li>
+				<li><a href="##"><span><img src="images/2.png" alt="" /></span></a></li>
+				<li><a href="##"><span><img src="images/2.png" alt="" /></span></a></li>
+				<li><a href="##"><span><img src="images/2.png" alt="" /></span></a></li>
+				<li><a href="##"><span><img src="images/2.png" alt="" /></span></a></li>
+				<li><a href="##"><span><img src="images/2.png" alt="" /></span></a></li>
+				<li><a href="##"><span><img src="images/2.png" alt="" /></span></a></li>
+				<li><a href="##"><span><img src="images/2.png" alt="" /></span></a></li>-->
+				
+				<!--</ul> 
+				</div>
+			</div>								
+			<a href="##" class="button button1" data-type="prevPage">&lt;</a>
+			<a href="##" class="button button2" data-type="nextPage">&gt;</a>
+		</div>	
+	</div>	
+</div>-->
+
+
+				</div>
+				<div  class="showBaseInfo">
+					<span class="showLogo "><span class="mySelf">基本资料</span></span>
+				</div>
+				<div style="width: 100%;text-align: center;margin-top:10px ;">
+					<ul class="showInfoBox">
+						<li style="text-align: left;"><span>年龄：</span><span>{{babyDetailArr.baby.age}}</span> </li>
+						<li style="text-align: left;"><span>身高：</span><span>{{babyDetailArr.baby.height}}</span>cm </li>
+						<li style="text-align: left;"><span>体重：</span><span>{{babyDetailArr.baby.weight}}</span>Kg</li>
+						<li style="text-align: left;"><span>三围：</span><span>{{babyDetailArr.baby.bwh}}</span></li>
+						<li style="text-align: left;"><span>星座：</span><span>{{babyDetailArr.baby.sign}}</span></li>
+						<li style="text-align: left;"><span>籍贯：</span><span>{{babyDetailArr.baby.address}}</span></li>
+						<li style="text-align: left;"><span>民族：</span><span>{{babyDetailArr.baby.nation}}</span></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<script type="text/javascript" src="./js/startScore.js"></script>
+	<script>
+	
+	//让显示区域在各种屏幕都居中
+		var ClientHeight=document.documentElement.clientHeight 
+		var marginNum=(ClientHeight-960)/2
+		if(marginNum<0){
+			marginNum=ClientHeight*0.053;
+		}
+		$('.babyDetail_wrap').css({"marginTop":marginNum,"marginBottom":marginNum})
+		
+		
+		/*五星评分*/
+		 scoreFun($("#starttwo"),{
+           fen_d:21,//每一个a的宽度
+           ScoreGrade:5//a的个数 10或者
+        })
+  	 $('.star_score a').eq(4).attr('class',"clibg")
+    //显示分数
+      $(".show_number li p").each(function(index, element) {
+        var num=$(this).attr("tip");
+        var www=num*2*16;//
+        $(this).css("width",www);
+        $(this).parent(".atar_Show").siblings("span").text(num+"分");
+    });
+     // alert("约宝")
+     var swiper = new Swiper('.swiper-container', {	
+            grabCursor: true,
+            slideToClickedSlide: true,
+            nextButton: '.swiper-button-next',
+            prevButton: '.swiper-button-prev',
+            scrollbar: '.swiper-scrollbar',
+            pagination: '.swiper-pagination',
+            observer:true,
+            observeParents:true,
+            autoplayStopOnLast:true,
+            watchSlidesProgress : true,
+			watchSlidesVisibility : true,
+			slidesPerView:3,
+			centeredSlides: true,
+			initialSlide :2,
+
+       });
+       /* $('.sss')._TMS({
+		show:0,
+		pauseOnHover:true,
+		prevBu:'.prev',
+		nextBu:'.next',
+		playBu:'.play',
+		duration:10000,
+		preset:'zoomer',
+		pagination:$('.img-pags').uCarousel({show:4,shift:0}),
+		pagNums:false,
+		slideshow:7000,
+		numStatus:true,
+		banners:'fromRight',// fromLeft, fromRight, fromTop, fromBottom
+		waitBannerAnimation:false,
+		progressBar:'<div class="progbar"></div>'
+	});*/
+	</script>

@@ -127,4 +127,14 @@
 .red{
 	background: red;
 }
-
+.concern_btn1{
+	font-size:15px;
+	background: #55A532;
+	width: 91px;
+    height: 30px;
+    border-radius: 13px 0 0 13px;
+    cursor: pointer;
+    color: white;
+    padding-left: 20px;
+    line-height: 30px;
+}
