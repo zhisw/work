@@ -14,7 +14,7 @@
 			    				<a ui-sref="Navbar.babyInfoDetail({id:sistersName[$index].babyId})">
 			    					<img ng-src="{{sistersName[$index].showIndexImg}}" alt="" class="img-responsive center-block sisterImg"/>
 			    					<div class="detail center-block col-md-12 col-xs-12 hidden-sm hidden-xs hidden-md">
-										<div class="nicheng">{{sistersName[$index].nickName}}<span>({{sistersName[$index].orderCounter}}单)</span></div>
+										<div class="nicheng">{{sistersName[$index].nickName}}{{sistersName[$index].babyId}}<span>({{sistersName[$index].orderCounter}}单)</span></div>
 										<p><span class="sex">{{sistersName[$index].sex}}</span><span class="age">{{sistersName[$index].age}}</span></p>
 										<p>身高：<span>{{sistersName[$index].height}}cm</span>，体重：<span>{{sistersName[$index].weight}}kg</span></p>
 										<p>服务范围：<span class="serverRange">{{sistersName[$index].scaleName}}</span></p>
@@ -35,7 +35,7 @@
 			    				<img ng-src="{{sistersName[$index+1].showIndexImg}}" alt="" class="img-responsive center-block sisterImg"/>
 								
 			    					<div class="detail center-block col-md-12 col-xs-12 hidden-sm hidden-xs hidden-md">
-										<div class="nicheng">{{sistersName[$index+1].nickName}}<span>({{sistersName[$index+1].orderCounter}}单)</span></div>
+										<div class="nicheng">{{sistersName[$index+1].nickName}}{{sistersName[$index+1].babyId}}<span>({{sistersName[$index+1].orderCounter}}单)</span></div>
 										<p><span class="sex">{{sistersName[$index+1].sex}}</span><span class="age">{{sistersName[$index+1].age}}</span></p>
 										<p>身高：<span>{{sistersName[$index+1].height}}cm</span>，体重：<span>{{sistersName[$index+1].weight}}kg</span></p>
 										<p>服务范围：<span class="serverRange">{{sistersName[$index+1].scaleName}}</span></p>
@@ -53,7 +53,7 @@
 			    				<img ng-src="{{sistersName[$index+2].showIndexImg}}" alt="" class="img-responsive center-block sisterImg"/>
 								
 			    					<div class="detail center-block col-md-12 col-xs-12 hidden-sm hidden-xs hidden-md">
-										<div class="nicheng">{{sistersName[$index+2].nickName}}<span>({{sistersName[$index+2].orderCounter}}单)</span></div>
+										<div class="nicheng">{{sistersName[$index+2].nickName}}{{sistersName[$index+2].babyId}}<span>({{sistersName[$index+2].orderCounter}}单)</span></div>
 										<p><span class="sex">{{sistersName[$index+2].sex}}</span><span class="age">{{sistersName[$index+2].age}}</span></p>
 										<p>身高：<span>{{sistersName[$index+2].height}}cm</span>，体重：<span>{{sistersName[$index+2].weight}}kg</span></p>
 										<p>服务范围：<span class="serverRange">{{sistersName[$index+2].scaleName}}</span></p>
@@ -71,7 +71,7 @@
 			    				<img ng-src="{{sistersName[$index+3].showIndexImg}}" alt="" class="img-responsive center-block sisterImg"/>
 								
 			    					<div class="detail center-block col-md-12 col-xs-12 hidden-sm hidden-xs hidden-md">
-										<div class="nicheng">{{sistersName[$index+3].nickName}}<span>({{sistersName[$index+3].orderCounter}}单)</span></div>
+										<div class="nicheng">{{sistersName[$index+3].nickName}}{{sistersName[$index+3].babyId}}<span>({{sistersName[$index+3].orderCounter}}单)</span></div>
 										<p><span class="sex">{{sistersName[$index+3].sex}}</span><span class="age">{{sistersName[$index+3].age}}</span></p>
 										<p>身高：<span>{{sistersName[$index+3].height}}cm</span>，体重：<span>{{sistersName[$index+3].weight}}kg</span></p>
 										<p>服务范围：<span class="serverRange">{{sistersName[$index+3].scaleName}}</span></p>

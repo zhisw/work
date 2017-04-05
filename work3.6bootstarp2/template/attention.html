@@ -4,7 +4,8 @@
 		<!-- —————— 我的关注 —————————— -->
 		<div class="my-baby white ft22">我的关注</div>
 		<!-- —————— consern-baby —————————— -->
-		<div class="date-baby">
+		<div class="date-baby"  >
+			<div  infinite-scroll='attentionFunction()' infinite-scroll-disabled='{{busy}}'  infinite-scroll-distance='0'  infinite-scroll-immediate-check='true'>
 			<div class="per-baby" ng-repeat="concernBaby in concernBabyInfo"> 
 				<img class="head fl" ng-src="{{concernBaby.photo}}" />
 				<div class="baby-mes fl">
@@ -16,4 +17,5 @@
 			</div>
 		</div>
 	</div>
+</div>
 </div>

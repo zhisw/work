@@ -2,6 +2,7 @@
 .content_wrap_oldOrder{
 	width: 1200px;
 	margin:0 auto;
+	
 }
 		/*———————— 没有订单*/
 .no_order{
@@ -66,7 +67,8 @@
 		/*- - -  - 所有的订单 - - - -*/
 		/*  - - -  - order_mes - - - - */
 .orders{
-	min-height: 650px;
+	min-height: 675px;
+	height: auto;
 	background: #fff;
 	border-radius: 0 0 6px 6px;
 }

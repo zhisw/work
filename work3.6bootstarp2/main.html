@@ -667,6 +667,7 @@ $(document).ready(function(){
 			$rootScope.inviteBabyPayId=[];//存储选中去付款的妹子
 			$rootScope.payMoney=0;
 			$rootScope.inviteBabyIsTreat=[];
+			$rootScope.concernBabyInfo=[];
 			//alert(1)
 		})
 		/*页面路由配置*/
@@ -1054,12 +1055,12 @@ $(document).ready(function(){
       		}else{
       			$rootScope.Stop=false;
       		}
-      			if (event.preventDefault){  
+      			/*if (event.preventDefault){  
 				  event.preventDefault();  
 				}  
 				else{  
 				   event.returnValue=false;  
-				}
+				}*/
 		var attentionParams={
 				userId:$cookies.get("userId"),
 				babyId:sister.babyId,
@@ -1125,10 +1126,31 @@ $(document).ready(function(){
 				userId:$cookies.get("userId"),
 				pageNumb:1
 			}
-			$http({url:$rootScope.apiUrl+"/user/myAttentions.do",params:{json:attentionShowParams} }).then(function(res){
-				console.log(res.data.data)
-				$scope.concernBabyInfo=res.data.data
-			})
+			//$scope.concernBabyInfo=[];
+			$scope.busy=false;
+			$scope.attentionFunction=function(){	
+				if($scope.busy){
+						$scope.busy=false;
+					}else{
+						$scope.busy=true;
+					}
+				$http({url:$rootScope.apiUrl+"/user/myAttentions.do",params:{json:attentionShowParams} }).then(function(res){
+					if(res.data.code=="200"){
+						console.log(res.data.data)
+						for(var i=0;i<res.data.data.length;i++){
+						 $rootScope.concernBabyInfo.push(res.data.data[i]);	
+						}
+						console.log($rootScope.concernBabyInfo)
+						attentionShowParams.pageNumb++;
+						$scope.busy=false;
+					}else if(res.data.code=="400"){
+						$scope.busy=true;
+					}
+				
+				})
+					
+				}
+		
     	})
 		.controller('newOrderController',function($scope,$http,$cookies,$rootScope){
 			var cookiesUserPhone=$cookies.get("userPhone");
@@ -1160,15 +1182,18 @@ $(document).ready(function(){
 			}
 			
     	})
-		.controller('yueBaoController',function($scope,$rootScope,$stateParams,myFactory,$http,$cookies,$interval,$timeout){
+		.controller('yueBaoController',function($scope,$rootScope,$stateParams,myFactory,$http,$cookies,$interval,$timeout,$state){
 			var yueBaoStop=true;//设置再一次选中妹子是否已经在约单中，如果在则为fasle
 			$scope.noDelete=true;
 			$scope.cancleSisterName='';
 			$scope.goPayMoney=false;
+			$scope.showErr=false;
 			var payCount=0;
 			var meetAddress=$scope.meetAddress;
 			var contactPhone=$scope.contactPhone;
 			var meetTime=$scope.meetTime;
+			var expireDate = new Date();
+			expireDate.setDate(expireDate.getDate() + 1);//设置cookie时间
 			//myFactory.invite();
 			console.log($stateParams.sisterId)
 			
@@ -1178,27 +1203,37 @@ $(document).ready(function(){
 			$http({url:$rootScope.apiUrl+'/user/invite.do',params:{json:inviteParams}}).then(function(res){
       			console.log(res)
       			if(res.data.code=="200"){
-      				
       				if($rootScope.inviteBabyId.length>0){
       					for(var i=0;i<$rootScope.inviteBabyId.length;i++){
       						if(res.data.data.babyId==$rootScope.inviteBabyId[i]){
       							yueBaoStop=false;
       							alert("这个妹子已经在您的约单中了")
+      							$scope.erroText="这个妹子已经在您的约单中了"
+      							$scope.showErr=true;
       						}
       					}
       				}
       				if(yueBaoStop){//如果这个妹子不在约单里
       						$rootScope.payMoney+=res.data.data.payMoney;
       						$rootScope.inviteBabyId.push(res.data.data.babyId);
+      						/*$cookies.put("inviteBabyId",JSON.stringify($rootScope.inviteBabyId),{'expires': expireDate});
+      						console.log($cookies.get("inviteBabyId"))*/
       						$rootScope.inviteBabyPayId.push(res.data.data.babyId);
+      					/*	$cookies.put("inviteBabyPayId",JSON.stringify($rootScope.inviteBabyPayId),{'expires': expireDate});*/
+      						//console.log($cookies.get("inviteBabyPayId"))
       						$rootScope.inviteBabyIsTreat.push(res.data.data.isTreat);
+      					/*	$cookies.put("inviteBabyIsTreat",JSON.stringify($rootScope.inviteBabyIsTreat),{'expires': expireDate});*/
 		   					console.log($rootScope.inviteBabyId);
 		      				$rootScope.inviteBaby.push(res.data.data);
+		      				/*$cookies.put("inviteBaby",JSON.stringify($rootScope.inviteBaby),{'expires': expireDate});*/
 		      				console.log($rootScope.inviteBaby)
+		      			/*	console.log(JSON.parse($cookies.get("inviteBaby")))*/
       				}
    					
       			}else if(res.data.code=="400"){
       				alert("该宝贝暂不可约，请选择其他宝贝")
+      				$scope.erroText="该宝贝暂不可约，请选择其他宝贝"
+      				$scope.showErr=true;
       			}
       			$scope.Yeschoose=true;
       			$scope.Nochoose=false;
@@ -1215,12 +1250,20 @@ $(document).ready(function(){
       							$rootScope.inviteBabyIsTreat.splice(b,1);
       						}
       					}
+      					console.log($rootScope.inviteBabyPayId)
+      					//$cookies.remove("inviteBabyPayId");
+      				/*	$cookies.put("inviteBabyPayId",JSON.stringify($rootScope.inviteBabyPayId),{'expires': expireDate});
+      					$cookies.put("inviteBabyIsTreat",JSON.stringify($rootScope.inviteBabyIsTreat),{'expires': expireDate});
+      					console.log($cookies.get("inviteBabyPayId"))*/
       				}else if(this.Nochoose){
       					this.Yeschoose=true;
       					this.Nochoose=false;
       					$rootScope.payMoney+=sister.payMoney;
       					$rootScope.inviteBabyPayId.push(sister.babyId);
       					$rootScope.inviteBabyIsTreat.push(sister.isTreat);
+      					/*$cookies.put("inviteBabyPayId",JSON.stringify($rootScope.inviteBabyId),{'expires': expireDate});
+      					$cookies.put("inviteBabyIsTreat",JSON.stringify($rootScope.inviteBabyIsTreat),{'expires': expireDate});
+      					console.log($cookies.get("inviteBabyPayId"))*/
       				}
       			}
       			$scope.deleted=function(sister){
@@ -1230,13 +1273,17 @@ $(document).ready(function(){
       						$rootScope.inviteBabyId.splice(a,1);
       						$rootScope.inviteBabyPayId.splice(a,1);
       						$rootScope.inviteBabyIsTreat.splice(a,1);
-      						$rootScope.inviteBaby.splice(a,1);
-      						
+      						$rootScope.inviteBaby.splice(a,1);	
       					}
-      					
       				}
       				$rootScope.payMoney-=sister.payMoney;
-      			console.log($rootScope.inviteBaby)}
+      			/*$cookies.put("inviteBaby",JSON.stringify($rootScope.inviteBaby),{'expires': expireDate});
+      			$cookies.put("inviteBabyId",JSON.stringify($rootScope.inviteBabyId),{'expires': expireDate});
+      			$cookies.put("inviteBabyPayId",JSON.stringify($rootScope.inviteBabyPayId),{'expires': expireDate});
+      			$cookies.put("inviteBabyIsTreat",JSON.stringify($rootScope.inviteBabyIsTreat),{'expires': expireDate});*/
+      			console.log($rootScope.inviteBaby)
+      			console.log($rootScope.inviteBabyPayId)
+      			}
       		})
 			
 			$scope.payTotalMoney=function(){
@@ -1248,7 +1295,7 @@ $(document).ready(function(){
 						"userId":$cookies.get("userId"),
 						"userName":$cookies.get("userName"),
 						"userPhone":$scope.contactPhone,
-						"meetAddress":$scope.meetAddress,
+						"meetAddress":$scope.meetAddress+$scope.meetAddress1,
 						"meetTime":$scope.meetTime,
 						"payMoney":$rootScope.payMoney,
 						"babyIdList":$rootScope.inviteBabyPayId,
@@ -1273,42 +1320,77 @@ $(document).ready(function(){
 									 	$http({url:$rootScope.apiUrl+"/alipay/payResult.do",params:{json:payResultParams}}).then(function(res){
 									 		$scope.payStop=res.data.data;
 									 		if(res.data.code=="200"){
-										
 											 		console.log(res)
 											 		console.log(res.data.data)
 											 		if(res.data.data==true){
 											 			  alert("支付成功")
 											 			  $interval.cancel(timer);
+											 			  $scope.goPayMoney=false;
+											 			  $scope.paySuccess=true;
+											 			  $scope.paySuccessTime();
+											 			 
+								
 											 		}else if(res.data.data==false){
-											 			payCount++
+											 			payCount++;
 											 			console.log(payCount)
-											 			if(payCount==200){
-											 				alert("支付失败")
+											 			if(payCount==60){
+											 				$scope.goPayMoney=false;
+											 				var payFailParams={
+											 					"babyIdList":$rootScope.inviteBabyPayId,
+											 					"orderNo":$scope.orderNo
+											 				}
+											 				console.log(payFailParams)
+											 				$http({url:$rootScope.apiUrl+"/alipay/payFail.do",params:{json:payFailParams}}).then(function(res){
+											 					console.log(res)
+											 				})
 											 				$interval.cancel(timer)
+											 					alert("支付失败")
+											 					$scope.erroText="支付超时"
+      															$scope.showErr=true;
 											 			}
 											 		}
 									 		}else if(res.data.code=="400"){
 									 			alert("请求失败")
-									 		}
-									 		
+									 		}	
 									 	})
-									 },500)
-									 
-									
+									 },1000)	
 								}
-							
 							})
 						}else if(res.data.code=="400"){
 							//不能被下单的妹子信息
 								for(var c=0;c<res.data.data.cancleBabyList.length;c++){
-									$scope.cancleSisterName+=res.data.data.cancleBabyList[c]+" ,"
+									$scope.cancleSisterName+=res.data.data.cancleBabyList[c].nickName+" ,"
 								}
-						
-							console.log($scope.cancleSisterName)
+								alert(res.data.msg)
+								$scope.erroText=res.data.msg
+      							$scope.showErr=true;
+							    console.log($scope.cancleSisterName)
 						}
 					})
 				}
-			
+			$scope.cancelPay=function(){
+					$scope.goPayMoney=false;
+					$interval.cancel(timer);
+			}
+			$scope.paySuccessTime=function(){
+					$scope.disapearTime=5;
+					timer2=$interval(function(){
+						$scope.disapearTime--;
+						if($scope.disapearTime=="0"){
+							 $interval.cancel(timer2);
+							//$scope.paySuccess=false;
+							$state.go("Navbar.newOrder")
+						}
+					},1000)
+			}
+			$scope.sureErrBtn=function(){
+				$scope.showErr=false;
+			}
+			$scope.paySuccessBtn=function(){
+				//$scope.paySuccess=false;
+				$state.go("Navbar.newOrder")	
+			}
+		
     	})
 		.controller('oldOrderController',function($scope,$cookies,$http,$rootScope){
 			var cookiesUserPhone=$cookies.get("userPhone");
@@ -1316,6 +1398,14 @@ $(document).ready(function(){
 				userId:$cookies.get("userId"),
 				pageNumb:1
 			}
+			$scope.busy=false;
+			$scope.oldBabyPage=function(){
+				//alert(1)
+				if($scope.busy){
+						$scope.busy=false;
+					}else{
+						$scope.busy=true;
+					}
 			if(cookiesUserPhone){
 				$http({url:$rootScope.apiUrl+"/user/orderHistory.do",params:{json:params}}).then(function(res){
 					console.log(res)
@@ -1338,8 +1428,13 @@ $(document).ready(function(){
 								}
 							})	
 						}
+						params.pageNumb++;
+						$scope.busy=false;
+					}else if(res.data.code=="400"){
+						$scope.busy=true;
 					}
 				})
+			}
 			}
 			$scope.showDetailStop=false;
 			$scope.isDownShow=true;
@@ -1381,6 +1476,20 @@ $(document).ready(function(){
 				}else if($scope.moreBaby=="新人宝贝"||NowUrl.indexOf("newBaby")!=-1){
 					$rootScope.interfaceAddress="/home/free/newBabyInfo.do";
 				}
+				
+				
+				  	$scope.clickMe=function(sister){
+				    var sisterName=sister.babyId;
+				     console.log(sister)
+					if (event.preventDefault){  
+					 event.preventDefault();  
+						}  
+					else{  
+						event.returnValue=false;  
+						}
+			      	$state.go('Navbar.yueBao',{sisterId:sister.babyId})
+			      	}
+				
 				
 				//var NowUrl=window.location.href;			
 				var interfaceAddress=$rootScope.interfaceAddress;
@@ -1572,6 +1681,19 @@ $(document).ready(function(){
 		      		this.Concern_btn2=true;
 					this.concern_btn1=false;
 		      	}
+		      	
+		        $scope.clickMe=function(sister){
+	      		var sisterName=sister.babyId;
+	      		console.log(sister)
+				if (event.preventDefault){  
+				  event.preventDefault();  
+				}  
+				else{  
+				   event.returnValue=false;  
+				}
+      			$state.go('Navbar.yueBao',{sisterId:sister.babyId})
+      		}	
+		      	
 				
  		})
  		.controller('testController',function($scope,$interval,$timeout){
