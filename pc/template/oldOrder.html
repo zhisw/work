@@ -1,0 +1,62 @@
+
+<div class="content">
+	<div class="content_wrap_oldOrder">
+		<!-- - - -  -没有订单- - -->
+		<div class="no_order ft24" ng-if="noOldOrder">
+			<img src="images/order_null.png">
+			<p class="tac">您当前没有订单信息</p>
+			<p class="tac go_choose">快去选你的宝贝吧</p>
+		</div>
+		<!-- - - -  -有订单- - -->
+		<div class="order_datail" ng-if="haveOldOrder">
+			<!--  - - - -  order_title - -  -->
+			<div class="order_title white ft22">
+				<span class="fl current_title">历史订单 ：</span>
+				<div class="state fl">
+					<div class="top_line">
+						<span class="circle yellow_circle fl"></span>
+						<span class="long_line fl"></span>
+						<span class="circle yellow_circle fl"></span>
+						<span class="long_line fl"></span>
+						<span class="circle yellow_circle fl"></span>
+					</div>
+					<div class="state_word">
+						<p class="yellow_word fl">已提交</p>
+						<p class="yellow_word fl">进行中</p>
+						<p class="yellow_word fl">已完成</p>
+					</div>
+				</div>
+			</div>
+			<!--  - - - - - 所有的历史订单  - - -->
+			<div class="orders"  >
+				<!--  - - -  - order_mes - - - - -->
+				<div infinite-scroll='oldBabyPage()'   infinite-scroll-distance='0'  infinite-scroll-disabled='busy'  infinite-scroll-immediate-check='true'>
+				<div class="order_mes ft20" ng-repeat="oldBaby in oldBabyInfo" >
+					<div class="order_datail">
+						<!--  - - - -两个按钮 - - - -->
+						<!--<button class="delete"></button>-->
+						<button class="put_up up" ng-click="showDetail()" ng-hide="isUpShow"></button>
+						<button class="put_up down" ng-click="showDetail()" ng-hide="isDownShow"></button>
+						<p>
+						    <span class="order_code">订单编号 ：{{oldBaby.orderNo}}</span><span class="order_time">下单时间 ：{{oldBaby.orderTime}}</span>
+						</p>
+						<p>
+							<span class="date_loca">约会地址 ：{{oldBaby.meetAddress}}</span>
+							<span class="total2_money ft28">合计：{{oldBaby.payMoney|currency:"￥ "}}</span>
+						</p>
+					</div>
+					
+					<!--  - - -  - date-baby - - - -->
+					<div class="date-baby_1" ng-if="showDetailStop">
+						<div class="per-baby" ng-repeat="oldBabyDetail in oldBabyInfoDetail[$index]"> 
+							<img class="head fl" ng-src="{{oldBabyDetail.babyPhoto}}" />
+							<div class="baby-mes fl">
+								<p><span class="baby-name">{{oldBabyDetail.babyName}}</span><span class="no-line line" ng-if="oldBabyDetail.serviceStatus==1"></span><span class="no-line" ng-if="oldBabyDetail.serviceStatus==2"></span><span class="level"></span></p>
+								<p><span class="tall_high">身高：{{oldBabyDetail.height}}cm</span><span>体重：{{oldBabyDetail.weight}}kg</span><span class="dateMoney ft26">{{oldBabyDetail.payMoney|currency:"￥ "}}</span></p>
+								<p>服务范围：{{oldBabyDetail.scaleName}}</p>
+							</div>
+						</div>
+			</div>
+		</div>
+	</div>
+</div>

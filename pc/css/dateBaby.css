@@ -1,0 +1,243 @@
+
+/*-- - - - - - -content - - - - - - --*/
+.content-wrap-date{
+	width: 540px;
+	min-height: 680px;
+	margin:0 auto;
+}
+	/*-- ———— 我的约宝 —————————— --*/
+.my-baby{
+	height: 60px;
+	padding-left: 20px;
+	line-height: 60px;
+	background: #cdb2ff; 
+	border-radius: 6px 6px 0 0 ;
+}
+	/*- —————— 填写信息 —————————— */
+.order_mes{
+	background: #fff;
+	-webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    padding-left: 20px;
+}
+.self_mes{
+	/*line-height: 60px;*/
+	font-size: 20px;
+}
+.self_mes input{
+	display: inline-block;
+	width: 380px;
+	height: 60px;
+	border-bottom: 1px solid #ccc;
+	font-size: 20px;
+	line-height: 60px;
+	color: red;
+}
+.mes_red{
+	color: red;
+}
+	/*-  - - -  - -约会的宝贝- - -   -*/
+.date_baby{
+	min-height: 300px;
+	margin-top: 30px;
+}
+.date_per{
+	position: relative;
+	padding-bottom: 20px;
+}
+.choose_btn{
+	width: 33px;
+	height: 33px;
+	background-size: 100% 100%;
+	margin-right: 15px;
+	cursor: pointer;
+}
+.yes_choose{
+	background: url(../images/yes-choose.png) no-repeat;
+}
+.no_choose{
+	background: url(../images/no-choose.png) no-repeat;
+}
+.baby_head{
+	width: 100px;
+	height: 100px;
+	border-radius: 50%;
+	margin-right: 25px;
+}
+
+.baby_mes p{
+	line-height: 36px;
+}
+.baby_name{
+	display: inline-block;
+	height: 24px;
+	line-height: 24px;
+	margin-right:20px;
+}
+.no_line{
+	display: inline-block;
+	width: 24px;
+	height: 24px;
+	background: url(../images/no-line.png) no-repeat;
+	margin-right: 30px;
+}
+.line{
+	background: url(../images/line.png) no-repeat;
+}
+.dateMoney{
+	color: #ff7f7f;
+}
+.delete_btn{
+	width: 28px;
+	height: 30px;
+	background: url(../images/delete.png) no-repeat;
+	background-size: 100% 100%;
+	position: absolute;
+	top:0px;
+	right: 15px;
+	cursor: pointer;
+}
+
+/*--  - -  - - - 合计  - -  - - --*/
+.money_all{
+	padding-left: 20px;
+	height: 100px;
+	line-height: 100px;
+	background: #eee5ff;
+	border-radius: 0 0 6px 6px;
+}
+.total{
+	color: #ff7f7f;
+}
+.pay_btn{
+	width:120px;
+	height: 60px;
+	background: #ff7f7f;
+	margin-top: 20px;
+	border-radius: 30px 0 0 30px;
+	cursor: pointer;
+	line-height: 60px;
+}
+.reminderTitle{
+	margin-left:120px ;
+	color: red;
+	font-size: 15px;
+	
+}
+.canclePay:hover{
+	color:red;
+	cursor:pointer;
+	animation:mymove 1s;
+-moz-animation: mymove 1s;	/* Firefox */
+-webkit-animation:mymove 1s;	/* Safari 和 Chrome */
+-o-animation: mymove 1s;
+	
+}
+@keyframes mymove{
+	form {transform:rotate(0deg);
+-ms-transform:rotate(0deg); 
+-moz-transform:rotate(0deg); 
+-webkit-transform:rotate(0deg); 
+-o-transform:rotate(0deg);
+}
+	to {transform:rotate(180deg);
+-ms-transform:rotate(180deg); 
+-moz-transform:rotate(180deg); 
+-webkit-transform:rotate(180deg); 
+-o-transform:rotate(180deg);}
+}
+
+.payBackground{
+	position:absolute;
+	left:0;
+	top:0;
+	width: 100%;
+	height: 100%;
+	background: black;
+	opacity: 0.2;
+}
+.erweimaBox{
+	position:absolute;
+	left:50%;
+	top:50%;
+	margin-left: -100px;
+	margin-top: -100px;
+	text-align: center;
+	background: white;
+	border-radius:6px ;
+}
+.canclePay{
+	position:absolute;
+	right:10px;
+	top:8px;
+	font-size: 20px;
+}
+.paySuccess{
+	position:absolute;
+	left: 50%;
+	top: 50%;
+	margin-left: -180px;
+	margin-top: -280px;
+	border-radius: 6px;
+	background: white;
+}
+.paySuccessImg{
+	background: url(../images/payBack.png) no-repeat 100% 100%;
+	width: 360px;
+	height: 360px;
+	text-align: center;
+	position: relative
+}
+.paySuccessTitile{
+	margin-left: 110px;
+	width: 135px;
+	padding-top: 160px;
+}
+.paySuccessSure{
+	background:#b578f9;
+	text-align: center;
+	width:310px;
+	height:53px;
+	line-height:53px;
+	margin: 82px 0 0 12px;
+	border-radius: 6px;
+	color: white;
+}
+.showMes{
+	  position: fixed;
+    left: 50%;
+    top: 50%;
+    width: 250px;
+    text-align: center;
+    border-radius: 6px;
+    background: #ffe699;
+    height: 114px;
+    line-height: 58px;
+    color: white;
+    margin-left: -119px;
+    margin-top: -119px;
+    z-index: 1000;
+}
+.sureErr{
+	width: 70px;
+    height: 33px;
+    background: #ff7066;
+    line-height: 34px;
+    border-radius: 6px;
+    margin-top: 10px;
+    margin-left: 86px;
+}
+.reminderPhone{
+	color:red;
+	margin-left:126px;
+	font-size: 15px;
+}
+ .dateMoney1{
+    margin-left: 10px;
+    color: #ff7f7f;
+
+ }
+.erroText{
+	color:#000000;
+}

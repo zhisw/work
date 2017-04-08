@@ -1,0 +1,37 @@
+
+<div class="content" >
+	<div class="content-wrapconcern">
+		<!-- —————— 我的关注 —————————— -->
+		<div ng-if="attentionHadLogin">
+		<div class="my-baby white ft22">我的关注</div>
+		<!-- —————— consern-baby —————————— -->
+<div >
+	<div class="date-baby"  >
+		<div infinite-scroll='attentionFunction()' infinite-scroll-disabled='busy'  infinite-scroll-distance='0'  infinite-scroll-immediate-check='true'>
+			<div class="per-baby" ng-repeat="concernBaby in concernBabyInfo"> 
+				<img class="head fl" ng-src="{{concernBaby.photo}}" />
+				<div class="baby-mes fl">
+					<p><span class="baby-name">{{concernBaby.nickName}}</span><span class="no-line line" ng-if="concernBaby.serviceStatus==1"></span><span class="no-line" ng-if="concernBaby.serviceStatus==2"></span><span class="level"></span></p>
+					<p><span class="tall_high">身高：{{concernBaby.height}}cm</span><span>体重：{{concernBaby.weight}}kg</span><span class="dateMoney ft26">￥{{concernBaby.gradePrice}}.00</span></p>
+					<p>服务范围：{{concernBaby.scaleName}}</p>
+					<button class="dataBtn white ft16" ng-click="clickMe(concernBaby)">约ta</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	</div>
+	<div ng-if="attentionNoLogin">
+		<div class="noLoginAttionBox">
+			<img src="./images/date-empty-png.png" alt="" class="emptyImg"/>
+			<div class="noAttionTitle">您还没有关注的人</div>
+			<div class="noAttionTitle1">快去首页关注吧！</div>
+		</div>
+	</div>
+</div>
+</div>
+<div ng-if="showErr" class="showMes">
+	
+	 <div class="erroText">{{erroText}}</div>
+	 <div class="sureErr" ng-click="sureErrBtn();$event.stopPropagation();">确定</div>
+</div>

@@ -1,0 +1,97 @@
+
+<div class="content" filter:"serchText">
+	<div class="content-wrap-date">
+		<!-- —————— 我的约宝 —————————— -->
+		<div class="my-baby white ft22">我的约宝</div>
+		
+		<div class="order_mes">
+			<!-- —————— 填写信息 —————————— -->
+			<div class="self_mes"><span class="mes_red">*&nbsp;</span>地&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;址 ：<input type="text" placeholder="请填写您要去的地址" ng-model="meetAddress"/>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" placeholder="* 请输入详细地址" ng-model="meetAddress1" class="detailAddress"/>
+				<div class="reminderTitle">
+					*备注：以免给您造成不必要的麻烦，请务必输入正确的地址，如因您的失误造成的损失，平台概不负责。
+				</div>
+			</div>
+			<div class="self_mes concactTel"><span class="mes_red">*&nbsp;</span>联系电话 ：<input type="text" placeholder="请填写真实可联系电话" ng-model="contactPhone" ng-blur="checkNumb()"/><span class="reminderPhone" ng-if="contactPhoneStop">{{numberTitle}}</span></div>
+			<div class="self_mes"><span class="mes_red">*&nbsp;</span>时&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;间 ：<input type="text" readonly="readonly"  placeholder="开始时间" id="appDateTime" ng-model="meetTime"/></div>
+			<div class="self_mes"><span class="mes_red">*&nbsp;</span>昵&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;称 ：<input type="text" name=""placeholder="请填写您的名字" ng-model="uesName"/></div>
+			
+			
+			
+			<!--  - - -  - -约会的宝贝- - -   -->
+			<div class="date_baby">
+				<div class="date_per clearfix" ng-repeat="Baby in inviteBaby">
+					
+					<span class="choose_btn  fl" ng-class='{"no_choose":Baby.isChoose==0,"yes_choose":Baby.isChoose==1 }' ng-click="choose(Baby);$event.stopPropagation();"></span>
+					
+					<div style="width: 2px;height: 2px;"></div><!--避免点击按钮图片变成选中状态-->
+					<img class="baby_head fl" ng-src="{{Baby.babyPhoto}}" >
+					<div class="baby_mes fl">
+						<p><span class="baby_name">{{Baby.babyName}}</span><span class="no-line line"></span></p>
+						<p>服务范围：{{Baby.scale}}</p>
+						<p>定价：<span class="dateMoney1">{{Baby.payMoney|currency:"￥ "}}</span></p>
+					</div>
+					<button class="delete_btn" ng-click="deleted(Baby)"></button>
+				</div>
+			</div>
+		</div>
+		<!--  - -  - - - 合计  - -  - - -->
+		<div class="money_all ft24">合计 ：<span class="total">{{payMoney|currency:"￥ "}}</span><button class="pay_btn white tac fr ft24" ng-click="payTotalMoney()">付  款</button></div>
+	</div>
+</div>
+<div ng-if="goPayMoney" class="payBackground">	
+</div>
+<div ng-if="goPayMoney"  class="erweimaBox">
+		<div style="position: relative;">
+			<div class="canclePay" ng-click="cancelPay()">Ｘ</div>
+			<img ng-src="{{erWeimaImg}}" alt="" style="border-radius: 6px;"/>
+			<div style="color:#fa0153;height: 35px;">支付宝扫码付款</div>
+		</div>
+</div>
+<div ng-if="showErr" class="showMes">
+	
+	 <div class="erroText">{{erroText}}</div>
+	 <div class="sureErr" ng-click="sureErrBtn()">确定</div>
+</div>
+<div ng-if="paySuccess" class="payBackground">	
+</div>
+<div ng-if="paySuccess" class="paySuccess" >
+	<div  class="paySuccessImg">
+		<div  class="paySuccessTitile">支付已完成，请期待与您的宝贝见面哟！</div>
+		<div  class="paySuccessSure" ng-click="paySuccessBtn()">确定({{disapearTime}}s)</div>
+	</div> 
+</div>
+<script type="text/javascript">
+         $(function () {
+         	var currYear = (new Date()).getFullYear();	
+			var currMonth = (new Date()).getMonth();
+			var currDay = (new Date()).getDate();
+			var currHour= (new Date()).getHours()+2;
+			var currMinutes=(new Date()).getMinutes()
+			var currYear = (new Date()).getFullYear();	
+			var currSeconds = (new Date()).getSeconds();
+			var opt={};
+			opt.date = {preset : 'date'};
+			opt.datetime = {preset : 'datetime'};
+			opt.time = {preset : 'time'};
+			opt.default = {
+				theme: 'android-ics light', //皮肤样式
+		        display: 'modal', //显示方式 
+		        mode: 'scroller', //日期选择模式
+				dateFormat: 'yyyy-mm-dd',
+				timeFormat:'HH:ii:ss',
+				lang: 'zh',
+				showNow: true,
+				nowText: "今天",
+		        startYear: currYear - 10, //开始年份
+		        endYear: currYear + 10, //结束年份
+		        minDate:new Date(),
+		        maxDate:new Date(currYear,currMonth,currDay,currHour,currMinutes,currSeconds)
+			};
+		  	$("#appDate").mobiscroll($.extend(opt['date'], opt['default']));
+		  	var optDateTime = $.extend(opt['datetime'], opt['default']);
+		  	var optTime = $.extend(opt['time'], opt['default']);
+		    $("#appDateTime").mobiscroll(optDateTime).datetime(optDateTime);
+		    $("#appTime").mobiscroll(optTime).time(optTime);
+        });
+</script>

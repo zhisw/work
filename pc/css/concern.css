@@ -1,0 +1,77 @@
+
+/*-- - - - - - -content - - - - - - --*/
+.content-wrapconcern{
+	width: 1200px;
+	margin:0 auto;
+}
+	/*-- ———— 我的约宝 —————————— --*/
+.my-baby{
+	height: 60px;
+	padding-left: 20px;
+	line-height: 60px;
+	background: #cdb2ff; 
+	border-radius: 6px 6px 0px 0px ;
+	behavior: url(ie-css3.htc);
+}
+
+	/*- —————— consern-baby —————————— --*/
+.date-baby{
+	width: 100%;
+	/*min-height: 440px;*/
+	background: #fff;
+	border-radius: 0px 0px 6px 6px ;
+	behavior: url(ie-css3.htc);
+}
+.per-baby{
+	position: relative;
+/*	height: 140px;*/
+	padding: 20px 0 20px 20px;
+	border-bottom: 1px solid #e6e6e6;
+	overflow: hidden;
+}
+
+.head{
+	width: 140px;
+	height: 140px;
+	border-radius: 50%;
+	margin-right:20px; 
+	behavior: url(ie-css3.htc);
+}
+.baby-mes p{
+	line-height: 45px;
+}
+.baby-name{
+	display: inline-block;
+	height: 24px;
+	line-height: 24px;
+	margin-right:20px;
+}
+.no-line{
+	display: inline-block;
+	width: 24px;
+	height: 24px;
+	background: url(../images/no-line.png) no-repeat;
+	margin-right: 30px;
+}
+.line{
+	background: url(../images/line.png) no-repeat;
+}
+.tall_high{
+	margin-right: 30px; 
+}
+.dateMoney{
+	margin-left: 35px;
+	color: #ff7f7f;
+}
+.dataBtn{
+	width: 50px;
+	height: 60px;
+	background: #BD99FE;
+	position: absolute;
+	top: 0;
+	right: 20px;
+	border-radius: 0 0 10px 10px;
+	cursor: pointer;
+	behavior: url(ie-css3.htc);
+}
+
