@@ -1,0 +1,104 @@
+.serchbox{
+	display: flex;
+	flex-direction:row;
+	justify-content:space-around;
+	align-items: center;
+}
+.serchbox a{
+	color:#6b6b6b;
+	display: block;
+	height: 0.9rem;
+	width: 1.52rem;
+	line-height: 0.9rem;
+	text-align: center;
+	box-sizing: border-box;
+}
+.blueBottom{
+	border-bottom:2px solid #22cddf ;
+}
+.mui-pull-top-canvas {
+				overflow: hidden;
+				background-color: #fafafa;
+				border-radius: 40px;
+				box-shadow: 0 4px 10px #bbb;
+				width: 40px;
+				height: 40px;
+				margin: 0 auto;
+			}
+			.mui-pull-top-canvas canvas {
+				width: 40px;
+			}
+.rankingTitle{
+	display: flex;
+	flex-direction:row;
+	justify-content:center;
+	align-items:center;
+	width: 100%;
+	height:1.2rem;
+}
+.mui-bar-tab~.mui-content{
+	padding-top: 50px;
+}
+.rankingTitle span{
+	width: 4.08rem;
+	height: 0.7rem;
+	border: 1px solid red;
+	text-align: center;
+	line-height: 0.7rem;
+}
+.rangeDatebtn{
+	display: block;
+	width: 1.86rem;
+	height: 0.67rem;
+	border-radius:12px;
+	border: 1px solid #2bb5b5; 
+	color:#2bb5b5;
+	font-size: 12px;
+	text-align: center;
+}
+li{
+	list-style: none;
+}
+.one_three{
+	display: flex;
+	flex-direction:row;
+	justify-content:space-around;
+}
+.one_three div{
+	flex:1;
+}
+.one_three div ul{
+	padding: 0;
+}
+.one_three div ul li{
+	text-align: center;
+	 display: flex;
+	 flex-direction:row;
+	 justify-content:space-around;
+
+}
+.rangerName{
+	font-size: 0.5rem;
+}
+.rangerAge{
+	font-size: 0.5rem;
+}
+.fontColor{
+	color:#949494;
+}
+.hadOrderNum{
+	color:#fc9200;
+	font-size:0.3rem;
+}
+.one_three_Img{
+	display: block;
+	width: 1.5rem;
+	height: 1.5rem;
+	border-radius: 50%;
+}
+.rangeListBtn{
+	float: right;
+}
+.mui-media-body{
+	float: left;
+}
