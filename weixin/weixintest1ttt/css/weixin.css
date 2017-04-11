@@ -1,0 +1,171 @@
+.serchbox{
+	display: flex;
+	flex-direction:row;
+	justify-content:space-around;
+	align-items: center;
+}
+.serchbox a{
+	color:#6b6b6b;
+	display: block;
+	height: 0.9rem;
+	width: 1.52rem;
+	line-height: 0.9rem;
+	text-align: center;
+	box-sizing: border-box;
+}
+.blueBottom{
+	border-bottom:2px solid #22cddf ;
+}
+
+.rankingTitle{
+	display: flex;
+	flex-direction:row;
+	justify-content:center;
+	align-items:center;
+	width: 100%;
+	height:1.2rem;
+}
+.mui-bar-tab~.mui-content{
+	padding-top: 50px;
+}
+.rankingTitle span{
+	width: 4.08rem;
+	height: 0.7rem;
+	border: 1px solid red;
+	text-align: center;
+	line-height: 0.7rem;
+}
+.rangeDatebtn{
+	display: block;
+	width: 1.86rem;
+	height: 0.67rem;
+	border-radius:12px;
+	border: 1px solid #2bb5b5; 
+	color:#2bb5b5;
+	font-size: 12px;
+	text-align: center;
+}
+li{
+	list-style: none;
+}
+.one_three{
+	display: flex; 
+	flex-direction:row;
+	justify-content:space-around;
+}
+.one_three div{
+	flex:1;
+}
+.one_three div ul{
+	padding: 0;
+}
+.one_three div ul li{
+	text-align: center;
+	 display: flex;
+	 flex-direction:row;
+	 justify-content:space-around;
+
+}
+.rangerName{
+	font-size: 0.4rem;
+}
+.rangerAge{
+	font-size: 0.35rem;
+}
+.fontColor{
+	color:#949494;
+}
+.hadOrderNum{
+	color:#fc9200;
+	font-size:0.35rem;
+}
+.one_three_Img{
+	display: block;
+	width: 1.5rem;
+	height: 1.5rem;
+	border-radius: 50%;
+}
+.rangeListBtn{
+	float: right;
+	margin-top: 0.8rem;
+}
+.mui-media-body{
+	float: left;
+}
+.rangeNumb{
+	float: left;
+	margin-top: 37px;
+	color:#8f8f94;
+}
+.imgPhoto{
+	line-height: 42px;
+    max-width: 54px;
+    height: 54px;
+    margin-top: 21px;
+    border-radius: 50%;
+}
+.rangerHeight{
+	font-size:0.35rem;
+}
+.rangerWeight{
+	font-size:0.35rem;
+}
+.mui-media-body p{
+	margin-top:8px ;
+}
+.margin-left_10{
+	margin-left:10px;
+}
+.Back{
+	color:black;
+	background: #949494;
+	margin-right: 10px;
+}
+body{
+    background:#E6E6E6;
+}
+#listloading{
+    overflow:hidden;
+}
+.order-list>li{
+    height:50px;
+    line-height:24px;
+    padding:10px 15px 10px 10px;
+    margin:10px;
+    border-radius:3px;
+    box-shadow:1px 1px 2px #ccc;
+    background:#fff;
+}
+.order-list>li>span.icon{
+    float:left;
+    width:50px;
+    height:50px;
+    line-height:50px;
+    margin-right:10px;
+    border-radius:50%;
+    background:#FFC107;
+    text-align:center;
+    font-size:36px;
+}
+.svg-icon{
+    width: 1em; height: 1em;
+    vertical-align: -0.1em;
+    fill: currentColor;
+    overflow: hidden;
+}
+
+
+.order-list>li>.title{
+    font-size:16px;
+    color:#292929;
+}
+.order-list>li>.title>time.r{
+    color:#666;
+    font-size:12px;
+}
+.order-list>li>.text{
+    color:#7B7B7B;
+}
+.listloadingClass{
+    overflow:hidden;
+}
