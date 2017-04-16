@@ -1,0 +1,344 @@
+ *{
+	 	margin:0;
+	 	padding: 0;
+	 	}
+		
+		a{
+			text-decoration: none;
+		}
+		.topimg{
+		display: inline-block;
+		width: 100%;
+		height:4.8rem;
+	}	
+	.intivite{
+		display: -webkit-flex; /* Safari */
+  		display: flex;
+  		flex-direction: row;
+  		 flex-wrap:wrap;
+  		justify-content:center;
+  		font-size: 0.42rem;
+  		margin-bottom:0.61rem;
+
+	}	
+	.sisterimg{
+		width: 100%;
+		height:7.0rem;
+		display: relative;
+	}
+	.sisterinfo{
+		position: absolute;
+	    bottom: 2.5rem;
+	    left: 0.5rem;
+	    font-family: "微软雅黑";
+	}
+	.sistername{
+		font-size:0.42rem;
+		color:white;
+	
+	}
+	.btn{
+		font-size:0.36rem;
+		display: inline-block;
+		/*width: 1.54rem;*/
+		height:0.77rem;
+		text-align: center;
+		line-height:0.77rem; 
+		background:#e9e8e8; 
+		border-radius: 10px;
+		color:#8d8d8d;
+		padding:0 0.35rem 0 0.35rem;
+	}
+	.conent{
+
+		margin-top:;
+	}
+	.imgbox{
+		position: relative;
+	}
+	.number{
+		font-size: 0.36rem;
+		color:#ffffff;
+	}
+	.money{
+		color:#ffcd6c;	
+		font-size: 27px;
+	}
+	.distance{
+		position: absolute;
+		right:0.5rem;
+		bottom:2.7rem;
+	}
+	.distancenum{
+		font-size: 0.4rem;
+		color:white;
+		font-family: "微软雅黑";
+	}
+	.moneyafter{
+		font-size: 0.4rem;
+		color:#ffcd6c;
+	}
+	.afterdistance{
+		font-size: 0.32rem;
+		color:white;
+	}
+	.serverrange{
+	font-size: 0.4rem;
+	color:#333333;
+	margin-top: 0.26rem;
+	margin-bottom: 0.4rem;
+	}
+	.age{
+		margin-left: 0.4rem;
+		margin-right:0.2rem;
+	}
+	.height,.range1{
+		margin-right: 0.2rem;
+	}
+	.server{
+		margin-left: 0.4rem;
+		margin-right:0.2rem;
+	}
+	.infobox{
+		position: relative;
+	}
+	.datebtn{
+		display: inline-block;
+		width:2.066rem;
+		height: 0.78rem;
+		border:1px solid #15baca;
+		font-size: 0.45rem;
+		position: absolute;
+		right:0.41rem;
+		top:0.55rem;
+		color:#15baca;
+		text-align: center;
+		line-height: 0.78rem;
+		border-radius: 20px;
+		font-family: "微软雅黑";
+	}
+	.gradeImg{
+		position: absolute;
+		left:0.4rem;
+		top:0.6rem;
+		width:0.86rem;
+		height:0.6rem;
+	}
+	.getmore{
+		text-align: center;
+		font-size: 0.42rem;
+	}
+	.serchbox{
+		width: 100%;
+		height: 1rem;
+		border-top:1px solid #c9f3f7;
+	}
+	.serachimg{
+		float:right;
+		width: 0.666rem;
+		height:0.53rem;
+		margin-top:0.1rem;
+		margin-right: 0.2rem;
+		padding: 0.3rem 0.3rem;
+	}
+	.sisterbg{
+		width:100%;
+		height:3.5rem;
+		position: absolute;
+		left:0;
+		top:3.5rem;
+	}
+	.downloadbtn{
+		width:8.05rem;
+		height: 0.94rem;
+		background: #1fcdde;
+		border-radius:0.3rem;
+		-moz-border-radius:0.3rem; /* Old Firefox */
+		position:fixed;
+		left:0;
+		top:0;
+		font-family: "微软雅黑";
+		font-size:0.42rem;
+		line-height: 0.94rem;
+		text-align: center;
+	z-index: 50;
+	}
+	.downloadbtn a{
+		color:#ffffff;
+	}
+		
+	.minlogopic{
+		width: 0.87rem;
+		height:0.48rem;
+		vertical-align: middle;
+	}
+	.backTop{
+		width: 0.97rem;
+		height:0.97rem;
+		background: url(images/top-btn.png) no-repeat;
+		background-size:100% 100% ;
+		border-radius: 50%;
+		position:fixed;
+		right:12px;
+		bottom:150px;
+		z-index: 100;
+	}
+	.chooseRange{
+		position: absolute;
+		top:2.01rem;  
+		height:16rem;
+		 width:8.3rem; 
+		left:0.91rem;
+		background: #ffffff;
+		border-radius: 15px;
+		display: none;
+	}
+	.exitimg{
+		width: 0.5rem;
+		height:0.5rem;
+		margin-left: 0.51rem;
+		margin-top: 0.51rem;
+	}
+	.chooseBtn{
+		display: flex;
+		flex-direction:row;
+		justify-content: space-between;
+	}
+	.surebtn{
+		display: block;
+		width:1.5rem;
+		height:1.5rem;
+		line-height: 1.5rem;
+		text-align: center;
+		font-size:0.48rem;
+		color:#26bac8;
+		margin-top: 0.2rem;
+		margin-right: 0.3rem;
+		font-family: "微软雅黑";
+		
+	}
+	.irs{
+		width:4.1rem;
+		margin:0 auto;
+	}
+	.irs-line{
+		height: 1px;
+		top:15px;
+	}
+	.irs-diapason{
+		top:15px;
+	}
+	.irs-slider{
+	background: #D8DFF3;
+	}
+	.irs-to,.irs-from,.irs-max,.irs-min,.irs-single{
+		opacity: 0;
+		filter:Alpha(opacity=0);
+	}
+	.ageRange,.heightRange,.weightRange,.moneyRange{
+		text-align: center;
+		font-size:0.4rem;
+		color:#666666;
+		margin-bottom:1.09rem ;
+		
+	}
+	.agetitle{
+		font-size: 0.35rem;
+		color:#666666;
+		line-height: 0.6333rem;
+	}
+	.minAge,.maxAge{
+		font-size:0.4rem;
+		color:#666666;
+	}
+	.blue{
+		color:#1fcdde;
+	}
+	.bubble0{
+		width: 1.3rem;
+	    height: 0.58rem;
+	    background: url(images/talk.png);
+	    background-size: 100% 100%;
+	    position: absolute;
+	    left: 1.5rem;
+	    top: 1.4rem;
+	    color: white;
+	    font-size: 0.25rem;
+	    font-family: "微软雅黑";
+	    text-align: center;
+	}
+	.circle0{
+		position: absolute;
+	    left: 2.05rem;
+	    top: 2.1rem;
+	    width: 0.15rem;
+	    height: 0.15rem;
+	}
+	.bubble1{
+		width: 1.3rem;
+	    height: 0.58rem;
+	    background: url(images/talk.png);
+	    background-size: 100% 100%;
+	    position: absolute;
+	    left: 7.8rem;
+	    top: 2.4rem;
+	    color: white;
+	    font-size: 0.25rem;
+	    font-family: "微软雅黑";
+	    text-align: center;
+	}
+	.circle1{
+		position: absolute;
+	    left: 8.4rem;
+	    top: 3.1rem;
+	    width: 0.15rem;
+	    height: 0.15rem;
+	}
+	.bubble2{
+		width: 1.3rem;
+	    height: 0.58rem;
+	    background: url(images/talk.png);
+	    background-size: 100% 100%;
+	    position: absolute;
+	    left: 0.5rem;
+	    top: 3.5rem;
+	    color: white;
+	    font-size: 0.25rem;
+	    font-family: "微软雅黑";
+	    text-align: center;
+	}
+	.circle2{
+		position: absolute;
+	    left: 1.1rem;
+	    top: 4.2rem;
+	    width: 0.15rem;
+	    height: 0.15rem;
+	}
+	.dropload-down{
+		display: none;
+	}
+	.footer{
+		width: 100%;
+		height:0.94rem;
+		text-align: center;
+		line-height: 0.94rem;
+		font-size: 0.5rem;
+		color:gray;
+		
+	}
+	 .dropload-up,.dropload-down{
+		width:100%;
+		display: -webkit-flex; /* Safari */
+  		display: flex;
+		 flex-direction: row;
+		 justify-content:center;
+		  align-items:center;
+	}
+	/*.mui-control-content{
+		display: block;
+	}*/
+	.positionPage2{
+		position:absolute;
+		left: 0;
+		top:-10000px;
+	}

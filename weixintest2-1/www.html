@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript" src="../weixintest1/js/jquery-1.11.3.js">
+			
+		</script>
+		<script type="text/javascript">
+			
+			
+		
+		 $.ajax({
+             type: "post",
+             url:'https://api.weixin.qq.com/sns/oauth2/access_token?appid=wx78ff19be9780631e&secret=592e0f5ca94a8a2f75a9d10166593936&code=001zECW822Wp7Q0SwqV82NCtW82zECW5&grant_type=authorization_code',
+             success: function(data){
+                        alert(data)
+                      },
+                error:function(){
+                	alert("ajax错误")
+                }
+         });
+		
+		
+		</script>
+	</body>
+</html>
