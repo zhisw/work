@@ -1,6 +1,6 @@
 
-require(['zepto', 'iscroll', 'listloading','startScore'], function(){
-	 var homeUrl='/user/free/homePage.do'
+require(['zepto', 'iscroll', 'listloading','startScore','swiper'], function(){
+	 var homeUrl='/user/free/gradeList.do'
 			 var  homePage={
 				"pageNumb":"",
 				"lat":"120.208643",
@@ -12,11 +12,15 @@ require(['zepto', 'iscroll', 'listloading','startScore'], function(){
 	   var apiUrl='http://118.178.227.195:8088/meike-mener';
 	   var numb=0;
 	   var numb1=0;
-	var one_three=''
+	   var one_three=''
 	    var RangeUrl="/user/free/popularList.do"
+	   localStorage.page1Stop=false;
+	   localStorage.page2Stop=false;
 	  $('.hotRange').on("click",function(){
 	  	$('.trustRange').removeClass('titleBaclkground')
 	  	$('.hotRange').addClass('titleBaclkground')
+	  	//$('.imgId').addClass('showDetail2')
+	  //	$('.imgId').removeClass('showDetail')
 	  	numb++
 	  	RangeUrl="/user/free/popularList.do";
 	  	var hei = $(window).height()-160;
@@ -28,13 +32,12 @@ require(['zepto', 'iscroll', 'listloading','startScore'], function(){
 	 $('.trustRange').on("click",function(){
 	 	$('.hotRange').removeClass('titleBaclkground')
 	 	$('.trustRange').addClass('titleBaclkground')
-	 	/*firstTab=false;
-	 	numb1++*/
+	 	/*$('.imgId').addClass('showDetail')
+	  	$('.imgId').removeClass('showDetail2')*/
 	 	one_three=$('.one_three').html()
 	  	RangeUrl="/user/free/creditList.do";
 	  		var hei = $(window).height()-160;
-	  		$('#listloading, .listloadingClass').height(hei);
-	  		
+	  		$('#listloading, .listloadingClass').height(hei);	
 	  		$('#listloading').html('<div><div class="one_three">'+one_three+'</div><ul class="rangerBox" id="order-list"></ul></div>')
 	  		rangeDataLoad(RangeUrl)
 	  		
@@ -48,6 +51,7 @@ require(['zepto', 'iscroll', 'listloading','startScore'], function(){
     var arr = ['baby_food', 'carrycot', 'feeding_bottle', 'feeding_bottle2', 'tricycle', 'rattle', 'rattle6', 'mobile', 'pin', 'safety_seat', 'pin']
     // 创建iscroll之前必须要先设置父元素的高度，否则无法拖动iscroll
     $('#listloading, .listloadingClass').height(hei);
+    //$('.detailBox').height(hei)
     $('#main').height(hei);
     // 模板
        
@@ -69,21 +73,19 @@ require(['zepto', 'iscroll', 'listloading','startScore'], function(){
 			
 		if(RangeUrl=="/user/free/popularList.do"){
 				for(var i1=0;i1<hotRangData.length;i1++){
-			__html+='<li class="page2ListBox mui-table-view-cell mui-media"><span style="float: left;" class="rangeNumb">'+(i1+(hotRangeparams.pageNumb-1)*10+1)+'</span><img class="mui-media-object mui-pull-left imgPhoto" src="'+hotRangData[i1].photo+'"><div class="mui-media-body">'+hotRangData[i1].nickName+' <span class="rangerAge margin-left_10  fontColor">'+hotRangData[i1].age+'岁</span><p class="mui-ellipsis"><span class="rangerHeight Back">'+hotRangData[i1].height+'cm</span><span class="rangerWeight2  Back">'+hotRangData[i1].weight+'kg</span></p><p class="hadOrderNum">已接'+hotRangData[i1].haveOrder+'单</p></div><span class="rangeDatebtn rangeListBtn">约TA</span></li>'	
+			__html+='<a class="showDetail2" id="'+hotRangData[i1].id+'"><li class="page2ListBox mui-table-view-cell mui-media"><span style="float: left;" class="rangeNumb">'+(i1+(hotRangeparams.pageNumb-1)*10+1)+'</span><img class="mui-media-object mui-pull-left imgPhoto" src="'+hotRangData[i1].photo+'"><div class="mui-media-body">'+hotRangData[i1].nickName+' <span class="rangerAge margin-left_10  fontColor">'+hotRangData[i1].age+'岁</span><p class="mui-ellipsis"><span class="rangerHeight Back">'+hotRangData[i1].height+'cm</span><span class="rangerWeight2  Back">'+hotRangData[i1].weight+'kg</span></p><p class="hadOrderNum">已接'+hotRangData[i1].haveOrder+'单</p></div><span class="rangeDatebtn rangeListBtn">约TA</span></li></a>'	
 	}
 		}
 		if(RangeUrl=="/user/free/creditList.do"){
 				for(var i1=0;i1<hotRangData.length;i1++){
-		__html+='<li class="page2ListBox mui-table-view-cell mui-media"><span style="float: left;" class="rangeNumb">'+(i1+(hotRangeparams.pageNumb-1)*10+1)+'</span><img class="mui-media-object mui-pull-left imgPhoto" src="'+hotRangData[i1].photo+'"><div class="mui-media-body"><div>'+hotRangData[i1].nickName+' <span class="rangerAge margin-left_10  fontColor">'+hotRangData[i1].age+'岁</span></div><p class="mui-ellipsis"><span class="rangerHeight Back">'+hotRangData[i1].height+'cm</span><span class="rangerWeight2  Back">'+hotRangData[i1].weight+'kg</span></p> <div id="starttwo" class="block clearfix starttwo'+(i1+(hotRangeparams.pageNumb-1)*10)+'"><div  class="star_score'+(i1+(hotRangeparams.pageNumb-1)*10)+' star_score" style="height:19px;"></div><span class="fenshu  fenshu'+(i1+(hotRangeparams.pageNumb-1)*10)+'"></span></p></div></div><span class="rangeDatebtn rangeListBtn">约TA</span></li>'	
+		__html+='<a class="showDetail2"  id="'+hotRangData[i1].id+'"><li class="page2ListBox mui-table-view-cell mui-media"><span style="float: left;" class="rangeNumb">'+(i1+(hotRangeparams.pageNumb-1)*10+1)+'</span><img class="mui-media-object mui-pull-left imgPhoto" src="'+hotRangData[i1].photo+'"><div class="mui-media-body"><div>'+hotRangData[i1].nickName+' <span class="rangerAge margin-left_10  fontColor">'+hotRangData[i1].age+'岁</span></div><p class="mui-ellipsis"><span class="rangerHeight Back">'+hotRangData[i1].height+'cm</span><span class="rangerWeight2  Back">'+hotRangData[i1].weight+'kg</span></p> <div id="starttwo" class="block clearfix starttwo'+(i1+(hotRangeparams.pageNumb-1)*10)+'"><div  class="star_score'+(i1+(hotRangeparams.pageNumb-1)*10)+' star_score" style="height:19px;"></div><span class="fenshu  fenshu'+(i1+(hotRangeparams.pageNumb-1)*10)+'"></span></p></div></div><span class="rangeDatebtn rangeListBtn">约TA</span></li></a>'	
 			}
 		}	
 $('#order-list').append(__html);
 
  for(var i1=0;i1<hotRangData.length;i1++){
  	var rateAvg=hotRangData[i1].rateAvg
- 	//var rateAvg=3.4
- 	 var rateAvgCount=parseInt((rateAvg*10)/10)
- 	 //alert(rateAvgCount)
+ 	var rateAvgCount=parseInt((rateAvg*10)/10)
 	  scoreFun($('.starttwo'+(i1+(hotRangeparams.pageNumb-1)*10)+''),{
            fen_d:21,//每一个a的宽度
            ScoreGrade:5//a的个数 10或者
@@ -104,7 +106,91 @@ $('#order-list').append(__html);
      cb(flg)  
 }else if(res.code==400){
 	 cb(true) 
-}         
+}   
+
+	  $('.showDetail2').on('tap',function(e){
+	  	
+	  	$(".page2").addClass("positionPage2");
+	  	$('#showDetail').show();
+	  	localStorage.page2Stop=true;
+	  	$(".detaiWrapper").scrollTop(0)
+	  	var swiperStr='';
+        //$('.mui-bar-tab~.mui-content').css('paddingTop',0)
+       // $('.mui-bar-tab~.mui-content').css('paddingBottom',0)
+           if ( e && e.stopPropagation ){
+   			 		e.stopPropagation() 	
+			}else{
+    			window.event.cancelBubble = true; 
+			}
+			var babyId=$(this).attr("id")
+			
+				console.log($(this).attr("id"))
+				var showDetaiParams={
+					"userId":"",
+					"babyId":babyId
+				}	
+				console.log(showDetaiParams)
+				var showDetaiParams=JSON.stringify(showDetaiParams)
+				$.post(apiUrl+"/user/free/babyDetail.do",{json:showDetaiParams},function(res){
+					//alert(2)
+					console.log(res)
+					var data=JSON.parse(res).data
+					console.log(data)
+					console.log(data.baby.background)
+					$('.babyImgBox').css({'background':'url('+data.baby.background+')'})
+					$('.babyImgBox').css({'backgroundSize':"100%" })
+					$('.babyImg img').attr('src',data.baby.photo)
+					$('.Baby_name').html(data.baby.nickName)
+					$('.Baby_order').html(data.baby.haveOrder+"单")
+					localStorage.detailRateAvg=data.rateAvg;
+					$('.gradeBabyImg').attr("src",data.baby.gradeImg)
+					$('.PriceNum').html(data.baby.gradePrice.toFixed(2))
+					$('.imgNum').html(data.showImgs.length)
+					$(".babyAge").html(data.baby.age+"岁")
+					$(".babyHeight").html(data.baby.height+"cm")
+					$(".babyWeight").html(data.baby.weight+"kg")
+					$(".babyThreeNum").html(data.baby.bwh)
+					$(".babyConstellation").html(data.baby.sign)
+					$(".babyAdress").html(data.baby.origo)
+					$(".babyClassess").html(data.baby.selfRate)
+					$(".babyGlamour").html(data.baby.charm)
+					$(".babyFace").html(data.baby.face)
+					$(".babyBody").html(data.baby.shape)
+					$(".babyHairstyle").html(data.baby.haird)
+					$(".babybloodType").html(data.baby.blood)
+					$(".babyNation").html(data.baby.nation)
+					
+					for(var i=0;i<data.showImgs.length;i++){
+						swiperStr+='<div class="swiper-slide"><img src="'+data.showImgs[i]+'" class="swipwerImg"  data-preview-src="" data-preview-group="1"  /></div>'
+					}
+					$('.swiper-wrapper').html(swiperStr)	
+				})
+	//详情页星星评分	
+	var detailRateAvg=0
+	var detailRateAvgCount=parseInt((localStorage.detailRateAvg*10)/10)
+	detailRateAvg=localStorage.detailRateAvg;
+			  scoreFun($('.starttwoBaby'),{
+          		 	fen_d:21,//每一个a的宽度
+          	 		ScoreGrade:5//a的个数 10或者
+      	})
+		if(localStorage.detailRateAvg!=0){
+	  		$('.fenshuDetail').html(parseFloat(detailRateAvg).toFixed(1)) 
+		   $('.star_scoreDetail a').eq(detailRateAvgCount-1).attr('class',"clibg") 
+		   var detailRateAvgCountWidth=detailRateAvg*21;
+		   $('.star_scoreDetail a').eq(detailRateAvgCount-1).css("width",detailRateAvgCountWidth)
+   		}else{
+   			$('.fenshuDetail').html(parseFloat(detailRateAvg).toFixed(1)) 
+   		}
+   	 var swiper = new Swiper('.swiper-container', {
+        pagination: '.swiper-pagination',
+        slidesPerView: 3,
+        paginationClickable: true,
+        spaceBetween: 10,
+         observer:true,
+        observeParents:true,	
+        initialSlide :1,
+   	});	
+	 })
     })
        },	
        pullDownAction : function(cb, flg){
@@ -119,6 +205,7 @@ $('#order-list').append(__html);
 			$(".creditList").hide();
 			$(".popularList").show();
 		for(var i=0;i<3;i++){	
+			$('.one_three').find(".imgId").eq(i).attr("id",hotRangData[i].id)
 			$('.one_three').find("img").eq(i).attr("src",hotRangData[i].photo);
 			$('.one_three').find(".rangerName").eq(i).html(hotRangData[i].nickName);
 			$('.one_three').find(".rangerAge").eq(i).html(hotRangData[i].age+"岁");
@@ -127,13 +214,14 @@ $('#order-list').append(__html);
 			$('.one_three').find(".hadOrderNum").eq(i).html("已接"+hotRangData[i].haveOrder+"单");
 		}
 				for(var i1=3;i1<hotRangData.length;i1++){
-			__html1+='<li class="page2ListBox mui-table-view-cell mui-media"><span style="float: left;" class="rangeNumb">'+(i1+(hotRangeparams.pageNumb-1)*10+1)+'</span><img class="mui-media-object mui-pull-left imgPhoto" src="'+hotRangData[i1].photo+'"><div class="mui-media-body">'+hotRangData[i1].nickName+' <span class="rangerAge margin-left_10  fontColor">'+hotRangData[i1].age+'岁</span><p class="mui-ellipsis"><span class="rangerHeight Back">'+hotRangData[i1].height+'cm</span><span class="rangerWeight2  Back">'+hotRangData[i1].weight+'kg</span></p><p class="hadOrderNum">已接'+hotRangData[i1].haveOrder+'单</p></div><span class="rangeDatebtn rangeListBtn">约TA</span></li>'	
+			__html1+='<a class="showDetail2" id="'+hotRangData[i1].id+'"><li class="page2ListBox mui-table-view-cell mui-media"><span style="float: left;" class="rangeNumb">'+(i1+(hotRangeparams.pageNumb-1)*10+1)+'</span><img class="mui-media-object mui-pull-left imgPhoto" src="'+hotRangData[i1].photo+'"><div class="mui-media-body">'+hotRangData[i1].nickName+' <span class="rangerAge margin-left_10  fontColor">'+hotRangData[i1].age+'岁</span><p class="mui-ellipsis"><span class="rangerHeight Back">'+hotRangData[i1].height+'cm</span><span class="rangerWeight2  Back">'+hotRangData[i1].weight+'kg</span></p><p class="hadOrderNum">已接'+hotRangData[i1].haveOrder+'单</p></div><span class="rangeDatebtn rangeListBtn">约TA</span></li></a>'	
 	}
 		}
 		if(RangeUrl=="/user/free/creditList.do"){
 			$(".creditList").show();
 			$(".popularList").hide();
-		for(var i=0;i<3;i++){	
+		for(var i=0;i<3;i++){
+			$('.one_three').find(".imgId").eq(i).attr("id",hotRangData[i].id)
 			$('.one_three').find("img").eq(i).attr("src",hotRangData[i].photo);
 			$('.one_three').find(".rangerName").eq(i).html(hotRangData[i].nickName);
 			$('.one_three').find(".rangerAge").eq(i).html(hotRangData[i].age+"岁");
@@ -143,11 +231,9 @@ $('#order-list').append(__html);
 		}
 			
 				for(var i1=3;i1<hotRangData.length;i1++){
-		__html1+='<li class="page2ListBox mui-table-view-cell mui-media"><span style="float: left;" class="rangeNumb">'+(i1+(hotRangeparams.pageNumb-1)*10+1)+'</span><img class="mui-media-object mui-pull-left imgPhoto" src="'+hotRangData[i1].photo+'"><div class="mui-media-body">'+hotRangData[i1].nickName+' <span class="rangerAge margin-left_10  fontColor">'+hotRangData[i1].age+'岁</span><p class="mui-ellipsis"><span class="rangerHeight Back">'+hotRangData[i1].height+'cm</span><span class="rangerWeight2  Back">'+hotRangData[i1].weight+'kg</span></p> <div id="starttwo" class="block clearfix starttwo'+(i1+(hotRangeparams.pageNumb-1)*10)+'"><div  class="star_score'+(i1+(hotRangeparams.pageNumb-1)*10)+' star_score" style="height:19px;"></div><span class="fenshu  fenshu'+(i1+(hotRangeparams.pageNumb-1)*10)+'"></span></p></div></div><span class="rangeDatebtn rangeListBtn">约TA</span></li>'	
+		__html1+='<a class="showDetail2" id="'+hotRangData[i1].id+'"><li class="page2ListBox mui-table-view-cell mui-media"><span style="float: left;" class="rangeNumb">'+(i1+(hotRangeparams.pageNumb-1)*10+1)+'</span><img class="mui-media-object mui-pull-left imgPhoto" src="'+hotRangData[i1].photo+'"><div class="mui-media-body">'+hotRangData[i1].nickName+' <span class="rangerAge margin-left_10  fontColor">'+hotRangData[i1].age+'岁</span><p class="mui-ellipsis"><span class="rangerHeight Back">'+hotRangData[i1].height+'cm</span><span class="rangerWeight2  Back">'+hotRangData[i1].weight+'kg</span></p> <div id="starttwo" class="block clearfix starttwo'+(i1+(hotRangeparams.pageNumb-1)*10)+'"><div  class="star_score'+(i1+(hotRangeparams.pageNumb-1)*10)+' star_score" style="height:19px;"></div><span class="fenshu  fenshu'+(i1+(hotRangeparams.pageNumb-1)*10)+'"></span></p></div></div><span class="rangeDatebtn rangeListBtn">约TA</span></li></a>'	
 			}
 		}
-		
-		
 	  $('#order-list').html(__html1);
 	 for(var i1=0;i1<hotRangData.length;i1++){
  	var rateAvg=hotRangData[i1].rateAvg
@@ -171,6 +257,98 @@ $('#order-list').append(__html);
    		}
 }
 	  cb()
+	  /*$('.showDetail2').on('tap',function(){
+	  	$(".page2").addClass("positionPage2");
+	  	$('#showDetail').show();
+	  	localStorage.page2Stop=true;
+	  })*/
+	 /*点击进入详情*/
+	  $('.showDetail2').on('tap',function(e){
+	  	$(".page2").addClass("positionPage2");
+	  	$('#showDetail').show();
+	  	localStorage.page2Stop=true;
+	  	$(".detaiWrapper").scrollTop(0)
+	  	var swiperStr='';
+        //$('.mui-bar-tab~.mui-content').css('paddingTop',0)
+        //$('.mui-bar-tab~.mui-content').css('paddingBottom',0)
+           if ( e && e.stopPropagation ){
+   			 		e.stopPropagation() 	
+			}else{
+    			window.event.cancelBubble = true; 
+			}
+			var babyId=$(this).attr("id")
+			
+				console.log($(this).attr("id"))
+				var showDetaiParams={
+					"userId":"",
+					"babyId":babyId
+				}	
+				console.log(showDetaiParams)
+				var showDetaiParams=JSON.stringify(showDetaiParams)
+				$.post(apiUrl+"/user/free/babyDetail.do",{json:showDetaiParams},function(res){
+					//alert(2)
+					console.log(res)
+					var data=JSON.parse(res).data
+					console.log(data)
+					console.log(data.baby.background)
+					$('.babyImgBox').css({'background':'url('+data.baby.background+')'})
+					$('.babyImgBox').css({'backgroundSize':"100%" })
+					$('.babyImg img').attr('src',data.baby.photo)
+					$('.Baby_name').html(data.baby.nickName)
+					$('.Baby_order').html(data.baby.haveOrder+"单")
+					localStorage.detailRateAvg=data.rateAvg;
+					$('.gradeBabyImg').attr("src",data.baby.gradeImg)
+					$('.PriceNum').html(data.baby.gradePrice.toFixed(2))
+					$('.imgNum').html(data.showImgs.length)
+					$(".babyAge").html(data.baby.age+"岁")
+					$(".babyHeight").html(data.baby.height+"cm")
+					$(".babyWeight").html(data.baby.weight+"kg")
+					$(".babyThreeNum").html(data.baby.bwh)
+					$(".babyConstellation").html(data.baby.sign)
+					$(".babyAdress").html(data.baby.origo)
+					$(".babyClassess").html(data.baby.selfRate)
+					$(".babyGlamour").html(data.baby.charm)
+					$(".babyFace").html(data.baby.face)
+					$(".babyBody").html(data.baby.shape)
+					$(".babyHairstyle").html(data.baby.haird)
+					$(".babybloodType").html(data.baby.blood)
+					$(".babyNation").html(data.baby.nation)
+					
+					for(var i=0;i<data.showImgs.length;i++){
+						swiperStr+='<div class="swiper-slide"><img src="'+data.showImgs[i]+'" class="swipwerImg"  data-preview-src="" data-preview-group="1"  /></div>'
+					}
+					$('.swiper-wrapper').html(swiperStr)	
+				})
+	//详情页星星评分	
+	var detailRateAvg=0
+	var detailRateAvgCount=parseInt((localStorage.detailRateAvg*10)/10)
+	detailRateAvg=localStorage.detailRateAvg;
+			  scoreFun($('.starttwoBaby'),{
+          		 	fen_d:21,//每一个a的宽度
+          	 		ScoreGrade:5//a的个数 10或者
+      	})
+		if(localStorage.detailRateAvg!=0){
+	  		$('.fenshuDetail').html(parseFloat(detailRateAvg).toFixed(1)) 
+		   $('.star_scoreDetail a').eq(detailRateAvgCount-1).attr('class',"clibg") 
+		   var detailRateAvgCountWidth=detailRateAvg*21;
+		   $('.star_scoreDetail a').eq(detailRateAvgCount-1).css("width",detailRateAvgCountWidth)
+   		}else{
+   			$('.fenshuDetail').html(parseFloat(detailRateAvg).toFixed(1)) 
+   		}
+   	 var swiper = new Swiper('.swiper-container', {
+        pagination: '.swiper-pagination',
+        slidesPerView: 3,
+        paginationClickable: true,
+        spaceBetween: 10,
+         observer:true,
+        observeParents:true,	
+        initialSlide :1,
+   	});	
+	  })
+	  
+	  
+	 
+	  
  		})
 	},
 	Realtimetxt: '官人不要，请放开我！',
@@ -194,7 +372,7 @@ $('#order-list').append(__html);
 			var res=JSON.parse(res)
 			if(res.code==200){	
 	for(var i1=0;i1<hotRangData.length;i1++){
-			__html+='<li class="page2ListBox mui-table-view-cell mui-media"><span style="float: left;" class="rangeNumb">'+(i1+(hotRangeparams.pageNumb-1)*10+1)+'</span><img class="mui-media-object mui-pull-left imgPhoto" src="'+hotRangData[i1].photo+'"><div class="mui-media-body">'+hotRangData[i1].nickName+' <span class="rangerAge margin-left_10  fontColor">'+hotRangData[i1].age+'岁</span><p class="mui-ellipsis"><span class="rangerHeight Back">'+hotRangData[i1].height+'cm</span><span class="rangerWeight2  Back">'+hotRangData[i1].weight+'kg</span></p><p class="hadOrderNum">已接'+hotRangData[i1].haveOrder+'单</p></div><span class="rangeDatebtn rangeListBtn">约TA</span></li>'	
+			__html+='<a class="showDetail2" id="'+hotRangData[i1].id+'"><li class="page2ListBox mui-table-view-cell mui-media"><span style="float: left;" class="rangeNumb">'+(i1+(hotRangeparams.pageNumb-1)*10+1)+'</span><img class="mui-media-object mui-pull-left imgPhoto" src="'+hotRangData[i1].photo+'"><div class="mui-media-body">'+hotRangData[i1].nickName+' <span class="rangerAge margin-left_10  fontColor">'+hotRangData[i1].age+'岁</span><p class="mui-ellipsis"><span class="rangerHeight Back">'+hotRangData[i1].height+'cm</span><span class="rangerWeight2  Back">'+hotRangData[i1].weight+'kg</span></p><p class="hadOrderNum">已接'+hotRangData[i1].haveOrder+'单</p></div><span class="rangeDatebtn rangeListBtn">约TA</span></li></a>'	
 			
 	}	
 	$('#order-list').append(__html);
@@ -203,7 +381,90 @@ $('#order-list').append(__html);
 }else if(res.code==400){
 	 cb(true) 
 }		
-     			        
+     $('.showDetail2').on('tap',function(e){
+     	//$('.mui-bar-tab~.mui-content').css('paddingTop',0)
+       // $('.mui-bar-tab~.mui-content').css('paddingBottom',0)
+	  	$(".page2").addClass("positionPage2");
+	  	$('#showDetail').show();
+	  	localStorage.page2Stop=true;
+	  	//$("body").scrollTop(0)
+	  	$(".detaiWrapper").scrollTop(0)
+	  	var swiperStr='';
+        	//$('.mui-bar-tab~.mui-content').css('paddingTop',0)
+           if ( e && e.stopPropagation ){
+   			 		e.stopPropagation() 	
+			}else{
+    			window.event.cancelBubble = true; 
+			}
+			var babyId=$(this).attr("id")
+			
+				console.log($(this).attr("id"))
+				var showDetaiParams={
+					"userId":"",
+					"babyId":babyId
+				}	
+				console.log(showDetaiParams)
+				var showDetaiParams=JSON.stringify(showDetaiParams)
+				$.post(apiUrl+"/user/free/babyDetail.do",{json:showDetaiParams},function(res){
+					//alert(2)
+					console.log(res)
+					var data=JSON.parse(res).data
+					console.log(data)
+					console.log(data.baby.background)
+					$('.babyImgBox').css({'background':'url('+data.baby.background+')'})
+					$('.babyImgBox').css({'backgroundSize':"100%" })
+					$('.babyImg img').attr('src',data.baby.photo)
+					$('.Baby_name').html(data.baby.nickName)
+					$('.Baby_order').html(data.baby.haveOrder+"单")
+					localStorage.detailRateAvg=data.rateAvg;
+					$('.gradeBabyImg').attr("src",data.baby.gradeImg)
+					$('.PriceNum').html(data.baby.gradePrice.toFixed(2))
+					$('.imgNum').html(data.showImgs.length)
+					$(".babyAge").html(data.baby.age+"岁")
+					$(".babyHeight").html(data.baby.height+"cm")
+					$(".babyWeight").html(data.baby.weight+"kg")
+					$(".babyThreeNum").html(data.baby.bwh)
+					$(".babyConstellation").html(data.baby.sign)
+					$(".babyAdress").html(data.baby.origo)
+					$(".babyClassess").html(data.baby.selfRate)
+					$(".babyGlamour").html(data.baby.charm)
+					$(".babyFace").html(data.baby.face)
+					$(".babyBody").html(data.baby.shape)
+					$(".babyHairstyle").html(data.baby.haird)
+					$(".babybloodType").html(data.baby.blood)
+					$(".babyNation").html(data.baby.nation)
+					
+					for(var i=0;i<data.showImgs.length;i++){
+						swiperStr+='<div class="swiper-slide"><img src="'+data.showImgs[i]+'" class="swipwerImg"  data-preview-src="" data-preview-group="1"  /></div>'
+					}
+					$('.swiper-wrapper').html(swiperStr)	
+				})
+	//详情页星星评分	
+	var detailRateAvg=0
+	var detailRateAvgCount=parseInt((localStorage.detailRateAvg*10)/10)
+	detailRateAvg=localStorage.detailRateAvg;
+			  scoreFun($('.starttwoBaby'),{
+          		 	fen_d:21,//每一个a的宽度
+          	 		ScoreGrade:5//a的个数 10或者
+      	})
+		if(localStorage.detailRateAvg!=0){
+	  		$('.fenshuDetail').html(parseFloat(detailRateAvg).toFixed(1)) 
+		   $('.star_scoreDetail a').eq(detailRateAvgCount-1).attr('class',"clibg") 
+		   var detailRateAvgCountWidth=detailRateAvg*21;
+		   $('.star_scoreDetail a').eq(detailRateAvgCount-1).css("width",detailRateAvgCountWidth)
+   		}else{
+   			$('.fenshuDetail').html(parseFloat(detailRateAvg).toFixed(1)) 
+   		}
+   	 var swiper = new Swiper('.swiper-container', {
+        pagination: '.swiper-pagination',
+        slidesPerView: 3,
+        paginationClickable: true,
+        spaceBetween: 10,
+         observer:true,
+        observeParents:true,	
+        initialSlide :1,
+   	});	
+	  }) 			        
     })
         },
         pullDownAction : function(cb, flg){  // 下拉刷新
@@ -217,8 +478,9 @@ $('#order-list').append(__html);
     var  hotRangeparams1=JSON.stringify(hotRangeparams);
 	$.post(apiUrl+RangeUrl,{json:hotRangeparams1},function(res){
 			var hotRangData=JSON.parse(res).data
-			for(var i=0;i<3;i++){	
-				$('.one_three').find("img").eq(i).attr("src",hotRangData[i].photo);
+			for(var i=0;i<3;i++){
+			$('.one_three').find(".imgId").eq(i).attr("id",hotRangData[i].id);
+			$('.one_three').find("img").eq(i).attr("src",hotRangData[i].photo);
 			$('.one_three').find(".rangerName").eq(i).html(hotRangData[i].nickName);
 			$('.one_three').find(".rangerAge").eq(i).html(hotRangData[i].age+"岁");
 			$('.one_three').find(".rangerHeight").eq(i).html(hotRangData[i].height+"cm");
@@ -226,13 +488,95 @@ $('#order-list').append(__html);
 			$('.one_three').find(".hadOrderNum").eq(i).html("已接"+hotRangData[i].haveOrder+"单");
 			}
 for(var i1=3;i1<hotRangData.length;i1++){
-	__html+='<li class="page2ListBox mui-table-view-cell mui-media"><span style="float: left;" class="rangeNumb">'+(i1+1)+'</span><img class="mui-media-object mui-pull-left imgPhoto" src="'+hotRangData[i1].photo+'"><div class="mui-media-body">'+hotRangData[i1].nickName+' <span class="rangerAge margin-left_10  fontColor">'+hotRangData[i1].age+'岁</span><p class="mui-ellipsis"><span class="rangerHeight Back">'+hotRangData[i1].height+'cm</span><span class="rangerWeight2  Back">'+hotRangData[i1].weight+'kg</span></p><p class="hadOrderNum">已接'+hotRangData[i1].haveOrder+'单</p></div><span class="rangeDatebtn rangeListBtn">约TA</span></li>'	
+	__html+='<a class="showDetail2" id="'+hotRangData[i1].id+'"><li class="page2ListBox mui-table-view-cell mui-media"><span style="float: left;" class="rangeNumb">'+(i1+1)+'</span><img class="mui-media-object mui-pull-left imgPhoto" src="'+hotRangData[i1].photo+'"><div class="mui-media-body">'+hotRangData[i1].nickName+' <span class="rangerAge margin-left_10  fontColor">'+hotRangData[i1].age+'岁</span><p class="mui-ellipsis"><span class="rangerHeight Back">'+hotRangData[i1].height+'cm</span><span class="rangerWeight2  Back">'+hotRangData[i1].weight+'kg</span></p><p class="hadOrderNum">已接'+hotRangData[i1].haveOrder+'单</p></div><span class="rangeDatebtn rangeListBtn">约TA</span></li></a>'	
 }
     
 	 $('#order-list').html(__html);
 	 
 	   cb();
+	   
 	
+	 $('.showDetail2').on('tap',function(e){
+	  	$(".page2").addClass("positionPage2");
+	  	$('#showDetail').show();
+	  	localStorage.page2Stop=true;
+	  	$(".detaiWrapper").scrollTop(0)
+	  	var swiperStr='';
+      
+           if ( e && e.stopPropagation ){
+   			 		e.stopPropagation() 	
+			}else{
+    			window.event.cancelBubble = true; 
+			}
+			var babyId=$(this).attr("id")
+			
+				console.log($(this).attr("id"))
+				var showDetaiParams={
+					"userId":"",
+					"babyId":babyId
+				}	
+				console.log(showDetaiParams)
+				var showDetaiParams=JSON.stringify(showDetaiParams)
+				$.post(apiUrl+"/user/free/babyDetail.do",{json:showDetaiParams},function(res){
+					//alert(2)
+					console.log(res)
+					var data=JSON.parse(res).data
+					console.log(data)
+					console.log(data.baby.background)
+					$('.babyImgBox').css({'background':'url('+data.baby.background+')'})
+					$('.babyImgBox').css({'backgroundSize':"100%" })
+					$('.babyImg img').attr('src',data.baby.photo)
+					$('.Baby_name').html(data.baby.nickName)
+					$('.Baby_order').html(data.baby.haveOrder+"单")
+					localStorage.detailRateAvg=data.rateAvg;
+					$('.gradeBabyImg').attr("src",data.baby.gradeImg)
+					$('.PriceNum').html(data.baby.gradePrice.toFixed(2))
+					$('.imgNum').html(data.showImgs.length)
+					$(".babyAge").html(data.baby.age+"岁")
+					$(".babyHeight").html(data.baby.height+"cm")
+					$(".babyWeight").html(data.baby.weight+"kg")
+					$(".babyThreeNum").html(data.baby.bwh)
+					$(".babyConstellation").html(data.baby.sign)
+					$(".babyAdress").html(data.baby.origo)
+					$(".babyClassess").html(data.baby.selfRate)
+					$(".babyGlamour").html(data.baby.charm)
+					$(".babyFace").html(data.baby.face)
+					$(".babyBody").html(data.baby.shape)
+					$(".babyHairstyle").html(data.baby.haird)
+					$(".babybloodType").html(data.baby.blood)
+					$(".babyNation").html(data.baby.nation)
+					
+					for(var i=0;i<data.showImgs.length;i++){
+						swiperStr+='<div class="swiper-slide"><img src="'+data.showImgs[i]+'" class="swipwerImg"  data-preview-src="" data-preview-group="1"  /></div>'
+					}
+					$('.swiper-wrapper').html(swiperStr)	
+				})
+	//详情页星星评分	
+	var detailRateAvg=0
+	var detailRateAvgCount=parseInt((localStorage.detailRateAvg*10)/10)
+	detailRateAvg=localStorage.detailRateAvg;
+			  scoreFun($('.starttwoBaby'),{
+          		 	fen_d:21,//每一个a的宽度
+          	 		ScoreGrade:5//a的个数 10或者
+      	})
+		if(localStorage.detailRateAvg!=0){
+	  		$('.fenshuDetail').html(parseFloat(detailRateAvg).toFixed(1)) 
+		   $('.star_scoreDetail a').eq(detailRateAvgCount-1).attr('class',"clibg") 
+		   var detailRateAvgCountWidth=detailRateAvg*21;
+		   $('.star_scoreDetail a').eq(detailRateAvgCount-1).css("width",detailRateAvgCountWidth)
+   		}else{
+   			$('.fenshuDetail').html(parseFloat(detailRateAvg).toFixed(1)) 
+   		}
+   	 var swiper = new Swiper('.swiper-container', {
+        pagination: '.swiper-pagination',
+        slidesPerView: 3,
+        paginationClickable: true,
+        spaceBetween: 10,
+         observer:true,
+        observeParents:true,	
+        initialSlide :1,
+   	});	
+	 })
 	})
             // 执行完执行方法之后必须执行回调 回调的作用是通知默认加载已经全部执行完毕，程序需要去创建iscroll或者做下拉刷新动作
             //cb();
@@ -248,8 +592,6 @@ for(var i1=3;i1<hotRangData.length;i1++){
         
         
         /*星星评分*/
-        
-   
         
         
       /*首页数据*/  
@@ -267,7 +609,7 @@ function homePageData(homeUrl){
                 url: apiUrl+homeUrl,
                 data:{json:homePagenumb},
                 async:true,
-                success: function(res){	
+                success: function(res){		
                 	//alert("succceess")
                 	var res=JSON.parse(res);
                     var data=res.data.babyList;
@@ -287,7 +629,7 @@ function homePageData(homeUrl){
 					 bubbleImg+='<div class="bubble'+m+' ">'+data[i].bestTags[m]+'</div><img src="images/circle.png" class="circle'+m+'">'
 					}
                			}
-    str+='<div class="conent"><div class="imgbox"><img src='+data[i].showIndexImg+' alt="妹子图片" class="sisterimg"><img src="images/sister-bg.png" class="sisterbg"><img src='+data[i].gradeImg+' class="gradeImg">'+bubbleImg+'<div class="sisterinfo"><span class="sistername">'+data[i].nickName+'</span> <span class="number">'+data[i].orderCounter+'单</span> <span class="money">￥'+data[i].gradePrice+'</span><span class="moneyafter">.00</span></div><div class="distance"><span class="distancenum">'+data[i].distance+'</span><span class="afterdistance">km</span></div><div class="infobox"><span class="datebtn" id="'+data[i].id+'"    haveOrder="'+data[i].haveOrder+'"  ontouchend="clickme('+(i+numb1)+')">下单</span><div class="figure"><span class="age btn" >'+data[i].age+'岁</span><span class="height btn">'+data[i].height+'cm</span><span class="weight btn">'+data[i].weight+'kg</span></div><div class="serverrange"><span class="server">技能    </span>'
+    str+='<a class="showDetail" id="'+data[i].id+'"><div class="conent"><div class="imgbox"><img src='+data[i].showIndexImg+' alt="妹子图片" class="sisterimg"></a><img src="images/sister-bg.png" class="sisterbg"><img src='+data[i].gradeImg+' class="gradeImg">'+bubbleImg+'<div class="sisterinfo"><span class="sistername">'+data[i].nickName+'</span> <span class="number">'+data[i].orderCounter+'单</span> <span class="money">￥'+data[i].gradePrice+'</span><span class="moneyafter">.00</span></div><div class="distance"><span class="distancenum">'+data[i].distance+'</span><span class="afterdistance">km</span></div><div class="infobox"><span class="datebtn" id="'+data[i].id+'"    haveOrder="'+data[i].haveOrder+'"  ontouchend="clickme('+(i+numb1)+')">下单</span><div class="figure"><span class="age btn" >'+data[i].age+'岁</span><span class="height btn">'+data[i].height+'cm</span><span class="weight btn">'+data[i].weight+'kg</span></div><div class="serverrange"><span class="server">技能    </span></a>'
 	 						
 	 			for(var a=0;a<data[i].scaleName.length;a++){
 	 			str1+='<span class="range1 btn">'+data[i].scaleName[a]+'</span>'
@@ -299,19 +641,97 @@ function homePageData(homeUrl){
 	 			str=' '                    
                 bubbleImg=" "
                     }    
-               $('#list').append(str);
-                	
-                	/*function clickme(i){
-                		
-                	}
-                	*/
-                	
-                	
+               $('#list').append(str);	
                 }
                 	
                  var flg = false;
-     			   cb(flg)    	
-                },
+     			   cb(flg)  
+     			   
+     			   
+     		$('.showDetail').on("tap",function(e){
+        	var swiperStr='';
+        	//$('.mui-bar-tab~.mui-content').css('paddingTop',0)
+            if ( e && e.stopPropagation ){
+   			 		e.stopPropagation() 	
+			}else{
+    			window.event.cancelBubble = true; 
+			}
+			var babyId=$(this).attr("id")
+			localStorage.page1Stop=true;
+			$(".detaiWrapper").scrollTop(0)
+				$('#showDetail').fadeIn()
+				$(".page1").hide();	
+				console.log($(this).attr("id"))
+				var showDetaiParams={
+					"userId":"",
+					"babyId":babyId
+				}	
+				console.log(showDetaiParams)
+				var showDetaiParams=JSON.stringify(showDetaiParams)
+				$.post(apiUrl+"/user/free/babyDetail.do",{json:showDetaiParams},function(res){
+					console.log(res)
+					var data=JSON.parse(res).data
+					console.log(data)
+					console.log(data.baby.background)
+					$('.babyImgBox').css({'background':'url('+data.baby.background+')'})
+					$('.babyImgBox').css({'backgroundSize':"100%" })
+					$('.babyImg img').attr('src',data.baby.photo)
+					$('.Baby_name').html(data.baby.nickName)
+					$('.Baby_order').html(data.baby.haveOrder+"单")
+					localStorage.detailRateAvg=data.rateAvg;
+					$('.gradeBabyImg').attr("src",data.baby.gradeImg)
+					$('.PriceNum').html(data.baby.gradePrice.toFixed(2))
+					$('.imgNum').html(data.showImgs.length)
+					$(".babyAge").html(data.baby.age+"岁")
+					$(".babyHeight").html(data.baby.height+"cm")
+					$(".babyWeight").html(data.baby.weight+"kg")
+					$(".babyThreeNum").html(data.baby.bwh)
+					$(".babyConstellation").html(data.baby.sign)
+					$(".babyAdress").html(data.baby.origo)
+					$(".babyClassess").html(data.baby.selfRate)
+					$(".babyGlamour").html(data.baby.charm)
+					$(".babyFace").html(data.baby.face)
+					$(".babyBody").html(data.baby.shape)
+					$(".babyHairstyle").html(data.baby.haird)
+					$(".babybloodType").html(data.baby.blood)
+					$(".babyNation").html(data.baby.nation)
+					
+					
+					for(var i=0;i<data.showImgs.length;i++){
+						swiperStr+='<div class="swiper-slide"><img src="'+data.showImgs[i]+'" class="swipwerImg"  data-preview-src="" data-preview-group="1"  /></div>'
+					}
+					$('.swiper-wrapper').html(swiperStr)	
+				})
+	/*详情页星星评分*/	
+	var detailRateAvg=0
+	var detailRateAvgCount=parseInt((localStorage.detailRateAvg*10)/10)
+	detailRateAvg=localStorage.detailRateAvg;
+			  scoreFun($('.starttwoBaby'),{
+          		 	fen_d:21,//每一个a的宽度
+          	 		ScoreGrade:5//a的个数 10或者
+      	})
+		if(localStorage.detailRateAvg!=0){
+	  		$('.fenshuDetail').html(parseFloat(detailRateAvg).toFixed(1)) 
+		   $('.star_scoreDetail a').eq(detailRateAvgCount-1).attr('class',"clibg") 
+		   var detailRateAvgCountWidth=detailRateAvg*21;
+		   $('.star_scoreDetail a').eq(detailRateAvgCount-1).css("width",detailRateAvgCountWidth)
+   		}else{
+   			$('.fenshuDetail').html(parseFloat(detailRateAvg).toFixed(1)) 
+   		}
+   	 var swiper = new Swiper('.swiper-container', {
+        pagination: '.swiper-pagination',
+        slidesPerView: 3,
+        paginationClickable: true,
+        spaceBetween: 10,
+         observer:true,
+        observeParents:true,	
+        initialSlide :1,
+   	});
+	
+             }) 
+              
+            
+            },
                 error: function(xhr, type){
                     console.log('Ajax error!');
                 }
@@ -325,11 +745,12 @@ function homePageData(homeUrl){
            if (flg) {
                 console.log('默认加载');
            }
-    var  hotRangeparams1=JSON.stringify(hotRangeparams);
+    	var  hotRangeparams1=JSON.stringify(hotRangeparams);
 		 homePage.pageNumb= 1;   		 
         	var homePagenumb=JSON.stringify(homePage);	
         	argument=homePagenumb;
         	var numb1=(homePage.pageNumb-1)*10
+        	
         	   $.ajax({
                 type: 'post',
                 url: apiUrl+homeUrl,
@@ -349,14 +770,12 @@ function homePageData(homeUrl){
                 	var str2=''
 					var bubbleImg=""
                       for(var i = 0; i < datalength; i++){
-                      	//haveorderId.push(data[i].id);
-                      	//haveorderStatus.push(data[i].haveOrder);
                		for(var m=0;m<data[i].bestTags.length;m++){
                			if(data[i].bestTags[m]!=''){	
 					 bubbleImg+='<div class="bubble'+m+' ">'+data[i].bestTags[m]+'</div><img src="images/circle.png" class="circle'+m+'">'
 					}
                			}
-    str+='<div class="conent"><div class="imgbox"><img src='+data[i].showIndexImg+' alt="妹子图片" class="sisterimg"><img src="images/sister-bg.png" class="sisterbg"><img src='+data[i].gradeImg+' class="gradeImg">'+bubbleImg+'<div class="sisterinfo"><span class="sistername">'+data[i].nickName+'</span> <span class="number">'+data[i].orderCounter+'单</span> <span class="money">￥'+data[i].gradePrice+'</span><span class="moneyafter">.00</span></div><div class="distance"><span class="distancenum">'+data[i].distance+'</span><span class="afterdistance">km</span></div><div class="infobox"><span class="datebtn" id="'+data[i].id+'"    haveOrder="'+data[i].haveOrder+'"  ontouchend="clickme('+(i+numb1)+')">下单</span><div class="figure"><span class="age btn" >'+data[i].age+'岁</span><span class="height btn">'+data[i].height+'cm</span><span class="weight btn">'+data[i].weight+'kg</span></div><div class="serverrange"><span class="server">技能    </span>'
+    str+='<a class="showDetail" id="'+data[i].id+'"><div class="conent"><div class="imgbox"><img src='+data[i].showIndexImg+' alt="妹子图片" class="sisterimg"></a><img src="images/sister-bg.png" class="sisterbg"><img src='+data[i].gradeImg+' class="gradeImg">'+bubbleImg+'<div class="sisterinfo"><span class="sistername">'+data[i].nickName+'</span> <span class="number">'+data[i].orderCounter+'单</span> <span class="money">￥'+data[i].gradePrice+'</span><span class="moneyafter">.00</span></div><div class="distance"><span class="distancenum">'+data[i].distance+'</span><span class="afterdistance">km</span></div><div class="infobox"><span class="datebtn" id="'+data[i].id+'"    haveOrder="'+data[i].haveOrder+'"  ontouchend="clickme('+(i+numb1)+')">下单</span><div class="figure"><span class="age btn" >'+data[i].age+'岁</span><span class="height btn">'+data[i].height+'cm</span><span class="weight btn">'+data[i].weight+'kg</span></div><div class="serverrange"><span class="server">技能    </span></a>'
 	 						
 	 			for(var a=0;a<data[i].scaleName.length;a++){
 	 			str1+='<span class="range1 btn">'+data[i].scaleName[a]+'</span>'
@@ -369,14 +788,96 @@ function homePageData(homeUrl){
                 bubbleImg=" "
                     }    
                $('#list').append(str);
-                
-                	}   
+                	} 
         	 cb() 
-                	
+        	
+        	/*首页图片点击进入详情*/	
+        	$('.showDetail').on("tap",function(e){
+        	var swiperStr='';
+        	//$('.mui-bar-tab~.mui-content').css('paddingTop',0)
+            if ( e && e.stopPropagation ){
+   			 		e.stopPropagation() 	
+			}else{
+    			window.event.cancelBubble = true; 
+			}
+			var babyId=$(this).attr("id")
+			localStorage.page1Stop=true;
+			
+				$('#showDetail').fadeIn()
+				$(".page1").hide();	
+				console.log($(this).attr("id"))
+				var showDetaiParams={
+					"userId":"",
+					"babyId":babyId
+				}	
+				console.log(showDetaiParams)
+				var showDetaiParams=JSON.stringify(showDetaiParams)
+				$.post(apiUrl+"/user/free/babyDetail.do",{json:showDetaiParams},function(res){
+					console.log(res)
+					var data=JSON.parse(res).data
+					console.log(data)
+					console.log(data.baby.background)
+					$('.babyImgBox').css({'background':'url('+data.baby.background+')'})
+					$('.babyImgBox').css({'backgroundSize':"100%" })
+					$('.babyImg img').attr('src',data.baby.photo)
+					$('.Baby_name').html(data.baby.nickName)
+					$('.Baby_order').html(data.baby.haveOrder+"单")
+					localStorage.detailRateAvg=data.rateAvg;
+					$('.gradeBabyImg').attr("src",data.baby.gradeImg)
+					$('.PriceNum').html(data.baby.gradePrice.toFixed(2))
+					$('.imgNum').html(data.showImgs.length);
+					$(".babyAge").html(data.baby.age+"岁")
+					$(".babyHeight").html(data.baby.height+"cm")
+					$(".babyWeight").html(data.baby.weight+"kg")
+					$(".babyThreeNum").html(data.baby.bwh)
+					$(".babyConstellation").html(data.baby.sign)
+					$(".babyAdress").html(data.baby.origo)
+					$(".babyClassess").html(data.baby.selfRate)
+					$(".babyGlamour").html(data.baby.charm)
+					$(".babyFace").html(data.baby.face)
+					$(".babyBody").html(data.baby.shape)
+					$(".babyHairstyle").html(data.baby.haird)
+					$(".babybloodType").html(data.baby.blood)
+					$(".babyNation").html(data.baby.nation)
+					for(var i=0;i<data.showImgs.length;i++){
+						swiperStr+='<div class="swiper-slide"><img src="'+data.showImgs[i]+'" class="swipwerImg"  data-preview-src="" data-preview-group="1"  /></div>'
+					}
+					$('.swiper-wrapper').html(swiperStr)
+					
+				})
+				
+	//alert(data.baby.gradeImg)	
+	/*详情页星星评分*/	
+	var detailRateAvg=0
+	var detailRateAvgCount=parseInt((localStorage.detailRateAvg*10)/10)
+	detailRateAvg=localStorage.detailRateAvg;
+			  scoreFun($('.starttwoBaby'),{
+          		 	fen_d:21,//每一个a的宽度
+          	 		ScoreGrade:5//a的个数 10或者
+      	})
+		if(localStorage.detailRateAvg!=0){
+	  		$('.fenshuDetail').html(parseFloat(detailRateAvg).toFixed(1)) 
+		   $('.star_scoreDetail a').eq(detailRateAvgCount-1).attr('class',"clibg") 
+		   var detailRateAvgCountWidth=detailRateAvg*21;
+		   $('.star_scoreDetail a').eq(detailRateAvgCount-1).css("width",detailRateAvgCountWidth)
+   		}else{
+   			$('.fenshuDetail').html(parseFloat(detailRateAvg).toFixed(1)) 
+   		}
+   	 var swiper = new Swiper('.swiper-container', {
+        pagination: '.swiper-pagination',
+        slidesPerView: 3,
+        paginationClickable: true,
+        spaceBetween: 10,
+         observer:true,
+        observeParents:true,	
+        freeMode : true
+   	});
+	
+             }) 	
                 },
                 error: function(xhr, type){
                     console.log('Ajax error!');
-                }
+                }    
             }); 
         },
         Realtimetxt: '官人不要，请放开我！',
@@ -391,22 +892,30 @@ function homePageData(homeUrl){
 	
 	
 		$('.grade').on("touchend",function(){
+			$('.chooseRange').hide();
 			$('#main').html('<div><div class="list" id="list"></div></div>')
 			homeUrl="/user/free/gradeList.do";
+			$('#main').show()
 			homePageData(homeUrl)
 		})
 		
 		$('.distanced').on("touchend",function(){
+			$('.chooseRange').hide();
 			$('#main').html('<div><div class="list" id="list"></div></div>')
 			homeUrl="/user/free/distanceList.do";
+			$('#main').show()
 			homePageData(homeUrl)
 		})
 		$('.new').on("touchend",function(){
+			$('.chooseRange').hide();
 			$('#main').html('<div><div class="list" id="list"></div></div>')
 			homeUrl="/user/free/newList.do";
+			$('#main').show()
 			homePageData(homeUrl)
 		})
 		$('.More').on("touchend",function(){
+			$('#main').hide();
+			$('.chooseRange').show();
 			$('#main').html('<div><div class="list" id="list"></div></div>')
 			homeUrl="/user/free/filtrateBaby.do";
 			homePageData(homeUrl)
@@ -417,21 +926,26 @@ function homePageData(homeUrl){
 		})
 		
 		
-		
-		
-		
 	
-		 
-		 
+/*var myScroll;
+function loaded() {
+    myScroll = new iScroll('wrapper');
+}
+document.addEventListener('DOMContentLoaded', loaded, false);
+window.onload = function() { 
+    setTimeout(function(){ new iScroll(document.getElementById('wrapper')) }, 100) 
+}*/
+			 
 });
-
-
 
 require.config({
     paths: {
         "zepto": "js/zepto.min",
         "iscroll": "js/iscroll.min",
         "listloading": "js/listloading.min",
-        "startScore":"js/startScore"
+        "startScore":"js/startScore",
+        "swiper":"js/swiper.min"
+   
+        
     }
 });

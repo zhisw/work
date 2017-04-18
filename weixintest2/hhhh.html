@@ -5,21 +5,19 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
 		<meta name="apple-mobile-web-app-capable" content="yes">
 		<meta name="apple-mobile-web-app-status-bar-style" content="black">
-		<meta name="x5-fullscreen" content="true">
-		<meta name="full-screen" content="yes">
 		<!--标准mui.css-->
-	<link rel="stylesheet" href="./css/mui.min.css">
+		<link rel="stylesheet" href="./css/mui.min.css">
 		<!--App自定义的css-->
-	<link rel="stylesheet" type="text/css" href="./css/app.css">
+		<link rel="stylesheet" type="text/css" href="./css/app.css">
 	<link rel="stylesheet" href="src/css/index.css">
 	<link rel="stylesheet" href="src/css/normalize.min.css"/>
 	<link rel="stylesheet" href="src/css/ion.rangeSlider.css" />
 	<link rel="stylesheet" href="src/css/ion.rangeSlider.skinSimple.css" />
 	<link rel="stylesheet" href="src/css/dropload.css" />
 	<link rel="stylesheet" type="text/css" href="css/weixin.css"/>
-	<!--<link rel="stylesheet" type="text/css" href="css/base.css" />-->
+	<link rel="stylesheet" type="text/css" href="css/base.css" />
 	<link rel="stylesheet" type="text/css" href="css/listloading.min.css" />
-	
+
 
 <!--<script src="js/jquery-1.11.3.js"></script>-->
 		<style>
@@ -28,11 +26,7 @@
 	 	margin:0;
 	 	padding: 0;
 	 	}
-		body{
-				touch-action:auto!important;
-				overflow: auto!important;
-				 overflow: scroll;
-			}
+		
 		a{
 			text-decoration: none;
 		}
@@ -217,8 +211,8 @@
 		position: absolute;
 		top:2.01rem;  
 		height:16rem;
-		 width:100%; 
-		left:0;
+		 width:8.3rem; 
+		left:0.91rem;
 		background: #ffffff;
 		border-radius: 15px;
 		display: none;
@@ -232,7 +226,7 @@
 	.chooseBtn{
 		display: flex;
 		flex-direction:row;
-		justify-content:flex-end;
+		justify-content: space-between;
 	}
 	.surebtn{
 		display: block;
@@ -245,7 +239,6 @@
 		margin-top: 0.2rem;
 		margin-right: 0.3rem;
 		font-family: "微软雅黑";
-		font-size: 0.45rem;
 		
 	}
 	.irs{
@@ -379,8 +372,8 @@
 		</style>
 <link rel="stylesheet" href="./css/swiper.min.css" />
 <link rel="stylesheet" type="text/css" href="./css/icons-extra.css" />		
-<link rel="stylesheet" type="text/css" href="./css/base.css" />
-<link rel="stylesheet" type="text/css" href="./css/listloading.min.css"/>
+<link rel="stylesheet" type="text/css" href="/css/base.css" />
+<link rel="stylesheet" type="text/css" href="/css/listloading.min.css" />
 <link rel="stylesheet" href="css/mui.min.css" />
 <script src="js/zepto.min.js"></script>
 <script src="./js/mui.js"></script>
@@ -458,7 +451,7 @@
 			杭州</button>
 		</header>
 	<div class="serchbox">
-		<a href="##" class="grade blueBottom">等级</a>
+		<a href="##" class="grade">等级</a>
 		<a href="##" class="distanced">距离</a>
 		<a href="##" class="new" >最新</a>
 		<a href="##" class="More">更多</a>
@@ -478,11 +471,8 @@
 		 <div class="backTop">
 		 </div>
 		 
-		 
 		 <div class="chooseRange">
-		 	<!--<div class="mui-scroll-wrapper">
-				<div class="mui-scroll">-->
-		 	<div class="chooseBtn"><span class="surebtn">确定</span></div>
+		 	<div class="chooseBtn"><img src="images/exit.png" alt="exit" class="exitimg"/> <span class="surebtn">确定</span></div>
 		 	<div class="ageRange">
 		 		<span class="agetitle">年龄范围</span><br/>
 		 		<span class="minAge">18</span>岁—<span class="maxAge">30</span>岁
@@ -502,13 +492,9 @@
 		 		<span class="agetitle moneytitle">金额范围</span><br/>
 		 		<span class="minAge minMoney">600</span>元—<span class="maxAge maxMoney">1500</span>元
 		 		<input type="text" id="range_4" />
-		 		</div>
-			 </div>	
 		 	</div>
-		<!-- </div>	
-		</div>-->
-		
-		
+		 </div>		
+		</div>
 			<div id="tabbar-with-chat" class="page2 positionPage2" >
 				<header id="header" class="mui-bar mui-bar-nav page2_header" style="display: none;">
 					<h1 class="mui-title">排行榜</h1>
@@ -1049,83 +1035,84 @@
 		<a class="mui-icon mui-icon-left-nav mui-pull-left detailBackBtn" onclick="detailBackBtn()"></a>
 		<h1 class="mui-title">我的资料</h1>
 	</header>
-	<div class="detailBox">
-		<div>
-<div class="mui-scroll-wrapper detaiWrapper">
-	<div class="mui-scroll">
-				<div class="babyImgBox">
-					<div class="babyImg">
-						<img src="" alt="" />
-					</div>
-					<div class="name_order">
-							<span class="Baby_name">魅客宝贝</span>
-							<span class="Baby_order">0单</span>
-					</div>
-				</div>
-				<div class="evaluate-price">
-					<div class="Baby_evaluate">
-						<div class="evaluteBox">
-						<div id="starttwo" class="block clearfix starttwoBaby">
-							    <div  class="star_score star_scoreDetail" style="height:19px;"></div>
-							      <!-- <p style="float:left;">您的评分：<span class="fenshu"></span> 分</p>-->	     
-						</div>
-						 <span class="fenshu fenshuDetail">4.9</span>		
-						</div>
-						<div class="evaluateTitle">
-							评价
-						</div>
-					</div>
-					<div class="Baby_Grade">
-						<img src="" alt="" class="gradeBabyImg"/>
-						<div class="gradeTitle">等级</div>
-					</div>
-					<div class="Baby_Price">
-						<div class="PriceContent">
-							￥：<span class="PriceNum">10</span>
-						</div>
-						<div class="priceTitle">
-							定价
-						</div>
-					</div>
-				</div>
-			<div class="showImgListBox mui-table-view-cell">
-				<div class="BabyImgTitle">
-					照片(<span class="imgNum">0</span>)
-				</div>
-				<div class="swiper-container">
-			        <div class="swiper-wrapper">
-			        </div>
-			    </div>
-		    
-			</div>
 	
-			<div class="babyInfoBox">
-			<ul class="mui-table-view">
-					<li class="mui-table-view-cell  Litile">基本资料</li>
-				    <li class="mui-table-view-cell LiBox">年龄：<span class="babyAge"></span></li>
-				    <li class="mui-table-view-cell LiBox">身高：<span class="babyHeight"></span></li>
-				    <li class="mui-table-view-cell LiBox">体重：<span class="babyWeight"></span></li>
-				    <li class="mui-table-view-cell LiBox">三围：<span class="babyThreeNum"></span></li>
-				    <li class="mui-table-view-cell LiBox">星座：<span class="babyConstellation"></span></li>
-				    <li class="mui-table-view-cell LiBox">籍贯：<span class="babyAdress"></span></li>
-				    <li class="mui-table-view-cell LiBox">民族：<span class="babyNation"></span></li>
-			</ul>
-			</div>
-			<div class="moreInfoBox">
-			<ul class="mui-table-view">
-					<li class="mui-table-view-cell  Litile">更多资料</li>
-				    <li class="mui-table-view-cell LiBox">类型：<span class="babyClassess"></span></li>
-				    <li class="mui-table-view-cell LiBox">魅力：<span class="babyGlamour"></span></li>
-				    <li class="mui-table-view-cell LiBox">脸型：<span class="babyFace"></span></li>
-				    <li class="mui-table-view-cell LiBox">体型：<span class="babyBody"></span></li>
-				    <li class="mui-table-view-cell LiBox">发型：<span class="babyHairstyle"></span></li>
-				    <li class="mui-table-view-cell LiBox">血型：<span class="babybloodType"></span></li>
-			</ul>
-		    </div>
+	<div class="detailBox">
+	<!--<div class="mui-scroll-wrapper mui-content">
+    <div class="mui-scroll" style="height:100%">-->
+    <!--<div class="mui-scroll-wrapper mui-slider-indicator mui-segmented-control mui-segmented-control-inverted">
+    <div class="mui-scroll">-->
+	<div class="babyImgBox">
+		
+		<div class="babyImg">
+			<img src="" alt="" />
+		</div>
+		<div class="name_order">
+				<span class="Baby_name">魅客宝贝</span>
+				<span class="Baby_order">0单</span>
 		</div>
 	</div>
-	 </div>
+	<div class="evaluate-price">
+		<div class="Baby_evaluate">
+			<div class="evaluteBox">
+			<div id="starttwo" class="block clearfix starttwoBaby">
+				    <div  class="star_score star_scoreDetail" style="height:19px;"></div>
+				      <!-- <p style="float:left;">您的评分：<span class="fenshu"></span> 分</p>-->	     
+			</div>
+			 <span class="fenshu fenshuDetail">4.9</span>		
+			</div>
+			<div class="evaluateTitle">
+				评价
+			</div>
+		</div>
+		<div class="Baby_Grade">
+			<img src="" alt="" class="gradeBabyImg"/>
+			<div class="gradeTitle">等级</div>
+		</div>
+		<div class="Baby_Price">
+			<div class="PriceContent">
+				￥：<span class="PriceNum">10</span>
+			</div>
+			<div class="priceTitle">
+				定价
+			</div>
+		</div>
 	</div>
+	<div class="showImgListBox">
+		<div class="BabyImgTitle">
+			照片(<span class="imgNum">0</span>)
+		</div>
+	
+	
+	<div class="swiper-container">
+        <div class="swiper-wrapper">
+        </div>
+    </div>
+    <div class="babyInfoBox">
+	<ul class="mui-table-view">
+			<li class="mui-table-view-cell">基本资料</li>
+		    <li class="mui-table-view-cell">年龄<span class="babyAge"></span></li>
+		    <li class="mui-table-view-cell">身高<span class="babyHeight"></span></li>
+		    <li class="mui-table-view-cell">体重<span class="babyWeight"></span></li>
+		    <li class="mui-table-view-cell">三围<span class="babyThreeNum"></span></li>
+		    <li class="mui-table-view-cell">星座<span class="babyConstellation"></span></li>
+		    <li class="mui-table-view-cell">籍贯<span class="babyAdress"></span></li>
+		    <li class="mui-table-view-cell">民族<span class="babyNation"></span></li>
+	</ul>
+	</div>
+	<div class="moreInfoBox">
+	<ul class="mui-table-view">
+			<li class="mui-table-view-cell">更多资料</li>
+		    <li class="mui-table-view-cell">类型<span class="babyClassess"></span></li>
+		    <li class="mui-table-view-cell">魅力<span class="babyGlamour"></span></li>
+		    <li class="mui-table-view-cell">脸型<span class="babyFace"></span></li>
+		    <li class="mui-table-view-cell">体型<span class="babyBody"></span></li>
+		    <li class="mui-table-view-cell">发型<span class="babyHairstyle"></span></li>
+		    <li class="mui-table-view-cell">血型<span class="babybloodType"></span></li>
+	</ul>
+	</div>
+	
+	 </div>
+</div>
 </div>
 <script type="text/javascript" src="../weixintest1/js/jquery-1.11.3.js"></script>
 <!--<script type="text/javascript" src="js/swiper.min.js"></script>-->
@@ -1133,24 +1120,19 @@
 <!--<script src="js/mui.view.js" type="text/javascript" charset="utf-8"></script>-->
 <script src="js/mui.previewimage.js" type="text/javascript" charset="utf-8"></script>
 <script src="js/mui.zoom.js" type="text/javascript" charset="utf-8"></script>
-<script type="text/javascript" src="js/ion.rangeSlider.js"></script>
 <script>
 		 /*redirect_uri/?code=CODE&state=STATE*/
 		//mui('.mui-scroll-wrapper').scroll({deceleration: 0.0005});
-		/*$('#showDetail').on('touchmove',function(){
-			$("body").scrollTop(50)
-			alert($("body").scrollTop())
-		})
-		*/
-			mui.previewImage();//mui 图片点击全屏
+			mui.previewImage();
 			var weixUrl=window.location.href;
 			if(weixUrl.indexOf('code')!=-1){
 				var codeNum=weixUrl.indexOf('code');
 				alert(weixUrl.slice(str.indexOf('code')+5,weixUrl.indexOf('&state')))
 			}
 			
+	
 			mui.init();
-    //mui('.mui-scroll-wrapper').scroll();
+    mui('.mui-scroll-wrapper').scroll();
 		//初始化单页view
 		var viewApi = mui('#app').view({
 			defaultPage: '#setting'
@@ -1671,7 +1653,7 @@
         }	
 } 
  				    
-      		$("#range_1").ionRangeSlider({
+      		/*$("#range_1").ionRangeSlider({
 
 		min: 18,
 
@@ -1772,7 +1754,7 @@ $("#range_3").ionRangeSlider({
 		$("#styleSrc").attr("href",$(this).val());
 
 	});
-	
+	*/
 
 	
 	$('.ageRange .irs-slider').on("touchmove",function(){
@@ -1881,9 +1863,7 @@ function page5(){
 			}
 		})*/
 		function detailBackBtn(){
-			//$('.mui-bar-tab~.mui-content').css('paddingTop',44+"px")
-			$('body').scrollTop(0)
-			//mui('.mui-scroll-wrapper').scroll().scrollTo(0,0,100);
+			$('.mui-bar-tab~.mui-content').css('paddingTop',44+"px")
 			if(localStorage.page1Stop=="true"){
 				$('#showDetail').hide()
 				$('.page1').fadeIn();
