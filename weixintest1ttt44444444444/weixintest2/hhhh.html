@@ -1,0 +1,1890 @@
+
+<html><head>
+		<meta charset="utf-8">
+		<title>魅客微信版</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<!--标准mui.css-->
+		<link rel="stylesheet" href="./css/mui.min.css">
+		<!--App自定义的css-->
+		<link rel="stylesheet" type="text/css" href="./css/app.css">
+	<link rel="stylesheet" href="src/css/index.css">
+	<link rel="stylesheet" href="src/css/normalize.min.css"/>
+	<link rel="stylesheet" href="src/css/ion.rangeSlider.css" />
+	<link rel="stylesheet" href="src/css/ion.rangeSlider.skinSimple.css" />
+	<link rel="stylesheet" href="src/css/dropload.css" />
+	<link rel="stylesheet" type="text/css" href="css/weixin.css"/>
+	<link rel="stylesheet" type="text/css" href="css/base.css" />
+	<link rel="stylesheet" type="text/css" href="css/listloading.min.css" />
+
+
+<!--<script src="js/jquery-1.11.3.js"></script>-->
+		<style>
+			
+		 *{
+	 	margin:0;
+	 	padding: 0;
+	 	}
+		
+		a{
+			text-decoration: none;
+		}
+		.topimg{
+		display: inline-block;
+		width: 100%;
+		height:4.8rem;
+	}	
+	.intivite{
+		display: -webkit-flex; /* Safari */
+  		display: flex;
+  		flex-direction: row;
+  		 flex-wrap:wrap;
+  		justify-content:center;
+  		font-size: 0.42rem;
+  		margin-bottom:0.61rem;
+
+	}	
+	.sisterimg{
+		width: 100%;
+		height:7.0rem;
+		display: relative;
+	}
+	.sisterinfo{
+		position: absolute;
+	    bottom: 2.5rem;
+	    left: 0.5rem;
+	    font-family: "微软雅黑";
+	}
+	.sistername{
+		font-size:0.42rem;
+		color:white;
+	
+	}
+	.btn{
+		font-size:0.36rem;
+		display: inline-block;
+		/*width: 1.54rem;*/
+		height:0.77rem;
+		text-align: center;
+		line-height:0.77rem; 
+		background:#e9e8e8; 
+		border-radius: 10px;
+		color:#8d8d8d;
+		padding:0 0.35rem 0 0.35rem;
+	}
+	.conent{
+
+		margin-top:;
+	}
+	.imgbox{
+		position: relative;
+	}
+	.number{
+		font-size: 0.36rem;
+		color:#ffffff;
+	}
+	.money{
+		color:#ffcd6c;	
+		font-size: 27px;
+	}
+	.distance{
+		position: absolute;
+		right:0.5rem;
+		bottom:2.7rem;
+	}
+	.distancenum{
+		font-size: 0.4rem;
+		color:white;
+		font-family: "微软雅黑";
+	}
+	.moneyafter{
+		font-size: 0.4rem;
+		color:#ffcd6c;
+	}
+	.afterdistance{
+		font-size: 0.32rem;
+		color:white;
+	}
+	.serverrange{
+	font-size: 0.4rem;
+	color:#333333;
+	margin-top: 0.26rem;
+	margin-bottom: 0.4rem;
+	}
+	.age{
+		margin-left: 0.4rem;
+		margin-right:0.2rem;
+	}
+	.height,.range1{
+		margin-right: 0.2rem;
+	}
+	.server{
+		margin-left: 0.4rem;
+		margin-right:0.2rem;
+	}
+	.infobox{
+		position: relative;
+	}
+	.datebtn{
+		display: inline-block;
+		width:2.066rem;
+		height: 0.78rem;
+		border:1px solid #15baca;
+		font-size: 0.45rem;
+		position: absolute;
+		right:0.41rem;
+		top:0.55rem;
+		color:#15baca;
+		text-align: center;
+		line-height: 0.78rem;
+		border-radius: 20px;
+		font-family: "微软雅黑";
+	}
+	.gradeImg{
+		position: absolute;
+		left:0.4rem;
+		top:0.6rem;
+		width:0.86rem;
+		height:0.6rem;
+	}
+	.getmore{
+		text-align: center;
+		font-size: 0.42rem;
+	}
+	.serchbox{
+		width: 100%;
+		height: 1rem;
+		border-top:1px solid #c9f3f7;
+	}
+	.serachimg{
+		float:right;
+		width: 0.666rem;
+		height:0.53rem;
+		margin-top:0.1rem;
+		margin-right: 0.2rem;
+		padding: 0.3rem 0.3rem;
+	}
+	.sisterbg{
+		width:100%;
+		height:3.5rem;
+		position: absolute;
+		left:0;
+		top:3.5rem;
+	}
+	.downloadbtn{
+		width:8.05rem;
+		height: 0.94rem;
+		background: #1fcdde;
+		border-radius:0.3rem;
+		-moz-border-radius:0.3rem; /* Old Firefox */
+		position:fixed;
+		left:0;
+		top:0;
+		font-family: "微软雅黑";
+		font-size:0.42rem;
+		line-height: 0.94rem;
+		text-align: center;
+	z-index: 50;
+	}
+	.downloadbtn a{
+		color:#ffffff;
+	}
+		
+	.minlogopic{
+		width: 0.87rem;
+		height:0.48rem;
+		vertical-align: middle;
+	}
+	.backTop{
+		width: 0.97rem;
+		height:0.97rem;
+		background: url(images/top-btn.png) no-repeat;
+		background-size:100% 100% ;
+		border-radius: 50%;
+		position:fixed;
+		right:12px;
+		bottom:150px;
+		z-index: 100;
+	}
+	.chooseRange{
+		position: absolute;
+		top:2.01rem;  
+		height:16rem;
+		 width:8.3rem; 
+		left:0.91rem;
+		background: #ffffff;
+		border-radius: 15px;
+		display: none;
+	}
+	.exitimg{
+		width: 0.5rem;
+		height:0.5rem;
+		margin-left: 0.51rem;
+		margin-top: 0.51rem;
+	}
+	.chooseBtn{
+		display: flex;
+		flex-direction:row;
+		justify-content: space-between;
+	}
+	.surebtn{
+		display: block;
+		width:1.5rem;
+		height:1.5rem;
+		line-height: 1.5rem;
+		text-align: center;
+		font-size:0.48rem;
+		color:#26bac8;
+		margin-top: 0.2rem;
+		margin-right: 0.3rem;
+		font-family: "微软雅黑";
+		
+	}
+	.irs{
+		width:4.1rem;
+		margin:0 auto;
+	}
+	.irs-line{
+		height: 1px;
+		top:15px;
+	}
+	.irs-diapason{
+		top:15px;
+	}
+	.irs-slider{
+	background: #D8DFF3;
+	}
+	.irs-to,.irs-from,.irs-max,.irs-min,.irs-single{
+		opacity: 0;
+		filter:Alpha(opacity=0);
+	}
+	.ageRange,.heightRange,.weightRange,.moneyRange{
+		text-align: center;
+		font-size:0.4rem;
+		color:#666666;
+		margin-bottom:1.09rem ;
+		
+	}
+	.agetitle{
+		font-size: 0.35rem;
+		color:#666666;
+		line-height: 0.6333rem;
+	}
+	.minAge,.maxAge{
+		font-size:0.4rem;
+		color:#666666;
+	}
+	.blue{
+		color:#1fcdde;
+	}
+	.bubble0{
+		width: 1.3rem;
+	    height: 0.58rem;
+	    background: url(images/talk.png);
+	    background-size: 100% 100%;
+	    position: absolute;
+	    left: 1.5rem;
+	    top: 1.4rem;
+	    color: white;
+	    font-size: 0.25rem;
+	    font-family: "微软雅黑";
+	    text-align: center;
+	}
+	.circle0{
+		position: absolute;
+	    left: 2.05rem;
+	    top: 2.1rem;
+	    width: 0.15rem;
+	    height: 0.15rem;
+	}
+	.bubble1{
+		width: 1.3rem;
+	    height: 0.58rem;
+	    background: url(images/talk.png);
+	    background-size: 100% 100%;
+	    position: absolute;
+	    left: 7.8rem;
+	    top: 2.4rem;
+	    color: white;
+	    font-size: 0.25rem;
+	    font-family: "微软雅黑";
+	    text-align: center;
+	}
+	.circle1{
+		position: absolute;
+	    left: 8.4rem;
+	    top: 3.1rem;
+	    width: 0.15rem;
+	    height: 0.15rem;
+	}
+	.bubble2{
+		width: 1.3rem;
+	    height: 0.58rem;
+	    background: url(images/talk.png);
+	    background-size: 100% 100%;
+	    position: absolute;
+	    left: 0.5rem;
+	    top: 3.5rem;
+	    color: white;
+	    font-size: 0.25rem;
+	    font-family: "微软雅黑";
+	    text-align: center;
+	}
+	.circle2{
+		position: absolute;
+	    left: 1.1rem;
+	    top: 4.2rem;
+	    width: 0.15rem;
+	    height: 0.15rem;
+	}
+	.dropload-down{
+		display: none;
+	}
+	.footer{
+		width: 100%;
+		height:0.94rem;
+		text-align: center;
+		line-height: 0.94rem;
+		font-size: 0.5rem;
+		color:gray;
+		
+	}
+	 .dropload-up,.dropload-down{
+		width:100%;
+		display: -webkit-flex; /* Safari */
+  		display: flex;
+		 flex-direction: row;
+		 justify-content:center;
+		  align-items:center;
+	}
+	/*.mui-control-content{
+		display: block;
+	}*/
+	.positionPage2{
+		position:absolute;
+		left: 0;
+		top:-10000px;
+	}
+	.mui-navbar{
+		background:#22cddf;
+	}
+		</style>
+<link rel="stylesheet" href="./css/swiper.min.css" />
+<link rel="stylesheet" type="text/css" href="./css/icons-extra.css" />		
+<link rel="stylesheet" type="text/css" href="/css/base.css" />
+<link rel="stylesheet" type="text/css" href="/css/listloading.min.css" />
+<link rel="stylesheet" href="css/mui.min.css" />
+<script src="js/zepto.min.js"></script>
+<script src="./js/mui.js"></script>
+<script src="src/js/index.js"></script>
+<!--<script src="src/js/dropload.js"></script>-->
+<script src="src/js/touch.js"></script> 
+<!--<script type="text/javascript" src="src/js/ion.rangeSlider.js"></script> -->
+<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+<script src="./js/require.js"></script>
+<script src=".js/iconfont.js"></script>
+<script src='test.js'></script>
+<script src="js/feedback.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/mui.view.js" type="text/javascript" charset="utf-8"></script>
+
+	
+</script>
+	 <script>
+	wx.config({
+			    debug: true, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+			    appId: 'wx78ff19be9780631e', // 必填，公众号的唯一标识
+			    timestamp: '1', // 必填，生成签名的时间戳
+			    nonceStr: '1', // 必填，生成签名的随机串
+			    signature: 'e45f4ad7a24b8368a6c0515e4da261e2bf332616',// 必填，签名
+			    jsApiList: ["getLocation"] // 必填，需要使用的JS接口列表
+			});
+			//通过ready接口处理成功验证
+			wx.ready(function(){
+				// config信息验证后会执行ready方法，所有接口调用都必须在config接口获得结果之后
+				
+				wx.getLocation({
+				    type: 'wgs84', // 默认为wgs84的gps坐标，如果要返回直接给openLocation用的火星坐标，可传入'gcj02'
+				    success: function (res) {
+				        var latitude = res.latitude; // 纬度，浮点数，范围为90 ~ -90
+				        var longitude = res.longitude; // 经度，浮点数，范围为180 ~ -180。
+				        var speed = res.speed; // 速度，以米/每秒计
+				        var accuracy = res.accuracy; // 位置精度
+				       console.log(latitude)
+				    }
+				});			
+			});
+
+</script>
+
+	</head>
+	<body class="">
+		<nav class="mui-bar mui-bar-tab">
+			<a class="mui-tab-item mui-active " ontouchend="page1()">
+				<span class="mui-icon mui-icon-home"></span>
+				<span class="mui-tab-label">首页</span>
+			</a>
+			<a class="mui-tab-item page2Btn" ontouchend="page2()"><!--href="#tabbar-with-chat"-->
+				<span class="mui-icon mui-icon-email"><span class="mui-badge">9</span></span>
+				<span class="mui-tab-label">榜单</span>
+			</a>
+			<a class="mui-tab-item"   ontouchend="page3()"><!--href="#tabbar-with-contact"-->
+				<span class="mui-icon mui-icon-contact"></span>
+				<span class="mui-tab-label">订单</span>
+			</a>
+			<a class="mui-tab-item" href="#tabbar-with-contact">
+				<span class="mui-icon mui-icon-contact"></span>
+				<span class="mui-tab-label">约宝</span>
+			</a>
+			<a class="mui-tab-item" ontouchend="page5()">
+				<span class="mui-icon mui-icon-gear"></span>
+				<span class="mui-tab-label">个人</span>
+			</a>
+		</nav>
+	<div class="mui-content">
+		<div id="tabbar" class="page1" style="display:block;">
+
+		<header id="header" class="mui-bar mui-bar-nav page1_header">
+			<h1 class="mui-title">导航栏</h1>
+			<button class="mui-btn mui-btn-blue mui-btn-link mui-pull-right" ontouchend="login()">登录</button>
+			<button class="mui-btn mui-btn-blue mui-btn-link mui-btn-nav mui-pull-left mui-left-nav">
+			杭州</button>
+		</header>
+	<div class="serchbox">
+		<a href="##" class="grade">等级</a>
+		<a href="##" class="distanced">距离</a>
+		<a href="##" class="new" >最新</a>
+		<a href="##" class="More">更多</a>
+		<!--<img src="images/search.png" alt=""  class='serachimg' />-->
+	</div>
+	<div class="main" id="main">
+		<div>
+			<div class="list" id="list">
+				
+			</div>
+		</div>
+		
+
+	</div>
+		<!--<div class="downloadbtn"><a href="##"><img src="images/app-logo.png" alt="logo" class="minlogopic"/>下载app,查看更多</a></div>-->
+
+		 <div class="backTop">
+		 </div>
+		 
+		 <div class="chooseRange">
+		 	<div class="chooseBtn"><img src="images/exit.png" alt="exit" class="exitimg"/> <span class="surebtn">确定</span></div>
+		 	<div class="ageRange">
+		 		<span class="agetitle">年龄范围</span><br/>
+		 		<span class="minAge">18</span>岁—<span class="maxAge">30</span>岁
+		 		<input type="text" id="range_1" />
+		 	</div>
+		 	<div class="heightRange">
+		 		<span class="agetitle heighttitle">身高范围</span><br/>
+		 		<span class="minAge minHeight">157</span>cm—<span class="maxAge maxHeight">175</span>cm
+		 		<input type="text" id="range_2" />
+		 	</div>
+		 	<div class="weightRange">
+		 		<span class="agetitle weighttitle">体重范围</span><br/>
+		 		<span class="minAge minWeight">40</span>kg—<span class="maxAge maxWeight">60</span>kg
+		 		<input type="text" id="range_3" />
+		 	</div>
+		 	<div class="moneyRange">
+		 		<span class="agetitle moneytitle">金额范围</span><br/>
+		 		<span class="minAge minMoney">600</span>元—<span class="maxAge maxMoney">1500</span>元
+		 		<input type="text" id="range_4" />
+		 	</div>
+		 </div>		
+		</div>
+			<div id="tabbar-with-chat" class="page2 positionPage2" >
+				<header id="header" class="mui-bar mui-bar-nav page2_header" style="display: none;">
+					<h1 class="mui-title">排行榜</h1>
+				</header>
+			<div class="rankingTitle">
+					<span class="hotRange titleBaclkground" id="hotRange">人气榜</span><span  class="trustRange" id="trustRange">信誉榜</span>
+				</div>
+				<div class="rangeMainBox" id="listloading">
+			<div>
+				<div class="one_three">
+					<div class="flexbox">
+						<ul>
+							<li class="showDetail2 imgId"><div class="imgflexBox"><img src="images/app-logo.png" height="31" width="60" alt="" class="one_three_Img"></div></li>
+							<li><span class="rangerName">苏丽</span><span class="rangerAge fontColor">26岁</span></li>
+							<li><span class="fontColor rangerHeight">175cm</span><span class="fontColor rangerWeight">65kg</span></li>
+							<li class="popularList"><span class="hadOrderNum">已接23单</span></li>
+							<li class="creditList"><div id="starttwo" class="block clearfix starttwo starttwo0"><div  class="star_score star_score0" style="height:19px;"></div><span class="fenshu fenshu0"></span></li>
+							<li><span class='rangeDatebtn'>约TA</span></li>
+						</ul>
+					</div>
+					<div style="order: -1;" class="flexbox">
+						<ul>
+							<li class="showDetail2 imgId"><div class="imgflexBox2 marginTop_10"><img src="images/app-logo.png" height="31" width="60" alt="" class="one_three_Img"></div></li>
+							<li><span class="rangerName">苏丽</span><span class="rangerAge fontColor">26岁</span></li>
+							<li><span class="fontColor rangerHeight">175cm</span><span class="fontColor rangerWeight">65kg</span></li>
+							<li class="popularList"><span class="hadOrderNum">已接23单</span></li>
+							<li class="creditList"><div id="starttwo" class="block clearfix starttwo starttwo1"><div  class="star_score star_score1" style="height:19px;"></div><span class="fenshu fenshu1"></span></li>
+							<li><span class='rangeDatebtn'>约TA</span></li>
+						</ul>
+					</div>
+					<div class="flexbox">
+						<ul>
+							<li class="showDetail2 imgId"><div class="imgflexBox3 marginTop_10"><img src="images/app-logo.png" height="31" width="60" alt="" class="one_three_Img"></div></li>
+							<li><span class="rangerName">苏丽</span><span class="rangerAge fontColor">26岁</span></li>
+							<li><span class="fontColor rangerHeight">175cm </span><span class="fontColor rangerWeight">65kg</span></li>
+							<li class="popularList"><span class="hadOrderNum">已接23单</span></li>
+							<li class="creditList"><div id="starttwo" class="block clearfix starttwo starttwo2"><div  class="star_score star_score2" style="height:19px;"></div><span class="fenshu fenshu2"></span></li>
+							<li><span class='rangeDatebtn'>约TA</span></li>
+						</ul>
+					</div>
+				</div>
+				<ul class="rangerBox" id="order-list">
+				
+
+				</ul>
+					</div>
+				</div>
+			</div>
+			
+			
+			<div id="tabbar-with-contact" class="page3" style="display:none;">
+				<header id="header" class="mui-bar mui-bar-nav page3_header" style="display: none;">
+					<a href="#picture"><span class=" mui-icon mui-icon-phone" style="float: right;color:white;"></span></a>
+					<h1 class="mui-title">甜蜜约会</h1>	
+				</header>
+				<div class="progressBox">
+					<div class="progStatus">
+						<span class="mui-icon-extra mui-icon-extra-topic" style="color:#1fcfde;vertical-align: middle;"></span>
+						<span style="color:#2e2e2e">进行中订单</span>
+						<div class="orderStaus">
+								<div class="progressCircle"></div>
+								<span class="progressLine"></span>
+								<div class="progressCircle"></div>
+								<span class="progressLine"></span>
+								<div class="progressCircle"></div>
+						</div>
+						<div class="progressTitle">
+							<div>已提交</div>
+							<div>进行中</div>
+							<div>已完成</div>
+						</div>
+					</div>
+				</div>
+				<div class="orderNameList">
+					<div class="orderImgName">
+						<div class="orderSingle">
+							<img src="images/logo.png" alt="" />
+							<div class="orderName">兰迪</div>
+						</div>
+						<div class="orderSingle">
+							<img src="images/logo.png" alt="" />
+							<div class="orderName">兰迪</div>
+						</div>
+						<div class="orderSingle">
+							<img src="images/logo.png" alt="" />
+							<div class="orderName">兰迪</div>
+						</div>
+					</div>
+					<div class="adressMoney">	
+						<div class="addressTitle">
+							<div><span>地址：</span><span class="adressConent">杭州西湖区东方魅力</span></div>
+							<div><span>时间：</span><span class="adressConent">2017-01-06 21:09开始</span></div>
+						</div>
+						<div class="payMoney">
+							<span>￥</span><span>3200</span><span>.00</span>
+						</div>
+					 </div>
+				   </div>
+		<div id="picture" class="mui-popover mui-popover-action mui-popover-bottom">
+			<ul class="mui-table-view">
+				<li class="mui-table-view-cell">
+					<a href="#">联系电话</a>
+				</li>
+				<li class="mui-table-view-cell">
+					<a href="tel:400-1515132">联系客服：400-1515132</a>
+				</li>
+			</ul>
+			<ul class="mui-table-view">
+				<li class="mui-table-view-cell">
+					<a href="#picture"><b>取消</b></a>
+				</li>
+			</ul>
+		</div>	
+			</div>
+			<div id="tabbar-with-map" class="page4" style="display:none;">
+				<div class="title">这是div模式选项卡中的第4个子页面，该页面展示一个常见的设置示例.</div>
+				<ul class="mui-table-view">
+				<li class="mui-table-view-cell">
+					<a class="mui-navigate-right">
+						新消息通知
+					</a>
+				</li>
+				<li class="mui-table-view-cell">
+					<a class="mui-navigate-right">
+						隐私
+					</a>
+				</li>
+				<li class="mui-table-view-cell">
+					<a class="mui-navigate-right">
+						通用
+					</a>
+				</li>
+			</ul>
+			<ul class="mui-table-view" style="margin-top: 25px;">
+				<li class="mui-table-view-cell">
+					<a class="mui-navigate-right">
+						关于mui
+					</a>
+				</li>
+			</ul>
+			<ul class="mui-table-view" style="margin-top: 25px;">
+				<li class="mui-table-view-cell">
+					<a style="text-align: center;color: #FF3B30;">
+						退出登录
+					</a>
+				</li>
+			</ul>
+			</div>
+		</div>
+	<div id="tabbar-settting" class="page5" style="display:none;" >
+		<div id="app" class="mui-views">
+			<div class="mui-view">
+				<div class="mui-navbar">
+				</div>
+				<div class="mui-pages">
+				</div>
+			</div>
+		</div>
+		<!--页面主结构结束-->
+		<!--单页面开始-->
+		<div id="setting" class="mui-page">
+			<!--页面标题栏开始-->
+			<div class="mui-navbar-inner mui-bar mui-bar-nav">
+				<!--<button type="button" class="mui-left mui-action-back mui-btn  mui-btn-link mui-btn-nav mui-pull-left">
+					<span class="mui-icon mui-icon-left-nav"></span>
+				</button>-->
+				<h1 class="mui-center mui-title">个人中心</h1>
+			</div>
+			<!--页面标题栏结束-->
+			<!--页面主内容区开始-->
+			<div class="mui-page-content">
+				<div class="mui-scroll-wrapper">
+					<div class="mui-scroll">
+						<!--<ul class="mui-table-view mui-table-view-chevron">
+							<li class="mui-table-view-cell mui-media">
+								<a class="mui-navigate-right" href="#account">
+									<img class="mui-media-object mui-pull-left head-img" id="head-img" src="">
+									<div class="mui-media-body">
+										Hello MUI
+										<p class='mui-ellipsis'>账号:hellomui</p>
+									</div>
+								</a>
+							</li>
+						</ul>-->
+						
+						<div class="topImgBackground">
+							
+						</div>
+						<ul class="mui-table-view mui-table-view-chevron">
+							<li class="mui-table-view-cell">
+								<a href="#account" class="mui-navigate-right">历史订单</a>
+							</li>
+						</ul>
+						<ul class="mui-table-view mui-table-view-chevron">
+							<li class="mui-table-view-cell">
+								<a href="#notifications" class="mui-navigate-right">我关注的人</a>
+							</li>
+							<!--<li class="mui-table-view-cell">
+								<a href="#privacy" class="mui-navigate-right">隐私</a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a href="#general" class="mui-navigate-right">通用</a>
+							</li>-->
+						</ul>
+						<ul class="mui-table-view mui-table-view-chevron">
+							<li class="mui-table-view-cell">
+								<a href="#about" class="mui-navigate-right">订单消息</a>
+							</li>
+						</ul>
+						<!--<ul class="mui-table-view">
+							<li class="mui-table-view-cell" style="text-align: center;">
+								<a>退出登录</a>
+							</li>
+						</ul>-->
+					</div>
+				</div>
+			</div>
+			<!--页面主内容区结束-->
+		</div>
+		<!--单页面结束-->
+		<div id="account" class="mui-page">
+			<div class="mui-navbar-inner mui-bar mui-bar-nav">
+				<button type="button" class="mui-left mui-action-back mui-btn  mui-btn-link mui-btn-nav mui-pull-left">
+					<span class="mui-icon mui-icon-left-nav"></span>设置
+				</button>
+				<h1 class="mui-center mui-title">账号与安全</h1>
+			</div>
+			<div class="mui-page-content">
+				<div class="mui-scroll-wrapper">
+					<div class="mui-scroll">
+						<ul class="mui-table-view">
+							<li class="mui-table-view-cell">
+								<a id="head" class="mui-navigate-right">头像
+								<span class="mui-pull-right head">
+									<img class="head-img mui-action-preview" id="head-img1" src=""/>
+								</span>
+							</a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a>姓名<span class="mui-pull-right">Hbuilder</span></a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a>HBuilder账号<span class="mui-pull-right">hbuilder@dcloud.io</span></a>
+							</li>
+						</ul>
+						<ul class="mui-table-view">
+							<li class="mui-table-view-cell">
+								<a>QQ号<span class="mui-pull-right">88888888</span></a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a>手机号<span class="mui-pull-right">18601234567</span></a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a>邮箱地址<span class="mui-pull-right">hbuilder@dcloud.io</span></a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="notifications" class="mui-page">
+			<div class="mui-navbar-inner mui-bar mui-bar-nav">
+				<button type="button" class="mui-left mui-action-back mui-btn  mui-btn-link mui-btn-nav mui-pull-left">
+					<span class="mui-icon mui-icon-left-nav"></span>设置
+				</button>
+				<h1 class="mui-center mui-title">新消息通知</h1>
+			</div>
+			<div class="mui-page-content">
+				<div class="mui-scroll-wrapper">
+					<div class="mui-scroll">
+						<ul class="mui-table-view">
+							<li class="mui-table-view-cell">
+								<a>接收新消息通知<span class="mui-pull-right">已开启</span></a>
+							</li>
+						</ul>
+						<ul class="mui-table-view">
+							<li class="mui-table-view-cell">
+								通知显示消息详情
+								<div class="mui-switch mui-active mui-switch-mini">
+									<div class="mui-switch-handle"></div>
+								</div>
+							</li>
+						</ul>
+						<div class="mui-content-padded">
+							<p>若关闭，当收到新消息时，通知提示将不显示发信人和内容摘要</p>
+						</div>
+
+						<ul class="mui-table-view mui-table-view-chevron">
+							<li class="mui-table-view-cell">
+								<a href="#notifications_disturb" class="mui-navigate-right">功能消息免打扰</a>
+							</li>
+						</ul>
+						<div class="mui-content-padded">
+							<p>设置系统功能消息提示声音和震动的时段</p>
+						</div>
+						<ul class="mui-table-view">
+							<li class="mui-table-view-cell">
+								<a>接收新消息通知<span class="mui-pull-right">已开启</span></a>
+							</li>
+						</ul>
+						<ul class="mui-table-view">
+							<li class="mui-table-view-cell">
+								声音
+								<div class="mui-switch mui-active mui-switch-mini">
+									<div class="mui-switch-handle"></div>
+								</div>
+							</li>
+							<li class="mui-table-view-cell">
+								震动
+								<div class="mui-switch mui-active mui-switch-mini">
+									<div class="mui-switch-handle"></div>
+								</div>
+							</li>
+						</ul>
+						<div class="mui-content-padded">
+							<p>当HelloMUI在运行时，你可以设置是否需要声音或者震动</p>
+						</div>
+						<div></div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="notifications_disturb" class="mui-page">
+			<div class="mui-navbar-inner mui-bar mui-bar-nav">
+				<button type="button" class="mui-left mui-action-back mui-btn  mui-btn-link mui-btn-nav mui-pull-left">
+					<span class="mui-icon mui-icon-left-nav"></span>新消息通知
+				</button>
+				<h1 class="mui-center mui-title">功能消息免打扰</h1>
+			</div>
+			<div class="mui-page-content">
+				<div class="mui-scroll-wrapper">
+					<div class="mui-scroll">
+						<ul class="mui-table-view mui-table-view-radio">
+							<li class="mui-table-view-cell">
+								<a class="mui-navigate-right">开启</a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a class="mui-navigate-right">只在夜间开启</a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a class="mui-navigate-right">关闭</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="privacy" class="mui-page">
+			<div class="mui-navbar-inner mui-bar mui-bar-nav">
+				<button type="button" class="mui-left mui-action-back mui-btn  mui-btn-link mui-btn-nav mui-pull-left">
+					<span class="mui-icon mui-icon-left-nav"></span>设置
+				</button>
+				<h1 class="mui-center mui-title">隐私</h1>
+			</div>
+			<div class="mui-page-content">
+				<div class="mui-scroll-wrapper">
+					<div class="mui-scroll">
+						<ul class="mui-table-view">
+							<li class="mui-table-view-divider">通讯录</li>
+							<li class="mui-table-view-cell">
+								加我为朋友时需要验证
+								<div class="mui-switch mui-active mui-switch-mini">
+									<div class="mui-switch-handle"></div>
+								</div>
+							</li>
+						</ul>
+						<ul class="mui-table-view">
+							<li class="mui-table-view-cell">
+								向我推荐QQ好友
+								<div class="mui-switch mui-switch-mini">
+									<div class="mui-switch-handle"></div>
+								</div>
+							</li>
+							<li class="mui-table-view-cell">
+								通过QQ号搜索到我
+								<div class="mui-switch mui-switch-mini">
+									<div class="mui-switch-handle"></div>
+								</div>
+							</li>
+						</ul>
+						<ul class="mui-table-view">
+							<li class="mui-table-view-cell">
+								可通过手机号搜索到我
+								<div class="mui-switch mui-active mui-switch-mini">
+									<div class="mui-switch-handle"></div>
+								</div>
+							</li>
+							<li class="mui-table-view-cell">
+								向我推荐通讯录朋友
+								<div class="mui-switch mui-switch-mini">
+									<div class="mui-switch-handle"></div>
+								</div>
+							</li>
+							<li class="mui-table-view-divider">开启后，为你推荐已经开通HBuilder的手机联系人</li>
+						</ul>
+						<ul class="mui-table-view">
+							<li class="mui-table-view-cell">
+								通过HBuilder账号搜索到我
+								<div class="mui-switch mui-active mui-switch-mini">
+									<div class="mui-switch-handle"></div>
+								</div>
+							</li>
+							<li class="mui-table-view-divider">关闭后，其他用户将不能通过HBuilder号搜索到你</li>
+						</ul>
+
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="general" class="mui-page">
+			<div class="mui-navbar-inner mui-bar mui-bar-nav">
+				<button type="button" class="mui-left mui-action-back mui-btn  mui-btn-link mui-btn-nav mui-pull-left">
+					<span class="mui-icon mui-icon-left-nav"></span>设置
+				</button>
+				<h1 class="mui-center mui-title">通用</h1>
+			</div>
+			<div class="mui-page-content">
+				<div class="mui-scroll-wrapper">
+					<div class="mui-scroll">
+						<ul class="mui-table-view">
+							<li class="mui-table-view-cell">
+								多语言
+							</li>
+						</ul>
+
+						<ul class="mui-table-view">
+							<li class="mui-table-view-cell">
+								听筒模式
+								<div class="mui-switch mui-switch-mini">
+									<div class="mui-switch-handle"></div>
+								</div>
+							</li>
+						</ul>
+						<ul class="mui-table-view">
+							<li class="mui-table-view-cell">
+								功能
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div id="about" class="mui-page">
+			<div class="mui-navbar-inner mui-bar mui-bar-nav">
+				<button type="button" class="mui-left mui-action-back mui-btn  mui-btn-link mui-btn-nav mui-pull-left">
+					<span class="mui-icon mui-icon-left-nav"></span>设置
+				</button>
+				<h1 class="mui-center mui-title">关于MUI</h1>
+			</div>
+			<div class="mui-page-content">
+				<div class="mui-scroll-wrapper">
+					<div class="mui-scroll">
+						<ul class="mui-table-view">
+							<li class="mui-table-view-cell mui-plus-visible">
+								<a id="rate" class="mui-navigate-right">评分鼓励</a>
+							</li>
+							<li class="mui-table-view-cell mui-plus-visible">
+								<a id="welcome" class="mui-navigate-right">欢迎页</a>
+							</li>
+							<li class="mui-table-view-cell mui-plus-visible">
+								<a id="share" class="mui-navigate-right">分享推荐</a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a id="tel" class="mui-navigate-right">客服电话</a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a id="feedback-btn" href="#feedback" class="mui-navigate-right">问题反馈</a>
+							</li>
+							<li id="check_update" class="mui-table-view-cell mui-plus-visible">
+								<a id="update" class="mui-navigate-right">检查更新</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div id="feedback" class="mui-page feedback">
+			<div class="mui-navbar-inner mui-bar mui-bar-nav">
+				<button type="button" class="mui-left mui-action-back mui-btn  mui-btn-link mui-btn-nav mui-pull-left">
+					<span class="mui-icon mui-icon-left-nav"></span>关于MUI
+				</button>
+				<button id="submit" class="mui-btn mui-btn-blue mui-btn-link mui-pull-right">发送</button>
+				<h1 class="mui-center mui-title">问题反馈</h1>
+			</div>
+			<div class="mui-page-content">
+				<div class="mui-content-padded">
+					<div class="mui-inline">问题和意见</div>
+					<a class="mui-pull-right mui-inline" href="#popover">
+						快捷输入
+						<span class="mui-icon mui-icon-arrowdown"></span>
+					</a>
+					<!--快捷输入具体内容，开发者可自己替换常用语-->
+					<div id="popover" class="mui-popover">
+						<div class="mui-popover-arrow"></div>
+						<div class="mui-scroll-wrapper">
+							<div class="mui-scroll">
+								<ul class="mui-table-view">
+									<!--仅流应用环境下显示-->
+									<li class="mui-table-view-cell stream">
+										<a href="#">桌面快捷方式创建失败</a>
+									</li>
+									<li class="mui-table-view-cell"><a href="#">界面显示错乱</a></li>
+									<li class="mui-table-view-cell"><a href="#">启动缓慢，卡出翔了</a></li>
+									<li class="mui-table-view-cell"><a href="#">偶发性崩溃</a></li>
+									<li class="mui-table-view-cell"><a href="#">UI无法直视，丑哭了</a></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row mui-input-row">
+					<textarea id='question' class="mui-input-clear question" placeholder="请详细描述你的问题和意见..."></textarea>
+				</div>
+				<p>图片(选填,提供问题截图,总大小10M以下)</p>
+				<div id='image-list' class="row image-list"></div>
+				<p>QQ/邮箱</p>
+				<div class="mui-input-row">
+					<input id='contact' type="text" class="mui-input-clear contact" placeholder="(选填,方便我们联系你 )" />
+				</div>
+				<div class="mui-content-padded">
+					<div class="mui-inline">应用评分</div>
+					<div class="icons mui-inline" style="margin-left: 6px;">
+						<i data-index="1" class="mui-icon mui-icon-star"></i>
+						<i data-index="2" class="mui-icon mui-icon-star"></i>
+						<i data-index="3" class="mui-icon mui-icon-star"></i>
+						<i data-index="4" class="mui-icon mui-icon-star"></i>
+						<i data-index="5" class="mui-icon mui-icon-star"></i>
+					</div>
+				</div><br />
+			</div>
+		</div>
+	</div>
+	
+<div id="showDetail" style="display: none;">
+	<header class="mui-bar mui-bar-nav">
+		<a class="mui-icon mui-icon-left-nav mui-pull-left detailBackBtn" onclick="detailBackBtn()"></a>
+		<h1 class="mui-title">我的资料</h1>
+	</header>
+	
+	<div class="detailBox">
+	<!--<div class="mui-scroll-wrapper mui-content">
+    <div class="mui-scroll" style="height:100%">-->
+    <!--<div class="mui-scroll-wrapper mui-slider-indicator mui-segmented-control mui-segmented-control-inverted">
+    <div class="mui-scroll">-->
+	<div class="babyImgBox">
+		
+		<div class="babyImg">
+			<img src="" alt="" />
+		</div>
+		<div class="name_order">
+				<span class="Baby_name">魅客宝贝</span>
+				<span class="Baby_order">0单</span>
+		</div>
+	</div>
+	<div class="evaluate-price">
+		<div class="Baby_evaluate">
+			<div class="evaluteBox">
+			<div id="starttwo" class="block clearfix starttwoBaby">
+				    <div  class="star_score star_scoreDetail" style="height:19px;"></div>
+				      <!-- <p style="float:left;">您的评分：<span class="fenshu"></span> 分</p>-->	     
+			</div>
+			 <span class="fenshu fenshuDetail">4.9</span>		
+			</div>
+			<div class="evaluateTitle">
+				评价
+			</div>
+		</div>
+		<div class="Baby_Grade">
+			<img src="" alt="" class="gradeBabyImg"/>
+			<div class="gradeTitle">等级</div>
+		</div>
+		<div class="Baby_Price">
+			<div class="PriceContent">
+				￥：<span class="PriceNum">10</span>
+			</div>
+			<div class="priceTitle">
+				定价
+			</div>
+		</div>
+	</div>
+	<div class="showImgListBox">
+		<div class="BabyImgTitle">
+			照片(<span class="imgNum">0</span>)
+		</div>
+	
+	
+	<div class="swiper-container">
+        <div class="swiper-wrapper">
+        </div>
+    </div>
+    <div class="babyInfoBox">
+	<ul class="mui-table-view">
+			<li class="mui-table-view-cell">基本资料</li>
+		    <li class="mui-table-view-cell">年龄<span class="babyAge"></span></li>
+		    <li class="mui-table-view-cell">身高<span class="babyHeight"></span></li>
+		    <li class="mui-table-view-cell">体重<span class="babyWeight"></span></li>
+		    <li class="mui-table-view-cell">三围<span class="babyThreeNum"></span></li>
+		    <li class="mui-table-view-cell">星座<span class="babyConstellation"></span></li>
+		    <li class="mui-table-view-cell">籍贯<span class="babyAdress"></span></li>
+		    <li class="mui-table-view-cell">民族<span class="babyNation"></span></li>
+	</ul>
+	</div>
+	<div class="moreInfoBox">
+	<ul class="mui-table-view">
+			<li class="mui-table-view-cell">更多资料</li>
+		    <li class="mui-table-view-cell">类型<span class="babyClassess"></span></li>
+		    <li class="mui-table-view-cell">魅力<span class="babyGlamour"></span></li>
+		    <li class="mui-table-view-cell">脸型<span class="babyFace"></span></li>
+		    <li class="mui-table-view-cell">体型<span class="babyBody"></span></li>
+		    <li class="mui-table-view-cell">发型<span class="babyHairstyle"></span></li>
+		    <li class="mui-table-view-cell">血型<span class="babybloodType"></span></li>
+	</ul>
+	</div>
+	
+	 </div>
+</div>
+</div>
+<script type="text/javascript" src="../weixintest1/js/jquery-1.11.3.js"></script>
+<!--<script type="text/javascript" src="js/swiper.min.js"></script>-->
+<script type="text/javascript" src="js/startScore.js"></script>
+<!--<script src="js/mui.view.js" type="text/javascript" charset="utf-8"></script>-->
+<script src="js/mui.previewimage.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/mui.zoom.js" type="text/javascript" charset="utf-8"></script>
+<script>
+		 /*redirect_uri/?code=CODE&state=STATE*/
+		//mui('.mui-scroll-wrapper').scroll({deceleration: 0.0005});
+			mui.previewImage();
+			var weixUrl=window.location.href;
+			if(weixUrl.indexOf('code')!=-1){
+				var codeNum=weixUrl.indexOf('code');
+				alert(weixUrl.slice(str.indexOf('code')+5,weixUrl.indexOf('&state')))
+			}
+			
+	
+			mui.init();
+    mui('.mui-scroll-wrapper').scroll();
+		//初始化单页view
+		var viewApi = mui('#app').view({
+			defaultPage: '#setting'
+		});
+		//初始化单页的区域滚动
+		mui('.mui-scroll-wrapper').scroll();
+		//分享操作
+		var shares = {};
+		
+		mui.plusReady(function() {
+			plus.share.getServices(function(s) {
+				if (s && s.length > 0) {
+					for (var i = 0; i < s.length; i++) {
+						var t = s[i];
+						shares[t.id] = t;
+					}
+				}
+			}, function() {
+				console.log("获取分享服务列表失败");
+			});
+		});
+		
+		setTimeout(function () {
+		//	defaultImg();
+			setTimeout(function() {
+				initImgPreview();
+			}, 300);
+		},500);
+		
+		//分享链接点击事件
+		document.getElementById("share").addEventListener('tap', function() {
+			var ids = [{
+					id: "weixin",
+					ex: "WXSceneSession"
+				}, {
+					id: "weixin",
+					ex: "WXSceneTimeline"
+				}, {
+					id: "sinaweibo"
+				}, {
+					id: "tencentweibo"
+				}, {
+					id: "qq"
+				}],
+				bts = [{
+					title: "发送给微信好友"
+				}, {
+					title: "分享到微信朋友圈"
+				}, {
+					title: "分享到新浪微博"
+				}, {
+					title: "分享到腾讯微博"
+				}, {
+					title: "分享到QQ"
+				}];
+			plus.nativeUI.actionSheet({
+				cancel: "取消",
+				buttons: bts
+			}, function(e) {
+				var i = e.index;
+				if (i > 0) {
+					var s_id = ids[i - 1].id;
+					var share = shares[s_id];
+					if (share) {
+						if (share.authenticated) {
+							shareMessage(share, ids[i - 1].ex);
+						} else {
+							share.authorize(function() {
+								shareMessage(share, ids[i - 1].ex);
+							}, function(e) {
+								console.log("认证授权失败：" + e.code + " - " + e.message);
+							});
+						}
+					} else {
+						mui.toast("无法获取分享服务，请检查manifest.json中分享插件参数配置，并重新打包")
+					}
+				}
+			});
+		});
+
+		function shareMessage(share, ex) {
+			var msg = {
+				extra: {
+					scene: ex
+				}
+			};
+			msg.href = "http://www.dcloud.io/hellomui/";
+			msg.title = "最接近原生APP体验的高性能前端框架";
+			msg.content = "我正在体验HelloMUI，果然很流畅，基本看不出和原生App的差距";
+			if (~share.id.indexOf('weibo')) {
+				msg.content += "；体验地址：http://www.dcloud.io/hellomui/";
+			}
+			msg.thumbs = ["_www/images/logo.png"];
+			share.send(msg, function() {
+				console.log("分享到\"" + share.description + "\"成功！ ");
+			}, function(e) {
+				console.log("分享到\"" + share.description + "\"失败: " + e.code + " - " + e.message);
+			});
+		}
+		//去评分
+		document.getElementById("rate").addEventListener('tap', function() {
+			if (mui.os.ios) {
+				location.href = 'https://itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?id=682211190&pageNumber=0&sortOrdering=2&type=&mt=8';
+			} else if (mui.os.android) {
+				plus.runtime.openURL("market://details?id=io.dcloud.HelloMUI", function(e) {
+					plus.runtime.openURL("market://details?id=io.dcloud.HelloMUI", function(e) {
+						mui.alert("360手机助手和应用宝，你一个都没装，暂时无法评分，感谢支持");
+					}, "com.qihoo.appstore");
+				}, "com.tencent.android.qqdownloader");
+			}
+		});
+		//客服电话
+		document.getElementById("tel").addEventListener('tap', function() {
+			if(mui.os.plus){
+				plus.device.dial("114");
+			}else{
+				location.href = 'tel:114';
+			}
+			
+		});
+		//		//意见反馈
+		//		document.getElementById("quest").addEventListener('tap', function() {
+		//			
+		//		});
+		//		
+		//检查更新
+		document.getElementById("update").addEventListener('tap', function() {
+			var server = "http://www.dcloud.io/check/update"; //获取升级描述文件服务器地址
+			mui.getJSON(server, {
+				"appid": plus.runtime.appid,
+				"version": plus.runtime.version,
+				"imei": plus.device.imei
+			}, function(data) {
+				if (data.status) {
+					plus.ui.confirm(data.note, function(i) {
+						if (0 == i) {
+							plus.runtime.openURL(data.url);
+						}
+					}, data.title, ["立即更新", "取　　消"]);
+				} else {
+					mui.toast('Hello MUI 已是最新版本~')
+				}
+			});
+		});
+		var view = viewApi.view;
+		(function($) {
+			//处理view的后退与webview后退
+			var oldBack = $.back;
+			$.back = function() {
+				if (viewApi.canBack()) { //如果view可以后退，则执行view的后退
+					viewApi.back();
+				} else { //执行webview后退
+					oldBack();
+				}
+			};
+			//监听页面切换事件方案1,通过view元素监听所有页面切换事件，目前提供pageBeforeShow|pageShow|pageBeforeBack|pageBack四种事件(before事件为动画开始前触发)
+			//第一个参数为事件名称，第二个参数为事件回调，其中e.detail.page为当前页面的html对象
+			view.addEventListener('pageBeforeShow', function(e) {
+				//				console.log(e.detail.page.id + ' beforeShow');
+			});
+			view.addEventListener('pageShow', function(e) {
+				//				console.log(e.detail.page.id + ' show');
+			});
+			view.addEventListener('pageBeforeBack', function(e) {
+				//				console.log(e.detail.page.id + ' beforeBack');
+			});
+			view.addEventListener('pageBack', function(e) {
+				//				console.log(e.detail.page.id + ' back');
+			});
+		})(mui);
+		//更换头像
+		mui(".mui-table-view-cell").on("tap", "#head", function(e) {
+			if(mui.os.plus){
+				var a = [{
+					title: "拍照"
+				}, {
+					title: "从手机相册选择"
+				}];
+				plus.nativeUI.actionSheet({
+					title: "修改头像",
+					cancel: "取消",
+					buttons: a
+				}, function(b) {
+					switch (b.index) {
+						case 0:
+							break;
+						case 1:
+							getImage();
+							break;
+						case 2:
+							galleryImg();
+							break;
+						default:
+							break
+					}
+				})	
+			}
+			
+		});
+
+		function getImage() {
+			var c = plus.camera.getCamera();
+			c.captureImage(function(e) {
+				plus.io.resolveLocalFileSystemURL(e, function(entry) {
+					var s = entry.toLocalURL() + "?version=" + new Date().getTime();
+					console.log(s);
+					document.getElementById("head-img").src = s;
+					document.getElementById("head-img1").src = s;
+					//变更大图预览的src
+					//目前仅有一张图片，暂时如此处理，后续需要通过标准组件实现
+					document.querySelector("#__mui-imageview__group .mui-slider-item img").src = s + "?version=" + new Date().getTime();;;
+				}, function(e) {
+					console.log("读取拍照文件错误：" + e.message);
+				});
+			}, function(s) {
+				console.log("error" + s);
+			}, {
+				filename: "_doc/head.jpg"
+			})
+		}
+
+		function galleryImg() {
+			plus.gallery.pick(function(a) {
+				plus.io.resolveLocalFileSystemURL(a, function(entry) {
+					plus.io.resolveLocalFileSystemURL("_doc/", function(root) {
+						root.getFile("head.jpg", {}, function(file) {
+							//文件已存在
+							file.remove(function() {
+								console.log("file remove success");
+								entry.copyTo(root, 'head.jpg', function(e) {
+										var e = e.fullPath + "?version=" + new Date().getTime();
+										document.getElementById("head-img").src = e;
+										document.getElementById("head-img1").src = e;
+										//变更大图预览的src
+										//目前仅有一张图片，暂时如此处理，后续需要通过标准组件实现
+										document.querySelector("#__mui-imageview__group .mui-slider-item img").src = e + "?version=" + new Date().getTime();;
+									},
+									function(e) {
+										console.log('copy image fail:' + e.message);
+									});
+							}, function() {
+								console.log("delete image fail:" + e.message);
+							});
+						}, function() {
+							//文件不存在
+							entry.copyTo(root, 'head.jpg', function(e) {
+									var path = e.fullPath + "?version=" + new Date().getTime();
+									document.getElementById("head-img").src = path;
+									document.getElementById("head-img1").src = path;
+									//变更大图预览的src
+									//目前仅有一张图片，暂时如此处理，后续需要通过标准组件实现
+									document.querySelector("#__mui-imageview__group .mui-slider-item img").src = path;
+								},
+								function(e) {
+									console.log('copy image fail:' + e.message);
+								});
+						});
+					}, function(e) {
+						console.log("get _www folder fail");
+					})
+				}, function(e) {
+					console.log("读取拍照文件错误：" + e.message);
+				});
+			}, function(a) {}, {
+				filter: "image"
+			})
+		};
+
+		document.getElementById("head-img1").addEventListener('tap', function(e) {
+			e.stopPropagation();
+		});
+		document.getElementById("welcome").addEventListener('tap', function(e) {
+			//显示启动导航
+			mui.openWindow({
+				id: 'guide',
+				url: 'guide.html',
+				show: {
+					aniShow: 'fade-in',
+					duration: 300
+				},
+				waiting: {
+					autoShow: false
+				}
+			});
+		});
+		
+		
+		
+		function initImgPreview() {
+			var imgs = document.querySelectorAll("img.mui-action-preview");
+			imgs = mui.slice.call(imgs);
+			if (imgs && imgs.length > 0) {
+				var slider = document.createElement("div");
+				slider.setAttribute("id", "__mui-imageview__");
+				slider.classList.add("mui-slider");
+				slider.classList.add("mui-fullscreen");
+				slider.style.display = "none";
+				slider.addEventListener("tap", function() {
+					slider.style.display = "none";
+				});
+				slider.addEventListener("touchmove", function(event) {
+					event.preventDefault();
+				})
+				var slider_group = document.createElement("div");
+				slider_group.setAttribute("id", "__mui-imageview__group");
+				slider_group.classList.add("mui-slider-group");
+				imgs.forEach(function(value, index, array) {
+					//给图片添加点击事件，触发预览显示；
+					value.addEventListener('tap', function() {
+						slider.style.display = "block";
+						_slider.refresh();
+						_slider.gotoItem(index, 0);
+					})
+					var item = document.createElement("div");
+					item.classList.add("mui-slider-item");
+					var a = document.createElement("a");
+					var img = document.createElement("img");
+					img.setAttribute("src", value.src);
+					a.appendChild(img)
+					item.appendChild(a);
+					slider_group.appendChild(item);
+				});
+				slider.appendChild(slider_group);
+				document.body.appendChild(slider);
+				var _slider = mui(slider).slider();
+			}
+		}
+		
+		if(mui.os.stream){
+			document.getElementById("check_update").display = "none";
+		}
+		
+		
+		
+		
+		
+    
+	$('.serachimg').on("touchend",function(){
+		$('.chooseRange').show();
+	})
+	var rootSize=window.innerWidth/10
+	var dec=window.document.documentElement;
+	dec.style.fontSize = rootSize + 'px';
+	var nowUrl=''
+	var Left=(window.innerWidth-$(".downloadbtn").width())/2;
+	var Top=window.innerHeight-$(".downloadbtn").height()-17;
+	$('.downloadbtn').css({"left":Left,"top":Top});
+	
+	$("body").scrollTop(0)
+	$(".backTop").on('touchend',function(){
+	   $("body").animate({scrollTop: 0}, 500)
+	})
+		var arr=[]
+  		 	var storage = window.localStorage; 
+			for (var i=0, len = storage.length; i < len; i++)
+			{
+				var key = storage.key(i); 
+				var value = storage.getItem(key); 
+				arr.push(value)
+			
+			}
+	apiUrl='http://118.178.227.195:8088/meike-mener';//数据接口地址
+    var  homePage={
+			"pageNumb":"",
+			"lat":"",
+			"lag":""
+		} 
+     var main = document.getElementsByClassName('main');
+     
+	var dateMes={
+			"babyId":"",
+			"userCid":"",
+			"userId":""
+		}
+	
+	var shareMes={
+			"userCid":"",
+			"meetAddress":"",
+			"userName":"",
+			"meetTime":"",
+			"token":"1"
+		}
+	 	var rangeinfo={
+		"pageNumb":"1",
+        "lat":"",
+        "lag":"",
+		"minAge":"",
+		"maxAge":"",
+		"minHeight":"",
+		"maxHeight":"",
+		"minWeight":"",
+		"maxWeight":"",
+		"minGradePrice":"",
+		"maxGradePrice":""
+	}
+	 var homeUrl='/user/free/homePage.do'	
+	 /*获取约会时间、地点等信息*/	
+	function getID(){
+    		//var userUrl1 = window.location.href;  //获取当前地址
+    		var userUrl1 = "http://101.37.33.119:8088/meike-mener/inviteNew.html?cid=b9b83c00efaf470f74b6d31d821a8d5f&address=%E9%87%91%E9%83%BD%C2%B7%E8%A5%BF%E8%8A%B1%E5%BA%AD-%E4%BD%99%E6%9D%AD%E9%95%87%E7%8B%AE%E5%B1%B1%E8%B7%AF%E4%B8%9C%E4%BE%A7&userName=%E7%A5%9E%E4%B8%80%E6%A0%B7%E7%9A%84%E7%94%B7%E4%BA%BA&datingTime=2017-01-08%2018:59:00&lat=30.188228&lag=120.208643&t=1488970753155";	
+    		var userUrl=decodeURI(userUrl1)
+    		var needMes = userUrl.split("?")[1].split("&");
+    		var mesLength = needMes.length;
+    		var perMes=[];
+    		for(var i=0;i<mesLength;i++){
+    			 perMes.push(needMes[i].split("="));
+    		}
+    		var getTime = perMes[3][1];	  //01-10 14:00
+    		var getMin=getTime.split(" ")[1]
+    		var getMonth=getTime.split(" ")[0].split("-")[1]
+    		var getDay=getTime.split(" ")[0].split("-")[2]
+    		var getMonth1=getMonth.split('')[0]
+    		var getMonth2=getMonth.split('')[1]
+    		if(getMonth1!=0){
+    			getMonth=getMonth
+    		}else{
+    			getMonth=getMonth2
+    		}
+    		var getDay1=getDay.split('')[0]
+    		var getDay2=getDay.split('')[1]
+    		if(getDay1!=0){
+    			getDay=getDay
+    		}else{
+    			getDay=getDay2
+    		}
+    		shareMes.meetTime =getMonth+"月"+getDay+"日"+getMin;
+    	    shareMes.userCid = perMes[0][1];
+    	    shareMes.meetAddress = perMes[1][1];
+    		shareMes.userName = perMes[2][1];
+    		homePage.lat = perMes[4][1];
+    		homePage.lag = perMes[5][1];
+    		
+    	}
+	
+	getID();
+	$('.name').html(shareMes.userName);
+	$(".date").html(shareMes.meetTime);
+	$('.place').html(shareMes.meetAddress)
+	
+   var page2Html='';
+   
+ 		var sTop=true;//用来判断是在首页还是筛选页。确定按下后变为false;
+		var argument='';
+		homePage.pageNumb=0;
+		rangeinfo.pageNumb=1;
+		var haveDateArr=[];
+		var haveorderId=[];
+		var haveorderStatus=[];
+		var haveorderFilterId=[];
+		var haveorderFilterStatus=[];
+		/* function clickme(i){//约会按钮 按下事件	
+            	
+           if($('.datebtn').eq(i).html()!="已加入"){  
+           	if($('.datebtn').eq(i).html()!="已接单"){
+            	dateMes.babyId=$('.datebtn').eq(i).attr("id")
+            	babyName=$('.sistername').eq(i).html()            	
+            	 dateMes.userCid=shareMes.userCid; 
+            	 var datemes=JSON.stringify(dateMes);
+          		 console.log(datemes)
+          		localStorage.setItem(babyName,dateMes.babyId);
+     $.post(apiUrl+'/userOrder/free/htmlInvite.dohtmlInvite.do',{json:datemes},function(data){
+     			//console.log(data)
+            	
+            })
+             $('.datebtn').eq(i).html("已加入")	      	
+           }  
+        }	
+}*/
+          	 function clickme(i){//约会按钮 按下事件	   	
+           if($('.datebtn').eq(i).html()!="已加入"){  
+           	if($('.datebtn').eq(i).html()!="已接单"){
+           		
+          		var Datemes={
+          			"babyId":""	
+          		}
+          		//var token='cdd29ff85f2d469d83f23746714ffe051492163423830'
+          		/*var token={
+          			"token":"cdd29ff85f2d469d83f23746714ffe051492163423830"
+          		}*/
+          		var token="cdd29ff85f2d469d83f23746714ffe051492163423830"
+          		/*
+          		$.ajaxSetup({
+				    headers: {
+				      'x-access-token': token
+				    }
+				  });*/
+          		Datemes.babyId=$('.datebtn').eq(i).attr("id");
+          		console.log(Datemes)
+          		//console.log(babyId)
+          		var  Datemes1=JSON.stringify(Datemes)
+          		  $.ajax({
+		         url: apiUrl+'/user/invite.do',
+		        //headers:JSON.stringify(token),
+		       // headers:{"token":"cdd29ff85f2d469d83f23746714ffe051492163423830"},
+		        data: {
+		            json:Datemes1
+		        },
+		        async: true,//请求是否异步，默认为异步
+		        type: 'GET',
+		        crossDomain: true,
+		        //headers : {'Access-Control-Allow-Origin':'*'},
+		        beforeSend: function(request) {
+		            request.setRequestHeader("token",token);
+		        },
+		        success: function (list) {
+		        	console.log(list)
+		       },
+		        error: function (e) {
+		        	  console.log(e)
+		        }
+   		 });
+          		
+          		
+          
+    
+             $('.datebtn').eq(i).html("已加入")	      	
+           }  
+        }	
+} 
+ 				    
+      		/*$("#range_1").ionRangeSlider({
+
+		min: 18,
+
+		max: 30,
+
+		from:18,
+
+		to: 30,
+
+		type: 'double',//设置类型
+
+		step: 1,
+
+		prefix: "",//设置数值前缀
+
+		postfix: "",//设置数值后缀
+
+		prettify: false,
+
+		hasGrid: false
+
+	});
+
+	
+$("#range_2").ionRangeSlider({
+
+		min: 157,
+
+		max: 175,
+
+		from:157,
+
+		to: 175,
+
+		type: 'double',//设置类型
+
+		step: 1,
+
+		prefix: "",//设置数值前缀
+
+		postfix: "",//设置数值后缀
+
+		prettify: false,
+
+		hasGrid: false
+
+	});
+$("#range_3").ionRangeSlider({
+
+		min: 40,
+
+		max: 60,
+
+		from:40,
+
+		to: 60,
+
+		type: 'double',//设置类型
+
+		step: 1,
+
+		prefix: "",//设置数值前缀
+
+		postfix: "",//设置数值后缀
+
+		prettify: false,
+
+		hasGrid: false
+
+	});
+
+	$("#range_4").ionRangeSlider({
+
+		min: 600,
+
+		max: 1500,
+
+		from:600,
+
+		to: 1500,
+
+		type: 'double',//设置类型
+
+		step: 100,
+
+		prefix: "",//设置数值前缀
+
+		postfix: "",//设置数值后缀
+
+		prettify: false,
+
+		hasGrid: false
+
+	});
+
+	$("#selectStyle").change(function(){
+			
+		$("#styleSrc").attr("href",$(this).val());
+
+	});
+	*/
+
+	
+	$('.ageRange .irs-slider').on("touchmove",function(){
+		event.preventDefault();
+		$('.ageRange .minAge').html($('.ageRange .irs-from').html())
+		$('.ageRange .maxAge').html($('.ageRange .irs-to').html())
+	})
+	$('.heightRange .irs-slider').on("touchmove",function(){
+		event.preventDefault();
+		$('.minHeight').html($('.heightRange .irs-from').html())
+		$('.maxHeight').html($('.heightRange .irs-to').html())
+	})
+	$('.weightRange .irs-slider').on("touchmove",function(){
+		event.preventDefault();
+		$('.minWeight').html($('.weightRange .irs-from').html())
+		$('.maxWeight').html($('.weightRange .irs-to').html())
+	})
+	$('.moneyRange .irs-slider').on("touchmove",function(){
+		event.preventDefault();
+		$('.minMoney').html($('.moneyRange .irs-from').html())
+		$('.maxMoney').html($('.moneyRange .irs-to').html())
+	})
+	$('.exitimg').on('touchend',function(){
+		$('.chooseRange').hide();
+	})
+
+		$('.backTop').hide()
+   		 $(document).scroll(function(){
+			var bheight = $(document).height();//获取窗口高度
+			var windowheight=window.innerHeight;
+			var windowscroll=window.scrollTop;
+			var sheight = $("body")[0].scrollHeight;//获取滚动条高度，[0]是为了把jq对象转化为js对象
+			var stop = $("body").scrollTop();//滚动条距离顶部的距离
+		if(stop>bheight-1000){
+			$('.backTop').show()
+		}else{
+			$('.backTop').hide()
+		}
+	});
+$('.conent:first').find('.imgbox').find('.sisterbg').css({'top':3.68+'rem'});
+
+
+console.log($('.page2').html())
+function page1(){
+	$('.page2').addClass('positionPage2')
+	$('.page1').show()
+	$('.page3').hide()
+	$('.page4').hide()
+	$('.page5').hide()
+	$("#showDetail").hide();
+	$('.page1_header').show()
+	$('.page2_header').hide()
+	//alert($('script').length)
+	
+}
+
+function page2(){
+	$('.page2').removeClass('positionPage2')
+	$('.page1').hide()
+	$('.page3').hide()
+	$('.page4').hide()
+	$('.page5').hide()
+	$("#showDetail").hide();
+	$('.page1_header').hide()
+	$('.page2_header').show()
+	 var hei = $(window).height()-160;
+    $('#listloading, .listloadingClass').height(hei);
+	console.log(window.location.href)
+}
+function page3(){
+	$('.page2').addClass('positionPage2')
+	$('.page1').hide()
+	$('.page3').show()
+	$('.page4').hide()
+	$('.page5').hide()
+	$("#showDetail").hide();
+	$('.page1_header').hide()
+	$('.page2_header').hide()
+	$('.page3_header').show()
+	 var hei = $(window).height()-160;
+    $('#listloading, .listloadingClass').height(hei);
+	console.log(window.location.href)
+}
+
+
+function page5(){
+	$('.page2').addClass('positionPage2')
+	$('.page1').hide()
+	$('.page3').hide()
+	$('.page4').hide()
+	$('.page5').show()
+	$("#showDetail").hide();
+	$('.page1_header').hide()
+	$('.page2_header').hide()
+	$('.page3_header').hide()
+	 var hei = $(window).height()-160;
+    $('#listloading, .listloadingClass').height(hei);
+	console.log(window.location.href)
+}
+
+		/*$('.detailBackBtn').on("click",function(){
+			alert(1)
+			if(page1Stop){
+				$('#showDetail').hide()
+				$('.page1').fadeIn();
+			}
+		})*/
+		function detailBackBtn(){
+			$('.mui-bar-tab~.mui-content').css('paddingTop',44+"px")
+			if(localStorage.page1Stop=="true"){
+				$('#showDetail').hide()
+				$('.page1').fadeIn();
+				localStorage.page1Stop=false;
+			}else if(localStorage.page2Stop=="true"){
+				$('#showDetail').hide()
+				$('.page2').removeClass('positionPage2');
+				localStorage.page2Stop=false;
+			}
+		}
+		
+		
+			function login(){
+			Window.location="https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx78ff19be9780631e&redirect_uri=http%3a%2f%2f1.1399972369.applinzi.com%2fweixintest1%2findex.html&response_type=code&scope=snsapi_userinfo&state=STATE#wechat_redirect"
+		}
+			
+			
+
+//人气排行版接口
+
+
+
+	</script>
+</body></html>
