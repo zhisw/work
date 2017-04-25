@@ -1,0 +1,300 @@
+.serchbox{
+	display: flex;
+	flex-direction:row;
+	justify-content:space-around;
+	align-items: center;
+}
+.serchbox a{
+	color:#6b6b6b;
+	display: block;
+	height: 0.9rem;
+	width: 1.52rem;
+	line-height: 0.9rem;
+	text-align: center;
+	box-sizing: border-box;
+}
+.blueBottom{
+	border-bottom:2px solid #22cddf;
+}
+
+.rankingTitle{
+	display: flex;
+	flex-direction:row;
+	justify-content:center;
+	align-items:center;
+	width: 100%;
+	height:1.5rem;
+}
+.mui-bar-tab~.mui-content{
+	padding-top: 44px;
+}
+.rankingTitle span{
+	width: 4.08rem;
+	height: 0.7rem;
+	border: 1px solid #22cddf;
+	text-align: center;
+	line-height: 0.7rem;
+	color:#22cddf;
+}
+.rangeDatebtn{
+	display: block;
+	width: 1.86rem;
+	height: 0.67rem;
+	border-radius:12px;
+	border: 1px solid #2bb5b5; 
+	color:#2bb5b5;
+	font-size: 12px;
+	text-align: center;
+}
+li{
+	list-style: none;
+}
+.one_three{
+	display: flex; 
+	flex-direction:row;
+	justify-content:space-around;
+}
+.one_three1{
+	display: flex; 
+	flex-direction:row;
+	justify-content:space-around;
+}
+.one_three .flexbox{
+	flex:1;
+}
+.one_three div ul{
+	padding: 0;
+}
+.one_three div ul li{
+	text-align: center;
+	 display: flex;
+	 flex-direction:row;
+	 justify-content:space-around;
+
+}
+.rangerName{
+	font-size: 0.4rem;
+}
+.rangerAge{
+	font-size: 0.35rem;
+}
+.fontColor{
+	color:#949494;
+}
+.hadOrderNum,.hadOrderNum1{
+	color:#fc9200;
+	font-size:0.35rem;
+}
+.one_three_Img,.one_three_Img1{
+	    width: 1.9rem;
+    height: 1.8rem;
+    border-radius: 50%;
+    margin-top: 0.9rem;
+}
+.rangeListBtn{
+	float: right;
+	margin-top: 0.8rem;
+}
+.mui-media-body{
+	float: left;
+}
+.rangeNumb{
+	float: left;
+	margin-top: 37px;
+	color:#8f8f94;
+}
+.imgPhoto{
+	line-height: 42px;
+    max-width: 54px;
+    height: 54px;
+    margin-top: 21px;
+    border-radius: 50%;
+    margin-right: 1rem;
+}
+
+.rangerHeight,.rangerHeight1{
+	font-size:0.35rem;
+}
+.rangerWeight,.rangerWeight1{
+	font-size:0.35rem;
+}
+.mui-media-body p{
+	margin-top:8px ;
+}
+.margin-left_10{
+	margin-left:10px;
+}
+.Back{
+	color:black;
+	background: #949494;
+	margin-right: 10px;
+}
+body{
+    background:#E6E6E6;
+}
+#listloading{
+    overflow:hidden;
+}
+.order-list>li{
+    height:50px;
+    line-height:24px;
+    padding:10px 15px 10px 10px;
+    margin:10px;
+    border-radius:3px;
+    box-shadow:1px 1px 2px #ccc;
+    background:#fff;
+}
+.order-list>li>span.icon{
+    float:left;
+    width:50px;
+    height:50px;
+    line-height:50px;
+    margin-right:10px;
+    border-radius:50%;
+    background:#FFC107;
+    text-align:center;
+    font-size:36px;
+}
+.svg-icon{
+    width: 1em; height: 1em;
+    vertical-align: -0.1em;
+    fill: currentColor;
+    overflow: hidden;
+}
+
+
+.order-list>li>.title{
+    font-size:16px;
+    color:#292929;
+}
+.order-list>li>.title>time.r{
+    color:#666;
+    font-size:12px;
+}
+.order-list>li>.text{
+    color:#7B7B7B;
+}
+.listloadingClass{
+    overflow:hidden;
+}
+.imgflexBox{
+	width: 3.2rem;
+	height: 3.5rem;
+	background: url(../images/first.png) no-repeat;
+	background-size:100% 100%;
+}
+.imgflexBox2{
+	width: 3.2rem;
+	height: 3.5rem;
+	
+	background: url(../images/two.png) no-repeat;
+	background-size:100% 100%;
+}
+.imgflexBox3{
+	width: 3.2rem;
+	height: 3.5rem;
+	
+	background: url(../images/three.png) no-repeat;
+	background-size:100% 100%;
+}
+.marginTop_10{
+	margin-top: 10px;
+}
+.titleBaclkground{
+	background: #22cddf;
+	color: white!important;
+}
+.mui-bar-nav{
+	background: #22cddf;
+	
+}
+.mui-title{
+	color:white;
+}
+.progressBox{
+	width: 100%;
+	height: 4.57rem;
+	background: #1fcfde;
+	padding:10px;
+}
+.progStatus{
+	width: 100%;
+	height: 100%;
+	background: white;
+	border-radius:8px;
+}
+.progStatus{
+	padding:25px;
+}
+.progressCircle{
+	width:20px;
+	height: 20px;
+	background: #1fcfde;
+	border-radius: 50%;
+}
+.progressLine{
+	display:block;
+	height: 2px;
+	width: 3.2rem;
+	background: #1fcfde;
+}
+.orderStaus{
+	display: flex;
+	flex-direction: row;
+	justify-content:center;
+	align-items: center;
+	margin-top:0.4rem ;
+}
+.progressTitle{
+	display: flex;
+	flex-direction: row;
+	justify-content:space-between;
+	align-items: center;
+	margin-top:0.4rem;
+}
+.orderImgName{
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-start;
+	flex-wrap: wrap;
+	margin: 15px;
+}
+.orderSingle{
+	display: flex;
+	flex-direction:column;
+	justify-content: center;
+	align-items:center;
+	margin:7px;
+}
+.orderNameList{
+	width: 100%;
+	height: auto;
+	background: #FFFFFF;
+	margin-top: 0.27rem;
+	padding:5px;
+}
+.orderSingle img{
+	width:0.9rem;
+	border-radius: 50%;
+	font-size: 15px;
+}
+.adressMoney{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	padding: 15px;
+    padding-top: 0px;
+}
+.addressTitle{
+	display: flex;
+	flex-direction: column;
+	color:#6a6a6a;
+}
+.payMoney{
+	color:#fd8000;
+}
+.addressTitle div{
+	font-size: 15px;
+	line-height: 21px;
+}

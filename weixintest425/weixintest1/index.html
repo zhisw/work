@@ -1,0 +1,1395 @@
+<!--<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1, user-scalable=no">
+		<title></title>
+		<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+		<script type="text/javascript">
+			//通过config接口注入权限验证配置
+			wx.config({
+			    debug: true, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+			    appId: '', // 必填，公众号的唯一标识
+			    timestamp: '', // 必填，生成签名的时间戳
+			    nonceStr: '', // 必填，生成签名的随机串
+			    signature: '',// 必填，签名
+			    jsApiList: [] // 必填，需要使用的JS接口列表
+			});
+			//通过ready接口处理成功验证
+			wx.ready(function(){
+				// config信息验证后会执行ready方法，所有接口调用都必须在config接口获得结果之后
+			});
+		</script>
+	</head>
+	<body>
+	</body>
+</html>-->
+<html><head>
+		<meta charset="utf-8">
+		<title>魅客微信版</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<!--标准mui.css-->
+		<link rel="stylesheet" href="./css/mui.min.css">
+		<!--App自定义的css-->
+		<link rel="stylesheet" type="text/css" href="./css/app.css">
+	<link rel="stylesheet" href="src/css/index.css">
+	<link rel="stylesheet" href="src/css/normalize.min.css" />
+	<link rel="stylesheet" href="src/css/ion.rangeSlider.css" />
+	<link rel="stylesheet" href="src/css/ion.rangeSlider.skinSimple.css" />
+	<link rel="stylesheet" href="src/css/dropload.css" />
+	<link rel="stylesheet" type="text/css" href="css/weixin.css"/>
+	<link rel="stylesheet" type="text/css" href="css/base.css" />
+<link rel="stylesheet" type="text/css" href="css/listloading.min.css" />
+
+<script src="./js/require.js"></script>
+<script src=".js/iconfont.js"></script>
+<script src='test.js'></script>
+<!--<script src="js/jquery-1.11.3.js"></script>-->
+		<style>
+			
+		 *{
+	 	margin:0;
+	 	padding: 0;
+	 	}
+		
+		a{
+			text-decoration: none;
+		}
+		.topimg{
+		display: inline-block;
+		width: 100%;
+		height:4.8rem;
+	}	
+	.intivite{
+		display: -webkit-flex; /* Safari */
+  		display: flex;
+  		flex-direction: row;
+  		 flex-wrap:wrap;
+  		justify-content:center;
+  		font-size: 0.42rem;
+  		margin-bottom:0.61rem;
+
+	}	
+	.sisterimg{
+		width: 100%;
+		height:7.0rem;
+		display: relative;
+	}
+	.sisterinfo{
+		position: absolute;
+	    bottom: 2.5rem;
+	    left: 0.5rem;
+	    font-family: "微软雅黑";
+	}
+	.sistername{
+		font-size:0.42rem;
+		color:white;
+	
+	}
+	.btn{
+		font-size:0.36rem;
+		display: inline-block;
+		/*width: 1.54rem;*/
+		height:0.77rem;
+		text-align: center;
+		line-height:0.77rem; 
+		background:#e9e8e8; 
+		border-radius: 10px;
+		color:#8d8d8d;
+		padding:0 0.35rem 0 0.35rem;
+	}
+	.conent{
+
+		margin-top:;
+	}
+	.imgbox{
+		position: relative;
+	}
+	.number{
+		font-size: 0.36rem;
+		color:#ffffff;
+	}
+	.money{
+		color:#ffcd6c;	
+		font-size: 27px;
+	}
+	.distance{
+		position: absolute;
+		right:0.5rem;
+		bottom:2.7rem;
+	}
+	.distancenum{
+		font-size: 0.4rem;
+		color:white;
+		font-family: "微软雅黑";
+	}
+	.moneyafter{
+		font-size: 0.4rem;
+		color:#ffcd6c;
+	}
+	.afterdistance{
+		font-size: 0.32rem;
+		color:white;
+	}
+	.serverrange{
+	font-size: 0.4rem;
+	color:#333333;
+	margin-top: 0.26rem;
+	margin-bottom: 0.4rem;
+	}
+	.age{
+		margin-left: 0.4rem;
+		margin-right:0.2rem;
+	}
+	.height,.range1{
+		margin-right: 0.2rem;
+	}
+	.server{
+		margin-left: 0.4rem;
+		margin-right:0.2rem;
+	}
+	.infobox{
+		position: relative;
+	}
+	.datebtn{
+		display: inline-block;
+		width:2.066rem;
+		height: 0.78rem;
+		border:1px solid #15baca;
+		font-size: 0.45rem;
+		position: absolute;
+		right:0.41rem;
+		top:0.55rem;
+		color:#15baca;
+		text-align: center;
+		line-height: 0.78rem;
+		border-radius: 20px;
+		font-family: "微软雅黑";
+	}
+	.gradeImg{
+		position: absolute;
+		left:0.4rem;
+		top:0.6rem;
+		width:0.86rem;
+		height:0.6rem;
+	}
+	.getmore{
+		text-align: center;
+		font-size: 0.42rem;
+	}
+	.serchbox{
+		width: 100%;
+		height: 1rem;
+		border-top:1px solid #c9f3f7;
+	}
+	.serachimg{
+		float:right;
+		width: 0.666rem;
+		height:0.53rem;
+		margin-top:0.1rem;
+		margin-right: 0.2rem;
+		padding: 0.3rem 0.3rem;
+	}
+	.sisterbg{
+		width:100%;
+		height:3.5rem;
+		position: absolute;
+		left:0;
+		top:3.5rem;
+	}
+	.downloadbtn{
+		width:8.05rem;
+		height: 0.94rem;
+		background: #1fcdde;
+		border-radius:0.3rem;
+		-moz-border-radius:0.3rem; /* Old Firefox */
+		position:fixed;
+		left:0;
+		top:0;
+		font-family: "微软雅黑";
+		font-size:0.42rem;
+		line-height: 0.94rem;
+		text-align: center;
+	z-index: 50;
+	}
+	.downloadbtn a{
+		color:#ffffff;
+	}
+		
+	.minlogopic{
+		width: 0.87rem;
+		height:0.48rem;
+		vertical-align: middle;
+	}
+	.backTop{
+		width: 0.97rem;
+		height:0.97rem;
+		background: url(images/top-btn.png) no-repeat;
+		background-size:100% 100% ;
+		border-radius: 50%;
+		position:fixed;
+		right:12px;
+		bottom:150px;
+		z-index: 100;
+	}
+	.chooseRange{
+		position: absolute;
+		top:2.01rem;  
+		height:16rem;
+		 width:8.3rem; 
+		left:0.91rem;
+		background: #ffffff;
+		border-radius: 15px;
+		display: none;
+	}
+	.exitimg{
+		width: 0.5rem;
+		height:0.5rem;
+		margin-left: 0.51rem;
+		margin-top: 0.51rem;
+	}
+	.chooseBtn{
+		display: flex;
+		flex-direction:row;
+		justify-content: space-between;
+	}
+	.surebtn{
+		display: block;
+		width:1.5rem;
+		height:1.5rem;
+		line-height: 1.5rem;
+		text-align: center;
+		font-size:0.48rem;
+		color:#26bac8;
+		margin-top: 0.2rem;
+		margin-right: 0.3rem;
+		font-family: "微软雅黑";
+		
+	}
+	.irs{
+		width:4.1rem;
+		margin:0 auto;
+	}
+	.irs-line{
+		height: 1px;
+		top:15px;
+	}
+	.irs-diapason{
+		top:15px;
+	}
+	.irs-slider{
+	background: #D8DFF3;
+	}
+	.irs-to,.irs-from,.irs-max,.irs-min,.irs-single{
+		opacity: 0;
+		filter:Alpha(opacity=0);
+	}
+	.ageRange,.heightRange,.weightRange,.moneyRange{
+		text-align: center;
+		font-size:0.4rem;
+		color:#666666;
+		margin-bottom:1.09rem ;
+		
+	}
+	.agetitle{
+		font-size: 0.35rem;
+		color:#666666;
+		line-height: 0.6333rem;
+	}
+	.minAge,.maxAge{
+		font-size:0.4rem;
+		color:#666666;
+	}
+	.blue{
+		color:#1fcdde;
+	}
+	.bubble0{
+		width: 1.3rem;
+	    height: 0.58rem;
+	    background: url(images/talk.png);
+	    background-size: 100% 100%;
+	    position: absolute;
+	    left: 1.5rem;
+	    top: 1.4rem;
+	    color: white;
+	    font-size: 0.25rem;
+	    font-family: "微软雅黑";
+	    text-align: center;
+	}
+	.circle0{
+		position: absolute;
+	    left: 2.05rem;
+	    top: 2.1rem;
+	    width: 0.15rem;
+	    height: 0.15rem;
+	}
+	.bubble1{
+		width: 1.3rem;
+	    height: 0.58rem;
+	    background: url(images/talk.png);
+	    background-size: 100% 100%;
+	    position: absolute;
+	    left: 7.8rem;
+	    top: 2.4rem;
+	    color: white;
+	    font-size: 0.25rem;
+	    font-family: "微软雅黑";
+	    text-align: center;
+	}
+	.circle1{
+		position: absolute;
+	    left: 8.4rem;
+	    top: 3.1rem;
+	    width: 0.15rem;
+	    height: 0.15rem;
+	}
+	.bubble2{
+		width: 1.3rem;
+	    height: 0.58rem;
+	    background: url(images/talk.png);
+	    background-size: 100% 100%;
+	    position: absolute;
+	    left: 0.5rem;
+	    top: 3.5rem;
+	    color: white;
+	    font-size: 0.25rem;
+	    font-family: "微软雅黑";
+	    text-align: center;
+	}
+	.circle2{
+		position: absolute;
+	    left: 1.1rem;
+	    top: 4.2rem;
+	    width: 0.15rem;
+	    height: 0.15rem;
+	}
+	.dropload-down{
+		display: none;
+	}
+	.footer{
+		width: 100%;
+		height:0.94rem;
+		text-align: center;
+		line-height: 0.94rem;
+		font-size: 0.5rem;
+		color:gray;
+		
+	}
+	 .dropload-up,.dropload-down{
+		width:100%;
+		display: -webkit-flex; /* Safari */
+  		display: flex;
+		 flex-direction: row;
+		 justify-content:center;
+		  align-items:center;
+	}
+	/*.mui-control-content{
+		display: block;
+	}*/
+	.positionPage2{
+		position:absolute;
+		left: 0;
+		top:-10000px;
+	}
+		</style>
+<link rel="stylesheet" type="text/css" href="./css/icons-extra.css" />		
+<link rel="stylesheet" type="text/css" href="/css/base.css" />
+<link rel="stylesheet" type="text/css" href="/css/listloading.min.css" />
+<script src="js/require.js"></script>
+<script src="js/iconfont.js"></script>
+<script src="test.js"></script>	
+	</head>
+	<body class="">
+		<nav class="mui-bar mui-bar-tab">
+			<a class="mui-tab-item mui-active " ontouchend="page1()">
+				<span class="mui-icon mui-icon-home"></span>
+				<span class="mui-tab-label">首页</span>
+			</a>
+			<a class="mui-tab-item page2Btn" ontouchend="page2()"><!--href="#tabbar-with-chat"-->
+				<span class="mui-icon mui-icon-email"><span class="mui-badge">9</span></span>
+				<span class="mui-tab-label">榜单</span>
+			</a>
+			<a class="mui-tab-item"   ontouchend="page3()"><!--href="#tabbar-with-contact"-->
+				<span class="mui-icon mui-icon-contact"></span>
+				<span class="mui-tab-label">订单</span>
+			</a>
+			<a class="mui-tab-item" href="#tabbar-with-contact">
+				<span class="mui-icon mui-icon-contact"></span>
+				<span class="mui-tab-label">约宝</span>
+			</a>
+			<a class="mui-tab-item" href="#tabbar-with-map">
+				<span class="mui-icon mui-icon-gear"></span>
+				<span class="mui-tab-label">个人</span>
+			</a>
+		</nav>
+		<div class="mui-content">
+			<div id="tabbar" class="page1" style="display:block;">
+
+		<header id="header" class="mui-bar mui-bar-nav page1_header">
+			<h1 class="mui-title">导航栏</h1>
+			<button class="mui-btn mui-btn-blue mui-btn-link mui-pull-right">登录</button>
+			<button class="mui-btn mui-btn-blue mui-btn-link mui-btn-nav mui-pull-left mui-left-nav">
+			杭州</button>
+		</header>
+	<div class="serchbox">
+		<a href="##" class="grade" onclick="grade()">等级</a>
+		<a href="##" class="distanced" onclick="distanced()">距离</a>
+		<a href="##" class="new" onclick="newData()">最新</a>
+		<a href="##" class="More" onclick="MoreData()">更多</a>
+		<!--<img src="images/search.png" alt=""  class='serachimg' />-->
+	</div>
+	<div class="main">
+		<div class="list">
+			
+		</div>
+	</div>
+		<!--<div class="downloadbtn"><a href="##"><img src="images/app-logo.png" alt="logo" class="minlogopic"/>下载app,查看更多</a></div>-->
+
+		 <div class="backTop">
+		 </div>
+		 
+		 <div class="chooseRange">
+		 	<div class="chooseBtn"><img src="images/exit.png" alt="exit" class="exitimg"/> <span class="surebtn">确定</span></div>
+		 	<div class="ageRange">
+		 		<span class="agetitle">年龄范围</span><br/>
+		 		<span class="minAge">18</span>岁—<span class="maxAge">30</span>岁
+		 		<input type="text" id="range_1" />
+		 	</div>
+		 	<div class="heightRange">
+		 		<span class="agetitle heighttitle">身高范围</span><br/>
+		 		<span class="minAge minHeight">157</span>cm—<span class="maxAge maxHeight">175</span>cm
+		 		<input type="text" id="range_2" />
+		 	</div>
+		 	<div class="weightRange">
+		 		<span class="agetitle weighttitle">体重范围</span><br/>
+		 		<span class="minAge minWeight">40</span>kg—<span class="maxAge maxWeight">60</span>kg
+		 		<input type="text" id="range_3" />
+		 	</div>
+		 	<div class="moneyRange">
+		 		<span class="agetitle moneytitle">金额范围</span><br/>
+		 		<span class="minAge minMoney">600</span>元—<span class="maxAge maxMoney">1500</span>元
+		 		<input type="text" id="range_4" />
+		 	</div>
+		 </div>		
+		</div>
+			<div id="tabbar-with-chat" class="page2 positionPage2" >
+				<header id="header" class="mui-bar mui-bar-nav page2_header" style="display: none;">
+					<h1 class="mui-title">排行榜</h1>
+			</header>
+			<div class="rankingTitle">
+					<span class="hotRange titleBaclkground" id="hotRange">人气榜</span><span  class="trustRange" id="trustRange">信誉榜</span>
+				</div>
+				<div class="rangeMainBox" id="listloading">
+				<div>
+				<div class="one_three">
+					<div class="flexbox">
+						<ul>
+							<li><div class="imgflexBox"><img src="images/app-logo.png" height="31" width="60" alt="" class="one_three_Img"></div></li>
+							<li><span class="rangerName">苏丽</span><span class="rangerAge fontColor">26岁</span></li>
+							<li><span class="fontColor rangerHeight">175cm</span><span class="fontColor rangerWeight">65kg</span></li>
+							<li><span class="hadOrderNum">已接23单</span></li>
+							<li><span class='rangeDatebtn'>约TA</span></li>
+						</ul>
+					</div>
+					<div style="order: -1;" class="flexbox">
+						<ul>
+							<li><div class="imgflexBox2 marginTop_10"><img src="images/app-logo.png" height="31" width="60" alt="" class="one_three_Img"></div></li>
+							<li><span class="rangerName">苏丽</span><span class="rangerAge fontColor">26岁</span></li>
+							<li><span class="fontColor rangerHeight">175cm</span><span class="fontColor rangerWeight">65kg</span></li>
+							<li><span class="hadOrderNum">已接23单</span></li>
+							<li><span class='rangeDatebtn'>约TA</span></li>
+						</ul>
+					</div>
+					<div class="flexbox">
+						<ul>
+							<li><div class="imgflexBox3 marginTop_10"><img src="images/app-logo.png" height="31" width="60" alt="" class="one_three_Img"></div></li>
+							<li><span class="rangerName">苏丽</span><span class="rangerAge fontColor">26岁</span></li>
+							<li><span class="fontColor rangerHeight">175cm </span><span class="fontColor rangerWeight">65kg</span></li>
+							<li><span class="hadOrderNum">已接23单</span></li>
+							<li><span class='rangeDatebtn'>约TA</span></li>
+						</ul>
+					</div>
+				</div>
+				<ul class="rangerBox" id="order-list">
+				
+
+				</ul>
+					</div>
+				</div>
+			</div>
+			<div id="tabbar-with-contact" class="page3" style="display:none;">
+				<header id="header" class="mui-bar mui-bar-nav page3_header" style="display: none;">
+					<span class=" mui-icon mui-icon-phone" style="float: right;color:white;"></span>
+					<h1 class="mui-title">甜蜜约会</h1>	
+				</header>
+				<div class="progressBox">
+					<div class="progStatus">
+						<span class="mui-icon-extra mui-icon-extra-topic" style="color:#1fcfde;vertical-align: middle;"></span>
+						<span style="color:#2e2e2e">进行中订单</span>
+						<div class="orderStaus">
+								<div class="progressCircle"></div>
+								<span class="progressLine"></span>
+								<div class="progressCircle"></div>
+								<span class="progressLine"></span>
+								<div class="progressCircle"></div>
+						</div>
+						<div class="progressTitle">
+							<div>已提交</div>
+							<div>进行中</div>
+							<div>已完成</div>
+						</div>
+					</div>
+				</div>
+				<div class="orderNameList">
+					<div class="orderImgName">
+						<div class="orderSingle">
+							<img src="images/logo.png" alt="" />
+							<div class="orderName">兰迪</div>
+						</div>
+						<div class="orderSingle">
+							<img src="images/logo.png" alt="" />
+							<div class="orderName">兰迪</div>
+						</div>
+						<div class="orderSingle">
+							<img src="images/logo.png" alt="" />
+							<div class="orderName">兰迪</div>
+						</div>
+					</div>
+					<div class="adressMoney">	
+						<div class="addressTitle">
+							<div><span>地址：</span><span class="adressConent">杭州西湖区东方魅力</span></div>
+							<div><span>时间：</span><span class="adressConent">2017-01-06 21:09开始</span></div>
+						</div>
+						<div class="payMoney">
+							<span>￥</span><span>3200</span><span>.00</span>
+						</div>
+					</div>
+				</div>
+				
+				<ul class="mui-table-view mui-table-view-striped mui-table-view-condensed">
+				<li class="mui-table-view-cell">
+					<div class="mui-slider-cell">
+						<div class="oa-contact-cell mui-table">
+							<div class="oa-contact-avatar mui-table-cell">
+								<img src="../images/60x60.gif">
+							</div>
+							<div class="oa-contact-content mui-table-cell">
+								<div class="mui-clearfix">
+									<h4 class="oa-contact-name">叶文洁</h4>
+									<span class="oa-contact-position mui-h6">董事长</span>
+								</div>
+								<p class="oa-contact-email mui-h6">
+									yewenjie@sina.com
+								</p>
+							</div>
+						</div>
+					</div>
+				</li>
+				<li class="mui-table-view-cell">
+					<div class="mui-slider-cell">
+						<div class="oa-contact-cell mui-table">
+							<div class="oa-contact-avatar mui-table-cell">
+								<img src="../images/60x60.gif">
+							</div>
+							<div class="oa-contact-content mui-table-cell">
+								<div class="mui-clearfix">
+									<h4 class="oa-contact-name">艾AA</h4>
+									<span class="oa-contact-position mui-h6">总经理</span>
+								</div>
+								<p class="oa-contact-email mui-h6">
+									aaa@163.com
+								</p>
+							</div>
+						</div>
+					</div>
+				</li>
+				<li class="mui-table-view-cell">
+					<div class="mui-slider-cell">
+						<div class="oa-contact-cell mui-table">
+							<div class="oa-contact-avatar mui-table-cell">
+								<img src="../images/60x60.gif">
+							</div>
+							<div class="oa-contact-content mui-table-cell">
+								<div class="mui-clearfix">
+									<h4 class="oa-contact-name">罗辑</h4>
+									<span class="oa-contact-position mui-h6">员工</span>
+								</div>
+								<p class="oa-contact-email mui-h6">
+									luoji@126.com
+								</p>
+							</div>
+						</div>
+					</div>
+				</li>
+				<li class="mui-table-view-cell">
+					<div class="mui-slider-cell">
+						<div class="oa-contact-cell mui-table">
+							<div class="oa-contact-avatar mui-table-cell">
+								<img src="../images/60x60.gif">
+							</div>
+							<div class="oa-contact-content mui-table-cell">
+								<div class="mui-clearfix">
+									<h4 class="oa-contact-name">云天明</h4>
+									<span class="oa-contact-position mui-h6">员工</span>
+								</div>
+								<p class="oa-contact-email mui-h6">
+									ytm@163.com
+								</p>
+							</div>
+						</div>
+					</div>
+				</li>
+				<li class="mui-table-view-cell">
+					<div class="mui-slider-cell">
+						<div class="oa-contact-cell mui-table">
+							<div class="oa-contact-avatar mui-table-cell">
+								<img src="../images/60x60.gif">
+							</div>
+							<div class="oa-contact-content mui-table-cell">
+								<div class="mui-clearfix">
+									<h4 class="oa-contact-name">史强</h4>
+									<span class="oa-contact-position mui-h6">员工</span>
+								</div>
+								<p class="oa-contact-email mui-h6">
+									shiqiang@gmail.com
+								</p>
+							</div>
+						</div>
+					</div>
+				</li>
+			</ul>
+			</div>
+			<div id="tabbar-with-map" class="page4" style="display:none;">
+				<div class="title">这是div模式选项卡中的第4个子页面，该页面展示一个常见的设置示例.</div>
+				<ul class="mui-table-view">
+				<li class="mui-table-view-cell">
+					<a class="mui-navigate-right">
+						新消息通知
+					</a>
+				</li>
+				<li class="mui-table-view-cell">
+					<a class="mui-navigate-right">
+						隐私
+					</a>
+				</li>
+				<li class="mui-table-view-cell">
+					<a class="mui-navigate-right">
+						通用
+					</a>
+				</li>
+			</ul>
+			<ul class="mui-table-view" style="margin-top: 25px;">
+				<li class="mui-table-view-cell">
+					<a class="mui-navigate-right">
+						关于mui
+					</a>
+				</li>
+			</ul>
+			<ul class="mui-table-view" style="margin-top: 25px;">
+				<li class="mui-table-view-cell">
+					<a style="text-align: center;color: #FF3B30;">
+						退出登录
+					</a>
+				</li>
+			</ul>
+			</div>
+			
+			
+			
+			
+		</div>
+	<script src="js/zepto.min.js"></script>
+	<script src="./js/mui.js"></script>
+	 <script src="src/js/index.js"></script>
+	 <script src="src/js/dropload.js"></script>
+	 <script src="src/js/touch.js"></script>
+	<!-- <script src='js/wx.js'></script>
+	 -->
+	<script type="text/javascript" src="src/js/ion.rangeSlider.js"></script> 
+	 <script>
+	
+	$('.serachimg').on("touchend",function(){
+		$('.chooseRange').show();
+	})
+	var rootSize=window.innerWidth/10
+	var dec=window.document.documentElement;
+	dec.style.fontSize = rootSize + 'px';
+	var nowUrl=''
+	var Left=(window.innerWidth-$(".downloadbtn").width())/2;
+	var Top=window.innerHeight-$(".downloadbtn").height()-17;
+	$('.downloadbtn').css({"left":Left,"top":Top});
+	
+	$("body").scrollTop(0)
+	$(".backTop").on('touchend',function(){
+	$("body").animate({scrollTop: 0}, 500)
+	})
+		var arr=[]
+  		 	var storage = window.localStorage; 
+			for (var i=0, len = storage.length; i < len; i++)
+			{
+				var key = storage.key(i); 
+				var value = storage.getItem(key); 
+				arr.push(value)
+			
+			}
+	apiUrl='http://118.178.227.195:8088/meike-mener';//数据接口地址
+    var  homePage={
+			"pageNumb":"",
+			"lat":"",
+			"lag":""
+		} 
+     var main = document.getElementsByClassName('main');
+     
+	var dateMes={
+			"babyId":"",
+			"userCid":"",
+			"userId":""
+		}
+	
+	var shareMes={
+			"userCid":"",
+			"meetAddress":"",
+			"userName":"",
+			"meetTime":"",
+			"token":"1"
+		}
+	 	var rangeinfo={
+		"pageNumb":"1",
+        "lat":"",
+        "lag":"",
+		"minAge":"",
+		"maxAge":"",
+		"minHeight":"",
+		"maxHeight":"",
+		"minWeight":"",
+		"maxWeight":"",
+		"minGradePrice":"",
+		"maxGradePrice":""
+	}
+	 var homeUrl='/user/free/homePage.do'	
+	 /*获取约会时间、地点等信息*/	
+	function getID(){
+    		//var userUrl1 = window.location.href;  //获取当前地址
+    		var userUrl1 = "http://101.37.33.119:8088/meike-mener/inviteNew.html?cid=b9b83c00efaf470f74b6d31d821a8d5f&address=%E9%87%91%E9%83%BD%C2%B7%E8%A5%BF%E8%8A%B1%E5%BA%AD-%E4%BD%99%E6%9D%AD%E9%95%87%E7%8B%AE%E5%B1%B1%E8%B7%AF%E4%B8%9C%E4%BE%A7&userName=%E7%A5%9E%E4%B8%80%E6%A0%B7%E7%9A%84%E7%94%B7%E4%BA%BA&datingTime=2017-01-08%2018:59:00&lat=30.188228&lag=120.208643&t=1488970753155";	
+    		var userUrl=decodeURI(userUrl1)
+    		var needMes = userUrl.split("?")[1].split("&");
+    		var mesLength = needMes.length;
+    		var perMes=[];
+    		for(var i=0;i<mesLength;i++){
+    			 perMes.push(needMes[i].split("="));
+    		}
+    		var getTime = perMes[3][1];	  //01-10 14:00
+    		var getMin=getTime.split(" ")[1]
+    		var getMonth=getTime.split(" ")[0].split("-")[1]
+    		var getDay=getTime.split(" ")[0].split("-")[2]
+    		var getMonth1=getMonth.split('')[0]
+    		var getMonth2=getMonth.split('')[1]
+    		if(getMonth1!=0){
+    			getMonth=getMonth
+    		}else{
+    			getMonth=getMonth2
+    		}
+    		var getDay1=getDay.split('')[0]
+    		var getDay2=getDay.split('')[1]
+    		if(getDay1!=0){
+    			getDay=getDay
+    		}else{
+    			getDay=getDay2
+    		}
+    		shareMes.meetTime =getMonth+"月"+getDay+"日"+getMin;
+    	    shareMes.userCid = perMes[0][1];
+    	    shareMes.meetAddress = perMes[1][1];
+    		shareMes.userName = perMes[2][1];
+    		homePage.lat = perMes[4][1];
+    		homePage.lag = perMes[5][1];
+    		
+    	}
+	
+	getID();
+	$('.name').html(shareMes.userName);
+	$(".date").html(shareMes.meetTime);
+	$('.place').html(shareMes.meetAddress)
+	
+   var page2Html='';
+   
+ 		var sTop=true;//用来判断是在首页还是筛选页。确定按下后变为false;
+		var argument='';
+		homePage.pageNumb=0;
+		rangeinfo.pageNumb=1;
+		var haveDateArr=[];
+		var haveorderId=[];
+		var haveorderStatus=[];
+		var haveorderFilterId=[];
+		var haveorderFilterStatus=[];
+   $('.main').dropload({//上拉加载
+        scrollArea : window,
+         domUp : {
+            domClass   : 'dropload-up',
+            domRefresh : '<div class="dropload-refresh">↓下拉刷新-魅客宝贝</div>',
+            domUpdate  : '<div class="dropload-update">↑释放更新-魅客宝贝</div>',
+            domLoad    : '<div class="dropload-load"><span class="loading"></span>加载中-魅客宝贝...</div>'
+        },
+        domDown : {
+            domClass   : 'dropload-down',
+            domRefresh : '<div class="dropload-refresh">↑上拉加载更多-魅客宝贝</div>',
+            domLoad    : '<div class="dropload-load"><span class="loading"></span>加载中-魅客宝贝...</div>',
+            domNoData  : '<div class="dropload-noData">暂无数据-魅客宝贝</div>'
+        },
+         loadUpFn : function(me){
+         	window.location.reload();
+         },
+        loadDownFn : function(me){
+        	
+        	
+		    $('.serchbox a').on("tap",function(){
+				$(this).addClass("blueBottom").siblings().removeClass('blueBottom')
+			})  
+			
+        	  $('.datebtn').each(function(){
+				for(var q=0;q<arr.length;q++){
+					if($(this).attr('id')==arr[q]){
+						$(this).html('已加')
+				}
+				}
+				
+				$('.datebtn').each(function(){
+				for(var q=0;q<arr.length;q++){
+					if($(this).attr('id')==arr[q]){
+						$(this).html('已加')
+				}
+				}
+				if($(this).attr('haveorder')==1){
+					$(this).html('服务中')
+					$(this).css('color','#ffffff')
+					$(this).css('background','#ff6f9e')
+					$(this).css('borderColor',"#ff6f9e")
+					
+				}
+			})   
+			})  
+        	 
+           	$('.surebtn').on('touchend',function(){//确定被按下
+           		event.preventDefault();
+           		$('.chooseRange').hide();
+           		rangeinfo.pageNumb=1;
+           		sTop=false;
+		        rangeinfo.lat=homePage.lat;  	
+		        rangeinfo.lag=homePage.lag;
+				rangeinfo.minAge=$('.ageRange .irs-from').html();
+				rangeinfo.maxAge=$('.ageRange .irs-to').html();
+				rangeinfo.minHeight=$('.heightRange .irs-from').html();
+				rangeinfo.maxHeight=$('.heightRange .irs-to').html();
+				rangeinfo.minWeight=$('.weightRange .irs-from').html();
+				rangeinfo.maxWeight=$('.weightRange .irs-to').html();
+				rangeinfo.minGradePrice=$('.moneyRange .irs-from').html();
+				rangeinfo.maxGradePrice=$('.moneyRange .irs-to').html();	
+				
+	   var rangeInfo=JSON.stringify(rangeinfo);
+	   haveorderFilterId=[];
+		haveorderFilterStatus=[];
+	   nowurl=apiUrl+'/user/free/filtrateBaby.do'
+		$.post(nowurl,{json:rangeInfo},function(res){//获取筛选后的数据	
+			var stri=''
+            var stri1=''
+            var stri2=''
+            var bubbleImg1=''
+			var res=JSON.parse(res)
+			var data=res.data.babyList;
+			var dataLen=res.data.babyList.length;
+			var numb=(rangeinfo.pageNumb-1)*10
+			if(dataLen){	
+				for(var a = 0; a < dataLen; a++){ 
+					haveorderFilterId.push(data[a].id);
+					haveorderFilterStatus.push(data[a].haveOrder);
+					for(var n=0;n<data[a].bestTags.length;n++){
+						if(data[a].bestTags[n]!=''){	
+					 bubbleImg1+='<div class="bubble'+n+' ">'+data[a].bestTags[n]+'</div><img src="images/circle.png" class="circle'+n+'">'
+					}
+				}
+    stri+='<div class="conent"><div class="imgbox"><img src='+data[a].showIndexImg+' alt="妹子图片" class="sisterimg"><img src="images/sister-bg.png" class="sisterbg"><img src='+data[a].gradeImg+' class="gradeImg">'+bubbleImg1+'<div class="sisterinfo"><span class="sistername">'+data[a].nickName+'</span> <span class="number">'+data[a].orderCounter+'单</span> <span class="money">￥'+data[a].gradePrice+'</span><span class="moneyafter">.00</span></div><div class="distance"><span class="distancenum">'+data[a].distance+'</span><span class="afterdistance">km</span></div><div class="infobox"><span class="datebtn"   id="'+data[a].id+'"  haveOrder="'+data[a].haveOrder+'" ontouchend="clickme('+(a+numb)+')">下单</span><div class="figure"><span class="age btn" >'+data[a].age+'岁</span><span class="height btn">'+data[a].height+'cm</span><span class="weight btn">'+data[a].weight+'kg</span></div><div class="serverrange"><span class="server">技能    </span>'	 			
+	 			for(var b=0;b<data[a].scaleName.length;b++){
+	 			stri1+='<span class="range1 btn">'+data[a].scaleName[b]+'</span>'
+                	}
+	 			stri2="</div></div></div></div>"
+	 			stri+=stri1+stri2;
+	 			stri1='';
+	 			bubbleImg1=" ";
+                   $('.list').empty(); 
+                    }
+			}else{
+				$('.dropload-load').html('暂无数据');
+				alert('没有更多宝贝了');
+			}			 
+              $('.list').append(stri);
+              stri='';
+				
+			$('.datebtn').each(function(){
+				for(var q=0;q<arr.length;q++){
+					if($(this).attr('id')==arr[q]){
+						$(this).html('已加入')
+				}
+				}
+				if($(this).attr('haveorder')==1){
+					$(this).html('已接单')
+					$(this).css('color','#ffffff')
+					$(this).css('background','#ff6f9e')
+					$(this).css('borderColor',"#ff6f9e")	
+				}
+			})               
+				$('.list').append(stri);    
+               me.resetload();  	
+               $('.conent:first').find('.imgbox').find('.sisterbg').css({'top':3.68+'rem'});
+		})
+		
+		
+	}) 
+	
+        if(sTop){ //判断实在首页还是筛选后的页面
+        	
+        	nowurl=apiUrl+homeUrl;	
+        }else{
+        	 nowurl=apiUrl+'/user/free/filtrateBaby.do'
+        }
+        	
+        	if(nowurl==apiUrl+homeUrl){//如果在首页，下拉就就加载首页下一页数据
+        	homePage.pageNumb= homePage.pageNumb+1;   		 
+        	var homePagenumb=JSON.stringify(homePage);	
+        	argument=homePagenumb;
+        	var numb1=(homePage.pageNumb-1)*10
+        	
+            $.ajax({
+                type: 'post',
+                url: apiUrl+homeUrl,
+                data:{json:homePagenumb},
+                async:false,
+                success: function(res){	
+                	var res=JSON.parse(res);
+                	
+                    var data=res.data.babyList;
+                	var datalength=res.data.babyList.length;
+                	if(res.code==400){
+                		$('.dropload-load').html('暂无数据')
+                		alert('别再扯啦，请下载APP查看更多宝贝')        		
+                	}else{
+                	var str=''
+                	var str1=''
+                	var str2=''
+					var bubbleImg=""
+                      for(var i = 0; i < datalength; i++){
+                      	haveorderId.push(data[i].id);
+                      	haveorderStatus.push(data[i].haveOrder);
+               		for(var m=0;m<data[i].bestTags.length;m++){
+               			if(data[i].bestTags[m]!=''){	
+					 bubbleImg+='<div class="bubble'+m+' ">'+data[i].bestTags[m]+'</div><img src="images/circle.png" class="circle'+m+'">'
+					}
+               			}
+    str+='<div class="conent"><div class="imgbox"><img src='+data[i].showIndexImg+' alt="妹子图片" class="sisterimg"><img src="images/sister-bg.png" class="sisterbg"><img src='+data[i].gradeImg+' class="gradeImg">'+bubbleImg+'<div class="sisterinfo"><span class="sistername">'+data[i].nickName+'</span> <span class="number">'+data[i].orderCounter+'单</span> <span class="money">￥'+data[i].gradePrice+'</span><span class="moneyafter">.00</span></div><div class="distance"><span class="distancenum">'+data[i].distance+'</span><span class="afterdistance">km</span></div><div class="infobox"><span class="datebtn" id="'+data[i].id+'"    haveOrder="'+data[i].haveOrder+'"  ontouchend="clickme('+(i+numb1)+')">下单</span><div class="figure"><span class="age btn" >'+data[i].age+'岁</span><span class="height btn">'+data[i].height+'cm</span><span class="weight btn">'+data[i].weight+'kg</span></div><div class="serverrange"><span class="server">技能    </span>'
+	 						
+	 			for(var a=0;a<data[i].scaleName.length;a++){
+	 			str1+='<span class="range1 btn">'+data[i].scaleName[a]+'</span>'
+                	}
+	 			str2="</div></div></div></div>"
+	 			str+=str1+str2;
+	 			str1='';
+	 			$(".list").append(str);
+	 			str=' '                    
+                bubbleImg=" "
+                    }    
+               $('.list').append(str);
+                        me.resetload(); 
+                
+                	}
+                },
+                error: function(xhr, type){
+                    console.log('Ajax error!');
+                    // 即使加载出错，也得重置
+                    me.resetload();
+                }
+            }); 
+        		 	
+        	}
+        	
+        	if( nowurl==apiUrl+'/user/free/filtrateBaby.do'){//如果在筛选页，加载筛选页下一页
+        		rangeinfo.pageNumb=rangeinfo.pageNumb+1;
+        		 var rangeInfo=JSON.stringify(rangeinfo);
+        		 
+        		$.post(nowurl,{json:rangeInfo},function(res){		
+			var stri=''
+            var stri1=''
+            var stri2=''
+			var res=JSON.parse(res)
+			var data=res.data.babyList;
+			console.log(data)
+			var dataLen=res.data.babyList.length;
+			var numb2=(rangeinfo.pageNumb-1)*10
+			var bubbleImg2='';
+			
+			if(dataLen){			
+				for(var a1= 0; a1 < dataLen; a1++){  
+					/*haveorderFilterId.push(data[a1].id);
+					haveorderFilterStatus.push(data[a1].haveOrder);*/
+					for(var s=0;s<data[a1].bestTags.length;s++){
+						if(data[a1].bestTags[s]!=''){	
+					 bubbleImg2+='<div class="bubble'+s+' ">'+data[a1].bestTags[s]+'</div><img src="images/circle.png" class="circle'+s+'">'
+					}
+					}
+    stri+='<div class="conent"><div class="imgbox"><img src='+data[a1].showIndexImg+' alt="妹子图片" class="sisterimg"><img src="images/sister-bg.png" class="sisterbg"><img src='+data[a1].gradeImg+' class="gradeImg">'+bubbleImg2+'<div class="sisterinfo"><span class="sistername">'+data[a1].nickName+'</span> <span class="number">'+data[a1].orderCounter+'单</span> <span class="money">￥'+data[a1].gradePrice+'</span><span class="moneyafter">.00</span></div><div class="distance"><span class="distancenum">'+data[a1].distance+'</span><span class="afterdistance">km</span></div><div class="infobox"><span class="datebtn"  id="'+data[a1].id+'"  haveOrder="'+data[a1].haveOrder+'"  ontouchend="clickme('+(a1+numb2)+')">下单</span><div class="figure"><span class="age btn" >'+data[a1].age+'岁</span><span class="height btn">'+data[a1].height+'cm</span><span class="weight btn">'+data[a1].weight+'kg</span></div><div class="serverrange"><span class="server">技能    </span>'	 			
+	 			for(var b=0;b<data[a1].scaleName.length;b++){
+	 			stri1+='<span class="range1 btn">'+data[a1].scaleName[b]+'</span>'
+                	}
+	 			stri2="</div></div></div></div>"
+	 			stri+=stri1+stri2;
+	 			stri1='';
+                bubbleImg2=" "    
+                   }
+              $('.list').append(stri);
+               me.resetload();
+              stri='';
+			$('.chooseRange').hide();
+			
+				
+				$('.datebtn').each(function(){
+				for(var q=0;q<arr.length;q++){
+					if($(this).attr('id')==arr[q]){
+						$(this).html('已加入')
+				}
+				}
+				if($(this).attr('haveorder')==1){
+					$(this).html('已接单')
+					$(this).css('color','#ffffff')
+					$(this).css('background','#ff6f9e')
+					$(this).css('borderColor',"#ff6f9e")
+					
+				}
+			})   
+			    
+			}else{
+				$('.dropload-load').html('暂无数据')
+				alert("别再扯啦，请下载APP查看更多宝贝")
+			}
+			 
+		})
+        		
+       } 
+        $('.datebtn').each(function(){
+				for(var q=0;q<arr.length;q++){
+					if($(this).attr('id')==arr[q]){
+						$(this).html('已加入')
+				}
+				}
+				if($(this).attr('haveorder')==1){
+					$(this).html('已接单')
+					$(this).css('color','#ffffff')
+					$(this).css('background','#ff6f9e')
+					$(this).css('borderColor',"#ff6f9e")
+					
+				}
+			})       
+      }
+  
+   });
+		 function clickme(i){//约会按钮 按下事件	
+            	
+           if($('.datebtn').eq(i).html()!="已加入"){  
+           	if($('.datebtn').eq(i).html()!="已接单"){
+            	dateMes.babyId=$('.datebtn').eq(i).attr("id")
+            	babyName=$('.sistername').eq(i).html()            	
+            	 dateMes.userCid=shareMes.userCid; 
+            	 var datemes=JSON.stringify(dateMes);
+          		 console.log(datemes)
+          		localStorage.setItem(babyName,dateMes.babyId);
+     $.post(apiUrl+'/userOrder/free/htmlInvite.dohtmlInvite.do',{json:datemes},function(data){
+     			//console.log(data)
+            	
+            })
+             $('.datebtn').eq(i).html("已加入")	      	
+           }
+           
+           
+        }	
+}
+           
+ 				    
+      		$("#range_1").ionRangeSlider({
+
+		min: 18,
+
+		max: 30,
+
+		from:18,
+
+		to: 30,
+
+		type: 'double',//设置类型
+
+		step: 1,
+
+		prefix: "",//设置数值前缀
+
+		postfix: "",//设置数值后缀
+
+		prettify: false,
+
+		hasGrid: false
+
+	});
+
+	
+$("#range_2").ionRangeSlider({
+
+		min: 157,
+
+		max: 175,
+
+		from:157,
+
+		to: 175,
+
+		type: 'double',//设置类型
+
+		step: 1,
+
+		prefix: "",//设置数值前缀
+
+		postfix: "",//设置数值后缀
+
+		prettify: false,
+
+		hasGrid: false
+
+	});
+$("#range_3").ionRangeSlider({
+
+		min: 40,
+
+		max: 60,
+
+		from:40,
+
+		to: 60,
+
+		type: 'double',//设置类型
+
+		step: 1,
+
+		prefix: "",//设置数值前缀
+
+		postfix: "",//设置数值后缀
+
+		prettify: false,
+
+		hasGrid: false
+
+	});
+
+	$("#range_4").ionRangeSlider({
+
+		min: 600,
+
+		max: 1500,
+
+		from:600,
+
+		to: 1500,
+
+		type: 'double',//设置类型
+
+		step: 100,
+
+		prefix: "",//设置数值前缀
+
+		postfix: "",//设置数值后缀
+
+		prettify: false,
+
+		hasGrid: false
+
+	});
+
+	$("#selectStyle").change(function(){
+			
+		$("#styleSrc").attr("href",$(this).val());
+
+	});
+	
+
+	
+	$('.ageRange .irs-slider').on("touchmove",function(){
+		event.preventDefault();
+		$('.ageRange .minAge').html($('.ageRange .irs-from').html())
+		$('.ageRange .maxAge').html($('.ageRange .irs-to').html())
+	})
+	$('.heightRange .irs-slider').on("touchmove",function(){
+		event.preventDefault();
+		$('.minHeight').html($('.heightRange .irs-from').html())
+		$('.maxHeight').html($('.heightRange .irs-to').html())
+	})
+	$('.weightRange .irs-slider').on("touchmove",function(){
+		event.preventDefault();
+		$('.minWeight').html($('.weightRange .irs-from').html())
+		$('.maxWeight').html($('.weightRange .irs-to').html())
+	})
+	$('.moneyRange .irs-slider').on("touchmove",function(){
+		event.preventDefault();
+		$('.minMoney').html($('.moneyRange .irs-from').html())
+		$('.maxMoney').html($('.moneyRange .irs-to').html())
+	})
+	$('.exitimg').on('touchend',function(){
+		$('.chooseRange').hide();
+	})
+
+		$('.backTop').hide()
+   		 $(document).scroll(function(){
+			var bheight = $(document).height();//获取窗口高度
+			var windowheight=window.innerHeight;
+			var windowscroll=window.scrollTop;
+			var sheight = $("body")[0].scrollHeight;//获取滚动条高度，[0]是为了把jq对象转化为js对象
+			var stop = $("body").scrollTop();//滚动条距离顶部的距离
+		if(stop>bheight-1000){
+			$('.backTop').show()
+		}else{
+			$('.backTop').hide()
+		}
+	});
+$('.conent:first').find('.imgbox').find('.sisterbg').css({'top':3.68+'rem'});
+
+
+/*$(".page1").on('click',function(){
+	alert(1)
+})*/
+//$('.page1').hide()
+
+console.log($('.page2').html())
+function page1(){
+	$('.page2').addClass('positionPage2')
+	$('.page1').show()
+	$('.page3').hide()
+	$('.page4').hide()
+	$('.page1_header').show()
+	$('.page2_header').hide()
+	//alert($('script').length)
+	
+}
+
+function page2(){
+	$('.page2').removeClass('positionPage2')
+	$('.page1').hide()
+	$('.page3').hide()
+	$('.page4').hide()
+	$('.page1_header').hide()
+	$('.page2_header').show()
+	 var hei = $(window).height()-160;
+    $('#listloading, .listloadingClass').height(hei);
+	console.log(window.location.href)
+}
+function page3(){
+	$('.page2').addClass('positionPage2')
+	$('.page1').hide()
+	$('.page3').show()
+	$('.page4').hide()
+	$('.page1_header').hide()
+	$('.page2_header').hide()
+	$('.page3_header').show()
+	 var hei = $(window).height()-160;
+    $('#listloading, .listloadingClass').height(hei);
+	console.log(window.location.href)
+}
+function grade(){
+	homeUrl='/user/free/gradeList.do'
+	pageNumb1Load(homeUrl)
+}
+/*$('.distanced').on('tap',function(){
+				homeUrl='/user/free/distanceList.do'
+				pageNumb1Load(homeUrl)
+			})
+			$('.new').on('tap',function(){
+				homeUrl='/user/free/newList.do'
+				pageNumb1Load(homeUrl)
+			})
+			$('.More').on('tap',function(){
+				homeUrl='/user/free/filtrateBaby.do'
+				pageNumb1Load(homeUrl)
+			})*/
+			
+			function distanced(){
+				homeUrl='/user/free/distanceList.do'
+				pageNumb1Load(homeUrl)
+			}
+			function newData(){
+				homeUrl='/user/free/newList.do'
+				pageNumb1Load(homeUrl)
+			}
+			function MoreData(){
+				homeUrl='/user/free/filtrateBaby.do'
+				pageNumb1Load(homeUrl)
+			}
+
+function pageNumb1Load(homeUrl){
+				console.log(homeUrl)
+			homePage.pageNumb=1;   		 
+        	var homePagenumb=JSON.stringify(homePage);	
+        	argument=homePagenumb;
+        	var numb1=(homePage.pageNumb-1)*10
+        	
+            $.ajax({
+                type: 'post',
+                url: apiUrl+homeUrl,
+                data:{json:homePagenumb},
+                async:false,
+                success: function(res){	
+                	var res=JSON.parse(res);
+                	
+                    var data=res.data.babyList;
+                	var datalength=res.data.babyList.length;
+                	if(res.code==400){
+                		$('.dropload-load').html('暂无数据')
+                		alert('别再扯啦，请下载APP查看更多宝贝')        		
+                	}else{
+                		//alert(4)
+                		console.log(res)
+                	var str=''
+                	var str1=''
+                	var str2=''
+					var bubbleImg=""
+                      for(var i = 0; i < datalength; i++){
+                      	haveorderId.push(data[i].id);
+                      	haveorderStatus.push(data[i].haveOrder);
+               		for(var m=0;m<data[i].bestTags.length;m++){
+               			if(data[i].bestTags[m]!=''){	
+					 bubbleImg+='<div class="bubble'+m+' ">'+data[i].bestTags[m]+'</div><img src="images/circle.png" class="circle'+m+'">'
+					}
+               			}
+    str+='<div class="conent"><div class="imgbox"><img src='+data[i].showIndexImg+' alt="妹子图片" class="sisterimg"><img src="images/sister-bg.png" class="sisterbg"><img src='+data[i].gradeImg+' class="gradeImg">'+bubbleImg+'<div class="sisterinfo"><span class="sistername">'+data[i].nickName+'</span> <span class="number">'+data[i].orderCounter+'单</span> <span class="money">￥'+data[i].gradePrice+'</span><span class="moneyafter">.00</span></div><div class="distance"><span class="distancenum">'+data[i].distance+'</span><span class="afterdistance">km</span></div><div class="infobox"><span class="datebtn" id="'+data[i].id+'"    haveOrder="'+data[i].haveOrder+'"  ontouchend="clickme('+(i+numb1)+')">下单</span><div class="figure"><span class="age btn" >'+data[i].age+'岁</span><span class="height btn">'+data[i].height+'cm</span><span class="weight btn">'+data[i].weight+'kg</span></div><div class="serverrange"><span class="server">技能    </span>'
+	 						
+	 			for(var a=0;a<data[i].scaleName.length;a++){
+	 			str1+='<span class="range1 btn">'+data[i].scaleName[a]+'</span>'
+                	}
+	 			str2="</div></div></div></div>"
+	 			str+=str1+str2;
+	 			str1='';
+	 			$(".list").append(str);
+	 			str=' '                    
+                bubbleImg=" "
+                    }    
+               $('.list').append(str);
+                       // me.resetload(); 
+                
+                	}
+                },
+                error: function(xhr, type){
+                    console.log('Ajax error!');
+                    // 即使加载出错，也得重置
+                  //  me.resetload();
+                }
+                
+ 
+            }); 		 	
+		}
+//人气排行版接口
+
+
+
+	</script>
+</body></html>
